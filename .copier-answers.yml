@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier
+_commit: v0.4.1
+_src_path: https://github.com/linkml/linkml-project-copier
+add_example: true
+copyright_year: '2025'
+email: jf133@gmail.com
+full_name: James A. Fellows Yats
+gh_action_docs_preview: true
+gh_action_pypi: false
+github_org: MIxS-MInAS
+license: MIT
+project_description: Minimum Information about any Radiocarbon Date
+project_name: miaard
+project_slug: c14
+
