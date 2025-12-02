@@ -23,74 +23,44 @@ imports:
 
 classes:
 
-  NamedThing:
+  RadiocarbonDate:
     description: >-
-      A generic grouping for any identifiable entity
+      A radiocarbon date measurement with associated metadata.
     slots:
-      - id
-      - name
-      - description
-    class_uri: schema:Thing
+      - lab_id
+      - conventional_age
 
-  Person:
-    is_a: NamedThing
-    description: >-
-      Represents a Person
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-
-  PersonCollection:
+  RadiocarbonDateCollection:
     tree_root: true
     description: >-
-      A holder for Person objects
+      A collection of radiocarbon dates measurement with associated metadata.
     attributes:
       entries:
-        range: Person
+        range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true
 
 slots:
-  id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
-    description: A unique identifier for a thing
-  name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
+  lab_id:
+    title: Laboratory Identifier of Date Measurement
+    examples:
+      - value: "A 0034"
+      - value: "AA 12345"
+      - value: "Beta 987654"
+      - value: "CN-XX 1234"
+    description: The unique identifier assigned to the radiocarbon date by the laboratory that performed the measurement including the lab specific suffix.
+    slot_uri: c14:000001
+    multivalued: false
+    range: string
+    pattern: "^[A-Za-z-]+ [0-9]+$"
+    required: true
+  conventional_age:
+    title: Conventional Radiocarbon Age
+    examples:
+      - value: "4500"
+      - value: "12345"
+    description: The conventional radiocarbon age in years BP (Before Present, where Present is defined as AD 1950) as calculated by the laboratory.
+    slot_uri: c14:000002
+    multivalued: false
     range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
-
-enums:
-  PersonStatus:
-    permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+    required: true
