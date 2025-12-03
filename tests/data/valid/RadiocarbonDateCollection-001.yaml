@@ -1,0 +1,6 @@
+# A data example for a container with "inline" behaviour.
+entries:
+  - lab_id: "MAMS 81038"
+    conventional_age: 81038
+  - lab_id: "OxA 12345"
+    conventional_age: 4300

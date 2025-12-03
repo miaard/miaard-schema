@@ -11,10 +11,7 @@ see_also:
 prefixes:
   c14: https://w3id.org/MIxS-MInAS/miaard/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
   schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
 default_prefix: c14
 default_range: string
 
@@ -22,7 +19,6 @@ imports:
   - linkml:types
 
 classes:
-
   RadiocarbonDate:
     description: >-
       A radiocarbon date measurement with associated metadata.
@@ -36,6 +32,7 @@ classes:
       A collection of radiocarbon dates measurement with associated metadata.
     attributes:
       entries:
+        description: A list of multiple radiocarbon date measurements.
         range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true
@@ -48,7 +45,9 @@ slots:
       - value: "AA 12345"
       - value: "Beta 987654"
       - value: "CN-XX 1234"
-    description: The unique identifier assigned to the radiocarbon date by the laboratory that performed the measurement including the lab specific suffix.
+    description: |-
+      The unique identifier assigned to the radiocarbon date by the laboratory
+      that performed the measurement including the lab specific suffix.
     slot_uri: c14:000001
     multivalued: false
     range: string
@@ -59,7 +58,9 @@ slots:
     examples:
       - value: "4500"
       - value: "12345"
-    description: The conventional radiocarbon age in years BP (Before Present, where Present is defined as AD 1950) as calculated by the laboratory.
+    description: |-
+      The conventional radiocarbon age in years BP (Before Present, where
+      Present is defined as AD 1950) as calculated by the laboratory.
     slot_uri: c14:000002
     multivalued: false
     range: integer

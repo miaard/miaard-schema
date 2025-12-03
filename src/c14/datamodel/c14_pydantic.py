@@ -72,21 +72,9 @@ linkml_meta = LinkMLMeta(
         "license": "MIT",
         "name": "miaard",
         "prefixes": {
-            "PATO": {
-                "prefix_prefix": "PATO",
-                "prefix_reference": "http://purl.obolibrary.org/obo/PATO_",
-            },
-            "biolink": {
-                "prefix_prefix": "biolink",
-                "prefix_reference": "https://w3id.org/biolink/",
-            },
             "c14": {
                 "prefix_prefix": "c14",
                 "prefix_reference": "https://w3id.org/MIxS-MInAS/miaard/",
-            },
-            "example": {
-                "prefix_prefix": "example",
-                "prefix_reference": "https://example.org/",
             },
             "linkml": {
                 "prefix_prefix": "linkml",
@@ -116,7 +104,8 @@ class RadiocarbonDate(ConfiguredBaseModel):
     lab_id: str = Field(
         default=...,
         title="Laboratory Identifier of Date Measurement",
-        description="""The unique identifier assigned to the radiocarbon date by the laboratory that performed the measurement including the lab specific suffix.""",
+        description="""The unique identifier assigned to the radiocarbon date by the laboratory
+that performed the measurement including the lab specific suffix.""",
         json_schema_extra={
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
@@ -133,7 +122,8 @@ class RadiocarbonDate(ConfiguredBaseModel):
     conventional_age: int = Field(
         default=...,
         title="Conventional Radiocarbon Age",
-        description="""The conventional radiocarbon age in years BP (Before Present, where Present is defined as AD 1950) as calculated by the laboratory.""",
+        description="""The conventional radiocarbon age in years BP (Before Present, where
+Present is defined as AD 1950) as calculated by the laboratory.""",
         json_schema_extra={
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
@@ -168,6 +158,7 @@ class RadiocarbonDateCollection(ConfiguredBaseModel):
 
     entries: Optional[list[RadiocarbonDate]] = Field(
         default=[],
+        description="""A list of multiple radiocarbon date measurements.""",
         json_schema_extra={"linkml_meta": {"domain_of": ["RadiocarbonDateCollection"]}},
     )
 

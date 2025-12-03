@@ -1,5 +1,5 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-02T14:46:58
+# Generation date: 2025-12-02T15:15:20
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
@@ -22,10 +22,7 @@ metamodel_version = "1.7.0"
 version = None
 
 # Namespaces
-PATO = CurieNamespace("PATO", "http://purl.obolibrary.org/obo/PATO_")
-BIOLINK = CurieNamespace("biolink", "https://w3id.org/biolink/")
 C14 = CurieNamespace("c14", "https://w3id.org/MIxS-MInAS/miaard/")
-EXAMPLE = CurieNamespace("example", "https://example.org/")
 LINKML = CurieNamespace("linkml", "https://w3id.org/linkml/")
 SCHEMA = CurieNamespace("schema", "http://schema.org/")
 DEFAULT_ = C14

@@ -1,5 +1,5 @@
 ---
-site_name: "miaard"
+site_name: "Minimum Information about any Radiocarbon Date (MIaaRD)"
 theme:
   name: material
   # palette:
@@ -8,7 +8,8 @@ theme:
   features:
     - content.tabs.link
 
-# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+# for adding extra css/js see
+# https://www.mkdocs.org/user-guide/customizing-your-theme/
 
 plugins:
   - search
@@ -16,7 +17,8 @@ plugins:
       execute: false
   - mermaid2:
       version: 11.4.1
-  # TODO rebuild docs on schema change (https://github.com/dalito/linkml-project-copier/issues/39)
+  # TODO rebuild docs on schema change
+  ## (https://github.com/dalito/linkml-project-copier/issues/39)
   # - gen-files:
   #     scripts:
   #       - gen_pages.py  # or any other name or path
