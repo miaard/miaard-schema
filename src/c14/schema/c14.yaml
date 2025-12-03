@@ -65,3 +65,195 @@ slots:
     multivalued: false
     range: integer
     required: true
+  new_term_03:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000003
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_04:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000004
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_05:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000005
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_06:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000006
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_07:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000007
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_08:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000008
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_09:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000009
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_10:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000010
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_11:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000011
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_12:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000012
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_13:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000013
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_14:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000014
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_15:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000015
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_16:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000016
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_17:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000017
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
+  new_term_18:
+    title:
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+
+    slot_uri: c14:000018
+    multivalued: true/false
+    range: integer
+    pattern: ""
+    required: true/false
