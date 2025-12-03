@@ -14,18 +14,9 @@ prefixes:
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  biolink:
-    prefix_prefix: biolink
-    prefix_reference: https://w3id.org/biolink/
   schema:
     prefix_prefix: schema
     prefix_reference: http://schema.org/
-  PATO:
-    prefix_prefix: PATO
-    prefix_reference: http://purl.obolibrary.org/obo/PATO_
-  example:
-    prefix_prefix: example
-    prefix_reference: https://example.org/
 default_prefix: c14
 default_range: string
 types:
@@ -301,8 +292,9 @@ slots:
   lab_id:
     name: lab_id
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_id
-    description: The unique identifier assigned to the radiocarbon date by the laboratory
-      that performed the measurement including the lab specific suffix.
+    description: 'The unique identifier assigned to the radiocarbon date by the laboratory
+
+      that performed the measurement including the lab specific suffix.'
     title: Laboratory Identifier of Date Measurement
     examples:
     - value: A 0034
@@ -323,8 +315,9 @@ slots:
   conventional_age:
     name: conventional_age
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age
-    description: The conventional radiocarbon age in years BP (Before Present, where
-      Present is defined as AD 1950) as calculated by the laboratory.
+    description: 'The conventional radiocarbon age in years BP (Before Present, where
+
+      Present is defined as AD 1950) as calculated by the laboratory.'
     title: Conventional Radiocarbon Age
     examples:
     - value: '4500'
@@ -341,6 +334,7 @@ slots:
     multivalued: false
   radiocarbonDateCollection__entries:
     name: radiocarbonDateCollection__entries
+    description: A list of multiple radiocarbon date measurements.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slot_uri: c14:entries
     alias: entries
@@ -371,6 +365,7 @@ classes:
     attributes:
       entries:
         name: entries
+        description: A list of multiple radiocarbon date measurements.
         range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true
@@ -378,7 +373,7 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2025-12-02T13:53:57'
-source_file_size: 1751
-generation_date: '2025-12-02T13:54:07'
+source_file_date: '2025-12-03T12:24:24'
+source_file_size: 1737
+generation_date: '2025-12-03T12:24:34'
 
