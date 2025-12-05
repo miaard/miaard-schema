@@ -621,7 +621,57 @@ enums:
         description: Laboratory for Low-level Radioactivities, Ruđer Bošković Institute (Zagreb, Zagreb, Croatia, https://www.irb.hr/eng/Divisions/Division-of-Experimental-Physics/Laboratory-for-Low-level-Radioactivities)
       ZK:
         description: Institute of Archaeology, Chinese Academy of Social Sciences (China)
-
+  PretreatmentMethods:
+    description: >-
+      Specify the types of general pretreatment methods applied for decontamination.
+    permissible_values:
+      U:
+        description: No chemical pretreatment
+      Sol_W:
+        description: Solvent wash
+      A:
+        description: Acid only
+      ABA:
+        description: Acid-base-acid (ABA or AAA)
+      Col:
+        description: Collagen (normally including deminieralisation wtih or without a base step, followed by gelatinisation and filtration, often called the 'Longin method')
+      UF_Col:
+        description: Ultrafiltered collagen (normally including demineralisation with or without a base step, followed by gelatinisation, filtration and ultrafiltration)
+      XAD:
+        description: Amino acids purified by XAD-2 resin
+      IE:
+        description: Amino acids purified by other ion exchange resin
+      HYP:
+        description: Hydroxyproline
+      Other:
+        description: Other treatment not covered
+      ABOx:
+        description: Acid-base-oxidation (ABOx, without the stepped combustion step)
+      ABOx-SC:
+        description: Acid-base-oxidation-stepped combustion (ABOx-SC)
+      BABA:
+        description: Base-Acid-Base-Acid
+      Holo_Cel:
+        description: Holocellulose (normally ABA followed by bleach)
+      Alph_Cel:
+        description: Alphacellulose (normally containing bleach followed by ABA)
+      AE:
+        description: Acid etch
+      Phys:
+        description: Physical cleaning (surface abrasion)
+      H2O2:
+        description: Hydrogen peroxide
+      HUMIC:
+        description: Base soluble fraction (normally preceeded by acid)
+    MeasurementMethod:
+      description:
+      permissible_values:
+        AMS:
+          description: ""
+        PIMS:
+          description: ""
+        Conventional:
+          description: ""
 classes:
   RadiocarbonDate:
     description: >-
@@ -988,21 +1038,20 @@ slots:
       - value: "ABA"
       - value: "A"
       - value: "BABA"
-      - value: "Gelatinisation"
-      - value: "Ultrafiltration"
+      - value: "Col"
+      - value: "UF_Col"
       - value: "XAD"
-      - value: "None"
-      - value: "Unknown"
+      - value: "U"
     description: |-
       Specify the types of general pretreatment methods applied for decontamination.
     slot_uri: c14:000020
     multivalued: true
-    range: PreTreatmentMethods
+    range: PretreatmentMethods
     required: true
   pretreatment_method_description:
     title: Radiocarbon pretreatment method description
     examples:
-      - value: ""
+      - value: "No pretreatment"
       - value: ""
     description: |-
       Description of specific pretreatment method used for decontamination of sample prior determination.
@@ -1041,8 +1090,9 @@ slots:
   sample_starting_weight:
     title: Sample starting weight
     examples:
-      - value: ""
-      - value: ""
+      - value: "521"
+      - value: "56.7"
+      - value: "1"
     description: |-
       Amount of sample material used at beginning of  in measurement in mg.
     slot_uri: c14:000024
@@ -1053,8 +1103,8 @@ slots:
   pretreatment_yield:
     title: Weight after pretreatment
     examples:
-      - value: ""
-      - value: ""
+      - value: "22"
+      - value: "2.3"
     description: |-
       Amount of sample remaining after pretreatment in mg
     slot_uri: c14:000025
@@ -1065,8 +1115,10 @@ slots:
   pretreatment_percentage_yield:
     title: Percentage yield after pretreatment
     examples:
-      - value: ""
-      - value: ""
+      - value: "012"
+      - value: "0.61"
+      - value: "0.015"
+      - value: "0.002"
     description: |-
       Ratio of weight after pretreatment to sample starting weight
     slot_uri: c14:000026
@@ -1080,8 +1132,9 @@ slots:
   carbon_proportion:
     title: Carbon proportion
     examples:
-      - value: ""
-      - value: ""
+      - value: "0.41"
+      - value: "0.12"
+      - value: "0.70"
     description: |-
       Proportion of carbon in a non-proteinaceous sample used for dating (such as charcoal),
       expressed as a value between 0 and 1. Used as a quality control measurement.
