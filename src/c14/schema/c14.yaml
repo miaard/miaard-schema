@@ -663,15 +663,15 @@ enums:
         description: Hydrogen peroxide
       HUMIC:
         description: Base soluble fraction (normally preceeded by acid)
-    MeasurementMethod:
-      description:
-      permissible_values:
-        AMS:
-          description: "Accelerator Mass Spectrometry"
-        PIMS:
-          description: "Positive Ion Mass Spectrometry"
-        Conventional:
-          description: "Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)"
+  MeasurementMethod:
+    description:
+    permissible_values:
+      AMS:
+        description: "Accelerator Mass Spectrometry"
+      PIMS:
+        description: "Positive Ion Mass Spectrometry"
+      Conventional:
+        description: "Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)"
 
 classes:
   RadiocarbonDate:
