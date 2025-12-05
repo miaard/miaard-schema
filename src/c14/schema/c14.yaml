@@ -398,9 +398,7 @@ enums:
       OxA:
         description: Oxford Radiocarbon Accelerator Unit (Oxford, England)
       P:
-        description: University of Pennsylvania (USA)
-      P:
-        description: Max-Planck-Institut Geochronology Lab (Germany)
+        description: University of Pennsylvania (USA) or Max-Planck-Institut Geochronology Lab (Germany)
       PAL:
         description: Palynosurvery Co. (Japan)
       PI:
@@ -866,7 +864,6 @@ slots:
     pattern: ""
     required: false
     recommended: true
-    recommended: true
   suspected_sample_contamination_description:
     title: Suspected sample contamination description
     examples:
@@ -880,7 +877,6 @@ slots:
     range: boolean
     pattern: ""
     required: false
-    recommended: true
     recommended: true
   decimal_latitude:
     title: Decimal latitude
