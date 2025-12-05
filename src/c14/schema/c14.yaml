@@ -23,8 +23,20 @@ classes:
     description: >-
       A radiocarbon date measurement with associated metadata.
     slots:
-      - lab_id
-      - conventional_age
+      - c14_lab_code
+      - c14_lab_code
+      - c14_f14c
+      - c14_f14c_error
+      - c14_conventional_age
+      - c14_conventional_age_error
+      - sample_material
+      - sample_taxon_id
+      - sample_taxon_id_confidence
+      - sample_taxon_scientific_name
+      - pretreatment_methods
+      - pretreatment_method_description
+      - pretreatment_method_protocol
+      - measurement_method
 
   RadiocarbonDateCollection:
     tree_root: true
@@ -38,222 +50,316 @@ classes:
         inlined_as_list: true
 
 slots:
-  lab_id:
-    title: Laboratory Identifier of Date Measurement
+  c14_lab_code:
+    title: Laboratory code designation
     examples:
-      - value: "A 0034"
-      - value: "AA 12345"
-      - value: "Beta 987654"
-      - value: "CN-XX 1234"
+      - value: "OxA"
+      - value: "CAMS"
+      - value: "Beta"
+      - value: "CN-XX"
     description: |-
-      The unique identifier assigned to the radiocarbon date by the laboratory
-      that performed the measurement including the lab specific suffix.
+      Unique laboratory code designation of the institution that made the measurement. 
+      This is the prefix used for each determination ID. The prefix should be 
+      derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.
     slot_uri: c14:000001
     multivalued: false
     range: string
-    pattern: "^[A-Za-z-]+ [0-9]+$"
+    pattern: "^[A-Za-z-]+-[0-9]+$"
     required: true
-  conventional_age:
-    title: Conventional Radiocarbon Age
+    recommended: true
+  c14_determination_id:
+    title: Radiocarbon determination identifier
+    examples:
+      - value: "982744"
+      - value: "i238493"
+    description: |-
+      The unique identifier associated with a specific radiocarbon determination, 
+      without the radiocarbon laboratory identifier.
+    slot_uri: c14:000003
+    multivalued: false
+    range: string
+    pattern: ""
+    required: true
+    recommended: true
+  c14_f14c:
+    title:
+    examples:
+      - value: "0.83756"
+      - value: "0.5371"
+    description: |-
+      The F14C value from the laboratory measurement, i.e. the fraction modern carbon. 
+      For older determinations, generally equivalent to "percent modern" (pMC, or pM) divided by 100.
+    slot_uri: c14:000004
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true
+    recommended: true
+  c14_f14c_error:
+    title: F14C radiocarbon error
+    examples:
+      - value: "0.00434"
+      - value: "0.023843"
+    description: |-
+      The 1-sigma uncertainty around the F14C (C14) measurement, 
+      normally indicated as a ± after the main value. Must be in the same format. 
+      Sometimes referred to as the "error" or "sigma" of the measurement.
+    slot_uri: c14:000005
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true
+    recommended: true
+  c14_conventional_age:
+    title: Conventional radiocarbon age
     examples:
       - value: "4500"
       - value: "12345"
     description: |-
-      The conventional radiocarbon age in years BP (Before Present, where
-      Present is defined as AD 1950) as calculated by the laboratory.
+      The uncalibrated age from the laboratory measurement. Also known as the 
+      conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., BP) NOT in AD/BC format. 
+      This is typically the 'raw' age reported by the radiocarbon lab, in Before Present (BP) notation.
     slot_uri: c14:000002
     multivalued: false
-    range: integer
+    range: float
     required: true
-  new_term_03:
-    title:
+    recommended: true
+  c14_conventional_age_error:
+    title: Conventional radiocarbon age error
     examples:
-      - value: ""
-      - value: ""
+      - value: "25"
+      - value: "300"
     description: |-
-
-    slot_uri: c14:000003
-    multivalued: true/false
-    range: integer
-    pattern: ""
-    required: true/false
-  new_term_04:
-    title:
-    examples:
-      - value: ""
-      - value: ""
-    description: |-
-
-    slot_uri: c14:000004
-    multivalued: true/false
-    range: integer
-    pattern: ""
-    required: true/false
-  new_term_05:
-    title:
-    examples:
-      - value: ""
-      - value: ""
-    description: |-
-
-    slot_uri: c14:000005
-    multivalued: true/false
-    range: integer
-    pattern: ""
-    required: true/false
-  new_term_06:
-    title:
-    examples:
-      - value: ""
-      - value: ""
-    description: |-
-
+      The 1-sigma uncertainty around the conventional radiocarbon age (C14) measurement, 
+      normally indicated as a ± after the main age. Must be in the same format (i.e. BP). 
+      Sometimes referred to as the "error" or "sigma" of the measurement.
     slot_uri: c14:000006
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: string
     pattern: ""
-    required: true/false
-  new_term_07:
-    title:
+    required: true
+  sample_material:
+    title: Radiocarbon dating sample material
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      Material of the sample used to extract carbon used for radiocarbon dating measurements. 
+      Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENVO for other 
+      organic samples.
     slot_uri: c14:000007
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: string
     pattern: ""
-    required: true/false
-  new_term_08:
-    title:
+    required: true
+    recommended: true
+  sample_taxon_id:
+    title: Radiocarbon dating sample taxon
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      A taxonomic ID of the organism from which the sample used to extract carbon used for 
+      radiocarbon measurement originated. The taxonomic ID should come from an established 
+      ontology or database.
     slot_uri: c14:000008
-    multivalued: true/false
+    multivalued: true
     range: integer
     pattern: ""
-    required: true/false
-  new_term_09:
-    title:
+    required: true
+    recommended: true
+  sample_taxon_id_confidence:
+    title: Confidence of taxon assignment
     examples:
-      - value: ""
-      - value: ""
+      - value: true
+      - value: false
     description: |-
-
+      Specify the level of confidence of an exact taxon identification. 
+      If secure identification, indicate TRUE, if identification is unclear or 
+      uncertain specify FALSE.
     slot_uri: c14:000009
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: boolean
     pattern: ""
-    required: true/false
-  new_term_10:
-    title:
+    required: false
+    recommended: false
+  sample_taxon_scientific_name:
+    title: Scientific name of the sample taxon
     examples:
-      - value: ""
-      - value: ""
+      - value: "Mammathus primigenius"
+      - value: "cf Mammathus"
     description: |-
-
+      A scientific name of the taxon corresponding to the taxonomic ID, or when a 
+      taxonomic ID does not currently exist for the specific taxon.
     slot_uri: c14:000010
-    multivalued: true/false
+    multivalued: false
     range: integer
     pattern: ""
-    required: true/false
-  new_term_11:
-    title:
+    required: false
+    recommended: true
+  sample_anatomical_part:
+    title: Anatomical part from which the sample is derived.
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      Anatomical part from which the sample is derived.
     slot_uri: c14:000011
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: string
     pattern: ""
-    required: true/false
-  new_term_12:
-    title:
+    required: false
+    recommended: true
+  pretreatment_methods:
+    title: Radiocarbon pretreatment methods
     examples:
-      - value: ""
-      - value: ""
+      - value: "ABA"
+      - value: "A"
+      - value: "BABA"
+      - value: "Gelatinsation"
+      - value: "Ultrafiltration"
+      - value: "XAD"
+      - value: "None"
+      - value: "Unknown"
     description: |-
-
+      Specify the types of general pretreatment methods applied for decontamination.
     slot_uri: c14:000012
-    multivalued: true/false
-    range: integer
+    multivalued: true
+    range: string
     pattern: ""
-    required: true/false
-  new_term_13:
-    title:
+    required: true
+    recommended: true
+  pretreatment_method_description:
+    title: Radiocarbon pretreatment method description
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      Description of specific pretreatment method used for decontamination of sample prior determination.
     slot_uri: c14:000013
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: string
     pattern: ""
-    required: true/false
-  new_term_14:
-    title:
+    required: true
+    recommended: true
+  pretreatment_method_protocol:
+    title: Radiocarbon pretreatment method protocol
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      A DOI or URL to a publication describing the specific method of pretreatment applied.
     slot_uri: c14:000014
-    multivalued: true/false
-    range: integer
+    multivalued: true
+    range: string
     pattern: ""
-    required: true/false
-  new_term_15:
-    title:
+    required: true
+  measurement_method:
+    title: Radiocarbon measurement method
     examples:
-      - value: ""
-      - value: ""
+      - value: "AMS"
+      - value: "Conventional"
+      - value: "PIMS"
     description: |-
-
+      Type of measurement method the determination was made by.
     slot_uri: c14:000015
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: string
     pattern: ""
-    required: true/false
-  new_term_16:
-    title:
+    required: true
+    recommended: true
+  sample_starting_weight:
+    title: Sample starting weight
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      Amount of sample material used at beginning of  in measurement in mg.
     slot_uri: c14:000016
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: float
     pattern: ""
-    required: true/false
-  new_term_17:
-    title:
+    required: false
+    recommended: true
+  pretreatment_yield:
+    title: Weight after pretreatment
     examples:
       - value: ""
       - value: ""
     description: |-
-
+      Amount of sample remaining after pretreatment in mg
     slot_uri: c14:000017
-    multivalued: true/false
-    range: integer
+    multivalued: false
+    range: float
     pattern: ""
     required: true/false
-  new_term_18:
-    title:
+    recommended: true
+  pretreatment_percentage_yield:
+    title: Percentage yield after pretreatment
     examples:
       - value: ""
       - value: ""
     description: |-
-
-    slot_uri: c14:000018
-    multivalued: true/false
-    range: integer
+      Ratio of weight after pretreatment to sample starting weight
+    slot_uri: c14:000017
+    multivalued: false
+    range: float
     pattern: ""
     required: true/false
+    recommended: true
+  carbon_perc:
+    title: Carbon percentage
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The percentage of carbon in a non-proteinaceous sample used for dating (such as charcoal), 
+      expressed as a percentage (%). Used as a quality control measurement.
+    slot_uri: c14:000018
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true/false
+    recommended: true
+  delta_13_c:
+    title: Delta 13C value
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope 
+      13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.
+    slot_uri: c14:000019
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true/false
+    recommended: true
+  delta_13_c_error:
+    title: Delta 13C error
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation. 
+      Used as a quality control measurement.
+    slot_uri: c14:000020
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true/false
+    recommended: true
+  delta_13_c_method:
+    title: Delta 13C measurement method
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Which spectrophotometry method was used to measure the delta carbon-13 value, 
+      either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
+    slot_uri: c14:000020
+    multivalued: false
+    range: string
+    pattern: ""
+    required: true/false
+    recommended: true
