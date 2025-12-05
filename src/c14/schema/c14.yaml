@@ -664,15 +664,14 @@ enums:
       HUMIC:
         description: Base soluble fraction (normally preceeded by acid)
   MeasurementMethod:
-    description: >-
-      Type of measurement method the determination was made by.
+    description:
     permissible_values:
       AMS:
-        description: Accelerated Mass Spectrometer
+        description: "Accelerator Mass Spectrometry"
       PIMS:
-        description: Positive Ion Mass Spectrometer
+        description: "Positive Ion Mass Spectrometry"
       Conventional:
-        description: Liquid scintillation or gas proportional 
+        description: "Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)"
   Delta13CMeasurementMethod:
     description: >-
       Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
@@ -1068,8 +1067,8 @@ slots:
   pretreatment_method_protocol:
     title: Radiocarbon pretreatment method protocol
     examples:
-      - value: ""
-      - value: ""
+      - value: "Samples were pretreated following Brock et al. (2010). Briefly, bone was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)"
+      - value: "A dremel drill was used to remove visibly altered shell leaving dense translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl."
     description: |-
       A DOI or URL to a publication describing the specific method of pretreatment applied.
     slot_uri: c14:000022
@@ -1149,8 +1148,9 @@ slots:
   delta_13_c:
     title: Delta 13C value
     examples:
-      - value: ""
-      - value: ""
+      - value: "-21.5"
+      - value: "-13.5"
+      - value: "1.2"
     description: |-
       The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope
       13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.
@@ -1164,8 +1164,8 @@ slots:
   delta_13_c_error:
     title: Delta 13C error
     examples:
-      - value: ""
-      - value: ""
+      - value: "0.1"
+      - value: "0.2"
     description: |-
       The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation.
       Used as a quality control measurement.
@@ -1179,8 +1179,8 @@ slots:
   delta_13_c_method:
     title: Delta 13C measurement method
     examples:
-      - value: ""
-      - value: ""
+      - value: "AMS"
+      - value: "IRMS"
     description: |-
       Which spectrophotometry method was used to measure the delta carbon-13 value,
       either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
@@ -1192,8 +1192,8 @@ slots:
   suspected_reservoir_effect:
     title: Suspected reservoir effect
     examples:
-      - value: ""
-      - value: ""
+      - value: "true"
+      - value: "false"
     description: |-
       Specify whether there is a suspected carbon reservoir effect that
       should be accounted for in analysis.
@@ -1204,8 +1204,8 @@ slots:
   carbon_nitro_ratio:
     title: Carbon to nitrogen ratio
     examples:
-      - value: ""
-      - value: ""
+      - value: "3.2"
+      - value: "3.33"
     description: |-
       Atomic ratio of carbon to nitrogen. Used for quality control value in
       proteinaceous samples for radiocarbon dating.
@@ -1216,8 +1216,9 @@ slots:
   delta_15_n:
     title: Delta 15N value
     examples:
-      - value: ""
-      - value: ""
+      - value: "10.8"
+      - value: "5.1"
+      - value: "27.2"
     description: |-
       The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
       15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.
@@ -1231,8 +1232,8 @@ slots:
   delta_15_n_error:
     title: Delta 15N error
     examples:
-      - value: ""
-      - value: ""
+      - value: "0.3"
+      - value: "0.12"
     description: |-
       The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
       Used as a quality control measurement.
@@ -1246,8 +1247,8 @@ slots:
   delta_34_s:
     title: Delta 34S value
     examples:
-      - value: ""
-      - value: ""
+      - value: "18.4"
+      - value: "-5.2"
     description: |-
       The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
       34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.
@@ -1261,8 +1262,8 @@ slots:
   delta_34_s_error:
     title: Delta 34S error
     examples:
-      - value: ""
-      - value: ""
+      - value: "0.4"
+      - value: "0.2"
     description: |-
       The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
       Used as a quality control measurement.
@@ -1276,8 +1277,8 @@ slots:
   recrystalisation:
     title: Evidence of recrystalisation
     examples:
-      - value: ""
-      - value: ""
+      - value: "true"
+      - value: "false"
     description: |-
       Sample shows evidence of recrystalisation which should be accounted for during analysis.
     slot_uri: c14:000037
