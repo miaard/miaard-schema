@@ -19,7 +19,7 @@ imports:
   - linkml:types
 
 enums:
-  LabCodeID:
+  LabCodeId:
     description: >-
       Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.
     permissible_values:
@@ -663,8 +663,8 @@ enums:
         description: Hydrogen peroxide
       HUMIC:
         description: Base soluble fraction (normally preceeded by acid)
-  MeasurementMethod:
-    description:
+  RadiocarbonMeasurementMethod:
+    description: Method used to obtain the radiocarbon determination.
     permissible_values:
       AMS:
         description: "Accelerator Mass Spectrometry"
@@ -682,6 +682,13 @@ enums:
         description: Isotope Ratio Mass Spectrometer
       CRDS:
         description: Cavity Ring-Down Spectroscopy
+
+settings:
+  DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
+  PMID: ^PMID:\d+$
+  URL: ^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
+  termID: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
+
 classes:
   RadiocarbonDate:
     description: >-
@@ -725,12 +732,6 @@ classes:
       - delta_34_s_error # Proteinaceous module
       - recrystalisation # Carbonate module
 
-settings:
-  DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
-  PMID: ^PMID:\d+$
-  URL: ^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
-  termID: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
-
   RadiocarbonDateCollection:
     tree_root: true
     description: >-
@@ -756,7 +757,7 @@ slots:
       derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.
     slot_uri: c14:000001
     multivalued: false
-    range: LabCode
+    range: LabCodeId
     required: true
   lab_id:
     title: Radiocarbon determination identifier
@@ -785,7 +786,7 @@ slots:
     slot_uri: c14:000003
     multivalued: false
     range: float
-    minuimum_value: 0
+    minimum_value: 0
     maximum_value: 1
     required: true
   f14c_error:
@@ -831,14 +832,16 @@ slots:
   delta_13_c_calculation_method:
     title: Delta 13C age calculation method
     examples:
-      - value: ""
-      - value: ""
+      - value: "AMS"
+      - value: "IRMS"
+      - value: "Assumed"
+      - value: "Other"
     description: |-
       Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C,
       an alternative δ13C measurement method or an assumed δ13C
     slot_uri: c14:000007
     multivalued: false
-    range: Delta13CCalculationMethod
+    range: Delta13CMeasurementMethod
     required: false
     recommended: true
   sample_ids:
@@ -1089,7 +1092,7 @@ slots:
       Type of measurement method the determination was made by.
     slot_uri: c14:000023
     multivalued: false
-    range: MeasurementMethod
+    range: RadiocarbonMeasurementMethod
     required: true
   sample_starting_weight:
     title: Sample starting weight
@@ -1157,7 +1160,7 @@ slots:
     slot_uri: c14:000028
     multivalued: false
     range: float
-    miminum_value: -1000
+    minimum_value: -1000
     maximum_value: 1000
     required: false
     recommended: true
@@ -1186,7 +1189,7 @@ slots:
       either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
     slot_uri: c14:000030
     multivalued: false
-    range: Delta13CMethod
+    range: Delta13CMeasurementMethod
     required: false
     recommended: true
   suspected_reservoir_effect:
