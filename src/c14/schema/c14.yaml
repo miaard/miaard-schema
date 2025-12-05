@@ -656,6 +656,7 @@ classes:
       - delta_13_c
       - delta_13_c_error
       - delta_13_c_method
+      - delta_13_c_corr
       - suspected_reservoir_effect
       - carb_nitro_ratio
       - delta_15_n
@@ -1067,8 +1068,11 @@ slots:
     slot_uri: c14:000027
     multivalued: false
     range: float
+    miminum_value: -1000
+    maximum_value: 1000
     pattern: ""
-    required: true
+    required: false
+    recommended: true
   delta_13_c_error:
     title: Delta 13C error
     examples:
@@ -1081,7 +1085,8 @@ slots:
     multivalued: false
     range: float
     pattern: ""
-    required: true
+    required: false
+    recommended: true
   delta_13_c_method:
     title: Delta 13C measurement method
     examples:
@@ -1094,7 +1099,22 @@ slots:
     multivalued: false
     range: Delta13CMethod
     pattern: ""
-    required: true
+    required: false
+    recommended: true
+  delta_13_c_corr:
+    title: Delta 13C age correction
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C, 
+      an alternative δ13C measurement method or an assumed δ13C.
+    slot_uri: c14:000030
+    multivalued: false
+    range: string
+    pattern: ""
+    required: false
+    recommended: true
   suspected_reservoir_effect:
     title: Suspected reservoir effect
     examples:
@@ -1103,12 +1123,11 @@ slots:
     description: |-
       Specify whether there is a suspected carbon reservoir effect that
       should be accounted for in analysis.
-    slot_uri: c14:000030
+    slot_uri: c14:000031
     multivalued: false
     range: boolean
     pattern: ""
     required: true
-    recommended: true
   carb_nitro_ratio:
     title: Carbon to nitrogen ratio
     examples:
@@ -1117,7 +1136,7 @@ slots:
     description: |-
       Atomic ratio of carbon to nitrogen. Used for quality control value in
       proteinaceous samples for radiocarbon dating.
-    slot_uri: c14:000031
+    slot_uri: c14:000032
     multivalued: false
     range: float
     pattern: ""
@@ -1130,9 +1149,11 @@ slots:
     description: |-
       The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
       15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.
-    slot_uri: c14:000032
+    slot_uri: c14:000033
     multivalued: false
     range: float
+    minimum_value: -1000
+    maximum_value: 1000
     pattern: ""
     required: false
     recommended: true
@@ -1144,7 +1165,7 @@ slots:
     description: |-
       The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
       Used as a quality control measurement.
-    slot_uri: c14:000033
+    slot_uri: c14:000034
     multivalued: false
     range: float
     pattern: ""
@@ -1158,7 +1179,7 @@ slots:
     description: |-
       The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
       34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.
-    slot_uri: c14:000034
+    slot_uri: c14:000035
     multivalued: false
     range: float
     pattern: ""
@@ -1172,7 +1193,7 @@ slots:
     description: |-
       The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
       Used as a quality control measurement.
-    slot_uri: c14:000035
+    slot_uri: c14:000036
     multivalued: false
     range: float
     pattern: ""
@@ -1185,7 +1206,7 @@ slots:
       - value: ""
     description: |-
       Sample shows evidence of recrystalisation which should be accounted for during analysis.
-    slot_uri: c14:000036
+    slot_uri: c14:000037
     multivalued: false
     range: boolean
     pattern: ""
