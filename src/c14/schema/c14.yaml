@@ -24,6 +24,40 @@ classes:
       A radiocarbon determination with associated metadata.
     slots:
       - c14_lab_code
+      - c14_determination_id
+      - c14_f14c
+      - c14_f14c_error
+      - c14_conventional_age
+      - c14_conventional_age_error
+      - sample_ids
+      - sample_material
+      - sample_taxon_id
+      - sample_taxon_id_confidence
+      - sample_taxon_scientific_name
+      - sample_anatomical_part
+      - suspected_sample_contamination
+      - suspected_sample_contamination_description
+      - decimal_latitude
+      - decimal_longitude
+      - coordinate_precision
+      - pretreatment_methods
+      - pretreatment_method_description
+      - pretreatment_method_protocol
+      - measurement_method
+      - sample_starting_weight
+      - pretreatment_yield
+      - pretreatment_percentage_yield
+      - carbon_perc
+      - delta_13_c
+      - delta_13_c_error
+      - delta_13_c_method
+      - suspected_reservoir_effect
+      - carb_nitro_ratio
+      - delta_15_n
+      - delta_15_n_error
+      - delta_34_s
+      - delta_34_s_error
+      - evidence_recrystal
 
   RadiocarbonDateCollection:
     tree_root: true
