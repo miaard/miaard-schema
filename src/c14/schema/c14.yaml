@@ -24,19 +24,6 @@ classes:
       A radiocarbon determination with associated metadata.
     slots:
       - c14_lab_code
-      - c14_lab_code
-      - c14_f14c
-      - c14_f14c_error
-      - c14_conventional_age
-      - c14_conventional_age_error
-      - sample_material
-      - sample_taxon_id
-      - sample_taxon_id_confidence
-      - sample_taxon_scientific_name
-      - pretreatment_methods
-      - pretreatment_method_description
-      - pretreatment_method_protocol
-      - measurement_method
 
   RadiocarbonDateCollection:
     tree_root: true
@@ -75,7 +62,7 @@ slots:
     description: |-
       The unique identifier associated with a specific radiocarbon determination, 
       without the radiocarbon laboratory identifier.
-    slot_uri: c14:000003
+    slot_uri: c14:000002
     multivalued: false
     range: string
     pattern: ""
@@ -89,7 +76,7 @@ slots:
     description: |-
       The F14C value from the laboratory measurement, i.e. the fraction modern carbon. 
       For older determinations, generally equivalent to "percent modern" (pMC, or pM) divided by 100.
-    slot_uri: c14:000004
+    slot_uri: c14:000003
     multivalued: false
     range: float
     pattern: ""
@@ -101,10 +88,10 @@ slots:
       - value: "0.00434"
       - value: "0.023843"
     description: |-
-      The 1-sigma uncertainty around the F14C (C14) measurement, 
+      The 1-standard deviation uncertainty around the F14C (C14) measurement, 
       normally indicated as a ± after the main value. Must be in the same format. 
       Sometimes referred to as the "error" or "sigma" of the measurement.
-    slot_uri: c14:000005
+    slot_uri: c14:000004
     multivalued: false
     range: float
     pattern: ""
@@ -117,9 +104,10 @@ slots:
       - value: "12345"
     description: |-
       The uncalibrated age from the laboratory measurement. Also known as the 
-      conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., BP) NOT in AD/BC format. 
-      This is typically the 'raw' age reported by the radiocarbon lab, in Before Present (BP) notation.
-    slot_uri: c14:000002
+      conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., 14C year BP) 
+      NOT in AD/BC format. This is typically the 'raw' age reported by the radiocarbon lab, in 
+      Before Present (BP) notation.
+    slot_uri: c14:000005
     multivalued: false
     range: float
     required: true
@@ -130,14 +118,29 @@ slots:
       - value: "25"
       - value: "300"
     description: |-
-      The 1-sigma uncertainty around the conventional radiocarbon age (C14) measurement, 
-      normally indicated as a ± after the main age. Must be in the same format (i.e. BP). 
+      The 1-standard deviation around the conventional radiocarbon age (C14) measurement, 
+      normally indicated as a ± after the main age. Must be in the same format (i.e. 14C yr BP). 
       Sometimes referred to as the "error" or "sigma" of the measurement.
     slot_uri: c14:000006
     multivalued: false
     range: string
     pattern: ""
     required: true
+    recommended: true
+  sample_ids:
+    title: Sample identifiers
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Any identifier associated with the sample under measurement 
+      (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).
+    slot_uri: c14:000007
+    multivalued: false
+    range: string
+    pattern: ""
+    required: false
+    recommended: true
   sample_material:
     title: Radiocarbon dating sample material
     examples:
@@ -210,13 +213,87 @@ slots:
     pattern: ""
     required: false
     recommended: true
+  suspected_sample_contamination:
+    title: Suspected sample contamination.
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Specify whether the sample has suspected contamination that may influence measurement 
+      (organic glue, consolidant, rootlets, embalming solution, staining etc.)
+    slot_uri: c14:000012
+    multivalued: false
+    range: boolean
+    pattern: ""
+    required: false
+    recommended: true
+    recommended: true
+  suspected_sample_contamination_description:
+    title: Suspected sample contamination description
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      If a sample has a suspected contamination (suspected_sample_contamination), provide a short 
+      description of the contamination.
+    slot_uri: c14:000012
+    multivalued: false
+    range: boolean
+    pattern: ""
+    required: false
+    recommended: true
+    recommended: true
+  decimal_latitude:
+    title: Decimal latitude
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The geographic latitude (in decimal degrees, using the spatial reference system given in
+      dwc:geodeticDatum) of the geographic center of a dcterms:Location. Positive values are north 
+      of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.
+    slot_uri: c14:000013
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true
+    recommended: true
+  decimal_longitude:
+    title: Decimal longitude
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The geographic longitude (in decimal degrees, using the spatial reference system) of the 
+      geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian, 
+      negative values are west of it. Legal values lie between -180 and 180, inclusive.
+    slot_uri: c14:000014
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true
+    recommended: true
+  coordinate_precision:
+    title: Coordinate precision
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      A decimal representation of the precision of the coordinates given in the decimal_latitude 
+      and decimal_longitude.
+    slot_uri: c14:000015
+    multivalued: false
+    range: float
+    pattern: ""
+    required: false
+    recommended: true
   pretreatment_methods:
     title: Radiocarbon pretreatment methods
     examples:
       - value: "ABA"
       - value: "A"
       - value: "BABA"
-      - value: "Gelatinsation"
+      - value: "Gelatinisation"
       - value: "Ultrafiltration"
       - value: "XAD"
       - value: "None"
@@ -279,7 +356,7 @@ slots:
     multivalued: false
     range: float
     pattern: ""
-    required: false
+    required: true
     recommended: true
   pretreatment_yield:
     title: Weight after pretreatment
@@ -292,7 +369,7 @@ slots:
     multivalued: false
     range: float
     pattern: ""
-    required: true/false
+    required: true
     recommended: true
   pretreatment_percentage_yield:
     title: Percentage yield after pretreatment
@@ -301,11 +378,11 @@ slots:
       - value: ""
     description: |-
       Ratio of weight after pretreatment to sample starting weight
-    slot_uri: c14:000017
+    slot_uri: c14:000018
     multivalued: false
     range: float
     pattern: ""
-    required: true/false
+    required: false
     recommended: true
   carbon_perc:
     title: Carbon percentage
@@ -314,12 +391,12 @@ slots:
       - value: ""
     description: |-
       The percentage of carbon in a non-proteinaceous sample used for dating (such as charcoal), 
-      expressed as a percentage (%). Used as a quality control measurement.
-    slot_uri: c14:000018
+      expressed as a value between 0 and 1. Used as a quality control measurement.
+    slot_uri: c14:000019
     multivalued: false
     range: float
     pattern: ""
-    required: true/false
+    required: true
     recommended: true
   delta_13_c:
     title: Delta 13C value
@@ -329,7 +406,7 @@ slots:
     description: |-
       The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope 
       13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.
-    slot_uri: c14:000019
+    slot_uri: c14:000020
     multivalued: false
     range: float
     pattern: ""
@@ -343,7 +420,7 @@ slots:
     description: |-
       The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation. 
       Used as a quality control measurement.
-    slot_uri: c14:000020
+    slot_uri: c14:000021
     multivalued: false
     range: float
     pattern: ""
@@ -357,9 +434,108 @@ slots:
     description: |-
       Which spectrophotometry method was used to measure the delta carbon-13 value, 
       either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
-    slot_uri: c14:000020
+    slot_uri: c14:000022
     multivalued: false
     range: string
     pattern: ""
     required: true/false
+    recommended: true
+  suspected_reservoir_effect:
+    title: Suspected reservoir effect
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Specify whether there is a suspected carbon reservoir effect that 
+      should be accounted for in analysis.
+    slot_uri: c14:000023
+    multivalued: false
+    range: boolean
+    pattern: ""
+    required: true
+    recommended: true
+  carb_nitro_ratio:
+    title: Carbon to nitrogen ratio
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Atomic ratio of carbon to nitrogen. Used for quality control value in 
+      proteinaceous samples for radiocarbon dating.
+    slot_uri: c14:000024
+    multivalued: false
+    range: float
+    pattern: ""
+    required: true
+    recommended: true
+  delta_15_n:
+    title: Delta 15N value
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope 
+      15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.
+    slot_uri: c14:000025
+    multivalued: false
+    range: float
+    pattern: ""
+    required: false
+    recommended: true
+  delta_15_n_error:
+    title: Delta 15N error
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation. 
+      Used as a quality control measurement.
+    slot_uri: c14:000026
+    multivalued: false
+    range: float
+    pattern: ""
+    required: false
+    recommended: true
+  delta_34_s:
+    title: Delta 34S value
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope 
+      34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.
+    slot_uri: c14:000027
+    multivalued: false
+    range: float
+    pattern: ""
+    required: false
+    recommended: false
+    optional: true
+  delta_34_s_error:
+    title: Delta 34S error
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation. 
+      Used as a quality control measurement.
+    slot_uri: c14:000028
+    multivalued: false
+    range: float
+    pattern: ""
+    required: false
+    recommended: false
+    optional: true
+  evidence_recrystal:
+    title: Evidence of recrystalisation
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Sample shows evidence of recrystalisation which should be accounted for during evidence.
+    slot_uri: c14:000029
+    multivalued: false
+    range: boolean
+    pattern: ""
+    required: false
     recommended: true
