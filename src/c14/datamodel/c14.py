@@ -1,9 +1,9 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-02T15:15:20
+# Generation date: 2025-12-05T08:29:56
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
-# description: Minimum Information about any Radiocarbon Date
+# description: Minimum Information about any Radiocarbon Determination
 # license: MIT
 
 import re
@@ -36,7 +36,7 @@ DEFAULT_ = C14
 @dataclass(repr=False)
 class RadiocarbonDate(YAMLRoot):
     """
-    A radiocarbon date measurement with associated metadata.
+    A radiocarbon determination with associated metadata.
     """
 
     _inherited_slots: ClassVar[list[str]] = []
@@ -66,7 +66,7 @@ class RadiocarbonDate(YAMLRoot):
 @dataclass(repr=False)
 class RadiocarbonDateCollection(YAMLRoot):
     """
-    A collection of radiocarbon dates measurement with associated metadata.
+    A collection of radiocarbon determinations with associated metadata.
     """
 
     _inherited_slots: ClassVar[list[str]] = []
@@ -116,6 +116,150 @@ slots.conventional_age = Slot(
     model_uri=C14.conventional_age,
     domain=None,
     range=int,
+)
+
+slots.new_term_03 = Slot(
+    uri=C14["000003"],
+    name="new_term_03",
+    curie=C14.curie("000003"),
+    model_uri=C14.new_term_03,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_04 = Slot(
+    uri=C14["000004"],
+    name="new_term_04",
+    curie=C14.curie("000004"),
+    model_uri=C14.new_term_04,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_05 = Slot(
+    uri=C14["000005"],
+    name="new_term_05",
+    curie=C14.curie("000005"),
+    model_uri=C14.new_term_05,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_06 = Slot(
+    uri=C14["000006"],
+    name="new_term_06",
+    curie=C14.curie("000006"),
+    model_uri=C14.new_term_06,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_07 = Slot(
+    uri=C14["000007"],
+    name="new_term_07",
+    curie=C14.curie("000007"),
+    model_uri=C14.new_term_07,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_08 = Slot(
+    uri=C14["000008"],
+    name="new_term_08",
+    curie=C14.curie("000008"),
+    model_uri=C14.new_term_08,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_09 = Slot(
+    uri=C14["000009"],
+    name="new_term_09",
+    curie=C14.curie("000009"),
+    model_uri=C14.new_term_09,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_10 = Slot(
+    uri=C14["000010"],
+    name="new_term_10",
+    curie=C14.curie("000010"),
+    model_uri=C14.new_term_10,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_11 = Slot(
+    uri=C14["000011"],
+    name="new_term_11",
+    curie=C14.curie("000011"),
+    model_uri=C14.new_term_11,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_12 = Slot(
+    uri=C14["000012"],
+    name="new_term_12",
+    curie=C14.curie("000012"),
+    model_uri=C14.new_term_12,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_13 = Slot(
+    uri=C14["000013"],
+    name="new_term_13",
+    curie=C14.curie("000013"),
+    model_uri=C14.new_term_13,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_14 = Slot(
+    uri=C14["000014"],
+    name="new_term_14",
+    curie=C14.curie("000014"),
+    model_uri=C14.new_term_14,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_15 = Slot(
+    uri=C14["000015"],
+    name="new_term_15",
+    curie=C14.curie("000015"),
+    model_uri=C14.new_term_15,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_16 = Slot(
+    uri=C14["000016"],
+    name="new_term_16",
+    curie=C14.curie("000016"),
+    model_uri=C14.new_term_16,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_17 = Slot(
+    uri=C14["000017"],
+    name="new_term_17",
+    curie=C14.curie("000017"),
+    model_uri=C14.new_term_17,
+    domain=None,
+    range=Union[int, list[int]],
+)
+
+slots.new_term_18 = Slot(
+    uri=C14["000018"],
+    name="new_term_18",
+    curie=C14.curie("000018"),
+    model_uri=C14.new_term_18,
+    domain=None,
+    range=Union[int, list[int]],
 )
 
 slots.radiocarbonDateCollection__entries = Slot(

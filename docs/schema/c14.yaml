@@ -1,11 +1,11 @@
 name: miaard
-description: Minimum Information about any Radiocarbon Date
+description: Minimum Information about any Radiocarbon Determination
 title: miaard
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
+- https://MIxS-MInAS.github.io/miaard
 id: https://w3id.org/MIxS-MInAS/miaard
 imports:
-  - linkml:types
+- linkml:types
 license: MIT
 prefixes:
   c14:
@@ -25,13 +25,13 @@ types:
     definition_uri: https://w3id.org/linkml/String
     description: A character string
     notes:
-      - In RDF serializations, a slot with range of string is treated as a
-        literal or type xsd:string.   If you are authoring schemas in LinkML
-        YAML, the type is referenced with the lower case "string".
+    - In RDF serializations, a slot with range of string is treated as a literal or
+      type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
+      referenced with the lower case "string".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:Text
+    - schema:Text
     base: str
     uri: xsd:string
   integer:
@@ -39,12 +39,12 @@ types:
     definition_uri: https://w3id.org/linkml/Integer
     description: An integer
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced
-        with the lower case "integer".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "integer".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:Integer
+    - schema:Integer
     base: int
     uri: xsd:integer
   boolean:
@@ -52,12 +52,12 @@ types:
     definition_uri: https://w3id.org/linkml/Boolean
     description: A binary (true or false) value
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "boolean".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "boolean".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:Boolean
+    - schema:Boolean
     base: Bool
     uri: xsd:boolean
     repr: bool
@@ -66,12 +66,12 @@ types:
     definition_uri: https://w3id.org/linkml/Float
     description: A real number that conforms to the xsd:float specification
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "float".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "float".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:Float
+    - schema:Float
     base: float
     uri: xsd:float
   double:
@@ -79,12 +79,12 @@ types:
     definition_uri: https://w3id.org/linkml/Double
     description: A real number that conforms to the xsd:double specification
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "double".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "double".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     close_mappings:
-      - schema:Float
+    - schema:Float
     base: float
     uri: xsd:double
   decimal:
@@ -93,12 +93,12 @@ types:
     description: A real number with arbitrary precision that conforms to the xsd:decimal
       specification
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "decimal".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "decimal".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     broad_mappings:
-      - schema:Number
+    - schema:Number
     base: Decimal
     uri: xsd:decimal
   time:
@@ -107,13 +107,13 @@ types:
     description: A time object represents a (local) time of day, independent of any
       particular day
     notes:
-      - URI is dateTime because OWL reasoners do not work with straight date or time
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "time".
+    - URI is dateTime because OWL reasoners do not work with straight date or time
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "time".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:Time
+    - schema:Time
     base: XSDTime
     uri: xsd:time
     repr: str
@@ -122,13 +122,13 @@ types:
     definition_uri: https://w3id.org/linkml/Date
     description: a date (year, month and day) in an idealized calendar
     notes:
-      - URI is dateTime because OWL reasoners don't work with straight date or time
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "date".
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "date".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:Date
+    - schema:Date
     base: XSDDate
     uri: xsd:date
     repr: str
@@ -137,12 +137,12 @@ types:
     definition_uri: https://w3id.org/linkml/Datetime
     description: The combination of a date and time
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "datetime".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "datetime".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-      - schema:DateTime
+    - schema:DateTime
     base: XSDDateTime
     uri: xsd:dateTime
     repr: str
@@ -151,8 +151,8 @@ types:
     definition_uri: https://w3id.org/linkml/DateOrDatetime
     description: Either a date or a datetime
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "date_or_datetime".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "date_or_datetime".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -163,8 +163,8 @@ types:
     definition_uri: https://w3id.org/linkml/Uriorcurie
     description: a URI or a CURIE
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "uriorcurie".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "uriorcurie".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: URIorCURIE
@@ -176,11 +176,11 @@ types:
     conforms_to: https://www.w3.org/TR/curie/
     description: a compact URI
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "curie".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "curie".
     comments:
-      - in RDF serializations this MUST be expanded to a URI
-      - in non-RDF serializations MAY be serialized as the compact representation
+    - in RDF serializations this MUST be expanded to a URI
+    - in non-RDF serializations MAY be serialized as the compact representation
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: Curie
@@ -192,16 +192,16 @@ types:
     conforms_to: https://www.ietf.org/rfc/rfc3987.txt
     description: a complete URI
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "uri".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "uri".
     comments:
-      - in RDF serializations a slot with range of uri is treated as a literal or type
-        xsd:anyURI unless it is an identifier or a reference to an identifier, in which
-        case it is translated directly to a node
+    - in RDF serializations a slot with range of uri is treated as a literal or type
+      xsd:anyURI unless it is an identifier or a reference to an identifier, in which
+      case it is translated directly to a node
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     close_mappings:
-      - schema:URL
+    - schema:URL
     base: URI
     uri: xsd:anyURI
     repr: str
@@ -210,8 +210,8 @@ types:
     definition_uri: https://w3id.org/linkml/Ncname
     description: Prefix part of CURIE
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "ncname".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "ncname".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: NCName
@@ -222,10 +222,10 @@ types:
     definition_uri: https://w3id.org/linkml/Objectidentifier
     description: A URI or CURIE that represents an object in the model.
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "objectidentifier".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "objectidentifier".
     comments:
-      - Used for inheritance and type checking
+    - Used for inheritance and type checking
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: ElementIdentifier
@@ -236,8 +236,8 @@ types:
     definition_uri: https://w3id.org/linkml/Nodeidentifier
     description: A URI, CURIE or BNODE that represents a node in a model.
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "nodeidentifier".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "nodeidentifier".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: NodeIdentifier
@@ -251,8 +251,8 @@ types:
       to JSON Point syntax and SHOULD dereference to a valid object within the current
       instance document when encoded in tree form.
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "jsonpointer".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "jsonpointer".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -266,8 +266,8 @@ types:
       to JSON Point syntax and SHOULD dereference to zero or more valid objects within
       the current instance document when encoded in tree form.
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "jsonpath".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "jsonpath".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -281,8 +281,8 @@ types:
       MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
       within the current instance document when encoded as RDF.
     notes:
-      - If you are authoring schemas in LinkML YAML, the type is referenced with the
-        lower case "sparqlpath".
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "sparqlpath".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -292,22 +292,23 @@ slots:
   lab_id:
     name: lab_id
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_id
-    description: 'The unique identifier assigned to the radiocarbon date by the laboratory
+    description: 'The unique identifier assigned to the radiocarbon determination
+      by the laboratory
 
       that performed the measurement including the lab specific suffix.'
     title: Laboratory Identifier of Date Measurement
     examples:
-      - value: A 0034
-      - value: AA 12345
-      - value: Beta 987654
-      - value: CN-XX 1234
+    - value: A 0034
+    - value: AA 12345
+    - value: Beta 987654
+    - value: CN-XX 1234
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-      - c14:000001
+    - c14:000001
     slot_uri: c14:000001
     owner: RadiocarbonDate
     domain_of:
-      - RadiocarbonDate
+    - RadiocarbonDate
     range: string
     required: true
     multivalued: false
@@ -320,27 +321,267 @@ slots:
       Present is defined as AD 1950) as calculated by the laboratory.'
     title: Conventional Radiocarbon Age
     examples:
-      - value: '4500'
-      - value: '12345'
+    - value: '4500'
+    - value: '12345'
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-      - c14:000002
+    - c14:000002
     slot_uri: c14:000002
     owner: RadiocarbonDate
     domain_of:
-      - RadiocarbonDate
+    - RadiocarbonDate
     range: integer
     required: true
     multivalued: false
+  new_term_03:
+    name: new_term_03
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_03
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000003
+    slot_uri: c14:000003
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_04:
+    name: new_term_04
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_04
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000004
+    slot_uri: c14:000004
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_05:
+    name: new_term_05
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_05
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000005
+    slot_uri: c14:000005
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_06:
+    name: new_term_06
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_06
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000006
+    slot_uri: c14:000006
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_07:
+    name: new_term_07
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_07
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000007
+    slot_uri: c14:000007
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_08:
+    name: new_term_08
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_08
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000008
+    slot_uri: c14:000008
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_09:
+    name: new_term_09
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_09
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000009
+    slot_uri: c14:000009
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_10:
+    name: new_term_10
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_10
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000010
+    slot_uri: c14:000010
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_11:
+    name: new_term_11
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_11
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000011
+    slot_uri: c14:000011
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_12:
+    name: new_term_12
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_12
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000012
+    slot_uri: c14:000012
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_13:
+    name: new_term_13
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_13
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000013
+    slot_uri: c14:000013
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_14:
+    name: new_term_14
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_14
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000014
+    slot_uri: c14:000014
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_15:
+    name: new_term_15
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_15
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000015
+    slot_uri: c14:000015
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_16:
+    name: new_term_16
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_16
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000016
+    slot_uri: c14:000016
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_17:
+    name: new_term_17
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_17
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000017
+    slot_uri: c14:000017
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
+  new_term_18:
+    name: new_term_18
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/new_term_18
+    description: ''
+    examples:
+    - value: ''
+    - value: ''
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000018
+    slot_uri: c14:000018
+    range: integer
+    required: true
+    multivalued: true
+    pattern: ''
   radiocarbonDateCollection__entries:
     name: radiocarbonDateCollection__entries
-    description: A list of multiple radiocarbon date measurements.
+    description: A list of multiple radiocarbon determinations.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slot_uri: c14:entries
     alias: entries
     owner: RadiocarbonDateCollection
     domain_of:
-      - RadiocarbonDateCollection
+    - RadiocarbonDateCollection
     range: RadiocarbonDate
     multivalued: true
     inlined: true
@@ -349,23 +590,23 @@ classes:
   RadiocarbonDate:
     name: RadiocarbonDate
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDate
-    description: A radiocarbon date measurement with associated metadata.
+    description: A radiocarbon determination with associated metadata.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slots:
-      - lab_id
-      - conventional_age
+    - lab_id
+    - conventional_age
     class_uri: c14:RadiocarbonDate
   RadiocarbonDateCollection:
     name: RadiocarbonDateCollection
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDateCollection
-    description: A collection of radiocarbon dates measurement with associated metadata.
+    description: A collection of radiocarbon determinations with associated metadata.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slots:
-      - radiocarbonDateCollection__entries
+    - radiocarbonDateCollection__entries
     attributes:
       entries:
         name: entries
-        description: A list of multiple radiocarbon date measurements.
+        description: A list of multiple radiocarbon determinations.
         range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true
@@ -373,6 +614,6 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2025-12-02T15:02:03'
-source_file_size: 1738
-generation_date: '2025-12-02T15:04:31'
+source_file_date: '2025-12-05T08:28:44'
+source_file_size: 5106
+generation_date: '2025-12-05T08:30:11'

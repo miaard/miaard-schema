@@ -3,7 +3,7 @@ id: https://w3id.org/MIxS-MInAS/miaard
 name: miaard
 title: miaard
 description: |-
-  Minimum Information about any Radiocarbon Date
+  Minimum Information about any Radiocarbon Determination
 license: MIT
 see_also:
   - https://MIxS-MInAS.github.io/miaard
@@ -21,7 +21,7 @@ imports:
 classes:
   RadiocarbonDate:
     description: >-
-      A radiocarbon date measurement with associated metadata.
+      A radiocarbon determination with associated metadata.
     slots:
       - c14_lab_code
       - c14_lab_code
@@ -41,10 +41,10 @@ classes:
   RadiocarbonDateCollection:
     tree_root: true
     description: >-
-      A collection of radiocarbon dates measurement with associated metadata.
+      A collection of radiocarbon determinations with associated metadata.
     attributes:
       entries:
-        description: A list of multiple radiocarbon date measurements.
+        description: A list of multiple radiocarbon determinations.
         range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true

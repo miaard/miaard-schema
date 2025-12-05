@@ -66,7 +66,7 @@ linkml_meta = LinkMLMeta(
     {
         "default_prefix": "c14",
         "default_range": "string",
-        "description": "Minimum Information about any Radiocarbon Date",
+        "description": "Minimum Information about any Radiocarbon Determination",
         "id": "https://w3id.org/MIxS-MInAS/miaard",
         "imports": ["linkml:types"],
         "license": "MIT",
@@ -94,7 +94,7 @@ linkml_meta = LinkMLMeta(
 
 class RadiocarbonDate(ConfiguredBaseModel):
     """
-    A radiocarbon date measurement with associated metadata.
+    A radiocarbon determination with associated metadata.
     """
 
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
@@ -104,7 +104,7 @@ class RadiocarbonDate(ConfiguredBaseModel):
     lab_id: str = Field(
         default=...,
         title="Laboratory Identifier of Date Measurement",
-        description="""The unique identifier assigned to the radiocarbon date by the laboratory
+        description="""The unique identifier assigned to the radiocarbon determination by the laboratory
 that performed the measurement including the lab specific suffix.""",
         json_schema_extra={
             "linkml_meta": {
@@ -149,7 +149,7 @@ Present is defined as AD 1950) as calculated by the laboratory.""",
 
 class RadiocarbonDateCollection(ConfiguredBaseModel):
     """
-    A collection of radiocarbon dates measurement with associated metadata.
+    A collection of radiocarbon determinations with associated metadata.
     """
 
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
@@ -158,7 +158,7 @@ class RadiocarbonDateCollection(ConfiguredBaseModel):
 
     entries: Optional[list[RadiocarbonDate]] = Field(
         default=[],
-        description="""A list of multiple radiocarbon date measurements.""",
+        description="""A list of multiple radiocarbon determinations.""",
         json_schema_extra={"linkml_meta": {"domain_of": ["RadiocarbonDateCollection"]}},
     )
 
