@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "c14"
-description = "Minimum Information about any Radiocarbon Date"
+description = "Minimum Information about any Radiocarbon Determination"
 authors = [
   {name = "James A. Fellows Yats", email = "jf133@gmail.com"},
 ]

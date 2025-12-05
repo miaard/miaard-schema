@@ -1,5 +1,5 @@
 name: miaard
-description: Minimum Information about any Radiocarbon Date
+description: Minimum Information about any Radiocarbon Determination
 title: miaard
 see_also:
   - https://MIxS-MInAS.github.io/miaard
@@ -90,7 +90,8 @@ types:
   decimal:
     name: decimal
     definition_uri: https://w3id.org/linkml/Decimal
-    description: A real number with arbitrary precision that conforms to the xsd:decimal
+    description:
+      A real number with arbitrary precision that conforms to the xsd:decimal
       specification
     notes:
       - If you are authoring schemas in LinkML YAML, the type is referenced with the
@@ -104,7 +105,8 @@ types:
   time:
     name: time
     definition_uri: https://w3id.org/linkml/Time
-    description: A time object represents a (local) time of day, independent of any
+    description:
+      A time object represents a (local) time of day, independent of any
       particular day
     notes:
       - URI is dateTime because OWL reasoners do not work with straight date or time
@@ -247,7 +249,8 @@ types:
     name: jsonpointer
     definition_uri: https://w3id.org/linkml/Jsonpointer
     conforms_to: https://datatracker.ietf.org/doc/html/rfc6901
-    description: A string encoding a JSON Pointer. The value of the string MUST conform
+    description:
+      A string encoding a JSON Pointer. The value of the string MUST conform
       to JSON Point syntax and SHOULD dereference to a valid object within the current
       instance document when encoded in tree form.
     notes:
@@ -262,7 +265,8 @@ types:
     name: jsonpath
     definition_uri: https://w3id.org/linkml/Jsonpath
     conforms_to: https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html
-    description: A string encoding a JSON Path. The value of the string MUST conform
+    description:
+      A string encoding a JSON Path. The value of the string MUST conform
       to JSON Point syntax and SHOULD dereference to zero or more valid objects within
       the current instance document when encoded in tree form.
     notes:
@@ -277,7 +281,8 @@ types:
     name: sparqlpath
     definition_uri: https://w3id.org/linkml/Sparqlpath
     conforms_to: https://www.w3.org/TR/sparql11-query/#propertypaths
-    description: A string encoding a SPARQL Property Path. The value of the string
+    description:
+      A string encoding a SPARQL Property Path. The value of the string
       MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
       within the current instance document when encoded as RDF.
     notes:
@@ -292,9 +297,9 @@ slots:
   lab_id:
     name: lab_id
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_id
-    description: 'The unique identifier assigned to the radiocarbon date by the laboratory
-
-      that performed the measurement including the lab specific suffix.'
+    description:
+      "The unique identifier assigned to the radiocarbon determination by the laboratory
+      that performed the measurement including the lab specific suffix."
     title: Laboratory Identifier of Date Measurement
     examples:
       - value: A 0034
@@ -315,13 +320,14 @@ slots:
   conventional_age:
     name: conventional_age
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age
-    description: 'The conventional radiocarbon age in years BP (Before Present, where
+    description:
+      "The conventional radiocarbon age in years BP (Before Present, where
 
-      Present is defined as AD 1950) as calculated by the laboratory.'
+      Present is defined as AD 1950) as calculated by the laboratory."
     title: Conventional Radiocarbon Age
     examples:
-      - value: '4500'
-      - value: '12345'
+      - value: "4500"
+      - value: "12345"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
       - c14:000002
@@ -334,7 +340,7 @@ slots:
     multivalued: false
   radiocarbonDateCollection__entries:
     name: radiocarbonDateCollection__entries
-    description: A list of multiple radiocarbon date measurements.
+    description: A list of multiple radiocarbon determinations.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slot_uri: c14:entries
     alias: entries
@@ -349,7 +355,7 @@ classes:
   RadiocarbonDate:
     name: RadiocarbonDate
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDate
-    description: A radiocarbon date measurement with associated metadata.
+    description: A radiocarbon determination with associated metadata.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slots:
       - lab_id
@@ -358,14 +364,14 @@ classes:
   RadiocarbonDateCollection:
     name: RadiocarbonDateCollection
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDateCollection
-    description: A collection of radiocarbon dates measurement with associated metadata.
+    description: A collection of radiocarbon determinations with associated metadata.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slots:
       - radiocarbonDateCollection__entries
     attributes:
       entries:
         name: entries
-        description: A list of multiple radiocarbon date measurements.
+        description: A list of multiple radiocarbon determinations.
         range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true
@@ -373,6 +379,6 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2025-12-02T15:02:03'
+source_file_date: "2025-12-02T15:02:03"
 source_file_size: 1738
-generation_date: '2025-12-02T15:04:31'
+generation_date: "2025-12-02T15:04:31"

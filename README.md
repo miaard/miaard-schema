@@ -2,7 +2,7 @@
 
 # miaard
 
-Minimum Information about any Radiocarbon Date
+Minimum Information about any Radiocarbon Determination
 
 ## Documentation Website
 
@@ -10,25 +10,25 @@ Minimum Information about any Radiocarbon Date
 
 ## Repository Structure
 
-* [docs/](docs/) - mkdocs-managed documentation
-  * [elements/](docs/elements/) - generated schema documentation
-* [examples/](examples/) - Examples of using the schema
-* [project/](project/) - project files (these files are auto-generated, do not edit)
-* [src/](src/) - source files (edit these)
-  * [c14](src/c14)
-    * [schema/](src/c14/schema) -- LinkML schema
+- [docs/](docs/) - mkdocs-managed documentation
+  - [elements/](docs/elements/) - generated schema documentation
+- [examples/](examples/) - Examples of using the schema
+- [project/](project/) - project files (these files are auto-generated, do not edit)
+- [src/](src/) - source files (edit these)
+  - [c14](src/c14)
+    - [schema/](src/c14/schema) -- LinkML schema
       (edit this)
-    * [datamodel/](src/c14/datamodel) -- generated
+    - [datamodel/](src/c14/datamodel) -- generated
       Python datamodel
-* [tests/](tests/) - Python tests
-  * [data/](tests/data) - Example data
+- [tests/](tests/) - Python tests
+  - [data/](tests/data) - Example data
 
 ## User Information
 
 To validate the schema you will need LinkML installed.
 
 As an example, you can see the contents of `examples/example-1.csv` of an example
-of a radiocarbon date collection that can be  validated against the schema.
+of a radiocarbon determination collection that can be validated against the schema.
 
 ```csv
 lab_id,conventional_age

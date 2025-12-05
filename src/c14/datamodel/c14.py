@@ -3,7 +3,7 @@
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
-# description: Minimum Information about any Radiocarbon Date
+# description: Minimum Information about any Radiocarbon Determination
 # license: MIT
 
 import re
@@ -36,7 +36,7 @@ DEFAULT_ = C14
 @dataclass(repr=False)
 class RadiocarbonDate(YAMLRoot):
     """
-    A radiocarbon date measurement with associated metadata.
+    A radiocarbon determination with associated metadata.
     """
 
     _inherited_slots: ClassVar[list[str]] = []
@@ -66,7 +66,7 @@ class RadiocarbonDate(YAMLRoot):
 @dataclass(repr=False)
 class RadiocarbonDateCollection(YAMLRoot):
     """
-    A collection of radiocarbon dates measurement with associated metadata.
+    A collection of radiocarbon determinations with associated metadata.
     """
 
     _inherited_slots: ClassVar[list[str]] = []
