@@ -697,6 +697,9 @@ slots:
     examples:
       - value: "982744"
       - value: "i238493"
+      - value: "9800507B"
+      - value: "-X-1045-13"
+      - value: "1415(a)"
     description: |-
       The unique identifier associated with a specific radiocarbon determination,
       without the radiocarbon laboratory identifier.
@@ -768,8 +771,14 @@ slots:
   sample_ids:
     title: Sample identifiers
     examples:
-      - value: ""
-      - value: ""
+      - value: "PES001"
+      - value: "PES001.B1010"
+      - value: "Des 207 d"
+      - value: "Grave 78"
+      - value: "Box 427; Exc. year 1926 (small)"
+      - value: "KrSp E1/2012/E1/3775"
+      - value: "Iceman"
+      - value: "Tumba XVIII"
     description: |-
       Any identifier associated with the sample under measurement
       (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).
@@ -782,8 +791,8 @@ slots:
   sample_material:
     title: Radiocarbon dating sample material
     examples:
-      - value: ""
-      - value: ""
+      - value: "UBERON:0002481"
+      - value: "ENVO:01000560"
     description: |-
       Material of the sample used to extract carbon used for radiocarbon dating measurements.
       Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENVO for other
@@ -797,7 +806,9 @@ slots:
   sample_taxon_id:
     title: Radiocarbon dating sample taxon
     examples:
-      - value: "9606"
+      - value: "NCBITAXON:9606"
+      - value: "gbif:2441105"
+      - value: "bold.taxonomy:786175"
     description: |-
       A taxonomic ID of the organism from which the sample used to extract carbon used for
       radiocarbon measurement originated. The taxonomic ID should come from an established
@@ -820,7 +831,6 @@ slots:
     slot_uri: c14:000009
     multivalued: false
     range: boolean
-    pattern: ""
     required: false
     recommended: false
   sample_taxon_scientific_name:
@@ -828,6 +838,9 @@ slots:
     examples:
       - value: "Mammathus primigenius"
       - value: "cf Mammathus"
+      - value: "Homo sapiens sapiens"
+      - value: "Capra sp."
+      - value: "Ulmus davidiana var. japonica"
     description: |-
       A scientific name of the taxon corresponding to the taxonomic ID, or when a
       taxonomic ID does not currently exist for the specific taxon.
@@ -840,8 +853,10 @@ slots:
   sample_anatomical_part:
     title: Anatomical part from which the sample is derived.
     examples:
-      - value: ""
-      - value: ""
+      - value: "UBERON:0000981"
+      - value: "PO:0009010"
+      - value: "BTO:0001411"
+      - value: "UBERON:3010209"
     description: |-
       Anatomical part from which the sample is derived.
     slot_uri: c14:000011
@@ -853,22 +868,27 @@ slots:
   suspected_sample_contamination:
     title: Suspected sample contamination.
     examples:
-      - value: ""
-      - value: ""
+      - value: "true"
+      - value: "false"
     description: |-
       Specify whether the sample has suspected contamination that may influence measurement
       (organic glue, consolidant, rootlets, embalming solution, staining etc.)
     slot_uri: c14:000012
     multivalued: false
     range: boolean
-    pattern: ""
     required: false
     recommended: true
   suspected_sample_contamination_description:
     title: Suspected sample contamination description
     examples:
-      - value: ""
-      - value: ""
+      - value: "glue"
+      - value: "organic glue made from horse"
+      - value: "staining"
+      - value: "bitumen"
+      - value: "rootlets"
+      - value: "Consolidant was applied to the skull to stabilise the bone."
+      - value: "Sample was preserved in a embalming solution containing formaldehyde and alcohol."
+
     description: |-
       If a sample has a suspected contamination (suspected_sample_contamination), provide a short
       description of the contamination.
@@ -881,23 +901,23 @@ slots:
   decimal_latitude:
     title: Decimal latitude
     examples:
-      - value: ""
-      - value: ""
+      - value: "51.34254"
+      - value: "51.75"
+      - value: "-13.163"
     description: |-
-      The geographic latitude (in decimal degrees, using the spatial reference system given in
-      dwc:geodeticDatum) of the geographic center of a dcterms:Location. Positive values are north
+      The geographic latitude (in decimal degrees, using the spatial reference system) of the geographic center of a dcterms:Location. Positive values are north
       of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.
     slot_uri: c14:000013
     multivalued: false
     range: float
-    pattern: ""
     required: true
     recommended: true
   decimal_longitude:
     title: Decimal longitude
     examples:
-      - value: ""
-      - value: ""
+      - value: "12.38067"
+      - value: "-1.24"
+      - value: "-72.545"
     description: |-
       The geographic longitude (in decimal degrees, using the spatial reference system) of the
       geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian,
@@ -905,21 +925,20 @@ slots:
     slot_uri: c14:000014
     multivalued: false
     range: float
-    pattern: ""
     required: true
     recommended: true
   coordinate_precision:
     title: Coordinate precision
     examples:
-      - value: ""
-      - value: ""
+      - value: "0.00005"
+      - value: "0.001"
+      - value: "0.0001"
     description: |-
       A decimal representation of the precision of the coordinates given in the decimal_latitude
       and decimal_longitude.
     slot_uri: c14:000015
     multivalued: false
     range: float
-    pattern: ""
     required: false
     recommended: true
   pretreatment_methods:

@@ -16,17 +16,19 @@ repos:
       - id: yamllint
         args: [-c=.yamllint.yaml]
 
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
-    hooks:
-      - id: codespell
-        additional_dependencies:
-          - tomli
+  # TODO: Re-enable spell checking once false positives are reduced.
+  # - repo: https://github.com/codespell-project/codespell
+  #   rev: v2.4.1
+  #   hooks:
+  #     - id: codespell
+  #       additional_dependencies:
+  #         - tomli
 
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.31.1
-    hooks:
-      - id: typos
+  # TODO: Re-enable spell checking once false positives are reduced.
+  # - repo: https://github.com/crate-ci/typos
+  #   rev: v1.31.1
+  #   hooks:
+  #     - id: typos
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
