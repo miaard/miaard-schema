@@ -633,6 +633,7 @@ classes:
       - f14c_error
       - conventional_age
       - conventional_age_error
+      - delta_13_c_calculation_method
       - sample_ids
       - sample_material
       - sample_taxon_id
@@ -652,18 +653,17 @@ classes:
       - sample_starting_weight
       - pretreatment_yield
       - pretreatment_percentage_yield
-      - carbon_perc
+      - carbon_proportion
       - delta_13_c
       - delta_13_c_error
       - delta_13_c_method
-      - delta_13_c_corr
       - suspected_reservoir_effect
-      - carb_nitro_ratio
-      - delta_15_n
-      - delta_15_n_error
-      - delta_34_s
-      - delta_34_s_error
-      - evidence_recrystal
+      - carbon_nitro_ratio # Proteinaceous module
+      - delta_15_n # Proteinaceous module
+      - delta_15_n_error # Proteinaceous module
+      - delta_34_s # Proteinaceous module
+      - delta_34_s_error # Proteinaceous module
+      - recrystalisation # Carbonate module
 
 settings:
   DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
@@ -769,6 +769,19 @@ slots:
     range: float
     pattern: ""
     required: true
+  delta_13_c_calculation_method:
+    title: Delta 13C age calculation method
+    examples:
+      - value: ""
+      - value: ""
+    description: |-
+      Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C, 
+      an alternative δ13C measurement method or an assumed δ13C
+    slot_uri: c14:000007
+    multivalued: false
+    range: Delta13CCalculationMethod
+    required: false
+    recommended: true
   sample_ids:
     title: Sample identifiers
     examples:
@@ -777,7 +790,7 @@ slots:
     description: |-
       Any identifier associated with the sample under measurement
       (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).
-    slot_uri: c14:000007
+    slot_uri: c14:000008
     multivalued: true
     range: string
     pattern: ""
@@ -791,7 +804,7 @@ slots:
       Material of the sample used to extract carbon used for radiocarbon dating measurements.
       Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENVO for other
       organic samples.
-    slot_uri: c14:000008
+    slot_uri: c14:000009
     multivalued: false
     range: string
     structured_pattern:
@@ -807,7 +820,7 @@ slots:
       A taxonomic ID of the organism from which the sample used to extract carbon used for
       radiocarbon measurement originated. The taxonomic ID should come from an established
       ontology or database.
-    slot_uri: c14:000009
+    slot_uri: c14:000010
     multivalued: true
     range: string
     structured_pattern:
@@ -824,7 +837,7 @@ slots:
       Specify the level of confidence of an exact taxon identification.
       If secure identification, indicate TRUE, if identification is unclear or
       uncertain specify FALSE.
-    slot_uri: c14:000010
+    slot_uri: c14:000011
     multivalued: false
     range: boolean
     required: true
@@ -836,7 +849,7 @@ slots:
     description: |-
       A scientific name of the taxon corresponding to the taxonomic ID, or when a
       taxonomic ID does not currently exist for the specific taxon.
-    slot_uri: c14:000011
+    slot_uri: c14:000012
     multivalued: false
     range: string
     pattern: ""
@@ -849,7 +862,7 @@ slots:
       - value: ""
     description: |-
       Anatomical part from which the sample is derived.
-    slot_uri: c14:000012
+    slot_uri: c14:000013
     multivalued: false
     range: string
     structured_pattern:
@@ -866,7 +879,7 @@ slots:
     description: |-
       Specify whether the sample has suspected contamination that may influence measurement
       (organic glue, consolidant, rootlets, embalming solution, staining etc.)
-    slot_uri: c14:000013
+    slot_uri: c14:000014
     multivalued: false
     range: boolean
     pattern: ""
@@ -880,7 +893,7 @@ slots:
     description: |-
       If a sample has a suspected contamination (suspected_sample_contamination), provide a short
       description of the contamination.
-    slot_uri: c14:000014
+    slot_uri: c14:000015
     multivalued: false
     range: string
     pattern: ""
@@ -893,7 +906,7 @@ slots:
       - value: ""
     description: |-
       Name of location from which the sample originated
-    slot_uri: c14:000015
+    slot_uri: c14:000016
     multivalued: false
     range: string
     pattern: ""
@@ -908,7 +921,7 @@ slots:
       The geographic latitude (in decimal degrees, using the spatial reference system given in
       dwc:geodeticDatum) of the geographic center of a dcterms:Location. Positive values are north
       of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.
-    slot_uri: c14:000016
+    slot_uri: c14:000017
     multivalued: false
     range: float
     minimum_value: -90
@@ -925,7 +938,7 @@ slots:
       The geographic longitude (in decimal degrees, using the spatial reference system) of the
       geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian,
       negative values are west of it. Legal values lie between -180 and 180, inclusive.
-    slot_uri: c14:000017
+    slot_uri: c14:000018
     multivalued: false
     range: float
     minimum_value: -90
@@ -941,7 +954,7 @@ slots:
     description: |-
       A decimal representation of the precision of the coordinates given in the decimal_latitude
       and decimal_longitude.
-    slot_uri: c14:000018
+    slot_uri: c14:000019
     multivalued: false
     range: float
     pattern: ""
@@ -960,7 +973,7 @@ slots:
       - value: "Unknown"
     description: |-
       Specify the types of general pretreatment methods applied for decontamination.
-    slot_uri: c14:000019
+    slot_uri: c14:000020
     multivalued: true
     range: PreTreatmentMethods
     required: true
@@ -971,7 +984,7 @@ slots:
       - value: ""
     description: |-
       Description of specific pretreatment method used for decontamination of sample prior determination.
-    slot_uri: c14:000020
+    slot_uri: c14:000021
     multivalued: false
     range: string
     pattern: ""
@@ -983,7 +996,7 @@ slots:
       - value: ""
     description: |-
       A DOI or URL to a publication describing the specific method of pretreatment applied.
-    slot_uri: c14:000021
+    slot_uri: c14:000022
     multivalued: true
     range: string
     structured_pattern:
@@ -999,7 +1012,7 @@ slots:
       - value: "PIMS"
     description: |-
       Type of measurement method the determination was made by.
-    slot_uri: c14:000022
+    slot_uri: c14:000023
     multivalued: false
     range: MeasurementMethod
     required: true
@@ -1010,7 +1023,7 @@ slots:
       - value: ""
     description: |-
       Amount of sample material used at beginning of  in measurement in mg.
-    slot_uri: c14:000023
+    slot_uri: c14:000024
     multivalued: false
     range: float
     pattern: ""
@@ -1022,7 +1035,7 @@ slots:
       - value: ""
     description: |-
       Amount of sample remaining after pretreatment in mg
-    slot_uri: c14:000024
+    slot_uri: c14:000025
     multivalued: false
     range: float
     pattern: ""
@@ -1034,7 +1047,7 @@ slots:
       - value: ""
     description: |-
       Ratio of weight after pretreatment to sample starting weight
-    slot_uri: c14:000025
+    slot_uri: c14:000026
     multivalued: false
     range: float
     minimum_value: 0
@@ -1042,15 +1055,15 @@ slots:
     pattern: ""
     required: false
     recommended: true
-  carbon_perc:
-    title: Carbon percentage
+  carbon_proportion:
+    title: Carbon proportion
     examples:
       - value: ""
       - value: ""
     description: |-
-      The percentage of carbon in a non-proteinaceous sample used for dating (such as charcoal),
+      Proportion of carbon in a non-proteinaceous sample used for dating (such as charcoal), 
       expressed as a value between 0 and 1. Used as a quality control measurement.
-    slot_uri: c14:000026
+    slot_uri: c14:000027
     multivalued: false
     range: float
     minimum_value: 0
@@ -1065,7 +1078,7 @@ slots:
     description: |-
       The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope
       13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.
-    slot_uri: c14:000027
+    slot_uri: c14:000028
     multivalued: false
     range: float
     miminum_value: -1000
@@ -1081,9 +1094,11 @@ slots:
     description: |-
       The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation.
       Used as a quality control measurement.
-    slot_uri: c14:000028
+    slot_uri: c14:000029
     multivalued: false
     range: float
+    minimum_value: 0
+    maximum_value: 1000
     pattern: ""
     required: false
     recommended: true
@@ -1095,23 +1110,9 @@ slots:
     description: |-
       Which spectrophotometry method was used to measure the delta carbon-13 value,
       either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
-    slot_uri: c14:000029
-    multivalued: false
-    range: Delta13CMethod
-    pattern: ""
-    required: false
-    recommended: true
-  delta_13_c_corr:
-    title: Delta 13C age correction
-    examples:
-      - value: ""
-      - value: ""
-    description: |-
-      Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C, 
-      an alternative δ13C measurement method or an assumed δ13C.
     slot_uri: c14:000030
     multivalued: false
-    range: string
+    range: Delta13CMethod
     pattern: ""
     required: false
     recommended: true
@@ -1128,7 +1129,7 @@ slots:
     range: boolean
     pattern: ""
     required: true
-  carb_nitro_ratio:
+  carbon_nitro_ratio:
     title: Carbon to nitrogen ratio
     examples:
       - value: ""
@@ -1168,6 +1169,8 @@ slots:
     slot_uri: c14:000034
     multivalued: false
     range: float
+    minimum_value: 0
+    maximum_value: 1000
     pattern: ""
     required: false
     recommended: true
@@ -1182,6 +1185,8 @@ slots:
     slot_uri: c14:000035
     multivalued: false
     range: float
+    minimum_value: -1000
+    maximum_value: 1000
     pattern: ""
     required: false
     recommended: false
@@ -1196,10 +1201,12 @@ slots:
     slot_uri: c14:000036
     multivalued: false
     range: float
+    minimum_value: 0
+    maximum_value: 1000
     pattern: ""
     required: false
     recommended: false
-  evidence_recrystal:
+  recrystalisation:
     title: Evidence of recrystalisation
     examples:
       - value: ""
@@ -1210,5 +1217,4 @@ slots:
     multivalued: false
     range: boolean
     pattern: ""
-    required: false
-    recommended: true
+    required: true
