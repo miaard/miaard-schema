@@ -103,7 +103,7 @@ class RadiocarbonDate(ConfiguredBaseModel):
 
     lab_id: str = Field(
         default=...,
-        title="Laboratory Identifier of Determination",
+        title="Laboratory Identifier of Date Measurement",
         description="""The unique identifier assigned to the radiocarbon determination by the laboratory
 that performed the measurement including the lab specific suffix.""",
         json_schema_extra={
