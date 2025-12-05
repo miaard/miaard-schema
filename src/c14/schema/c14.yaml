@@ -748,7 +748,6 @@ slots:
     slot_uri: c14:000001
     multivalued: false
     range: LabCode
-    pattern: ""
     required: true
   lab_id:
     title: Radiocarbon determination identifier
@@ -779,7 +778,6 @@ slots:
     range: float
     minuimum_value: 0
     maximum_value: 1
-    pattern: ""
     required: true
   f14c_error:
     title: F14C radiocarbon error
@@ -793,7 +791,6 @@ slots:
     slot_uri: c14:000004
     multivalued: false
     range: float
-    pattern: ""
     required: true
   conventional_age:
     title: Conventional radiocarbon age
@@ -821,7 +818,6 @@ slots:
     slot_uri: c14:000006
     multivalued: false
     range: float
-    pattern: ""
     required: true
   delta_13_c_calculation_method:
     title: Delta 13C age calculation method
@@ -998,7 +994,6 @@ slots:
     range: float
     minimum_value: -90
     maximum_value: 90
-    pattern: ""
     required: false
     recommended: true
   decimal_longitude:
@@ -1016,7 +1011,6 @@ slots:
     range: float
     minimum_value: -90
     maximum_value: 90
-    pattern: ""
     required: false
     recommended: true
   coordinate_precision:
@@ -1099,7 +1093,6 @@ slots:
     slot_uri: c14:000024
     multivalued: false
     range: float
-    pattern: ""
     required: true
   pretreatment_yield:
     title: Weight after pretreatment
@@ -1111,7 +1104,6 @@ slots:
     slot_uri: c14:000025
     multivalued: false
     range: float
-    pattern: ""
     required: true
   pretreatment_percentage_yield:
     title: Percentage yield after pretreatment
@@ -1127,7 +1119,6 @@ slots:
     range: float
     minimum_value: 0
     maximum_value: 1
-    pattern: ""
     required: false
     recommended: true
   carbon_proportion:
@@ -1144,7 +1135,6 @@ slots:
     range: float
     minimum_value: 0
     maximum_value: 1
-    pattern: ""
     required: true
   delta_13_c:
     title: Delta 13C value
@@ -1160,7 +1150,6 @@ slots:
     range: float
     miminum_value: -1000
     maximum_value: 1000
-    pattern: ""
     required: false
     recommended: true
   delta_13_c_error:
@@ -1176,7 +1165,6 @@ slots:
     range: float
     minimum_value: 0
     maximum_value: 1000
-    pattern: ""
     required: false
     recommended: true
   delta_13_c_method:
@@ -1190,7 +1178,6 @@ slots:
     slot_uri: c14:000030
     multivalued: false
     range: Delta13CMethod
-    pattern: ""
     required: false
     recommended: true
   suspected_reservoir_effect:
@@ -1204,7 +1191,6 @@ slots:
     slot_uri: c14:000031
     multivalued: false
     range: boolean
-    pattern: ""
     required: true
   carbon_nitro_ratio:
     title: Carbon to nitrogen ratio
@@ -1217,7 +1203,6 @@ slots:
     slot_uri: c14:000032
     multivalued: false
     range: float
-    pattern: ""
     required: true
   delta_15_n:
     title: Delta 15N value
@@ -1233,7 +1218,6 @@ slots:
     range: float
     minimum_value: -1000
     maximum_value: 1000
-    pattern: ""
     required: false
     recommended: true
   delta_15_n_error:
@@ -1249,7 +1233,6 @@ slots:
     range: float
     minimum_value: 0
     maximum_value: 1000
-    pattern: ""
     required: false
     recommended: true
   delta_34_s:
@@ -1265,7 +1248,6 @@ slots:
     range: float
     minimum_value: -1000
     maximum_value: 1000
-    pattern: ""
     required: false
     recommended: false
   delta_34_s_error:
@@ -1281,7 +1263,6 @@ slots:
     range: float
     minimum_value: 0
     maximum_value: 1000
-    pattern: ""
     required: false
     recommended: false
   recrystalisation:
