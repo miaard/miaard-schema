@@ -663,15 +663,26 @@ enums:
         description: Hydrogen peroxide
       HUMIC:
         description: Base soluble fraction (normally preceeded by acid)
-    MeasurementMethod:
-      description:
-      permissible_values:
-        AMS:
-          description: ""
-        PIMS:
-          description: ""
-        Conventional:
-          description: ""
+  MeasurementMethod:
+    description: >-
+      Type of measurement method the determination was made by.
+    permissible_values:
+      AMS:
+        description: Accelerated Mass Spectrometer
+      PIMS:
+        description: Positive Ion Mass Spectrometer
+      Conventional:
+        description: Liquid scintillation or gas proportional 
+  Delta13CMeasurementMethod:
+    description: >-
+      Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
+    permissible_values:
+      AMS:
+        description: Accelerated Mass Spectrometer
+      IRMS:
+        description: Isotope Ratio Mass Spectrometer
+      CRDS:
+        description: Cavity Ring-Down Spectroscopy
 classes:
   RadiocarbonDate:
     description: >-
