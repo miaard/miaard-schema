@@ -18,6 +18,12 @@ default_range: string
 imports:
   - linkml:types
 
+subsets:
+  identifier:
+  sample:
+  measurement:
+  method:
+  quality control:
 enums:
   LabCodeId:
     description: >-
@@ -761,6 +767,7 @@ slots:
     required: true
     in_subset:
       - identifier
+      - measurement
   lab_id:
     title: Radiocarbon determination identifier
     examples:

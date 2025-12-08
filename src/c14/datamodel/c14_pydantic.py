@@ -103,6 +103,28 @@ linkml_meta = LinkMLMeta(
             },
         },
         "source_file": "src/c14/schema/c14.yaml",
+        "subsets": {
+            "identifier": {
+                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
+                "name": "identifier",
+            },
+            "measurement": {
+                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
+                "name": "measurement",
+            },
+            "method": {
+                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
+                "name": "method",
+            },
+            "quality control": {
+                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
+                "name": "quality control",
+            },
+            "sample": {
+                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
+                "name": "sample",
+            },
+        },
         "title": "miaard",
     }
 )
@@ -1456,6 +1478,7 @@ derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.""",
                     {"value": "Beta"},
                     {"value": "CN-XX"},
                 ],
+                "in_subset": ["identifier", "measurement"],
                 "slot_uri": "c14:000001",
             }
         },
@@ -1475,6 +1498,7 @@ without the radiocarbon laboratory identifier.""",
                     {"value": "-X-1045-13"},
                     {"value": "1415(a)"},
                 ],
+                "in_subset": ["identifier"],
                 "slot_uri": "c14:000002",
             }
         },
@@ -1489,6 +1513,7 @@ For older determinations, generally equivalent to \"percent modern\" (pMC, or pM
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "0.83756"}, {"value": "0.5371"}],
+                "in_subset": ["measurement"],
                 "slot_uri": "c14:000003",
             }
         },
@@ -1503,6 +1528,7 @@ Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "0.00434"}, {"value": "0.023843"}],
+                "in_subset": ["measurement"],
                 "slot_uri": "c14:000004",
             }
         },
@@ -1518,6 +1544,7 @@ Before Present (BP) notation.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "4500"}, {"value": "37330"}],
+                "in_subset": ["measurement"],
                 "slot_uri": "c14:000005",
             }
         },
@@ -1532,6 +1559,7 @@ Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "25"}, {"value": "620"}],
+                "in_subset": ["measurement"],
                 "slot_uri": "c14:000006",
             }
         },
@@ -1550,6 +1578,7 @@ an alternative δ13C measurement method or an assumed δ13C""",
                     {"value": "Assumed"},
                     {"value": "Other"},
                 ],
+                "in_subset": ["measurement"],
                 "recommended": True,
                 "slot_uri": "c14:000007",
             }
@@ -1573,6 +1602,7 @@ an alternative δ13C measurement method or an assumed δ13C""",
                     {"value": "Iceman"},
                     {"value": "Tumba XVIII"},
                 ],
+                "in_subset": ["sample"],
                 "slot_uri": "c14:000008",
             }
         },
@@ -1587,6 +1617,7 @@ organic samples.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "UBERON:0002481"}, {"value": "ENVO:01000560"}],
+                "in_subset": ["sample"],
                 "slot_uri": "c14:000009",
                 "structured_pattern": {
                     "interpolated": True,
@@ -1610,6 +1641,7 @@ ontology or database.""",
                     {"value": "gbif:2441105"},
                     {"value": "bold.taxonomy:786175"},
                 ],
+                "in_subset": ["sample"],
                 "slot_uri": "c14:000010",
                 "structured_pattern": {
                     "interpolated": True,
@@ -1629,6 +1661,7 @@ uncertain specify FALSE.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "true"}, {"value": "false"}],
+                "in_subset": ["sample"],
                 "slot_uri": "c14:000011",
             }
         },
@@ -1648,6 +1681,7 @@ taxonomic ID does not currently exist for the specific taxon.""",
                     {"value": "Capra sp."},
                     {"value": "Ulmus davidiana var. japonica"},
                 ],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000012",
             }
@@ -1666,6 +1700,7 @@ taxonomic ID does not currently exist for the specific taxon.""",
                     {"value": "BTO:0001411"},
                     {"value": "UBERON:3010209"},
                 ],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000013",
                 "structured_pattern": {
@@ -1685,6 +1720,7 @@ taxonomic ID does not currently exist for the specific taxon.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "true"}, {"value": "false"}],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000014",
             }
@@ -1713,6 +1749,7 @@ description of the contamination.""",
                         "containing formaldehyde and alcohol."
                     },
                 ],
+                "in_subset": ["sample"],
                 "recommended": False,
                 "slot_uri": "c14:000015",
             }
@@ -1726,6 +1763,7 @@ description of the contamination.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": ""}, {"value": ""}],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000016",
             }
@@ -1746,6 +1784,7 @@ of the Equator, negative values are south of it. Legal values lie between -90 an
                     {"value": "51.75"},
                     {"value": "-13.163"},
                 ],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000017",
             }
@@ -1767,6 +1806,7 @@ negative values are west of it. Legal values lie between -180 and 180, inclusive
                     {"value": "-1.24"},
                     {"value": "-72.545"},
                 ],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000018",
             }
@@ -1785,6 +1825,7 @@ and decimal_longitude.""",
                     {"value": "0.001"},
                     {"value": "0.0001"},
                 ],
+                "in_subset": ["sample"],
                 "recommended": True,
                 "slot_uri": "c14:000019",
             }
@@ -1806,6 +1847,7 @@ and decimal_longitude.""",
                     {"value": "XAD"},
                     {"value": "U"},
                 ],
+                "in_subset": ["method"],
                 "slot_uri": "c14:000020",
             }
         },
@@ -1818,6 +1860,7 @@ and decimal_longitude.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "No pretreatment"}, {"value": ""}],
+                "in_subset": ["method"],
                 "slot_uri": "c14:000021",
             }
         },
@@ -1844,6 +1887,7 @@ and decimal_longitude.""",
                         "was treated with HCl, NaOH and HCl."
                     },
                 ],
+                "in_subset": ["method"],
                 "slot_uri": "c14:000022",
                 "structured_pattern": {
                     "interpolated": True,
@@ -1865,6 +1909,7 @@ and decimal_longitude.""",
                     {"value": "Conventional"},
                     {"value": "PIMS"},
                 ],
+                "in_subset": ["method"],
                 "slot_uri": "c14:000023",
             }
         },
@@ -1877,6 +1922,7 @@ and decimal_longitude.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "521"}, {"value": "56.7"}, {"value": "1"}],
+                "in_subset": ["quality control"],
                 "slot_uri": "c14:000024",
             }
         },
@@ -1889,6 +1935,7 @@ and decimal_longitude.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "22"}, {"value": "2.3"}],
+                "in_subset": ["quality control"],
                 "slot_uri": "c14:000025",
             }
         },
@@ -1908,6 +1955,7 @@ and decimal_longitude.""",
                     {"value": "0.015"},
                     {"value": "0.002"},
                 ],
+                "in_subset": ["quality control"],
                 "recommended": True,
                 "slot_uri": "c14:000026",
             }
@@ -1924,6 +1972,7 @@ expressed as a value between 0 and 1. Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "0.41"}, {"value": "0.12"}, {"value": "0.70"}],
+                "in_subset": ["quality control"],
                 "slot_uri": "c14:000027",
             }
         },
@@ -1939,6 +1988,7 @@ expressed as a value between 0 and 1. Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "-21.5"}, {"value": "-13.5"}, {"value": "1.2"}],
+                "in_subset": ["quality control"],
                 "recommended": True,
                 "slot_uri": "c14:000028",
             }
@@ -1955,6 +2005,7 @@ Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "0.1"}, {"value": "0.2"}],
+                "in_subset": ["quality control"],
                 "recommended": True,
                 "slot_uri": "c14:000029",
             }
@@ -1969,6 +2020,7 @@ either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrome
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "AMS"}, {"value": "IRMS"}],
+                "in_subset": ["quality control"],
                 "recommended": True,
                 "slot_uri": "c14:000030",
             }
@@ -1983,6 +2035,7 @@ should be accounted for in analysis.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "true"}, {"value": "false"}],
+                "in_subset": ["quality control"],
                 "slot_uri": "c14:000031",
             }
         },
@@ -1996,6 +2049,7 @@ proteinaceous samples for radiocarbon dating.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "3.2"}, {"value": "3.33"}],
+                "in_subset": ["quality control"],
                 "slot_uri": "c14:000032",
             }
         },
@@ -2011,6 +2065,7 @@ proteinaceous samples for radiocarbon dating.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "10.8"}, {"value": "5.1"}, {"value": "27.2"}],
+                "in_subset": ["quality control"],
                 "recommended": True,
                 "slot_uri": "c14:000033",
             }
@@ -2027,6 +2082,7 @@ Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "0.3"}, {"value": "0.12"}],
+                "in_subset": ["quality control"],
                 "recommended": True,
                 "slot_uri": "c14:000034",
             }
@@ -2043,6 +2099,7 @@ Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "18.4"}, {"value": "-5.2"}],
+                "in_subset": ["quality control"],
                 "recommended": False,
                 "slot_uri": "c14:000035",
             }
@@ -2059,6 +2116,7 @@ Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "0.4"}, {"value": "0.2"}],
+                "in_subset": ["quality control"],
                 "recommended": False,
                 "slot_uri": "c14:000036",
             }
@@ -2072,6 +2130,7 @@ Used as a quality control measurement.""",
             "linkml_meta": {
                 "domain_of": ["RadiocarbonDate"],
                 "examples": [{"value": "true"}, {"value": "false"}],
+                "in_subset": ["quality control"],
                 "slot_uri": "c14:000037",
             }
         },

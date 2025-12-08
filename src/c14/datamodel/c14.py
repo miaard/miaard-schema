@@ -1,5 +1,5 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-05T15:27:10
+# Generation date: 2025-12-08T09:42:20
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
