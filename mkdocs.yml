@@ -1,5 +1,5 @@
 ---
-site_name: "Minimum Information about any Radiocarbon Date (MIaaRD)"
+site_name: "Minimum Information about any Radiocarbon Dertermination (MIaaRD)"
 theme:
   name: material
   # palette:
@@ -36,7 +36,6 @@ exclude_docs: |
 
 site_url: https://MIxS-MInAS.github.io/miaard
 repo_url: https://github.com/MIxS-MInAS/miaard
-
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.
 # extra:

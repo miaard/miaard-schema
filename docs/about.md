@@ -1,3 +1,3 @@
 # About miaard
 
-Minimum Information about any Radiocarbon Date
+Minimum Information about any Radiocarbon Determination
