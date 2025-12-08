@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: Laboratory Identifier of Date Measurement (lab_id) - Minimum Information about any Radiocarbon Date (MIaaRD)</title>
+        <title>Slot: Radiocarbon determination identifier (lab_id) - Minimum Information about any Radiocarbon Dertermination (MIaaRD)</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-laboratory-identifier-of-date-measurement-lab_id" class="md-skip">
+        <a href="#slot-radiocarbon-determination-identifier-lab_id" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Minimum Information about any Radiocarbon Date (MIaaRD)" class="md-header__button md-logo" aria-label="Minimum Information about any Radiocarbon Date (MIaaRD)" data-md-component="logo">
+    <a href="../.." title="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" class="md-header__button md-logo" aria-label="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,13 +98,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Minimum Information about any Radiocarbon Date (MIaaRD)
+            Minimum Information about any Radiocarbon Dertermination (MIaaRD)
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: Laboratory Identifier of Date Measurement (lab_id)
+              Slot: Radiocarbon determination identifier (lab_id)
             
           </span>
         </div>
@@ -194,13 +194,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Minimum Information about any Radiocarbon Date (MIaaRD)" class="md-nav__button md-logo" aria-label="Minimum Information about any Radiocarbon Date (MIaaRD)" data-md-component="logo">
+    <a href="../.." title="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" class="md-nav__button md-logo" aria-label="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Minimum Information about any Radiocarbon Date (MIaaRD)
+    Minimum Information about any Radiocarbon Dertermination (MIaaRD)
   </label>
   
     <div class="md-nav__source">
@@ -427,10 +427,10 @@
   
 
 
-<h1 id="slot-laboratory-identifier-of-date-measurement-lab_id">Slot: Laboratory Identifier of Date Measurement (lab_id)</h1>
-<p><em>The unique identifier assigned to the radiocarbon date by the laboratory</em></p>
-<p><em>that performed the measurement including the lab specific suffix.</em></p>
-<p>URI: <a href="https://w3id.org/MIxS-MInAS/miaard/000001">c14:000001</a>
+<h1 id="slot-radiocarbon-determination-identifier-lab_id">Slot: Radiocarbon determination identifier (lab_id)</h1>
+<p><em>The unique identifier associated with a specific radiocarbon determination,</em></p>
+<p><em>without the radiocarbon laboratory identifier.</em></p>
+<p>URI: <a href="https://w3id.org/MIxS-MInAS/miaard/000002">c14:000002</a>
 Alias: lab_id</p>
 <!-- no inheritance hierarchy -->
 
@@ -446,7 +446,7 @@ Alias: lab_id</p>
 <tbody>
 <tr>
 <td><a href="../RadiocarbonDate/">RadiocarbonDate</a></td>
-<td>A radiocarbon date measurement with associated metadata</td>
+<td>A radiocarbon determination with associated metadata</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -459,9 +459,6 @@ Alias: lab_id</p>
 <li>
 <p>Required: True</p>
 </li>
-<li>
-<p>Regex pattern: <code>^[A-Za-z-]+ [0-9]+$</code></p>
-</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <table>
@@ -472,16 +469,19 @@ Alias: lab_id</p>
 </thead>
 <tbody>
 <tr>
-<td>A 0034</td>
+<td>982744</td>
 </tr>
 <tr>
-<td>AA 12345</td>
+<td>i238493</td>
 </tr>
 <tr>
-<td>Beta 987654</td>
+<td>9800507B</td>
 </tr>
 <tr>
-<td>CN-XX 1234</td>
+<td>-X-1045-13</td>
+</tr>
+<tr>
+<td>1415(a)</td>
 </tr>
 </tbody>
 </table>
@@ -501,7 +501,7 @@ Alias: lab_id</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>c14:000001</td>
+<td>c14:000002</td>
 </tr>
 <tr>
 <td>native</td>
@@ -513,25 +513,28 @@ Alias: lab_id</p>
 <details>
 
 <pre><code class="language-yaml">name: lab_id
-description: 'The unique identifier assigned to the radiocarbon date by the laboratory
+description: 'The unique identifier associated with a specific radiocarbon determination,
 
-  that performed the measurement including the lab specific suffix.'
-title: Laboratory Identifier of Date Measurement
+  without the radiocarbon laboratory identifier.'
+title: Radiocarbon determination identifier
 examples:
-- value: A 0034
-- value: AA 12345
-- value: Beta 987654
-- value: CN-XX 1234
+- value: '982744'
+- value: i238493
+- value: 9800507B
+- value: -X-1045-13
+- value: 1415(a)
+in_subset:
+- identifier
 from_schema: https://w3id.org/MIxS-MInAS/miaard
 rank: 1000
-slot_uri: c14:000001
+slot_uri: c14:000002
 alias: lab_id
 domain_of:
 - RadiocarbonDate
 range: string
 required: true
 multivalued: false
-pattern: ^[A-Za-z-]+ [0-9]+$
+pattern: ''
 
 </code></pre>
 

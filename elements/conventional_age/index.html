@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: Conventional Radiocarbon Age (conventional_age) - Minimum Information about any Radiocarbon Date (MIaaRD)</title>
+        <title>Slot: Conventional radiocarbon age (conventional_age) - Minimum Information about any Radiocarbon Dertermination (MIaaRD)</title>
       
     
     
@@ -84,7 +84,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Minimum Information about any Radiocarbon Date (MIaaRD)" class="md-header__button md-logo" aria-label="Minimum Information about any Radiocarbon Date (MIaaRD)" data-md-component="logo">
+    <a href="../.." title="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" class="md-header__button md-logo" aria-label="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,13 +98,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Minimum Information about any Radiocarbon Date (MIaaRD)
+            Minimum Information about any Radiocarbon Dertermination (MIaaRD)
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: Conventional Radiocarbon Age (conventional_age)
+              Slot: Conventional radiocarbon age (conventional_age)
             
           </span>
         </div>
@@ -194,13 +194,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Minimum Information about any Radiocarbon Date (MIaaRD)" class="md-nav__button md-logo" aria-label="Minimum Information about any Radiocarbon Date (MIaaRD)" data-md-component="logo">
+    <a href="../.." title="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" class="md-nav__button md-logo" aria-label="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Minimum Information about any Radiocarbon Date (MIaaRD)
+    Minimum Information about any Radiocarbon Dertermination (MIaaRD)
   </label>
   
     <div class="md-nav__source">
@@ -427,10 +427,12 @@
   
 
 
-<h1 id="slot-conventional-radiocarbon-age-conventional_age">Slot: Conventional Radiocarbon Age (conventional_age)</h1>
-<p><em>The conventional radiocarbon age in years BP (Before Present, where</em></p>
-<p><em>Present is defined as AD 1950) as calculated by the laboratory.</em></p>
-<p>URI: <a href="https://w3id.org/MIxS-MInAS/miaard/000002">c14:000002</a>
+<h1 id="slot-conventional-radiocarbon-age-conventional_age">Slot: Conventional radiocarbon age (conventional_age)</h1>
+<p><em>The uncalibrated age from the laboratory measurement. Also known as the</em></p>
+<p><em>conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., 14C year BP)</em></p>
+<p><em>NOT in AD/BC format. This is typically the 'raw' age reported by the radiocarbon lab, in</em></p>
+<p><em>Before Present (BP) notation.</em></p>
+<p>URI: <a href="https://w3id.org/MIxS-MInAS/miaard/000005">c14:000005</a>
 Alias: conventional_age</p>
 <!-- no inheritance hierarchy -->
 
@@ -446,7 +448,7 @@ Alias: conventional_age</p>
 <tbody>
 <tr>
 <td><a href="../RadiocarbonDate/">RadiocarbonDate</a></td>
-<td>A radiocarbon date measurement with associated metadata</td>
+<td>A radiocarbon determination with associated metadata</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -454,7 +456,7 @@ Alias: conventional_age</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Integer/">Integer</a></p>
+<p>Range: <a href="../Float/">Float</a></p>
 </li>
 <li>
 <p>Required: True</p>
@@ -472,7 +474,7 @@ Alias: conventional_age</p>
 <td>4500</td>
 </tr>
 <tr>
-<td>12345</td>
+<td>37330</td>
 </tr>
 </tbody>
 </table>
@@ -492,7 +494,7 @@ Alias: conventional_age</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>c14:000002</td>
+<td>c14:000005</td>
 </tr>
 <tr>
 <td>native</td>
@@ -504,20 +506,29 @@ Alias: conventional_age</p>
 <details>
 
 <pre><code class="language-yaml">name: conventional_age
-description: 'The conventional radiocarbon age in years BP (Before Present, where
+description: 'The uncalibrated age from the laboratory measurement. Also known as
+  the
 
-  Present is defined as AD 1950) as calculated by the laboratory.'
-title: Conventional Radiocarbon Age
+  conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., 14C
+  year BP)
+
+  NOT in AD/BC format. This is typically the ''raw'' age reported by the radiocarbon
+  lab, in
+
+  Before Present (BP) notation.'
+title: Conventional radiocarbon age
 examples:
 - value: '4500'
-- value: '12345'
+- value: '37330'
+in_subset:
+- measurement
 from_schema: https://w3id.org/MIxS-MInAS/miaard
 rank: 1000
-slot_uri: c14:000002
+slot_uri: c14:000005
 alias: conventional_age
 domain_of:
 - RadiocarbonDate
-range: integer
+range: float
 required: true
 multivalued: false
 

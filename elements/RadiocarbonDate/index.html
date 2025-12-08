@@ -8,7 +8,7 @@
 <link href="https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDate/" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
-<title>Class: RadiocarbonDate - Minimum Information about any Radiocarbon Date (MIaaRD)</title>
+<title>Class: RadiocarbonDate - Minimum Information about any Radiocarbon Dertermination (MIaaRD)</title>
 <link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -31,7 +31,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Minimum Information about any Radiocarbon Date (MIaaRD)" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Minimum Information about any Radiocarbon Date (MIaaRD)">
+<a aria-label="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Minimum Information about any Radiocarbon Dertermination (MIaaRD)">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -41,7 +41,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Minimum Information about any Radiocarbon Date (MIaaRD)
+            Minimum Information about any Radiocarbon Dertermination (MIaaRD)
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -104,10 +104,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Minimum Information about any Radiocarbon Date (MIaaRD)" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Minimum Information about any Radiocarbon Date (MIaaRD)">
+<a aria-label="Minimum Information about any Radiocarbon Dertermination (MIaaRD)" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Minimum Information about any Radiocarbon Dertermination (MIaaRD)">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
 </a>
-    Minimum Information about any Radiocarbon Date (MIaaRD)
+    Minimum Information about any Radiocarbon Dertermination (MIaaRD)
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/MIxS-MInAS/miaard" title="Go to repository">
@@ -258,14 +258,129 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="class-radiocarbondate">Class: RadiocarbonDate</h1>
-<p><em>A radiocarbon date measurement with associated metadata.</em></p>
+<p><em>A radiocarbon determination with associated metadata.</em></p>
 <p>URI: <a href="https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDate">c14:RadiocarbonDate</a></p>
 <div class="mermaid"> classDiagram
     class RadiocarbonDate
     click RadiocarbonDate href "../RadiocarbonDate/"
+      RadiocarbonDate : carbon_nitro_ratio
+
+      RadiocarbonDate : carbon_proportion
+
       RadiocarbonDate : conventional_age
 
+      RadiocarbonDate : conventional_age_error
+
+      RadiocarbonDate : coordinate_precision
+
+      RadiocarbonDate : decimal_latitude
+
+      RadiocarbonDate : decimal_longitude
+
+      RadiocarbonDate : delta_13_c
+
+      RadiocarbonDate : delta_13_c_calculation_method
+
+
+
+
+
+        RadiocarbonDate --&gt; "0..1 _recommended_" Delta13CMeasurementMethod : delta_13_c_calculation_method
+        click Delta13CMeasurementMethod href "../Delta13CMeasurementMethod/"
+
+
+
+      RadiocarbonDate : delta_13_c_error
+
+      RadiocarbonDate : delta_13_c_method
+
+
+
+
+
+        RadiocarbonDate --&gt; "0..1 _recommended_" Delta13CMeasurementMethod : delta_13_c_method
+        click Delta13CMeasurementMethod href "../Delta13CMeasurementMethod/"
+
+
+
+      RadiocarbonDate : delta_15_n
+
+      RadiocarbonDate : delta_15_n_error
+
+      RadiocarbonDate : delta_34_s
+
+      RadiocarbonDate : delta_34_s_error
+
+      RadiocarbonDate : f14c
+
+      RadiocarbonDate : f14c_error
+
+      RadiocarbonDate : lab_code
+
+
+
+
+
+        RadiocarbonDate --&gt; "1" LabCodeId : lab_code
+        click LabCodeId href "../LabCodeId/"
+
+
+
       RadiocarbonDate : lab_id
+
+      RadiocarbonDate : measurement_method
+
+
+
+
+
+        RadiocarbonDate --&gt; "1" RadiocarbonMeasurementMethod : measurement_method
+        click RadiocarbonMeasurementMethod href "../RadiocarbonMeasurementMethod/"
+
+
+
+      RadiocarbonDate : pretreatment_method_description
+
+      RadiocarbonDate : pretreatment_method_protocol
+
+      RadiocarbonDate : pretreatment_methods
+
+
+
+
+
+        RadiocarbonDate --&gt; "1..*" PretreatmentMethods : pretreatment_methods
+        click PretreatmentMethods href "../PretreatmentMethods/"
+
+
+
+      RadiocarbonDate : pretreatment_percentage_yield
+
+      RadiocarbonDate : pretreatment_yield
+
+      RadiocarbonDate : recrystalisation
+
+      RadiocarbonDate : sample_anatomical_part
+
+      RadiocarbonDate : sample_ids
+
+      RadiocarbonDate : sample_location
+
+      RadiocarbonDate : sample_material
+
+      RadiocarbonDate : sample_starting_weight
+
+      RadiocarbonDate : sample_taxon_id
+
+      RadiocarbonDate : sample_taxon_id_confidence
+
+      RadiocarbonDate : sample_taxon_scientific_name
+
+      RadiocarbonDate : suspected_reservoir_effect
+
+      RadiocarbonDate : suspected_sample_contamination
+
+      RadiocarbonDate : suspected_sample_contamination_description
 
 
 </div>
@@ -282,15 +397,225 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../lab_code/">lab_code</a></td>
+<td>1 <br/> <a href="../LabCodeId/">LabCodeId</a></td>
+<td>Unique laboratory code designation of the institution that made the measureme...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../lab_id/">lab_id</a></td>
 <td>1 <br/> <a href="../String/">String</a></td>
-<td>The unique identifier assigned to the radiocarbon date by the laboratory</td>
+<td>The unique identifier associated with a specific radiocarbon determination,</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../f14c/">f14c</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>The F14C value from the laboratory measurement, i</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../f14c_error/">f14c_error</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>The 1-standard deviation uncertainty around the F14C (C14) measurement,</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../conventional_age/">conventional_age</a></td>
-<td>1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The conventional radiocarbon age in years BP (Before Present, where</td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>The uncalibrated age from the laboratory measurement</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../conventional_age_error/">conventional_age_error</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>The 1-standard deviation around the conventional radiocarbon age (C14) measur...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_13_c_calculation_method/">delta_13_c_calculation_method</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Delta13CMeasurementMethod/">Delta13CMeasurementMethod</a></td>
+<td>Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_ids/">sample_ids</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
+<td>Any identifier associated with the sample under measurement</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_material/">sample_material</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Material of the sample used to extract carbon used for radiocarbon dating mea...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_taxon_id/">sample_taxon_id</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
+<td>A taxonomic ID of the organism from which the sample used to extract carbon u...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_taxon_id_confidence/">sample_taxon_id_confidence</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Specify the level of confidence of an exact taxon identification</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_taxon_scientific_name/">sample_taxon_scientific_name</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../String/">String</a></td>
+<td>A scientific name of the taxon corresponding to the taxonomic ID, or when a</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_anatomical_part/">sample_anatomical_part</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../String/">String</a></td>
+<td>Anatomical part from which the sample is derived</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../suspected_sample_contamination/">suspected_sample_contamination</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Specify whether the sample has suspected contamination that may influence mea...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../suspected_sample_contamination_description/">suspected_sample_contamination_description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>If a sample has a suspected contamination (suspected_sample_contamination), p...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_location/">sample_location</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../String/">String</a></td>
+<td>Name of location from which the sample originated</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../decimal_latitude/">decimal_latitude</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>The geographic latitude (in decimal degrees, using the spatial reference syst...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../decimal_longitude/">decimal_longitude</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>The geographic longitude (in decimal degrees, using the spatial reference sys...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../coordinate_precision/">coordinate_precision</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>A decimal representation of the precision of the coordinates given in the dec...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../pretreatment_methods/">pretreatment_methods</a></td>
+<td>1..* <br/> <a href="../PretreatmentMethods/">PretreatmentMethods</a></td>
+<td>Specify the types of general pretreatment methods applied for decontamination</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../pretreatment_method_description/">pretreatment_method_description</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Description of specific pretreatment method used for decontamination of sampl...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../pretreatment_method_protocol/">pretreatment_method_protocol</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
+<td>A DOI or URL to a publication describing the specific method of pretreatment ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../measurement_method/">measurement_method</a></td>
+<td>1 <br/> <a href="../RadiocarbonMeasurementMethod/">RadiocarbonMeasurementMethod</a></td>
+<td>Type of measurement method the determination was made by</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_starting_weight/">sample_starting_weight</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>Amount of sample material used at beginning of  in measurement in mg</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../pretreatment_yield/">pretreatment_yield</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>Amount of sample remaining after pretreatment in mg</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../pretreatment_percentage_yield/">pretreatment_percentage_yield</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>Ratio of weight after pretreatment to sample starting weight</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../carbon_proportion/">carbon_proportion</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>Proportion of carbon in a non-proteinaceous sample used for dating (such as c...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_13_c/">delta_13_c</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>The delta carbon-13 value of the sample (δ13C), which is the ratio of the sta...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_13_c_error/">delta_13_c_error</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>The error associated with the delta carbon-13 (δ13C) value expressed (‰) nota...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_13_c_method/">delta_13_c_method</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Delta13CMeasurementMethod/">Delta13CMeasurementMethod</a></td>
+<td>Which spectrophotometry method was used to measure the delta carbon-13 value,</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../suspected_reservoir_effect/">suspected_reservoir_effect</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Specify whether there is a suspected carbon reservoir effect that</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../carbon_nitro_ratio/">carbon_nitro_ratio</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>Atomic ratio of carbon to nitrogen</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_15_n/">delta_15_n</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the s...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_15_n_error/">delta_15_n_error</a></td>
+<td>0..1 <em>recommended</em> <br/> <a href="../Float/">Float</a></td>
+<td>The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) no...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_34_s/">delta_34_s</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>The delta sulfur-34 value of the sample (δ34S), which is the ratio of the sta...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../delta_34_s_error/">delta_34_s_error</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>The error associated with the delta sulfur-34 (δ34S) value expressed (‰) nota...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../recrystalisation/">recrystalisation</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Sample shows evidence of recrystalisation which should be accounted for durin...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -343,34 +668,99 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: RadiocarbonDate
-description: A radiocarbon date measurement with associated metadata.
+description: A radiocarbon determination with associated metadata.
 from_schema: https://w3id.org/MIxS-MInAS/miaard
 slots:
+- lab_code
 - lab_id
+- f14c
+- f14c_error
 - conventional_age
+- conventional_age_error
+- delta_13_c_calculation_method
+- sample_ids
+- sample_material
+- sample_taxon_id
+- sample_taxon_id_confidence
+- sample_taxon_scientific_name
+- sample_anatomical_part
+- suspected_sample_contamination
+- suspected_sample_contamination_description
+- sample_location
+- decimal_latitude
+- decimal_longitude
+- coordinate_precision
+- pretreatment_methods
+- pretreatment_method_description
+- pretreatment_method_protocol
+- measurement_method
+- sample_starting_weight
+- pretreatment_yield
+- pretreatment_percentage_yield
+- carbon_proportion
+- delta_13_c
+- delta_13_c_error
+- delta_13_c_method
+- suspected_reservoir_effect
+- carbon_nitro_ratio
+- delta_15_n
+- delta_15_n_error
+- delta_34_s
+- delta_34_s_error
+- recrystalisation
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: RadiocarbonDate
-description: A radiocarbon date measurement with associated metadata.
+description: A radiocarbon determination with associated metadata.
 from_schema: https://w3id.org/MIxS-MInAS/miaard
 attributes:
-  lab_id:
-    name: lab_id
-    description: 'The unique identifier assigned to the radiocarbon date by the laboratory
+  lab_code:
+    name: lab_code
+    description: 'Unique laboratory code designation of the institution that made
+      the measurement.
 
-      that performed the measurement including the lab specific suffix.'
-    title: Laboratory Identifier of Date Measurement
+      This is the prefix used for each determination ID. The prefix should be
+
+      derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.'
+    title: Laboratory code designation
     examples:
-    - value: A 0034
-    - value: AA 12345
-    - value: Beta 987654
-    - value: CN-XX 1234
+    - value: OxA
+    - value: CAMS
+    - value: Beta
+    - value: CN-XX
+    in_subset:
+    - identifier
+    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     rank: 1000
     slot_uri: c14:000001
+    alias: lab_code
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: LabCodeId
+    required: true
+    multivalued: false
+  lab_id:
+    name: lab_id
+    description: 'The unique identifier associated with a specific radiocarbon determination,
+
+      without the radiocarbon laboratory identifier.'
+    title: Radiocarbon determination identifier
+    examples:
+    - value: '982744'
+    - value: i238493
+    - value: 9800507B
+    - value: -X-1045-13
+    - value: 1415(a)
+    in_subset:
+    - identifier
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000002
     alias: lab_id
     owner: RadiocarbonDate
     domain_of:
@@ -378,24 +768,869 @@ attributes:
     range: string
     required: true
     multivalued: false
-    pattern: ^[A-Za-z-]+ [0-9]+$
-  conventional_age:
-    name: conventional_age
-    description: 'The conventional radiocarbon age in years BP (Before Present, where
+    pattern: ''
+  f14c:
+    name: f14c
+    description: 'The F14C value from the laboratory measurement, i.e. the fraction
+      modern carbon.
 
-      Present is defined as AD 1950) as calculated by the laboratory.'
-    title: Conventional Radiocarbon Age
+      For older determinations, generally equivalent to "percent modern" (pMC, or
+      pM) divided by 100.'
     examples:
-    - value: '4500'
-    - value: '12345'
+    - value: '0.83756'
+    - value: '0.5371'
+    in_subset:
+    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     rank: 1000
-    slot_uri: c14:000002
+    slot_uri: c14:000003
+    alias: f14c
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1
+  f14c_error:
+    name: f14c_error
+    description: 'The 1-standard deviation uncertainty around the F14C (C14) measurement,
+
+      normally indicated as a ± after the main value. Must be in the same format.
+
+      Sometimes referred to as the "error" or "sigma" of the measurement.'
+    title: F14C radiocarbon error
+    examples:
+    - value: '0.00434'
+    - value: '0.023843'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000004
+    alias: f14c_error
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  conventional_age:
+    name: conventional_age
+    description: 'The uncalibrated age from the laboratory measurement. Also known
+      as the
+
+      conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e.,
+      14C year BP)
+
+      NOT in AD/BC format. This is typically the ''raw'' age reported by the radiocarbon
+      lab, in
+
+      Before Present (BP) notation.'
+    title: Conventional radiocarbon age
+    examples:
+    - value: '4500'
+    - value: '37330'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000005
     alias: conventional_age
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
-    range: integer
+    range: float
+    required: true
+    multivalued: false
+  conventional_age_error:
+    name: conventional_age_error
+    description: 'The 1-standard deviation around the conventional radiocarbon age
+      (C14) measurement,
+
+      normally indicated as a ± after the main age. Must be in the same format (i.e.
+      14C yr BP).
+
+      Sometimes referred to as the "error" or "sigma" of the measurement.'
+    title: Conventional radiocarbon age error
+    examples:
+    - value: '25'
+    - value: '620'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000006
+    alias: conventional_age_error
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  delta_13_c_calculation_method:
+    name: delta_13_c_calculation_method
+    description: 'Was the radiocarbon date calculated with an AMS derived δ13C, an
+      IRMS derived δ13C,
+
+      an alternative δ13C measurement method or an assumed δ13C'
+    title: Delta 13C age calculation method
+    examples:
+    - value: AMS
+    - value: IRMS
+    - value: Assumed
+    - value: Other
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000007
+    alias: delta_13_c_calculation_method
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: Delta13CMeasurementMethod
+    required: false
+    recommended: true
+    multivalued: false
+  sample_ids:
+    name: sample_ids
+    description: 'Any identifier associated with the sample under measurement
+
+      (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).'
+    title: Sample identifiers
+    examples:
+    - value: PES001
+    - value: PES001.B1010
+    - value: Des 207 d
+    - value: Grave 78
+    - value: Box 427; Exc. year 1926 (small)
+    - value: KrSp E1/2012/E1/3775
+    - value: Iceman
+    - value: Tumba XVIII
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000008
+    alias: sample_ids
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: true
+    multivalued: true
+    pattern: ''
+  sample_material:
+    name: sample_material
+    description: 'Material of the sample used to extract carbon used for radiocarbon
+      dating measurements.
+
+      Use ontology terms where possible, e.g. from UBERON for anatomical parts, or
+      ENVO for other
+
+      organic samples.'
+    title: Radiocarbon dating sample material
+    examples:
+    - value: UBERON:0002481
+    - value: ENVO:01000560
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000009
+    alias: sample_material
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: true
+    multivalued: false
+    structured_pattern:
+      syntax: ^{termID}$
+      interpolated: true
+      partial_match: false
+  sample_taxon_id:
+    name: sample_taxon_id
+    description: 'A taxonomic ID of the organism from which the sample used to extract
+      carbon used for
+
+      radiocarbon measurement originated. The taxonomic ID should come from an established
+
+      ontology or database.'
+    title: Radiocarbon dating sample taxon
+    examples:
+    - value: NCBITAXON:9606
+    - value: gbif:2441105
+    - value: bold.taxonomy:786175
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000010
+    alias: sample_taxon_id
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: true
+    multivalued: true
+    structured_pattern:
+      syntax: ^{termID}$
+      interpolated: true
+      partial_match: false
+  sample_taxon_id_confidence:
+    name: sample_taxon_id_confidence
+    description: 'Specify the level of confidence of an exact taxon identification.
+
+      If secure identification, indicate TRUE, if identification is unclear or
+
+      uncertain specify FALSE.'
+    title: Confidence of taxon assignment
+    examples:
+    - value: 'true'
+    - value: 'false'
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000011
+    alias: sample_taxon_id_confidence
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: boolean
+    required: true
+    multivalued: false
+  sample_taxon_scientific_name:
+    name: sample_taxon_scientific_name
+    description: 'A scientific name of the taxon corresponding to the taxonomic ID,
+      or when a
+
+      taxonomic ID does not currently exist for the specific taxon.'
+    title: Scientific name of the sample taxon
+    examples:
+    - value: Mammathus primigenius
+    - value: cf Mammathus
+    - value: Homo sapiens sapiens
+    - value: Capra sp.
+    - value: Ulmus davidiana var. japonica
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000012
+    alias: sample_taxon_scientific_name
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: false
+    recommended: true
+    multivalued: false
+    pattern: ''
+  sample_anatomical_part:
+    name: sample_anatomical_part
+    description: Anatomical part from which the sample is derived.
+    title: Anatomical part from which the sample is derived.
+    examples:
+    - value: UBERON:0000981
+    - value: PO:0009010
+    - value: BTO:0001411
+    - value: UBERON:3010209
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000013
+    alias: sample_anatomical_part
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: false
+    recommended: true
+    multivalued: false
+    structured_pattern:
+      syntax: ^{termID}$
+      interpolated: true
+      partial_match: false
+  suspected_sample_contamination:
+    name: suspected_sample_contamination
+    description: 'Specify whether the sample has suspected contamination that may
+      influence measurement
+
+      (organic glue, consolidant, rootlets, embalming solution, staining etc.)'
+    title: Suspected sample contamination.
+    examples:
+    - value: 'true'
+    - value: 'false'
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000014
+    alias: suspected_sample_contamination
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: boolean
+    required: false
+    recommended: true
+    multivalued: false
+  suspected_sample_contamination_description:
+    name: suspected_sample_contamination_description
+    description: 'If a sample has a suspected contamination (suspected_sample_contamination),
+      provide a short
+
+      description of the contamination.'
+    title: Suspected sample contamination description
+    examples:
+    - value: glue
+    - value: organic glue made from horse
+    - value: staining
+    - value: bitumen
+    - value: rootlets
+    - value: Consolidant was applied to the skull to stabilise the bone.
+    - value: Sample was preserved in a embalming solution containing formaldehyde
+        and alcohol.
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000015
+    alias: suspected_sample_contamination_description
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: false
+    recommended: false
+    multivalued: false
+    pattern: ''
+  sample_location:
+    name: sample_location
+    description: Name of location from which the sample originated
+    title: Sample location
+    examples:
+    - value: ''
+    - value: ''
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000016
+    alias: sample_location
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: false
+    recommended: true
+    multivalued: false
+    pattern: ''
+  decimal_latitude:
+    name: decimal_latitude
+    description: 'The geographic latitude (in decimal degrees, using the spatial reference
+      system) of the geographic center of a dcterms:Location. Positive values are
+      north
+
+      of the Equator, negative values are south of it. Legal values lie between -90
+      and 90, inclusive.'
+    title: Decimal latitude
+    examples:
+    - value: '51.34254'
+    - value: '51.75'
+    - value: '-13.163'
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000017
+    alias: decimal_latitude
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: -90
+    maximum_value: 90
+  decimal_longitude:
+    name: decimal_longitude
+    description: 'The geographic longitude (in decimal degrees, using the spatial
+      reference system) of the
+
+      geographic center of a dcterms:Location. Positive values are east of the Greenwich
+      Meridian,
+
+      negative values are west of it. Legal values lie between -180 and 180, inclusive.'
+    title: Decimal longitude
+    examples:
+    - value: '12.38067'
+    - value: '-1.24'
+    - value: '-72.545'
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000018
+    alias: decimal_longitude
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: -90
+    maximum_value: 90
+  coordinate_precision:
+    name: coordinate_precision
+    description: 'A decimal representation of the precision of the coordinates given
+      in the decimal_latitude
+
+      and decimal_longitude.'
+    title: Coordinate precision
+    examples:
+    - value: '0.00005'
+    - value: '0.001'
+    - value: '0.0001'
+    in_subset:
+    - sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000019
+    alias: coordinate_precision
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+  pretreatment_methods:
+    name: pretreatment_methods
+    description: Specify the types of general pretreatment methods applied for decontamination.
+    title: Radiocarbon pretreatment methods
+    examples:
+    - value: ABA
+    - value: A
+    - value: BABA
+    - value: Col
+    - value: UF_Col
+    - value: XAD
+    - value: U
+    in_subset:
+    - method
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000020
+    alias: pretreatment_methods
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: PretreatmentMethods
+    required: true
+    multivalued: true
+  pretreatment_method_description:
+    name: pretreatment_method_description
+    description: Description of specific pretreatment method used for decontamination
+      of sample prior determination.
+    title: Radiocarbon pretreatment method description
+    examples:
+    - value: No pretreatment
+    - value: ''
+    in_subset:
+    - method
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000021
+    alias: pretreatment_method_description
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: true
+    multivalued: false
+    pattern: ''
+  pretreatment_method_protocol:
+    name: pretreatment_method_protocol
+    description: A DOI or URL to a publication describing the specific method of pretreatment
+      applied.
+    title: Radiocarbon pretreatment method protocol
+    examples:
+    - value: Samples were pretreated following Brock et al. (2010). Briefly, bone
+        was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min,
+        RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20
+        hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa
+        MWCO)
+    - value: A dremel drill was used to remove visibly altered shell leaving dense
+        translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
+    in_subset:
+    - method
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000022
+    alias: pretreatment_method_protocol
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: string
+    required: true
+    multivalued: true
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}|{text}$
+      interpolated: true
+      partial_match: false
+  measurement_method:
+    name: measurement_method
+    description: Type of measurement method the determination was made by.
+    title: Radiocarbon measurement method
+    examples:
+    - value: AMS
+    - value: Conventional
+    - value: PIMS
+    in_subset:
+    - method
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000023
+    alias: measurement_method
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: RadiocarbonMeasurementMethod
+    required: true
+    multivalued: false
+  sample_starting_weight:
+    name: sample_starting_weight
+    description: Amount of sample material used at beginning of  in measurement in
+      mg.
+    title: Sample starting weight
+    examples:
+    - value: '521'
+    - value: '56.7'
+    - value: '1'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000024
+    alias: sample_starting_weight
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  pretreatment_yield:
+    name: pretreatment_yield
+    description: Amount of sample remaining after pretreatment in mg
+    title: Weight after pretreatment
+    examples:
+    - value: '22'
+    - value: '2.3'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000025
+    alias: pretreatment_yield
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  pretreatment_percentage_yield:
+    name: pretreatment_percentage_yield
+    description: Ratio of weight after pretreatment to sample starting weight
+    title: Percentage yield after pretreatment
+    examples:
+    - value: '012'
+    - value: '0.61'
+    - value: '0.015'
+    - value: '0.002'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000026
+    alias: pretreatment_percentage_yield
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1
+  carbon_proportion:
+    name: carbon_proportion
+    description: 'Proportion of carbon in a non-proteinaceous sample used for dating
+      (such as charcoal),
+
+      expressed as a value between 0 and 1. Used as a quality control measurement.'
+    title: Carbon proportion
+    examples:
+    - value: '0.41'
+    - value: '0.12'
+    - value: '0.70'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000027
+    alias: carbon_proportion
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1
+  delta_13_c:
+    name: delta_13_c
+    description: 'The delta carbon-13 value of the sample (δ13C), which is the ratio
+      of the stable isotope
+
+      13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.'
+    title: Delta 13C value
+    examples:
+    - value: '-21.5'
+    - value: '-13.5'
+    - value: '1.2'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000028
+    alias: delta_13_c
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: -1000
+    maximum_value: 1000
+  delta_13_c_error:
+    name: delta_13_c_error
+    description: 'The error associated with the delta carbon-13 (δ13C) value expressed
+      (‰) notation.
+
+      Used as a quality control measurement.'
+    title: Delta 13C error
+    examples:
+    - value: '0.1'
+    - value: '0.2'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000029
+    alias: delta_13_c_error
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1000
+  delta_13_c_method:
+    name: delta_13_c_method
+    description: 'Which spectrophotometry method was used to measure the delta carbon-13
+      value,
+
+      either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer
+      (AMS).'
+    title: Delta 13C measurement method
+    examples:
+    - value: AMS
+    - value: IRMS
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000030
+    alias: delta_13_c_method
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: Delta13CMeasurementMethod
+    required: false
+    recommended: true
+    multivalued: false
+  suspected_reservoir_effect:
+    name: suspected_reservoir_effect
+    description: 'Specify whether there is a suspected carbon reservoir effect that
+
+      should be accounted for in analysis.'
+    title: Suspected reservoir effect
+    examples:
+    - value: 'true'
+    - value: 'false'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000031
+    alias: suspected_reservoir_effect
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: boolean
+    required: true
+    multivalued: false
+  carbon_nitro_ratio:
+    name: carbon_nitro_ratio
+    description: 'Atomic ratio of carbon to nitrogen. Used for quality control value
+      in
+
+      proteinaceous samples for radiocarbon dating.'
+    title: Carbon to nitrogen ratio
+    examples:
+    - value: '3.2'
+    - value: '3.33'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000032
+    alias: carbon_nitro_ratio
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  delta_15_n:
+    name: delta_15_n
+    description: 'The delta nitrogen-15 value of the sample (δ15N), which is the ratio
+      of the stable isotope
+
+      15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.'
+    title: Delta 15N value
+    examples:
+    - value: '10.8'
+    - value: '5.1'
+    - value: '27.2'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000033
+    alias: delta_15_n
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: -1000
+    maximum_value: 1000
+  delta_15_n_error:
+    name: delta_15_n_error
+    description: 'The error associated with the delta nitrogen-15 (δ15N) value expressed
+      (‰) notation.
+
+      Used as a quality control measurement.'
+    title: Delta 15N error
+    examples:
+    - value: '0.3'
+    - value: '0.12'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000034
+    alias: delta_15_n_error
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1000
+  delta_34_s:
+    name: delta_34_s
+    description: 'The delta sulfur-34 value of the sample (δ34S), which is the ratio
+      of the stable isotope
+
+      34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.'
+    title: Delta 34S value
+    examples:
+    - value: '18.4'
+    - value: '-5.2'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000035
+    alias: delta_34_s
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: false
+    multivalued: false
+    minimum_value: -1000
+    maximum_value: 1000
+  delta_34_s_error:
+    name: delta_34_s_error
+    description: 'The error associated with the delta sulfur-34 (δ34S) value expressed
+      (‰) notation.
+
+      Used as a quality control measurement.'
+    title: Delta 34S error
+    examples:
+    - value: '0.4'
+    - value: '0.2'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000036
+    alias: delta_34_s_error
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: false
+    recommended: false
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1000
+  recrystalisation:
+    name: recrystalisation
+    description: Sample shows evidence of recrystalisation which should be accounted
+      for during analysis.
+    title: Evidence of recrystalisation
+    examples:
+    - value: 'true'
+    - value: 'false'
+    in_subset:
+    - quality control
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000037
+    alias: recrystalisation
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: boolean
     required: true
     multivalued: false
 
