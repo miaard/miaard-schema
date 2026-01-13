@@ -20,10 +20,20 @@ imports:
 
 subsets:
   identifier:
+    title: Identifier
+    description: Unique identifier(s) of the radiocarbon determination
   sample:
+    title: Sample
+    description: Details of the physical sample used
   measurement:
+    title: Measurement
+    description: Measurements indicating the age of the sample
   method:
-  quality control:
+    title: Method
+    description: Details of the laboratory methods used
+  quality_control:
+    title: Quality control
+    description: Additional measurements used to assess the quality of the determination
 enums:
   LabCodeId:
     description: >-
@@ -1159,7 +1169,7 @@ slots:
     range: float
     required: true
     in_subset:
-      - quality control
+      - quality_control
   pretreatment_yield:
     title: Weight after pretreatment
     examples:
@@ -1172,7 +1182,7 @@ slots:
     range: float
     required: true
     in_subset:
-      - quality control
+      - quality_control
   pretreatment_percentage_yield:
     title: Percentage yield after pretreatment
     examples:
@@ -1190,7 +1200,7 @@ slots:
     required: false
     recommended: true
     in_subset:
-      - quality control
+      - quality_control
   carbon_proportion:
     title: Carbon proportion
     examples:
@@ -1207,7 +1217,7 @@ slots:
     maximum_value: 1
     required: true
     in_subset:
-      - quality control
+      - quality_control
   delta_13_c:
     title: Delta 13C value
     examples:
@@ -1225,7 +1235,7 @@ slots:
     required: false
     recommended: true
     in_subset:
-      - quality control
+      - quality_control
   delta_13_c_error:
     title: Delta 13C error
     examples:
@@ -1242,7 +1252,7 @@ slots:
     required: false
     recommended: true
     in_subset:
-      - quality control
+      - quality_control
   delta_13_c_method:
     title: Delta 13C measurement method
     examples:
@@ -1257,7 +1267,7 @@ slots:
     required: false
     recommended: true
     in_subset:
-      - quality control
+      - quality_control
   suspected_reservoir_effect:
     title: Suspected reservoir effect
     examples:
@@ -1271,7 +1281,7 @@ slots:
     range: boolean
     required: true
     in_subset:
-      - quality control
+      - quality_control
   carbon_nitro_ratio:
     title: Carbon to nitrogen ratio
     examples:
@@ -1285,7 +1295,7 @@ slots:
     range: float
     required: true
     in_subset:
-      - quality control
+      - quality_control
   delta_15_n:
     title: Delta 15N value
     examples:
@@ -1303,7 +1313,7 @@ slots:
     required: false
     recommended: true
     in_subset:
-      - quality control
+      - quality_control
   delta_15_n_error:
     title: Delta 15N error
     examples:
@@ -1320,7 +1330,7 @@ slots:
     required: false
     recommended: true
     in_subset:
-      - quality control
+      - quality_control
   delta_34_s:
     title: Delta 34S value
     examples:
@@ -1337,7 +1347,7 @@ slots:
     required: false
     recommended: false
     in_subset:
-      - quality control
+      - quality_control
   delta_34_s_error:
     title: Delta 34S error
     examples:
@@ -1354,7 +1364,7 @@ slots:
     required: false
     recommended: false
     in_subset:
-      - quality control
+      - quality_control
   recrystalisation:
     title: Evidence of recrystalisation
     examples:
@@ -1367,4 +1377,4 @@ slots:
     range: boolean
     required: true
     in_subset:
-      - quality control
+      - quality_control
