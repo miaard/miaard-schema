@@ -1,5 +1,5 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-13T13:39:06
+# Generation date: 2026-01-13T13:45:16
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
@@ -307,45 +307,6 @@ class RadiocarbonDateCollection(YAMLRoot):
 
 
 # Enumerations
-class RadiocarbonMeasurementMethod(EnumDefinitionImpl):
-    """
-    Method used to obtain the radiocarbon determination.
-    """
-    AMS = PermissibleValue(
-        text="AMS",
-        description="Accelerator Mass Spectrometry")
-    PIMS = PermissibleValue(
-        text="PIMS",
-        description="Positive Ion Mass Spectrometry")
-    Conventional = PermissibleValue(
-        text="Conventional",
-        description="""Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)""")
-
-    _defn = EnumDefinition(
-        name="RadiocarbonMeasurementMethod",
-        description="Method used to obtain the radiocarbon determination.",
-    )
-
-class Delta13CMeasurementMethod(EnumDefinitionImpl):
-    """
-    Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass
-    Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
-    """
-    AMS = PermissibleValue(
-        text="AMS",
-        description="Accelerated Mass Spectrometer")
-    IRMS = PermissibleValue(
-        text="IRMS",
-        description="Isotope Ratio Mass Spectrometer")
-    CRDS = PermissibleValue(
-        text="CRDS",
-        description="Cavity Ring-Down Spectroscopy")
-
-    _defn = EnumDefinition(
-        name="Delta13CMeasurementMethod",
-        description="""Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""",
-    )
-
 class LabCode(EnumDefinitionImpl):
     """
     Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.
@@ -1626,6 +1587,45 @@ class PretreatmentMethods(EnumDefinitionImpl):
             PermissibleValue(
                 text="ABOx-SC",
                 description="Acid-base-oxidation-stepped combustion (ABOx-SC)"))
+
+class RadiocarbonMeasurementMethod(EnumDefinitionImpl):
+    """
+    Method used to obtain the radiocarbon determination.
+    """
+    AMS = PermissibleValue(
+        text="AMS",
+        description="Accelerator Mass Spectrometry")
+    PIMS = PermissibleValue(
+        text="PIMS",
+        description="Positive Ion Mass Spectrometry")
+    Conventional = PermissibleValue(
+        text="Conventional",
+        description="""Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)""")
+
+    _defn = EnumDefinition(
+        name="RadiocarbonMeasurementMethod",
+        description="Method used to obtain the radiocarbon determination.",
+    )
+
+class Delta13CMeasurementMethod(EnumDefinitionImpl):
+    """
+    Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass
+    Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
+    """
+    AMS = PermissibleValue(
+        text="AMS",
+        description="Accelerated Mass Spectrometer")
+    IRMS = PermissibleValue(
+        text="IRMS",
+        description="Isotope Ratio Mass Spectrometer")
+    CRDS = PermissibleValue(
+        text="CRDS",
+        description="Cavity Ring-Down Spectroscopy")
+
+    _defn = EnumDefinition(
+        name="Delta13CMeasurementMethod",
+        description="""Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""",
+    )
 
 # Slots
 class slots:

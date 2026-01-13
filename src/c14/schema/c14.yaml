@@ -19,27 +19,8 @@ imports:
   - linkml:types
   - enums/lab_codes
   - enums/pretreatment_methods
-
-enums:
-  RadiocarbonMeasurementMethod:
-    description: Method used to obtain the radiocarbon determination.
-    permissible_values:
-      AMS:
-        description: "Accelerator Mass Spectrometry"
-      PIMS:
-        description: "Positive Ion Mass Spectrometry"
-      Conventional:
-        description: "Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)"
-  Delta13CMeasurementMethod:
-    description: >-
-      Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
-    permissible_values:
-      AMS:
-        description: Accelerated Mass Spectrometer
-      IRMS:
-        description: Isotope Ratio Mass Spectrometer
-      CRDS:
-        description: Cavity Ring-Down Spectroscopy
+  - enums/radiocarbon_measurement_methods
+  - enums/delta13c_measurement_methods
 
 settings:
   DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$

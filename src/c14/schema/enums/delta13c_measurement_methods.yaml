@@ -1,0 +1,27 @@
+id: https://w3id.org/MIxS-MInAS/miaard/delta13c_measurement_methods
+name: lab_code
+title: MIAARD delta 13C measurement methods
+description: |-
+  Enumeration of delta 13C isotope  measurement methods. Part of the MIAARD 
+  standard.
+license: MIT
+see_also:
+  - https://MIxS-MInAS.github.io/miaard
+
+prefixes:
+  c14: https://w3id.org/MIxS-MInAS/miaard/
+
+default_prefix: c14
+
+enums:
+  Delta13CMeasurementMethod:
+    description: >-
+      Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
+    permissible_values:
+      AMS:
+        description: Accelerated Mass Spectrometer
+      IRMS:
+        description: Isotope Ratio Mass Spectrometer
+      CRDS:
+        description: Cavity Ring-Down Spectroscopy
+
