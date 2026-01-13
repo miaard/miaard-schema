@@ -1,5 +1,5 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-13T13:33:07
+# Generation date: 2026-01-13T13:39:06
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
@@ -87,7 +87,7 @@ class RadiocarbonDate(YAMLRoot):
     class_name: ClassVar[str] = "RadiocarbonDate"
     class_model_uri: ClassVar[URIRef] = C14.RadiocarbonDate
 
-    lab_code: Union[str, "LabCodeId"] = None
+    lab_code: Union[str, "LabCode"] = None
     lab_id: str = None
     conventional_age: float = None
     conventional_age_error: float = None
@@ -128,8 +128,8 @@ class RadiocarbonDate(YAMLRoot):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.lab_code):
             self.MissingRequiredField("lab_code")
-        if not isinstance(self.lab_code, LabCodeId):
-            self.lab_code = LabCodeId(self.lab_code)
+        if not isinstance(self.lab_code, LabCode):
+            self.lab_code = LabCode(self.lab_code)
 
         if self._is_empty(self.lab_id):
             self.MissingRequiredField("lab_id")
@@ -307,77 +307,6 @@ class RadiocarbonDateCollection(YAMLRoot):
 
 
 # Enumerations
-class PretreatmentMethods(EnumDefinitionImpl):
-    """
-    Specify the types of general pretreatment methods applied for decontamination.
-    """
-    U = PermissibleValue(
-        text="U",
-        description="No chemical pretreatment")
-    Sol_W = PermissibleValue(
-        text="Sol_W",
-        description="Solvent wash")
-    A = PermissibleValue(
-        text="A",
-        description="Acid only")
-    ABA = PermissibleValue(
-        text="ABA",
-        description="Acid-base-acid (ABA or AAA)")
-    Col = PermissibleValue(
-        text="Col",
-        description="""Collagen (normally including deminieralisation wtih or without a base step, followed by gelatinisation and filtration, often called the 'Longin method')""")
-    UF_Col = PermissibleValue(
-        text="UF_Col",
-        description="""Ultrafiltered collagen (normally including demineralisation with or without a base step, followed by gelatinisation, filtration and ultrafiltration)""")
-    XAD = PermissibleValue(
-        text="XAD",
-        description="Amino acids purified by XAD-2 resin")
-    IE = PermissibleValue(
-        text="IE",
-        description="Amino acids purified by other ion exchange resin")
-    HYP = PermissibleValue(
-        text="HYP",
-        description="Hydroxyproline")
-    Other = PermissibleValue(
-        text="Other",
-        description="Other treatment not covered")
-    ABOx = PermissibleValue(
-        text="ABOx",
-        description="Acid-base-oxidation (ABOx, without the stepped combustion step)")
-    BABA = PermissibleValue(
-        text="BABA",
-        description="Base-Acid-Base-Acid")
-    Holo_Cel = PermissibleValue(
-        text="Holo_Cel",
-        description="Holocellulose (normally ABA followed by bleach)")
-    Alph_Cel = PermissibleValue(
-        text="Alph_Cel",
-        description="Alphacellulose (normally containing bleach followed by ABA)")
-    AE = PermissibleValue(
-        text="AE",
-        description="Acid etch")
-    Phys = PermissibleValue(
-        text="Phys",
-        description="Physical cleaning (surface abrasion)")
-    H2O2 = PermissibleValue(
-        text="H2O2",
-        description="Hydrogen peroxide")
-    HUMIC = PermissibleValue(
-        text="HUMIC",
-        description="Base soluble fraction (normally preceeded by acid)")
-
-    _defn = EnumDefinition(
-        name="PretreatmentMethods",
-        description="Specify the types of general pretreatment methods applied for decontamination.",
-    )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "ABOx-SC",
-            PermissibleValue(
-                text="ABOx-SC",
-                description="Acid-base-oxidation-stepped combustion (ABOx-SC)"))
-
 class RadiocarbonMeasurementMethod(EnumDefinitionImpl):
     """
     Method used to obtain the radiocarbon determination.
@@ -417,7 +346,7 @@ class Delta13CMeasurementMethod(EnumDefinitionImpl):
         description="""Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""",
     )
 
-class LabCodeId(EnumDefinitionImpl):
+class LabCode(EnumDefinitionImpl):
     """
     Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.
     """
@@ -1615,7 +1544,7 @@ class LabCodeId(EnumDefinitionImpl):
         description="Institute of Archaeology, Chinese Academy of Social Sciences (China)")
 
     _defn = EnumDefinition(
-        name="LabCodeId",
+        name="LabCode",
         description="""Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.""",
     )
 
@@ -1627,12 +1556,83 @@ class LabCodeId(EnumDefinitionImpl):
                 title="OR",
                 description="Research Center of Radioisotopes (Japan)"))
 
+class PretreatmentMethods(EnumDefinitionImpl):
+    """
+    Specify the types of general pretreatment methods applied for decontamination.
+    """
+    U = PermissibleValue(
+        text="U",
+        description="No chemical pretreatment")
+    Sol_W = PermissibleValue(
+        text="Sol_W",
+        description="Solvent wash")
+    A = PermissibleValue(
+        text="A",
+        description="Acid only")
+    ABA = PermissibleValue(
+        text="ABA",
+        description="Acid-base-acid (ABA or AAA)")
+    Col = PermissibleValue(
+        text="Col",
+        description="""Collagen (normally including deminieralisation wtih or without a base step, followed by gelatinisation and filtration, often called the 'Longin method')""")
+    UF_Col = PermissibleValue(
+        text="UF_Col",
+        description="""Ultrafiltered collagen (normally including demineralisation with or without a base step, followed by gelatinisation, filtration and ultrafiltration)""")
+    XAD = PermissibleValue(
+        text="XAD",
+        description="Amino acids purified by XAD-2 resin")
+    IE = PermissibleValue(
+        text="IE",
+        description="Amino acids purified by other ion exchange resin")
+    HYP = PermissibleValue(
+        text="HYP",
+        description="Hydroxyproline")
+    Other = PermissibleValue(
+        text="Other",
+        description="Other treatment not covered")
+    ABOx = PermissibleValue(
+        text="ABOx",
+        description="Acid-base-oxidation (ABOx, without the stepped combustion step)")
+    BABA = PermissibleValue(
+        text="BABA",
+        description="Base-Acid-Base-Acid")
+    Holo_Cel = PermissibleValue(
+        text="Holo_Cel",
+        description="Holocellulose (normally ABA followed by bleach)")
+    Alph_Cel = PermissibleValue(
+        text="Alph_Cel",
+        description="Alphacellulose (normally containing bleach followed by ABA)")
+    AE = PermissibleValue(
+        text="AE",
+        description="Acid etch")
+    Phys = PermissibleValue(
+        text="Phys",
+        description="Physical cleaning (surface abrasion)")
+    H2O2 = PermissibleValue(
+        text="H2O2",
+        description="Hydrogen peroxide")
+    HUMIC = PermissibleValue(
+        text="HUMIC",
+        description="Base soluble fraction (normally preceeded by acid)")
+
+    _defn = EnumDefinition(
+        name="PretreatmentMethods",
+        description="Specify the types of general pretreatment methods applied for decontamination.",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "ABOx-SC",
+            PermissibleValue(
+                text="ABOx-SC",
+                description="Acid-base-oxidation-stepped combustion (ABOx-SC)"))
+
 # Slots
 class slots:
     pass
 
 slots.lab_code = Slot(uri=C14['000001'], name="lab_code", curie=C14.curie('000001'),
-                   model_uri=C14.lab_code, domain=None, range=Union[str, "LabCodeId"])
+                   model_uri=C14.lab_code, domain=None, range=Union[str, "LabCode"])
 
 slots.lab_id = Slot(uri=C14['000002'], name="lab_id", curie=C14.curie('000002'),
                    model_uri=C14.lab_id, domain=None, range=str)
