@@ -124,12 +124,6 @@ classes:
       - delta_13_c_error
       - delta_13_c_method
       - suspected_reservoir_effect
-      - carbon_nitro_ratio # Proteinaceous module
-      - delta_15_n # Proteinaceous module
-      - delta_15_n_error # Proteinaceous module
-      - delta_34_s # Proteinaceous module
-      - delta_34_s_error # Proteinaceous module
-      - recrystalisation # Carbonate module
 
   RadiocarbonDateCollection:
     tree_root: true
@@ -141,6 +135,45 @@ classes:
         range: RadiocarbonDate
         multivalued: true
         inlined_as_list: true
+
+  Extension:
+    description: A collection of recommended metadata terms for a specific context
+
+  ProteinaceousSample:
+    description: Terms specific to proteinaceous samples being dated
+    title: Proteinaceous Sample
+    is_a: Extension
+    class_uri: c14:ProteinaceousSample
+    slots:
+      - carbon_nitro_ratio # Proteinaceous module
+      - delta_15_n # Proteinaceous module
+      - delta_15_n_error # Proteinaceous module
+      - delta_34_s # Proteinaceous module
+      - delta_34_s_error # Proteinaceous module
+
+  CarbonateSample:
+    description: Terms specific to carbonate samples being dated
+    title: Carbonate Sample
+    is_a: Extension
+    class_uri: c14:CarbonateSample
+    slots:
+      - recrystalisation # Carbonate module
+
+  RadiocarbonDateProteinaceousSample:
+    description: A radiocarbon determination on a proteinaceous sample
+    title: Radiocarbon Date (Proteinaceous Sample)
+    is_a: ProteinaceousSample
+    class_uri: c14:RadiocarbonDateProteinaceousSample
+    mixins:
+      - RadiocarbonDate
+
+  RadiocarbonDateCarbonateSample:
+    description: A radiocarbon determination on a carbonate sample
+    title: Radiocarbon Date (Carbonate Sample)
+    is_a: CarbonateSample
+    class_uri: c14:RadiocarbonDateCarbonateSample
+    mixins:
+      - RadiocarbonDate
 
 slots:
   lab_code:
