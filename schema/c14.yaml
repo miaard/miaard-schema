@@ -1417,53 +1417,6 @@ slots:
     required: true
     multivalued: false
     pattern: ''
-  f14c:
-    name: f14c
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c
-    description: 'The F14C value from the laboratory measurement, i.e. the fraction
-      modern carbon.
-
-      For older determinations, generally equivalent to "percent modern" (pMC, or
-      pM) divided by 100.'
-    examples:
-    - value: '0.83756'
-    - value: '0.5371'
-    in_subset:
-    - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    mappings:
-    - c14:000003
-    slot_uri: c14:000003
-    owner: RadiocarbonDate
-    domain_of:
-    - RadiocarbonDate
-    range: float
-    required: true
-    multivalued: false
-    minimum_value: 0
-    maximum_value: 1
-  f14c_error:
-    name: f14c_error
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c_error
-    description: "The 1-standard deviation uncertainty around the F14C (C14) measurement,\n\
-      normally indicated as a \xB1 after the main value. Must be in the same format.\n\
-      Sometimes referred to as the \"error\" or \"sigma\" of the measurement."
-    title: F14C radiocarbon error
-    examples:
-    - value: '0.00434'
-    - value: '0.023843'
-    in_subset:
-    - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    mappings:
-    - c14:000004
-    slot_uri: c14:000004
-    owner: RadiocarbonDate
-    domain_of:
-    - RadiocarbonDate
-    range: float
-    required: true
-    multivalued: false
   conventional_age:
     name: conventional_age
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age
@@ -1510,6 +1463,53 @@ slots:
     mappings:
     - c14:000006
     slot_uri: c14:000006
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  f14c:
+    name: f14c
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c
+    description: 'The F14C value from the laboratory measurement, i.e. the fraction
+      modern carbon.
+
+      For older determinations, generally equivalent to "percent modern" (pMC, or
+      pM) divided by 100.'
+    examples:
+    - value: '0.83756'
+    - value: '0.5371'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000003
+    slot_uri: c14:000003
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1
+  f14c_error:
+    name: f14c_error
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c_error
+    description: "The 1-standard deviation uncertainty around the F14C (C14) measurement,\n\
+      normally indicated as a \xB1 after the main value. Must be in the same format.\n\
+      Sometimes referred to as the \"error\" or \"sigma\" of the measurement."
+    title: F14C radiocarbon error
+    examples:
+    - value: '0.00434'
+    - value: '0.023843'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:000004
+    slot_uri: c14:000004
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
@@ -2323,10 +2323,10 @@ classes:
     slots:
     - lab_code
     - lab_id
-    - f14c
-    - f14c_error
     - conventional_age
     - conventional_age_error
+    - f14c
+    - f14c_error
     - delta_13_c_calculation_method
     - sample_ids
     - sample_material
@@ -2377,9 +2377,9 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2026-01-13T09:46:29'
+source_file_date: '2026-01-13T09:48:55'
 source_file_size: 46872
-generation_date: '2026-01-13T09:46:40'
+generation_date: '2026-01-13T09:49:04'
 settings:
   DOI:
     setting_key: DOI

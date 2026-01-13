@@ -409,18 +409,6 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../f14c/">f14c</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
-<td>The F14C value from the laboratory measurement, i</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../f14c_error/">f14c_error</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
-<td>The 1-standard deviation uncertainty around the F14C (C14) measurement,</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../conventional_age/">conventional_age</a></td>
 <td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The uncalibrated age from the laboratory measurement</td>
@@ -430,6 +418,18 @@
 <td><a href="../conventional_age_error/">conventional_age_error</a></td>
 <td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The 1-standard deviation around the conventional radiocarbon age (C14) measur...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../f14c/">f14c</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>The F14C value from the laboratory measurement, i</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../f14c_error/">f14c_error</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>The 1-standard deviation uncertainty around the F14C (C14) measurement,</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -673,10 +673,10 @@ from_schema: https://w3id.org/MIxS-MInAS/miaard
 slots:
 - lab_code
 - lab_id
-- f14c
-- f14c_error
 - conventional_age
 - conventional_age_error
+- f14c
+- f14c_error
 - delta_13_c_calculation_method
 - sample_ids
 - sample_material
@@ -769,53 +769,6 @@ attributes:
     required: true
     multivalued: false
     pattern: ''
-  f14c:
-    name: f14c
-    description: 'The F14C value from the laboratory measurement, i.e. the fraction
-      modern carbon.
-
-      For older determinations, generally equivalent to "percent modern" (pMC, or
-      pM) divided by 100.'
-    examples:
-    - value: '0.83756'
-    - value: '0.5371'
-    in_subset:
-    - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    rank: 1000
-    slot_uri: c14:000003
-    alias: f14c
-    owner: RadiocarbonDate
-    domain_of:
-    - RadiocarbonDate
-    range: float
-    required: true
-    multivalued: false
-    minimum_value: 0
-    maximum_value: 1
-  f14c_error:
-    name: f14c_error
-    description: 'The 1-standard deviation uncertainty around the F14C (C14) measurement,
-
-      normally indicated as a ± after the main value. Must be in the same format.
-
-      Sometimes referred to as the "error" or "sigma" of the measurement.'
-    title: F14C radiocarbon error
-    examples:
-    - value: '0.00434'
-    - value: '0.023843'
-    in_subset:
-    - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    rank: 1000
-    slot_uri: c14:000004
-    alias: f14c_error
-    owner: RadiocarbonDate
-    domain_of:
-    - RadiocarbonDate
-    range: float
-    required: true
-    multivalued: false
   conventional_age:
     name: conventional_age
     description: 'The uncalibrated age from the laboratory measurement. Also known
@@ -863,6 +816,53 @@ attributes:
     rank: 1000
     slot_uri: c14:000006
     alias: conventional_age_error
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+  f14c:
+    name: f14c
+    description: 'The F14C value from the laboratory measurement, i.e. the fraction
+      modern carbon.
+
+      For older determinations, generally equivalent to "percent modern" (pMC, or
+      pM) divided by 100.'
+    examples:
+    - value: '0.83756'
+    - value: '0.5371'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000003
+    alias: f14c
+    owner: RadiocarbonDate
+    domain_of:
+    - RadiocarbonDate
+    range: float
+    required: true
+    multivalued: false
+    minimum_value: 0
+    maximum_value: 1
+  f14c_error:
+    name: f14c_error
+    description: 'The 1-standard deviation uncertainty around the F14C (C14) measurement,
+
+      normally indicated as a ± after the main value. Must be in the same format.
+
+      Sometimes referred to as the "error" or "sigma" of the measurement.'
+    title: F14C radiocarbon error
+    examples:
+    - value: '0.00434'
+    - value: '0.023843'
+    in_subset:
+    - measurement
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    rank: 1000
+    slot_uri: c14:000004
+    alias: f14c_error
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
