@@ -175,6 +175,78 @@ classes:
     mixins:
       - RadiocarbonDate
 
+  ConventionalAgeRadiocarbonDateProteinaceousSample:
+    description: Conventional age radiocarbon date of a proteinaceous sample
+    title: Conventional age radiocarbon date (proteinaceous)
+    is_a: ProteinaceousSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:ConventionalAgeRadiocarbonDateProteinaceousSample
+    slot_usage:
+      f14c:
+        required: false
+        recommended: true
+      f14c_error:
+        required: false
+        recommended: true
+      conventional_age:
+        required: true
+        recommended: true
+      conventional_age_error:
+        required: true
+        recommended: true
+
+  ConventionalAgeRadiocarbonDateCarbonateSample:
+    description: Conventional age radiocarbon date of a carbonate sample
+    title: Conventional age radiocarbon date (carbonate)
+    is_a: CarbonateSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:ConventionalAgeRadiocarbonDateCarbonateSample
+    slot_usage:
+      f14c:
+        required: false
+      f14c_error:
+        required: false
+      conventional_age:
+        required: true
+      conventional_age_error:
+        required: true
+
+  F14CRadiocarbonDateProteinaceousSample:
+    description: F14C value radiocarbon date of a proteinaceous sample
+    title: F14C value radiocarbon date (proteinaceous)
+    is_a: ProteinaceousSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:F14CRadiocarbonDateProteinaceousSample
+    slot_usage:
+      f14c:
+        required: true
+      f14c_error:
+        required: true
+      conventional_age:
+        required: false
+      conventional_age_error:
+        required: false
+
+  F14CRadiocarbonDateCarbonateSample:
+    description: F14C value radiocarbon date of a carbonate sample
+    title: F14C value radiocarbon date (carbonate)
+    is_a: CarbonateSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:F14CRadiocarbonDateCarbonateSample
+    slot_usage:
+      f14c:
+        required: true
+      f14c_error:
+        required: true
+      conventional_age:
+        required: false
+      conventional_age_error:
+        required: false
+
 slots:
   lab_code:
     title: Laboratory code designation
@@ -222,7 +294,7 @@ slots:
     slot_uri: c14:000005
     multivalued: false
     range: float
-    required: true
+    required: false
     slot_group: "Measurement"
   conventional_age_error:
     title: Conventional radiocarbon age error
@@ -236,7 +308,8 @@ slots:
     slot_uri: c14:000006
     multivalued: false
     range: float
-    required: true
+    required: false
+    recommended: true
     slot_group: "Measurement"
   f14c:
     title:
@@ -251,7 +324,8 @@ slots:
     range: float
     minimum_value: 0
     maximum_value: 1
-    required: true
+    required: false
+    recommended: true
     slot_group: "Measurement"
   f14c_error:
     title: F14C radiocarbon error
@@ -265,7 +339,8 @@ slots:
     slot_uri: c14:000004
     multivalued: false
     range: float
-    required: true
+    required: false
+    recommended: true
     slot_group: "Measurement"
   delta_13_c_calculation_method:
     title: Delta 13C age calculation method
