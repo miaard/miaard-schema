@@ -52,7 +52,7 @@ jobs:
           echo "" >> linting-results.md
 
           # Run the linter and capture output (continue even if linter finds issues)
-          uv run linkml-lint --ignore-warnings -f markdown src/c14/schema/c14.yml > linting-results.md || true
+          uv run linkml-lint --ignore-warnings -f markdown src/c14/schema/c14.yaml > linting-results.md || true
 
           # Show results in the action log for immediate visibility
           echo "=== Linting Results ==="
