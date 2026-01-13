@@ -23,22 +23,32 @@ subsets:
   identifier:
     name: identifier
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/Identifier
+    description: Unique identifier(s) of the radiocarbon determination
+    title: Identifier
     from_schema: https://w3id.org/MIxS-MInAS/miaard
   sample:
     name: sample
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/Sample
+    description: Details of the physical sample used
+    title: Sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
   measurement:
     name: measurement
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/Measurement
+    description: Measurements indicating the age of the sample
+    title: Measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
   method:
     name: method
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/Method
+    description: Details of the laboratory methods used
+    title: Method
     from_schema: https://w3id.org/MIxS-MInAS/miaard
-  quality control:
-    name: quality control
+  quality_control:
+    name: quality_control
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/QualityControl
+    description: Additional measurements used to assess the quality of the determination
+    title: Quality control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
 types:
   string:
@@ -1979,7 +1989,7 @@ slots:
     - value: '56.7'
     - value: '1'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000024
@@ -1999,7 +2009,7 @@ slots:
     - value: '22'
     - value: '2.3'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000025
@@ -2021,7 +2031,7 @@ slots:
     - value: '0.015'
     - value: '0.002'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000026
@@ -2048,7 +2058,7 @@ slots:
     - value: '0.12'
     - value: '0.70'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000027
@@ -2073,7 +2083,7 @@ slots:
     - value: '-13.5'
     - value: '1.2'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000028
@@ -2097,7 +2107,7 @@ slots:
     - value: '0.1'
     - value: '0.2'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000029
@@ -2124,7 +2134,7 @@ slots:
     - value: AMS
     - value: IRMS
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000030
@@ -2147,7 +2157,7 @@ slots:
     - value: 'true'
     - value: 'false'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000031
@@ -2170,7 +2180,7 @@ slots:
     - value: '3.2'
     - value: '3.33'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000032
@@ -2193,7 +2203,7 @@ slots:
     - value: '5.1'
     - value: '27.2'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000033
@@ -2217,7 +2227,7 @@ slots:
     - value: '0.3'
     - value: '0.12'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000034
@@ -2242,7 +2252,7 @@ slots:
     - value: '18.4'
     - value: '-5.2'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000035
@@ -2266,7 +2276,7 @@ slots:
     - value: '0.4'
     - value: '0.2'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000036
@@ -2290,7 +2300,7 @@ slots:
     - value: 'true'
     - value: 'false'
     in_subset:
-    - quality control
+    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000037
@@ -2377,9 +2387,9 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2025-12-08T09:40:35'
-source_file_size: 46872
-generation_date: '2025-12-08T09:42:23'
+source_file_date: '2026-01-13T10:33:27'
+source_file_size: 47312
+generation_date: '2026-01-13T10:34:12'
 settings:
   DOI:
     setting_key: DOI
@@ -2393,3 +2403,4 @@ settings:
   termID:
     setting_key: termID
     setting_value: '[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'
+
