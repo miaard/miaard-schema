@@ -19,12 +19,6 @@ imports:
   - linkml:types
   - enums/lab_code_ids
 
-subsets:
-  identifier:
-  sample:
-  measurement:
-  method:
-  quality control:
 enums:
   PretreatmentMethods:
     description: >-
@@ -101,10 +95,10 @@ classes:
     slots:
       - lab_code
       - lab_id
-      - f14c
-      - f14c_error
       - conventional_age
       - conventional_age_error
+      - f14c
+      - f14c_error
       - delta_13_c_calculation_method
       - sample_ids
       - sample_material
@@ -164,9 +158,7 @@ slots:
     multivalued: false
     range: LabCodeId
     required: true
-    in_subset:
-      - identifier
-      - measurement
+    slot_group: "Identifier"
   lab_id:
     title: Radiocarbon determination identifier
     examples:
@@ -183,39 +175,7 @@ slots:
     range: string
     pattern: ""
     required: true
-    in_subset:
-      - identifier
-  f14c:
-    title:
-    examples:
-      - value: "0.83756"
-      - value: "0.5371"
-    description: |-
-      The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
-      For older determinations, generally equivalent to "percent modern" (pMC, or pM) divided by 100.
-    slot_uri: c14:000003
-    multivalued: false
-    range: float
-    minimum_value: 0
-    maximum_value: 1
-    required: true
-    in_subset:
-      - measurement
-  f14c_error:
-    title: F14C radiocarbon error
-    examples:
-      - value: "0.00434"
-      - value: "0.023843"
-    description: |-
-      The 1-standard deviation uncertainty around the F14C (C14) measurement,
-      normally indicated as a ± after the main value. Must be in the same format.
-      Sometimes referred to as the "error" or "sigma" of the measurement.
-    slot_uri: c14:000004
-    multivalued: false
-    range: float
-    required: true
-    in_subset:
-      - measurement
+    slot_group: "Identifier"
   conventional_age:
     title: Conventional radiocarbon age
     examples:
@@ -230,8 +190,7 @@ slots:
     multivalued: false
     range: float
     required: true
-    in_subset:
-      - measurement
+    slot_group: "Measurement"
   conventional_age_error:
     title: Conventional radiocarbon age error
     examples:
@@ -245,8 +204,36 @@ slots:
     multivalued: false
     range: float
     required: true
-    in_subset:
-      - measurement
+    slot_group: "Measurement"
+  f14c:
+    title:
+    examples:
+      - value: "0.83756"
+      - value: "0.5371"
+    description: |-
+      The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
+      For older determinations, generally equivalent to "percent modern" (pMC, or pM) divided by 100.
+    slot_uri: c14:000003
+    multivalued: false
+    range: float
+    minimum_value: 0
+    maximum_value: 1
+    required: true
+    slot_group: "Measurement"
+  f14c_error:
+    title: F14C radiocarbon error
+    examples:
+      - value: "0.00434"
+      - value: "0.023843"
+    description: |-
+      The 1-standard deviation uncertainty around the F14C (C14) measurement,
+      normally indicated as a ± after the main value. Must be in the same format.
+      Sometimes referred to as the "error" or "sigma" of the measurement.
+    slot_uri: c14:000004
+    multivalued: false
+    range: float
+    required: true
+    slot_group: "Measurement"
   delta_13_c_calculation_method:
     title: Delta 13C age calculation method
     examples:
@@ -262,8 +249,7 @@ slots:
     range: Delta13CMeasurementMethod
     required: false
     recommended: true
-    in_subset:
-      - measurement
+    slot_group: "Measurement"
   sample_ids:
     title: Sample identifiers
     examples:
@@ -283,8 +269,7 @@ slots:
     range: string
     pattern: ""
     required: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   sample_material:
     title: Radiocarbon dating sample material
     examples:
@@ -302,8 +287,7 @@ slots:
       interpolated: true
       partial_match: false
     required: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   sample_taxon_id:
     title: Radiocarbon dating sample taxon
     examples:
@@ -322,8 +306,7 @@ slots:
       interpolated: true
       partial_match: false
     required: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   sample_taxon_id_confidence:
     title: Confidence of taxon assignment
     examples:
@@ -337,8 +320,7 @@ slots:
     multivalued: false
     range: boolean
     required: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   sample_taxon_scientific_name:
     title: Scientific name of the sample taxon
     examples:
@@ -356,8 +338,7 @@ slots:
     pattern: ""
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   sample_anatomical_part:
     title: Anatomical part from which the sample is derived.
     examples:
@@ -376,8 +357,7 @@ slots:
       partial_match: false
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   suspected_sample_contamination:
     title: Suspected sample contamination.
     examples:
@@ -391,8 +371,7 @@ slots:
     range: boolean
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   suspected_sample_contamination_description:
     title: Suspected sample contamination description
     examples:
@@ -412,8 +391,7 @@ slots:
     pattern: ""
     required: false
     recommended: false
-    in_subset:
-      - sample
+    slot_group: "Sample"
   sample_location:
     title: Sample location
     examples:
@@ -427,8 +405,7 @@ slots:
     pattern: ""
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   decimal_latitude:
     title: Decimal latitude
     examples:
@@ -445,8 +422,7 @@ slots:
     maximum_value: 90
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   decimal_longitude:
     title: Decimal longitude
     examples:
@@ -464,8 +440,7 @@ slots:
     maximum_value: 90
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   coordinate_precision:
     title: Coordinate precision
     examples:
@@ -480,8 +455,7 @@ slots:
     range: float
     required: false
     recommended: true
-    in_subset:
-      - sample
+    slot_group: "Sample"
   pretreatment_methods:
     title: Radiocarbon pretreatment methods
     examples:
@@ -498,8 +472,7 @@ slots:
     multivalued: true
     range: PretreatmentMethods
     required: true
-    in_subset:
-      - method
+    slot_group: "Method"
   pretreatment_method_description:
     title: Radiocarbon pretreatment method description
     examples:
@@ -512,8 +485,7 @@ slots:
     range: string
     pattern: ""
     required: true
-    in_subset:
-      - method
+    slot_group: "Method"
   pretreatment_method_protocol:
     title: Radiocarbon pretreatment method protocol
     examples:
@@ -529,8 +501,7 @@ slots:
       interpolated: true
       partial_match: false
     required: true
-    in_subset:
-      - method
+    slot_group: "Method"
   measurement_method:
     title: Radiocarbon measurement method
     examples:
@@ -543,8 +514,7 @@ slots:
     multivalued: false
     range: RadiocarbonMeasurementMethod
     required: true
-    in_subset:
-      - method
+    slot_group: "Method"
   sample_starting_weight:
     title: Sample starting weight
     examples:
@@ -557,8 +527,7 @@ slots:
     multivalued: false
     range: float
     required: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   pretreatment_yield:
     title: Weight after pretreatment
     examples:
@@ -570,8 +539,7 @@ slots:
     multivalued: false
     range: float
     required: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   pretreatment_percentage_yield:
     title: Percentage yield after pretreatment
     examples:
@@ -588,8 +556,7 @@ slots:
     maximum_value: 1
     required: false
     recommended: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   carbon_proportion:
     title: Carbon proportion
     examples:
@@ -605,8 +572,7 @@ slots:
     minimum_value: 0
     maximum_value: 1
     required: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_13_c:
     title: Delta 13C value
     examples:
@@ -623,8 +589,7 @@ slots:
     maximum_value: 1000
     required: false
     recommended: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_13_c_error:
     title: Delta 13C error
     examples:
@@ -640,8 +605,7 @@ slots:
     maximum_value: 1000
     required: false
     recommended: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_13_c_method:
     title: Delta 13C measurement method
     examples:
@@ -655,8 +619,7 @@ slots:
     range: Delta13CMeasurementMethod
     required: false
     recommended: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   suspected_reservoir_effect:
     title: Suspected reservoir effect
     examples:
@@ -669,8 +632,7 @@ slots:
     multivalued: false
     range: boolean
     required: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   carbon_nitro_ratio:
     title: Carbon to nitrogen ratio
     examples:
@@ -683,8 +645,7 @@ slots:
     multivalued: false
     range: float
     required: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_15_n:
     title: Delta 15N value
     examples:
@@ -701,8 +662,7 @@ slots:
     maximum_value: 1000
     required: false
     recommended: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_15_n_error:
     title: Delta 15N error
     examples:
@@ -718,8 +678,7 @@ slots:
     maximum_value: 1000
     required: false
     recommended: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_34_s:
     title: Delta 34S value
     examples:
@@ -735,8 +694,7 @@ slots:
     maximum_value: 1000
     required: false
     recommended: false
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   delta_34_s_error:
     title: Delta 34S error
     examples:
@@ -752,8 +710,7 @@ slots:
     maximum_value: 1000
     required: false
     recommended: false
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
   recrystalisation:
     title: Evidence of recrystalisation
     examples:
@@ -765,5 +722,4 @@ slots:
     multivalued: false
     range: boolean
     required: true
-    in_subset:
-      - quality control
+    slot_group: "Quality control"
