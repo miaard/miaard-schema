@@ -206,12 +206,16 @@ classes:
     slot_usage:
       f14c:
         required: false
+        recommended: true
       f14c_error:
         required: false
+        recommended: true
       conventional_age:
         required: true
+        recommended: true
       conventional_age_error:
         required: true
+        recommended: true
 
   F14CRadiocarbonDateProteinaceousSample:
     description: F14C value radiocarbon date of a proteinaceous sample
@@ -223,12 +227,16 @@ classes:
     slot_usage:
       f14c:
         required: true
+        recommended: true
       f14c_error:
         required: true
+        recommended: true
       conventional_age:
         required: false
+        recommended: true
       conventional_age_error:
         required: false
+        recommended: true
 
   F14CRadiocarbonDateCarbonateSample:
     description: F14C value radiocarbon date of a carbonate sample
@@ -240,8 +248,10 @@ classes:
     slot_usage:
       f14c:
         required: true
+        recommended: true
       f14c_error:
         required: true
+        recommended: true
       conventional_age:
         required: false
       conventional_age_error:
@@ -295,6 +305,7 @@ slots:
     multivalued: false
     range: float
     required: false
+    recommended: true
     slot_group: "Measurement"
   conventional_age_error:
     title: Conventional radiocarbon age error
