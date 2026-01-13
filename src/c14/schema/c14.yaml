@@ -702,10 +702,10 @@ classes:
     slots:
       - lab_code
       - lab_id
-      - f14c
-      - f14c_error
       - conventional_age
       - conventional_age_error
+      - f14c
+      - f14c_error
       - delta_13_c_calculation_method
       - sample_ids
       - sample_material
@@ -786,37 +786,6 @@ slots:
     required: true
     in_subset:
       - identifier
-  f14c:
-    title:
-    examples:
-      - value: "0.83756"
-      - value: "0.5371"
-    description: |-
-      The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
-      For older determinations, generally equivalent to "percent modern" (pMC, or pM) divided by 100.
-    slot_uri: c14:000003
-    multivalued: false
-    range: float
-    minimum_value: 0
-    maximum_value: 1
-    required: true
-    in_subset:
-      - measurement
-  f14c_error:
-    title: F14C radiocarbon error
-    examples:
-      - value: "0.00434"
-      - value: "0.023843"
-    description: |-
-      The 1-standard deviation uncertainty around the F14C (C14) measurement,
-      normally indicated as a ± after the main value. Must be in the same format.
-      Sometimes referred to as the "error" or "sigma" of the measurement.
-    slot_uri: c14:000004
-    multivalued: false
-    range: float
-    required: true
-    in_subset:
-      - measurement
   conventional_age:
     title: Conventional radiocarbon age
     examples:
@@ -843,6 +812,37 @@ slots:
       normally indicated as a ± after the main age. Must be in the same format (i.e. 14C yr BP).
       Sometimes referred to as the "error" or "sigma" of the measurement.
     slot_uri: c14:000006
+    multivalued: false
+    range: float
+    required: true
+    in_subset:
+      - measurement
+  f14c:
+    title:
+    examples:
+      - value: "0.83756"
+      - value: "0.5371"
+    description: |-
+      The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
+      For older determinations, generally equivalent to "percent modern" (pMC, or pM) divided by 100.
+    slot_uri: c14:000003
+    multivalued: false
+    range: float
+    minimum_value: 0
+    maximum_value: 1
+    required: true
+    in_subset:
+      - measurement
+  f14c_error:
+    title: F14C radiocarbon error
+    examples:
+      - value: "0.00434"
+      - value: "0.023843"
+    description: |-
+      The 1-standard deviation uncertainty around the F14C (C14) measurement,
+      normally indicated as a ± after the main value. Must be in the same format.
+      Sometimes referred to as the "error" or "sigma" of the measurement.
+    slot_uri: c14:000004
     multivalued: false
     range: float
     required: true
