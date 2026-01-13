@@ -2,10 +2,10 @@ name: miaard
 description: Minimum Information about any Radiocarbon Determination
 title: miaard
 see_also:
-- https://MIxS-MInAS.github.io/miaard
+  - https://MIxS-MInAS.github.io/miaard
 id: https://w3id.org/MIxS-MInAS/miaard
 imports:
-- linkml:types
+  - linkml:types
 license: MIT
 prefixes:
   c14:
@@ -19,50 +19,19 @@ prefixes:
     prefix_reference: http://schema.org/
 default_prefix: c14
 default_range: string
-subsets:
-  identifier:
-    name: identifier
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Identifier
-    description: Unique identifier(s) of the radiocarbon determination
-    title: Identifier
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  sample:
-    name: sample
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Sample
-    description: Details of the physical sample used
-    title: Sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  measurement:
-    name: measurement
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Measurement
-    description: Measurements indicating the age of the sample
-    title: Measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  method:
-    name: method
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Method
-    description: Details of the laboratory methods used
-    title: Method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  quality_control:
-    name: quality_control
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/QualityControl
-    description: Additional measurements used to assess the quality of the determination
-    title: Quality control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
 types:
   string:
     name: string
     definition_uri: https://w3id.org/linkml/String
     description: A character string
     notes:
-    - In RDF serializations, a slot with range of string is treated as a literal or
-      type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
-      referenced with the lower case "string".
+      - In RDF serializations, a slot with range of string is treated as a literal or
+        type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
+        referenced with the lower case "string".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:Text
+      - schema:Text
     base: str
     uri: xsd:string
   integer:
@@ -70,12 +39,12 @@ types:
     definition_uri: https://w3id.org/linkml/Integer
     description: An integer
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "integer".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "integer".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:Integer
+      - schema:Integer
     base: int
     uri: xsd:integer
   boolean:
@@ -83,12 +52,12 @@ types:
     definition_uri: https://w3id.org/linkml/Boolean
     description: A binary (true or false) value
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "boolean".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "boolean".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:Boolean
+      - schema:Boolean
     base: Bool
     uri: xsd:boolean
     repr: bool
@@ -97,12 +66,12 @@ types:
     definition_uri: https://w3id.org/linkml/Float
     description: A real number that conforms to the xsd:float specification
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "float".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "float".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:Float
+      - schema:Float
     base: float
     uri: xsd:float
   double:
@@ -110,41 +79,43 @@ types:
     definition_uri: https://w3id.org/linkml/Double
     description: A real number that conforms to the xsd:double specification
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "double".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "double".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     close_mappings:
-    - schema:Float
+      - schema:Float
     base: float
     uri: xsd:double
   decimal:
     name: decimal
     definition_uri: https://w3id.org/linkml/Decimal
-    description: A real number with arbitrary precision that conforms to the xsd:decimal
+    description:
+      A real number with arbitrary precision that conforms to the xsd:decimal
       specification
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "decimal".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "decimal".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     broad_mappings:
-    - schema:Number
+      - schema:Number
     base: Decimal
     uri: xsd:decimal
   time:
     name: time
     definition_uri: https://w3id.org/linkml/Time
-    description: A time object represents a (local) time of day, independent of any
+    description:
+      A time object represents a (local) time of day, independent of any
       particular day
     notes:
-    - URI is dateTime because OWL reasoners do not work with straight date or time
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "time".
+      - URI is dateTime because OWL reasoners do not work with straight date or time
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "time".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:Time
+      - schema:Time
     base: XSDTime
     uri: xsd:time
     repr: str
@@ -153,13 +124,13 @@ types:
     definition_uri: https://w3id.org/linkml/Date
     description: a date (year, month and day) in an idealized calendar
     notes:
-    - URI is dateTime because OWL reasoners don't work with straight date or time
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "date".
+      - URI is dateTime because OWL reasoners don't work with straight date or time
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "date".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:Date
+      - schema:Date
     base: XSDDate
     uri: xsd:date
     repr: str
@@ -168,12 +139,12 @@ types:
     definition_uri: https://w3id.org/linkml/Datetime
     description: The combination of a date and time
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "datetime".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "datetime".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     exact_mappings:
-    - schema:DateTime
+      - schema:DateTime
     base: XSDDateTime
     uri: xsd:dateTime
     repr: str
@@ -182,8 +153,8 @@ types:
     definition_uri: https://w3id.org/linkml/DateOrDatetime
     description: Either a date or a datetime
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "date_or_datetime".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "date_or_datetime".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -194,8 +165,8 @@ types:
     definition_uri: https://w3id.org/linkml/Uriorcurie
     description: a URI or a CURIE
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "uriorcurie".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "uriorcurie".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: URIorCURIE
@@ -207,11 +178,11 @@ types:
     conforms_to: https://www.w3.org/TR/curie/
     description: a compact URI
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "curie".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "curie".
     comments:
-    - in RDF serializations this MUST be expanded to a URI
-    - in non-RDF serializations MAY be serialized as the compact representation
+      - in RDF serializations this MUST be expanded to a URI
+      - in non-RDF serializations MAY be serialized as the compact representation
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: Curie
@@ -223,16 +194,16 @@ types:
     conforms_to: https://www.ietf.org/rfc/rfc3987.txt
     description: a complete URI
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "uri".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "uri".
     comments:
-    - in RDF serializations a slot with range of uri is treated as a literal or type
-      xsd:anyURI unless it is an identifier or a reference to an identifier, in which
-      case it is translated directly to a node
+      - in RDF serializations a slot with range of uri is treated as a literal or type
+        xsd:anyURI unless it is an identifier or a reference to an identifier, in which
+        case it is translated directly to a node
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     close_mappings:
-    - schema:URL
+      - schema:URL
     base: URI
     uri: xsd:anyURI
     repr: str
@@ -241,8 +212,8 @@ types:
     definition_uri: https://w3id.org/linkml/Ncname
     description: Prefix part of CURIE
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "ncname".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "ncname".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: NCName
@@ -253,10 +224,10 @@ types:
     definition_uri: https://w3id.org/linkml/Objectidentifier
     description: A URI or CURIE that represents an object in the model.
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "objectidentifier".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "objectidentifier".
     comments:
-    - Used for inheritance and type checking
+      - Used for inheritance and type checking
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: ElementIdentifier
@@ -267,8 +238,8 @@ types:
     definition_uri: https://w3id.org/linkml/Nodeidentifier
     description: A URI, CURIE or BNODE that represents a node in a model.
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "nodeidentifier".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "nodeidentifier".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: NodeIdentifier
@@ -278,12 +249,13 @@ types:
     name: jsonpointer
     definition_uri: https://w3id.org/linkml/Jsonpointer
     conforms_to: https://datatracker.ietf.org/doc/html/rfc6901
-    description: A string encoding a JSON Pointer. The value of the string MUST conform
+    description:
+      A string encoding a JSON Pointer. The value of the string MUST conform
       to JSON Point syntax and SHOULD dereference to a valid object within the current
       instance document when encoded in tree form.
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "jsonpointer".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "jsonpointer".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -293,12 +265,13 @@ types:
     name: jsonpath
     definition_uri: https://w3id.org/linkml/Jsonpath
     conforms_to: https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html
-    description: A string encoding a JSON Path. The value of the string MUST conform
+    description:
+      A string encoding a JSON Path. The value of the string MUST conform
       to JSON Point syntax and SHOULD dereference to zero or more valid objects within
       the current instance document when encoded in tree form.
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "jsonpath".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "jsonpath".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -308,12 +281,13 @@ types:
     name: sparqlpath
     definition_uri: https://w3id.org/linkml/Sparqlpath
     conforms_to: https://www.w3.org/TR/sparql11-query/#propertypaths
-    description: A string encoding a SPARQL Property Path. The value of the string
+    description:
+      A string encoding a SPARQL Property Path. The value of the string
       MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
       within the current instance document when encoded as RDF.
     notes:
-    - If you are authoring schemas in LinkML YAML, the type is referenced with the
-      lower case "sparqlpath".
+      - If you are authoring schemas in LinkML YAML, the type is referenced with the
+        lower case "sparqlpath".
     from_schema: https://w3id.org/linkml/types
     imported_from: linkml:types
     base: str
@@ -323,25 +297,30 @@ enums:
   LabCodeId:
     name: LabCodeId
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/LabCodeId
-    description: Enumeration of unique laboratory code designations of institutions
+    description:
+      Enumeration of unique laboratory code designations of institutions
       that make radiocarbon measurements.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     permissible_values:
       A:
         text: A
-        description: Carbon-14 Age Determination Laboratory, University of Arizona
+        description:
+          Carbon-14 Age Determination Laboratory, University of Arizona
           (Arizona,USA, https://ams.arizona.edu/)
       AA:
         text: AA
-        description: Accelerator Mass Spectrometry Lab, University of Arizona (Arizona
+        description:
+          Accelerator Mass Spectrometry Lab, University of Arizona (Arizona
           (AMS),USA, https://ams.arizona.edu/)
       AAR:
         text: AAR
-        description: Aarhus AMS Centre, Aarhus University (Aarhus, Aarhus, Denmark,
+        description:
+          Aarhus AMS Centre, Aarhus University (Aarhus, Aarhus, Denmark,
           https://c14websub.au.dk/)
       AC:
         text: AC
-        description: INGEIS, University of Buenos Aires (INGEIS, Buenos Aires, Argentina,
+        description:
+          INGEIS, University of Buenos Aires (INGEIS, Buenos Aires, Argentina,
           http://www.ingeis.uba.ar/)
       AECV:
         text: AECV
@@ -363,15 +342,18 @@ enums:
         description: Antwerp (Antwerp, Belgium)
       ANU:
         text: ANU
-        description: ANU Radiocarbon Laboratory, Australian National University (ANU,
+        description:
+          ANU Radiocarbon Laboratory, Australian National University (ANU,
           Canberra, Australia, https://earthsciences.anu.edu.au/research/facilities/anu-radiocarbon-laboratory)
       ANUA:
         text: ANUA
-        description: ANU Radiocarbon Laboratory, Australian National University (AMS)
+        description:
+          ANU Radiocarbon Laboratory, Australian National University (AMS)
           (ANU (AMS), Canberra, Australia, https://earthsciences.anu.edu.au/research/facilities/anu-radiocarbon-laboratory)
       SANU:
         text: SANU
-        description: ANU Radiocarbon Laboratory, Australian National University (SSAMS)
+        description:
+          ANU Radiocarbon Laboratory, Australian National University (SSAMS)
           (ANU (SSAMS), Canberra, Australia, https://earthsciences.anu.edu.au/research/facilities/anu-radiocarbon-laboratory)
       AU:
         text: AU
@@ -381,15 +363,18 @@ enums:
         description: Ahmedabad (India)
       Aix:
         text: Aix
-        description: Centre de Recherche et d'Enseignement de Geosciences de l'Environment
+        description:
+          Centre de Recherche et d'Enseignement de Geosciences de l'Environment
           (CERAGE), Aix-en-Provence (France)
       BE:
         text: BE
-        description: Laboratory for the Analysis of Radiocarbon with AMS, University
+        description:
+          Laboratory for the Analysis of Radiocarbon with AMS, University
           of Bern (LARA Bern, Bern, Switzerland, https://www.14c.unibe.ch/)
       B:
         text: B
-        description: Radiocarbon Lab, Climate and Environmental Physics, University
+        description:
+          Radiocarbon Lab, Climate and Environmental Physics, University
           of Bern (Bern, Bern, Switzerland, https://www.climate.unibe.ch/services/services_of_cep/radiocarbon_dating/index_eng.html)
       BC:
         text: BC
@@ -435,7 +420,8 @@ enums:
         description: University College, Cardiff (Wales)
       CENA:
         text: CENA
-        description: "Centro Energia Nuclear na Agricultura, Universidade de S\xE3\
+        description:
+          "Centro Energia Nuclear na Agricultura, Universidade de S\xE3\
           o Paulo (S\xE3o Paulo, S\xE3o Paulo, Brazil)"
       CG:
         text: CG
@@ -454,7 +440,8 @@ enums:
         description: Centro Nacional de Aceleradores (Spain)
       CNL:
         text: CNL
-        description: Institute of Geology and Geophysics, Chinese Academy of Sciences
+        description:
+          Institute of Geology and Geophysics, Chinese Academy of Sciences
           (China)
       COL:
         text: COL
@@ -464,7 +451,8 @@ enums:
         description: Cairo (Cairo, Egypt)
       CRL:
         text: CRL
-        description: "Czech Radiocarbon Laboratory, Czech Academy of Sciences (\u0158\
+        description:
+          "Czech Radiocarbon Laboratory, Czech Academy of Sciences (\u0158\
           e\u017E, Czechia, https://www.ujf.cas.cz/en/our-services/Radiocarbon_laboratory/About_us/)"
       CSIC:
         text: CSIC
@@ -477,7 +465,8 @@ enums:
         description: Caltech, Calif. Inst. Tech. (USA)
       CU:
         text: CU
-        description: Department of Hydrology and Geology, Charles University (Prague,
+        description:
+          Department of Hydrology and Geology, Charles University (Prague,
           Czechia)
       D:
         text: D
@@ -487,7 +476,8 @@ enums:
         description: Direct AMS (USA)
       DAL:
         text: DAL
-        description: Radiocarbon Dating Laboratory, Dalhousie University (Dalhousie,
+        description:
+          Radiocarbon Dating Laboratory, Dalhousie University (Dalhousie,
           Halifax, Canada)
       DE:
         text: DE
@@ -497,7 +487,8 @@ enums:
         description: NCSR Demokritos (Greece)
       DGC:
         text: DGC
-        description: Dalhousie Geochronology Centre, Dalhousie University (Dalhousie
+        description:
+          Dalhousie Geochronology Centre, Dalhousie University (Dalhousie
           (DGC), Halifax, Canada)
       DIC:
         text: DIC
@@ -525,7 +516,8 @@ enums:
         description: ENEA, Bologna (Italy)
       ETH:
         text: ETH
-        description: "Laboratory of Ion Beam Physics, ETH Z\xFCrich (ETH Z\xFCrich,\
+        description:
+          "Laboratory of Ion Beam Physics, ETH Z\xFCrich (ETH Z\xFCrich,\
           \ Z\xFCrich, Switzerland, https://ams.ethz.ch/LIPServices/c14.html)"
       Erl:
         text: Erl
@@ -541,7 +533,8 @@ enums:
         description: Vilnius AMS Lab (Lithuania)
       FZ:
         text: FZ
-        description: Department of Physics, University of Fortaleza (Fortaleza, Fortaleza,
+        description:
+          Department of Physics, University of Fortaleza (Fortaleza, Fortaleza,
           Brazil)
       Fi:
         text: Fi
@@ -587,7 +580,8 @@ enums:
         description: Guangxi Normal Univ. AMS Lab (China)
       GZ:
         text: GZ
-        description: Key Laboratory of Isotope Geochronology and Geochemistry (Guangzhou)
+        description:
+          Key Laboratory of Isotope Geochronology and Geochemistry (Guangzhou)
           (China)
       Gd:
         text: Gd
@@ -639,11 +633,13 @@ enums:
         description: Heidelberg (Germany)
       Hel:
         text: Hel
-        description: Laboratory of Chronology, University of Helsinki (Helsinki, Helsinki,
+        description:
+          Laboratory of Chronology, University of Helsinki (Helsinki, Helsinki,
           Finland, https://www.helsinki.fi/en/luomus/analytical-services/radiocarbon-analyses)
       HelA:
         text: HelA
-        description: Laboratory of Chronology, University of Helsinki (AMS) (Helsinki
+        description:
+          Laboratory of Chronology, University of Helsinki (AMS) (Helsinki
           (AMS), Helsinki, Finland, https://www.helsinki.fi/en/luomus/analytical-services/radiocarbon-analyses)
       Hv:
         text: Hv
@@ -674,7 +670,8 @@ enums:
         description: Institute of Evolutionary Morphology & Animal Ecology (Russia)
       IFAO:
         text: IFAO
-        description: "Laboratoire de Datation par le Radiocarbone, Institut fran\xE7\
+        description:
+          "Laboratoire de Datation par le Radiocarbone, Institut fran\xE7\
           ais d\u2019arch\xE9ologie orientale (IFAO, Cairo, Egypt)"
       IGAN:
         text: IGAN
@@ -684,7 +681,8 @@ enums:
         description: Institute of Geological Sciences (UK) (London, UK)
       IGSB:
         text: IGSB
-        description: Institute of Geochemistry and Geophysics, National Academy of
+        description:
+          Institute of Geochemistry and Geophysics, National Academy of
           Sciences of Belarus (Minsk, Belarus)
       IHME:
         text: IHME
@@ -736,7 +734,8 @@ enums:
         description: Kyushu Environ. Eval. Assoc. Property Research Inst. (Japan)
       KF:
         text: KF
-        description: State Key Laboratory of Lake Science and Environment, Chinese
+        description:
+          State Key Laboratory of Lake Science and Environment, Chinese
           Academy of Sciences (China)
       KGM:
         text: KGM
@@ -764,14 +763,16 @@ enums:
         description: Kyoto Sangyo University (Japan)
       Ki(KIEV):
         text: Ki(KIEV)
-        description: (KIEV) Institute of Radio-Geochemistry of the Environment (Kyiv,
+        description:
+          (KIEV) Institute of Radio-Geochemistry of the Environment (Kyiv,
           Ukraine)
       L:
         text: L
         description: Lamont-Doherty (USA)
       LACUFF:
         text: LACUFF
-        description: Radiocarbon Laboratory, Fluminense Federal University (Fluminense,
+        description:
+          Radiocarbon Laboratory, Fluminense Federal University (Fluminense,
           Rio de Janeiro, Brazil, https://lac.uff.br/eng/home/)
       LAEC:
         text: LAEC
@@ -793,7 +794,8 @@ enums:
         description: Scripps (UCSD) La Jolla (USA)
       LP:
         text: LP
-        description: Laboratorio de Tritio y Radiocarbono, National University of
+        description:
+          Laboratorio de Tritio y Radiocarbono, National University of
           La Plata (Argentina)
       LTL:
         text: LTL
@@ -812,11 +814,13 @@ enums:
         description: Radiocarbon Dating Laboratory, Lund University (Lund, Sweden)
       LuA:
         text: LuA
-        description: Radiocarbon Dating Laboratory, Lund University (AMS) (Lund (AMS),
+        description:
+          Radiocarbon Dating Laboratory, Lund University (AMS) (Lund (AMS),
           Sweden)
       LuS:
         text: LuS
-        description: Radiocarbon Dating Laboratory, Lund University (SSAMS) (Lund
+        description:
+          Radiocarbon Dating Laboratory, Lund University (SSAMS) (Lund
           (SSAMS), Sweden, https://www.geology.lu.se/research/laboratories-equipment/radiocarbon-dating-laboratory)
       Lv:
         text: Lv
@@ -868,11 +872,13 @@ enums:
         description: INSTAAR, University of Colorado (USA)
       NSTF:
         text: NSTF
-        description: Nuclear Science and Technology Facility, State University of
+        description:
+          Nuclear Science and Technology Facility, State University of
           New York (USA)
       UNSW:
         text: UNSW
-        description: Chronos Radiocarbon Laboratory, University of New South Wales
+        description:
+          Chronos Radiocarbon Laboratory, University of New South Wales
           (New South Wales, Sydney, Australia, https://www.analytical.unsw.edu.au/facilities/x-ray-facilities/radiocarbon-laboratory)
       NTU:
         text: NTU
@@ -906,7 +912,8 @@ enums:
         description: Oak Ridge Institute of Nuclear Studies (USA)
       OS:
         text: OS
-        description: National Ocean Sciences, AMS Facility Woods Hole Oceanographic
+        description:
+          National Ocean Sciences, AMS Facility Woods Hole Oceanographic
           Inst. (USA)
       OWU:
         text: OWU
@@ -916,14 +923,16 @@ enums:
         description: USDA (Oxford, Missouri) (USA)
       OZ:
         text: OZ
-        description: Centre for Accelerator Science, Australian Nuclear Science and
+        description:
+          Centre for Accelerator Science, Australian Nuclear Science and
           Technology Organisation (ANSTO, Canberra, Australia, https://www.ansto.gov.au/our-facilities/centre-for-accelerator-science)
       OxA:
         text: OxA
         description: Oxford Radiocarbon Accelerator Unit (Oxford, England)
       P:
         text: P
-        description: University of Pennsylvania (USA) or Max-Planck-Institut Geochronology
+        description:
+          University of Pennsylvania (USA) or Max-Planck-Institut Geochronology
           Lab (Germany)
       PAL:
         text: PAL
@@ -1005,7 +1014,8 @@ enums:
         description: Radiochemistry Inc. (USA)
       RICH:
         text: RICH
-        description: Royal Institute for Cultural Heritage (KIK-IRPA, Brussels, Belgium,
+        description:
+          Royal Institute for Cultural Heritage (KIK-IRPA, Brussels, Belgium,
           https://www.kikirpa.be/en/)
       RIDDL:
         text: RIDDL
@@ -1105,14 +1115,16 @@ enums:
         description: University of Tokyo (AMS) (Japan)
       TO:
         text: TO
-        description: Isotrace Radiocarbon Facility, University of Toronto (Isotrace,
+        description:
+          Isotrace Radiocarbon Facility, University of Toronto (Isotrace,
           Toronto, Canada)
       TRa:
         text: TRa
         description: Trondheim (AMS) (Norway)
       TUBITAK:
         text: TUBITAK
-        description: "National 1MV Accelerator Mass Spectrometry Laboratory, Scientific\
+        description:
+          "National 1MV Accelerator Mass Spectrometry Laboratory, Scientific\
           \ and Technological Research Council of Turkey (T\xDCB\u0130TAK, Marmara,\
           \ Turkey, https://mam.tubitak.gov.tr/en/teknoloji-transfer-ofisi/national-1mv-accelerated-mass-spectroscopy-ams-laboratory)"
       TUNC:
@@ -1123,7 +1135,8 @@ enums:
         description: Trondheim (AMS) (Norway)
       Tln:
         text: Tln
-        description: Radiocarbon Laboratory, Tallinn University of Technology (Talinn,
+        description:
+          Radiocarbon Laboratory, Tallinn University of Technology (Talinn,
           Talinn, Estonia)
       Tx:
         text: Tx
@@ -1133,7 +1146,8 @@ enums:
         description: Uppsala University (Uppsala, Uppsala, Sweden)
       Ua:
         text: Ua
-        description: Tandem Laboratory, Uppsala University (Uppsala (AMS), Uppsala,
+        description:
+          Tandem Laboratory, Uppsala University (Uppsala (AMS), Uppsala,
           Sweden, https://www.uu.se/en/centre/tandemlab)
       UB:
         text: UB
@@ -1167,11 +1181,13 @@ enums:
         description: University of Georgia (USA)
       UL:
         text: UL
-        description: "Radiochronology Laboratory, Universit\xE9 Laval (Laval, Quebec,\
+        description:
+          "Radiochronology Laboratory, Universit\xE9 Laval (Laval, Quebec,\
           \ Canada, https://www.cen.ulaval.ca/en/infrastructures/radiocarbon/)"
       ULA:
         text: ULA
-        description: "Radiochronology Laboratory, Universit\xE9 Laval (AMS) (Laval\
+        description:
+          "Radiochronology Laboratory, Universit\xE9 Laval (AMS) (Laval\
           \ (AMS), Quebec, Canada, https://www.cen.ulaval.ca/en/infrastructures/radiocarbon/)"
       UM:
         text: UM
@@ -1181,7 +1197,8 @@ enums:
         description: National Autonomous Univ. of Mexico (Mexico)
       UOC:
         text: UOC
-        description: "Andr\xE9 E. Lalonde National Facility in Accelerator Mass Spectrometry,\
+        description:
+          "Andr\xE9 E. Lalonde National Facility in Accelerator Mass Spectrometry,\
           \ University of Ottawa (Ottawa, Ottawa, Canada, https://ams.uottawa.ca/)"
       UQ:
         text: UQ
@@ -1203,7 +1220,8 @@ enums:
         description: University of Washington (USA)
       UZH:
         text: UZH
-        description: Geochronology Group, University of Zurich (Zurich, Zurich, Switzerland,
+        description:
+          Geochronology Group, University of Zurich (Zurich, Zurich, Switzerland,
           https://www.geo.uzh.ch/en/units/gch.html)
       UtC:
         text: UtC
@@ -1213,15 +1231,18 @@ enums:
         description: Melbourne, Victoria (Australia)
       VERA:
         text: VERA
-        description: Vienna Environmental Research Accelerator, University of Vienna
+        description:
+          Vienna Environmental Research Accelerator, University of Vienna
           (VERA, Vienna, Austria, https://isotopenphysik.univie.ac.at/en/)
       VIE:
         text: VIE
-        description: Higham Lab, University of Vienna (Higham Lab, Vienna, Austria,
+        description:
+          Higham Lab, University of Vienna (Higham Lab, Vienna, Austria,
           https://highamlab.univie.ac.at/)
       VRI:
         text: VRI
-        description: Vienna Radium Institute, University of Vienna (Vienna Radium
+        description:
+          Vienna Radium Institute, University of Vienna (Vienna Radium
           Institute, Vienna, Austria)
       Vs:
         text: Vs
@@ -1267,11 +1288,13 @@ enums:
         description: Yale University (USA)
       Z:
         text: Z
-        description: "Laboratory for Low-level Radioactivities, Ru\u0111er Bo\u0161\
+        description:
+          "Laboratory for Low-level Radioactivities, Ru\u0111er Bo\u0161\
           kovi\u0107 Institute (Zagreb, Zagreb, Croatia, https://www.irb.hr/eng/Divisions/Division-of-Experimental-Physics/Laboratory-for-Low-level-Radioactivities)"
       ZK:
         text: ZK
-        description: Institute of Archaeology, Chinese Academy of Social Sciences
+        description:
+          Institute of Archaeology, Chinese Academy of Social Sciences
           (China)
   PretreatmentMethods:
     name: PretreatmentMethods
@@ -1293,12 +1316,14 @@ enums:
         description: Acid-base-acid (ABA or AAA)
       Col:
         text: Col
-        description: Collagen (normally including deminieralisation wtih or without
+        description:
+          Collagen (normally including deminieralisation wtih or without
           a base step, followed by gelatinisation and filtration, often called the
           'Longin method')
       UF_Col:
         text: UF_Col
-        description: Ultrafiltered collagen (normally including demineralisation with
+        description:
+          Ultrafiltered collagen (normally including demineralisation with
           or without a base step, followed by gelatinisation, filtration and ultrafiltration)
       XAD:
         text: XAD
@@ -1353,12 +1378,14 @@ enums:
         description: Positive Ion Mass Spectrometry
       Conventional:
         text: Conventional
-        description: Beta counting methods such as gas proportional counting (GPC)
+        description:
+          Beta counting methods such as gas proportional counting (GPC)
           or liquid scintillation counting (LSC)
   Delta13CMeasurementMethod:
     name: Delta13CMeasurementMethod
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/Delta13CMeasurementMethod
-    description: Which spectrophotometry method was used to measure the delta carbon-13
+    description:
+      Which spectrophotometry method was used to measure the delta carbon-13
       value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass
       Spectrometer (AMS).
     from_schema: https://w3id.org/MIxS-MInAS/miaard
@@ -1376,77 +1403,76 @@ slots:
   lab_code:
     name: lab_code
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_code
-    description: 'Unique laboratory code designation of the institution that made
+    description:
+      "Unique laboratory code designation of the institution that made
       the measurement.
 
       This is the prefix used for each determination ID. The prefix should be
 
-      derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.'
+      derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories."
     title: Laboratory code designation
     examples:
-    - value: OxA
-    - value: CAMS
-    - value: Beta
-    - value: CN-XX
-    in_subset:
-    - identifier
-    - measurement
+      - value: OxA
+      - value: CAMS
+      - value: Beta
+      - value: CN-XX
+    slot_group: "Identifier"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000001
+      - c14:000001
     slot_uri: c14:000001
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: LabCodeId
     required: true
     multivalued: false
   lab_id:
     name: lab_id
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_id
-    description: 'The unique identifier associated with a specific radiocarbon determination,
+    description:
+      "The unique identifier associated with a specific radiocarbon determination,
 
-      without the radiocarbon laboratory identifier.'
+      without the radiocarbon laboratory identifier."
     title: Radiocarbon determination identifier
     examples:
-    - value: '982744'
-    - value: i238493
-    - value: 9800507B
-    - value: -X-1045-13
-    - value: 1415(a)
-    in_subset:
-    - identifier
+      - value: "982744"
+      - value: i238493
+      - value: 9800507B
+      - value: -X-1045-13
+      - value: 1415(a)
+    slot_group: "Identifier"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000002
+      - c14:000002
     slot_uri: c14:000002
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: true
     multivalued: false
-    pattern: ''
+    pattern: ""
   f14c:
     name: f14c
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c
-    description: 'The F14C value from the laboratory measurement, i.e. the fraction
+    description:
+      'The F14C value from the laboratory measurement, i.e. the fraction
       modern carbon.
 
       For older determinations, generally equivalent to "percent modern" (pMC, or
       pM) divided by 100.'
     examples:
-    - value: '0.83756'
-    - value: '0.5371'
-    in_subset:
-    - measurement
+      - value: "0.83756"
+      - value: "0.5371"
+    slot_group: "Measurement"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000003
+      - c14:000003
     slot_uri: c14:000003
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
@@ -1455,98 +1481,98 @@ slots:
   f14c_error:
     name: f14c_error
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c_error
-    description: "The 1-standard deviation uncertainty around the F14C (C14) measurement,\n\
+    description:
+      "The 1-standard deviation uncertainty around the F14C (C14) measurement,\n\
       normally indicated as a \xB1 after the main value. Must be in the same format.\n\
       Sometimes referred to as the \"error\" or \"sigma\" of the measurement."
     title: F14C radiocarbon error
     examples:
-    - value: '0.00434'
-    - value: '0.023843'
-    in_subset:
-    - measurement
+      - value: "0.00434"
+      - value: "0.023843"
+    slot_group: "Measurement"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000004
+      - c14:000004
     slot_uri: c14:000004
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
   conventional_age:
     name: conventional_age
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age
-    description: 'The uncalibrated age from the laboratory measurement. Also known
+    description:
+      "The uncalibrated age from the laboratory measurement. Also known
       as the
 
       conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e.,
       14C year BP)
 
-      NOT in AD/BC format. This is typically the ''raw'' age reported by the radiocarbon
+      NOT in AD/BC format. This is typically the 'raw' age reported by the radiocarbon
       lab, in
 
-      Before Present (BP) notation.'
+      Before Present (BP) notation."
     title: Conventional radiocarbon age
     examples:
-    - value: '4500'
-    - value: '37330'
-    in_subset:
-    - measurement
+      - value: "4500"
+      - value: "37330"
+    slot_group: "Measurement"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000005
+      - c14:000005
     slot_uri: c14:000005
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
   conventional_age_error:
     name: conventional_age_error
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age_error
-    description: "The 1-standard deviation around the conventional radiocarbon age\
+    description:
+      "The 1-standard deviation around the conventional radiocarbon age\
       \ (C14) measurement,\nnormally indicated as a \xB1 after the main age. Must\
       \ be in the same format (i.e. 14C yr BP).\nSometimes referred to as the \"error\"\
       \ or \"sigma\" of the measurement."
     title: Conventional radiocarbon age error
     examples:
-    - value: '25'
-    - value: '620'
-    in_subset:
-    - measurement
+      - value: "25"
+      - value: "620"
+    slot_group: "Measurement"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000006
+      - c14:000006
     slot_uri: c14:000006
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
   delta_13_c_calculation_method:
     name: delta_13_c_calculation_method
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c_calculation_method
-    description: "Was the radiocarbon date calculated with an AMS derived \u03B413C,\
+    description:
+      "Was the radiocarbon date calculated with an AMS derived \u03B413C,\
       \ an IRMS derived \u03B413C,\nan alternative \u03B413C measurement method or\
       \ an assumed \u03B413C"
     title: Delta 13C age calculation method
     examples:
-    - value: AMS
-    - value: IRMS
-    - value: Assumed
-    - value: Other
-    in_subset:
-    - measurement
+      - value: AMS
+      - value: IRMS
+      - value: Assumed
+      - value: Other
+    slot_group: "Measurement"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000007
+      - c14:000007
     slot_uri: c14:000007
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: Delta13CMeasurementMethod
     required: false
     recommended: true
@@ -1554,55 +1580,54 @@ slots:
   sample_ids:
     name: sample_ids
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_ids
-    description: 'Any identifier associated with the sample under measurement
+    description: "Any identifier associated with the sample under measurement
 
-      (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).'
+      (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID)."
     title: Sample identifiers
     examples:
-    - value: PES001
-    - value: PES001.B1010
-    - value: Des 207 d
-    - value: Grave 78
-    - value: Box 427; Exc. year 1926 (small)
-    - value: KrSp E1/2012/E1/3775
-    - value: Iceman
-    - value: Tumba XVIII
-    in_subset:
-    - sample
+      - value: PES001
+      - value: PES001.B1010
+      - value: Des 207 d
+      - value: Grave 78
+      - value: Box 427; Exc. year 1926 (small)
+      - value: KrSp E1/2012/E1/3775
+      - value: Iceman
+      - value: Tumba XVIII
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000008
+      - c14:000008
     slot_uri: c14:000008
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: true
     multivalued: true
-    pattern: ''
+    pattern: ""
   sample_material:
     name: sample_material
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_material
-    description: 'Material of the sample used to extract carbon used for radiocarbon
+    description:
+      "Material of the sample used to extract carbon used for radiocarbon
       dating measurements.
 
       Use ontology terms where possible, e.g. from UBERON for anatomical parts, or
       ENVO for other
 
-      organic samples.'
+      organic samples."
     title: Radiocarbon dating sample material
     examples:
-    - value: UBERON:0002481
-    - value: ENVO:01000560
-    in_subset:
-    - sample
+      - value: UBERON:0002481
+      - value: ENVO:01000560
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000009
+      - c14:000009
     slot_uri: c14:000009
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: true
     multivalued: false
@@ -1613,26 +1638,26 @@ slots:
   sample_taxon_id:
     name: sample_taxon_id
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_taxon_id
-    description: 'A taxonomic ID of the organism from which the sample used to extract
+    description:
+      "A taxonomic ID of the organism from which the sample used to extract
       carbon used for
 
       radiocarbon measurement originated. The taxonomic ID should come from an established
 
-      ontology or database.'
+      ontology or database."
     title: Radiocarbon dating sample taxon
     examples:
-    - value: NCBITAXON:9606
-    - value: gbif:2441105
-    - value: bold.taxonomy:786175
-    in_subset:
-    - sample
+      - value: NCBITAXON:9606
+      - value: gbif:2441105
+      - value: bold.taxonomy:786175
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000010
+      - c14:000010
     slot_uri: c14:000010
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: true
     multivalued: true
@@ -1643,74 +1668,73 @@ slots:
   sample_taxon_id_confidence:
     name: sample_taxon_id_confidence
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_taxon_id_confidence
-    description: 'Specify the level of confidence of an exact taxon identification.
+    description:
+      "Specify the level of confidence of an exact taxon identification.
 
       If secure identification, indicate TRUE, if identification is unclear or
 
-      uncertain specify FALSE.'
+      uncertain specify FALSE."
     title: Confidence of taxon assignment
     examples:
-    - value: 'true'
-    - value: 'false'
-    in_subset:
-    - sample
+      - value: "true"
+      - value: "false"
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000011
+      - c14:000011
     slot_uri: c14:000011
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: boolean
     required: true
     multivalued: false
   sample_taxon_scientific_name:
     name: sample_taxon_scientific_name
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_taxon_scientific_name
-    description: 'A scientific name of the taxon corresponding to the taxonomic ID,
+    description:
+      "A scientific name of the taxon corresponding to the taxonomic ID,
       or when a
 
-      taxonomic ID does not currently exist for the specific taxon.'
+      taxonomic ID does not currently exist for the specific taxon."
     title: Scientific name of the sample taxon
     examples:
-    - value: Mammathus primigenius
-    - value: cf Mammathus
-    - value: Homo sapiens sapiens
-    - value: Capra sp.
-    - value: Ulmus davidiana var. japonica
-    in_subset:
-    - sample
+      - value: Mammathus primigenius
+      - value: cf Mammathus
+      - value: Homo sapiens sapiens
+      - value: Capra sp.
+      - value: Ulmus davidiana var. japonica
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000012
+      - c14:000012
     slot_uri: c14:000012
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: false
     recommended: true
     multivalued: false
-    pattern: ''
+    pattern: ""
   sample_anatomical_part:
     name: sample_anatomical_part
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_anatomical_part
     description: Anatomical part from which the sample is derived.
     title: Anatomical part from which the sample is derived.
     examples:
-    - value: UBERON:0000981
-    - value: PO:0009010
-    - value: BTO:0001411
-    - value: UBERON:3010209
-    in_subset:
-    - sample
+      - value: UBERON:0000981
+      - value: PO:0009010
+      - value: BTO:0001411
+      - value: UBERON:3010209
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000013
+      - c14:000013
     slot_uri: c14:000013
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: false
     recommended: true
@@ -1722,23 +1746,23 @@ slots:
   suspected_sample_contamination:
     name: suspected_sample_contamination
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/suspected_sample_contamination
-    description: 'Specify whether the sample has suspected contamination that may
+    description:
+      "Specify whether the sample has suspected contamination that may
       influence measurement
 
-      (organic glue, consolidant, rootlets, embalming solution, staining etc.)'
+      (organic glue, consolidant, rootlets, embalming solution, staining etc.)"
     title: Suspected sample contamination.
     examples:
-    - value: 'true'
-    - value: 'false'
-    in_subset:
-    - sample
+      - value: "true"
+      - value: "false"
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000014
+      - c14:000014
     slot_uri: c14:000014
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: boolean
     required: false
     recommended: true
@@ -1746,79 +1770,79 @@ slots:
   suspected_sample_contamination_description:
     name: suspected_sample_contamination_description
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/suspected_sample_contamination_description
-    description: 'If a sample has a suspected contamination (suspected_sample_contamination),
+    description:
+      "If a sample has a suspected contamination (suspected_sample_contamination),
       provide a short
 
-      description of the contamination.'
+      description of the contamination."
     title: Suspected sample contamination description
     examples:
-    - value: glue
-    - value: organic glue made from horse
-    - value: staining
-    - value: bitumen
-    - value: rootlets
-    - value: Consolidant was applied to the skull to stabilise the bone.
-    - value: Sample was preserved in a embalming solution containing formaldehyde
-        and alcohol.
-    in_subset:
-    - sample
+      - value: glue
+      - value: organic glue made from horse
+      - value: staining
+      - value: bitumen
+      - value: rootlets
+      - value: Consolidant was applied to the skull to stabilise the bone.
+      - value:
+          Sample was preserved in a embalming solution containing formaldehyde
+          and alcohol.
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000015
+      - c14:000015
     slot_uri: c14:000015
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: false
     recommended: false
     multivalued: false
-    pattern: ''
+    pattern: ""
   sample_location:
     name: sample_location
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_location
     description: Name of location from which the sample originated
     title: Sample location
     examples:
-    - value: ''
-    - value: ''
-    in_subset:
-    - sample
+      - value: ""
+      - value: ""
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000016
+      - c14:000016
     slot_uri: c14:000016
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: false
     recommended: true
     multivalued: false
-    pattern: ''
+    pattern: ""
   decimal_latitude:
     name: decimal_latitude
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/decimal_latitude
-    description: 'The geographic latitude (in decimal degrees, using the spatial reference
+    description:
+      "The geographic latitude (in decimal degrees, using the spatial reference
       system) of the geographic center of a dcterms:Location. Positive values are
       north
 
       of the Equator, negative values are south of it. Legal values lie between -90
-      and 90, inclusive.'
+      and 90, inclusive."
     title: Decimal latitude
     examples:
-    - value: '51.34254'
-    - value: '51.75'
-    - value: '-13.163'
-    in_subset:
-    - sample
+      - value: "51.34254"
+      - value: "51.75"
+      - value: "-13.163"
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000017
+      - c14:000017
     slot_uri: c14:000017
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -1828,27 +1852,27 @@ slots:
   decimal_longitude:
     name: decimal_longitude
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/decimal_longitude
-    description: 'The geographic longitude (in decimal degrees, using the spatial
+    description:
+      "The geographic longitude (in decimal degrees, using the spatial
       reference system) of the
 
       geographic center of a dcterms:Location. Positive values are east of the Greenwich
       Meridian,
 
-      negative values are west of it. Legal values lie between -180 and 180, inclusive.'
+      negative values are west of it. Legal values lie between -180 and 180, inclusive."
     title: Decimal longitude
     examples:
-    - value: '12.38067'
-    - value: '-1.24'
-    - value: '-72.545'
-    in_subset:
-    - sample
+      - value: "12.38067"
+      - value: "-1.24"
+      - value: "-72.545"
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000018
+      - c14:000018
     slot_uri: c14:000018
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -1858,24 +1882,24 @@ slots:
   coordinate_precision:
     name: coordinate_precision
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/coordinate_precision
-    description: 'A decimal representation of the precision of the coordinates given
+    description:
+      "A decimal representation of the precision of the coordinates given
       in the decimal_latitude
 
-      and decimal_longitude.'
+      and decimal_longitude."
     title: Coordinate precision
     examples:
-    - value: '0.00005'
-    - value: '0.001'
-    - value: '0.0001'
-    in_subset:
-    - sample
+      - value: "0.00005"
+      - value: "0.001"
+      - value: "0.0001"
+    slot_group: "Sample"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000019
+      - c14:000019
     slot_uri: c14:000019
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -1886,70 +1910,71 @@ slots:
     description: Specify the types of general pretreatment methods applied for decontamination.
     title: Radiocarbon pretreatment methods
     examples:
-    - value: ABA
-    - value: A
-    - value: BABA
-    - value: Col
-    - value: UF_Col
-    - value: XAD
-    - value: U
-    in_subset:
-    - method
+      - value: ABA
+      - value: A
+      - value: BABA
+      - value: Col
+      - value: UF_Col
+      - value: XAD
+      - value: U
+    slot_group: "Method"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000020
+      - c14:000020
     slot_uri: c14:000020
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: PretreatmentMethods
     required: true
     multivalued: true
   pretreatment_method_description:
     name: pretreatment_method_description
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_method_description
-    description: Description of specific pretreatment method used for decontamination
+    description:
+      Description of specific pretreatment method used for decontamination
       of sample prior determination.
     title: Radiocarbon pretreatment method description
     examples:
-    - value: No pretreatment
-    - value: ''
-    in_subset:
-    - method
+      - value: No pretreatment
+      - value: ""
+    slot_group: "Method"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000021
+      - c14:000021
     slot_uri: c14:000021
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: true
     multivalued: false
-    pattern: ''
+    pattern: ""
   pretreatment_method_protocol:
     name: pretreatment_method_protocol
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_method_protocol
-    description: A DOI or URL to a publication describing the specific method of pretreatment
+    description:
+      A DOI or URL to a publication describing the specific method of pretreatment
       applied.
     title: Radiocarbon pretreatment method protocol
     examples:
-    - value: Samples were pretreated following Brock et al. (2010). Briefly, bone
-        was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min,
-        RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20
-        hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa
-        MWCO)
-    - value: A dremel drill was used to remove visibly altered shell leaving dense
-        translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
-    in_subset:
-    - method
+      - value:
+          Samples were pretreated following Brock et al. (2010). Briefly, bone
+          was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min,
+          RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20
+          hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa
+          MWCO)
+      - value:
+          A dremel drill was used to remove visibly altered shell leaving dense
+          translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
+    slot_group: "Method"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000022
+      - c14:000022
     slot_uri: c14:000022
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: string
     required: true
     multivalued: true
@@ -1963,40 +1988,39 @@ slots:
     description: Type of measurement method the determination was made by.
     title: Radiocarbon measurement method
     examples:
-    - value: AMS
-    - value: Conventional
-    - value: PIMS
-    in_subset:
-    - method
+      - value: AMS
+      - value: Conventional
+      - value: PIMS
+    slot_group: "Method"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000023
+      - c14:000023
     slot_uri: c14:000023
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: RadiocarbonMeasurementMethod
     required: true
     multivalued: false
   sample_starting_weight:
     name: sample_starting_weight
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_starting_weight
-    description: Amount of sample material used at beginning of  in measurement in
+    description:
+      Amount of sample material used at beginning of  in measurement in
       mg.
     title: Sample starting weight
     examples:
-    - value: '521'
-    - value: '56.7'
-    - value: '1'
-    in_subset:
-    - quality_control
+      - value: "521"
+      - value: "56.7"
+      - value: "1"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000024
+      - c14:000024
     slot_uri: c14:000024
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
@@ -2006,17 +2030,16 @@ slots:
     description: Amount of sample remaining after pretreatment in mg
     title: Weight after pretreatment
     examples:
-    - value: '22'
-    - value: '2.3'
-    in_subset:
-    - quality_control
+      - value: "22"
+      - value: "2.3"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000025
+      - c14:000025
     slot_uri: c14:000025
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
@@ -2026,19 +2049,18 @@ slots:
     description: Ratio of weight after pretreatment to sample starting weight
     title: Percentage yield after pretreatment
     examples:
-    - value: '012'
-    - value: '0.61'
-    - value: '0.015'
-    - value: '0.002'
-    in_subset:
-    - quality_control
+      - value: "012"
+      - value: "0.61"
+      - value: "0.015"
+      - value: "0.002"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000026
+      - c14:000026
     slot_uri: c14:000026
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -2048,24 +2070,24 @@ slots:
   carbon_proportion:
     name: carbon_proportion
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/carbon_proportion
-    description: 'Proportion of carbon in a non-proteinaceous sample used for dating
+    description:
+      "Proportion of carbon in a non-proteinaceous sample used for dating
       (such as charcoal),
 
-      expressed as a value between 0 and 1. Used as a quality control measurement.'
+      expressed as a value between 0 and 1. Used as a quality control measurement."
     title: Carbon proportion
     examples:
-    - value: '0.41'
-    - value: '0.12'
-    - value: '0.70'
-    in_subset:
-    - quality_control
+      - value: "0.41"
+      - value: "0.12"
+      - value: "0.70"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000027
+      - c14:000027
     slot_uri: c14:000027
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
@@ -2074,23 +2096,23 @@ slots:
   delta_13_c:
     name: delta_13_c
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c
-    description: "The delta carbon-13 value of the sample (\u03B413C), which is the\
+    description:
+      "The delta carbon-13 value of the sample (\u03B413C), which is the\
       \ ratio of the stable isotope\n13C to 12C, expressed in per mil (\u2030) notation.\
       \ Used as a quality control measurement."
     title: Delta 13C value
     examples:
-    - value: '-21.5'
-    - value: '-13.5'
-    - value: '1.2'
-    in_subset:
-    - quality_control
+      - value: "-21.5"
+      - value: "-13.5"
+      - value: "1.2"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000028
+      - c14:000028
     slot_uri: c14:000028
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -2100,21 +2122,21 @@ slots:
   delta_13_c_error:
     name: delta_13_c_error
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c_error
-    description: "The error associated with the delta carbon-13 (\u03B413C) value\
+    description:
+      "The error associated with the delta carbon-13 (\u03B413C) value\
       \ expressed (\u2030) notation.\nUsed as a quality control measurement."
     title: Delta 13C error
     examples:
-    - value: '0.1'
-    - value: '0.2'
-    in_subset:
-    - quality_control
+      - value: "0.1"
+      - value: "0.2"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000029
+      - c14:000029
     slot_uri: c14:000029
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -2124,24 +2146,24 @@ slots:
   delta_13_c_method:
     name: delta_13_c_method
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c_method
-    description: 'Which spectrophotometry method was used to measure the delta carbon-13
+    description:
+      "Which spectrophotometry method was used to measure the delta carbon-13
       value,
 
       either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer
-      (AMS).'
+      (AMS)."
     title: Delta 13C measurement method
     examples:
-    - value: AMS
-    - value: IRMS
-    in_subset:
-    - quality_control
+      - value: AMS
+      - value: IRMS
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000030
+      - c14:000030
     slot_uri: c14:000030
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: Delta13CMeasurementMethod
     required: false
     recommended: true
@@ -2149,68 +2171,68 @@ slots:
   suspected_reservoir_effect:
     name: suspected_reservoir_effect
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/suspected_reservoir_effect
-    description: 'Specify whether there is a suspected carbon reservoir effect that
+    description:
+      "Specify whether there is a suspected carbon reservoir effect that
 
-      should be accounted for in analysis.'
+      should be accounted for in analysis."
     title: Suspected reservoir effect
     examples:
-    - value: 'true'
-    - value: 'false'
-    in_subset:
-    - quality_control
+      - value: "true"
+      - value: "false"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000031
+      - c14:000031
     slot_uri: c14:000031
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: boolean
     required: true
     multivalued: false
   carbon_nitro_ratio:
     name: carbon_nitro_ratio
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/carbon_nitro_ratio
-    description: 'Atomic ratio of carbon to nitrogen. Used for quality control value
+    description:
+      "Atomic ratio of carbon to nitrogen. Used for quality control value
       in
 
-      proteinaceous samples for radiocarbon dating.'
+      proteinaceous samples for radiocarbon dating."
     title: Carbon to nitrogen ratio
     examples:
-    - value: '3.2'
-    - value: '3.33'
-    in_subset:
-    - quality_control
+      - value: "3.2"
+      - value: "3.33"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000032
+      - c14:000032
     slot_uri: c14:000032
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: true
     multivalued: false
   delta_15_n:
     name: delta_15_n
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_15_n
-    description: "The delta nitrogen-15 value of the sample (\u03B415N), which is\
+    description:
+      "The delta nitrogen-15 value of the sample (\u03B415N), which is\
       \ the ratio of the stable isotope\n15N to 14N, expressed in per mil (\u2030\
       ) notation. Used as a quality control measurement."
     title: Delta 15N value
     examples:
-    - value: '10.8'
-    - value: '5.1'
-    - value: '27.2'
-    in_subset:
-    - quality_control
+      - value: "10.8"
+      - value: "5.1"
+      - value: "27.2"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000033
+      - c14:000033
     slot_uri: c14:000033
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -2220,21 +2242,21 @@ slots:
   delta_15_n_error:
     name: delta_15_n_error
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_15_n_error
-    description: "The error associated with the delta nitrogen-15 (\u03B415N) value\
+    description:
+      "The error associated with the delta nitrogen-15 (\u03B415N) value\
       \ expressed (\u2030) notation.\nUsed as a quality control measurement."
     title: Delta 15N error
     examples:
-    - value: '0.3'
-    - value: '0.12'
-    in_subset:
-    - quality_control
+      - value: "0.3"
+      - value: "0.12"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000034
+      - c14:000034
     slot_uri: c14:000034
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: true
@@ -2244,22 +2266,22 @@ slots:
   delta_34_s:
     name: delta_34_s
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_34_s
-    description: "The delta sulfur-34 value of the sample (\u03B434S), which is the\
+    description:
+      "The delta sulfur-34 value of the sample (\u03B434S), which is the\
       \ ratio of the stable isotope\n34S to 32S, expressed in per mil (\u2030) notation.\
       \ Used as a quality control measurement."
     title: Delta 34S value
     examples:
-    - value: '18.4'
-    - value: '-5.2'
-    in_subset:
-    - quality_control
+      - value: "18.4"
+      - value: "-5.2"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000035
+      - c14:000035
     slot_uri: c14:000035
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: false
@@ -2269,21 +2291,21 @@ slots:
   delta_34_s_error:
     name: delta_34_s_error
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_34_s_error
-    description: "The error associated with the delta sulfur-34 (\u03B434S) value\
+    description:
+      "The error associated with the delta sulfur-34 (\u03B434S) value\
       \ expressed (\u2030) notation.\nUsed as a quality control measurement."
     title: Delta 34S error
     examples:
-    - value: '0.4'
-    - value: '0.2'
-    in_subset:
-    - quality_control
+      - value: "0.4"
+      - value: "0.2"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000036
+      - c14:000036
     slot_uri: c14:000036
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: float
     required: false
     recommended: false
@@ -2293,21 +2315,21 @@ slots:
   recrystalisation:
     name: recrystalisation
     definition_uri: https://w3id.org/MIxS-MInAS/miaard/recrystalisation
-    description: Sample shows evidence of recrystalisation which should be accounted
+    description:
+      Sample shows evidence of recrystalisation which should be accounted
       for during analysis.
     title: Evidence of recrystalisation
     examples:
-    - value: 'true'
-    - value: 'false'
-    in_subset:
-    - quality_control
+      - value: "true"
+      - value: "false"
+    slot_group: "Quality control"
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
-    - c14:000037
+      - c14:000037
     slot_uri: c14:000037
     owner: RadiocarbonDate
     domain_of:
-    - RadiocarbonDate
+      - RadiocarbonDate
     range: boolean
     required: true
     multivalued: false
@@ -2319,7 +2341,7 @@ slots:
     alias: entries
     owner: RadiocarbonDateCollection
     domain_of:
-    - RadiocarbonDateCollection
+      - RadiocarbonDateCollection
     range: RadiocarbonDate
     multivalued: true
     inlined: true
@@ -2331,43 +2353,43 @@ classes:
     description: A radiocarbon determination with associated metadata.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slots:
-    - lab_code
-    - lab_id
-    - f14c
-    - f14c_error
-    - conventional_age
-    - conventional_age_error
-    - delta_13_c_calculation_method
-    - sample_ids
-    - sample_material
-    - sample_taxon_id
-    - sample_taxon_id_confidence
-    - sample_taxon_scientific_name
-    - sample_anatomical_part
-    - suspected_sample_contamination
-    - suspected_sample_contamination_description
-    - sample_location
-    - decimal_latitude
-    - decimal_longitude
-    - coordinate_precision
-    - pretreatment_methods
-    - pretreatment_method_description
-    - pretreatment_method_protocol
-    - measurement_method
-    - sample_starting_weight
-    - pretreatment_yield
-    - pretreatment_percentage_yield
-    - carbon_proportion
-    - delta_13_c
-    - delta_13_c_error
-    - delta_13_c_method
-    - suspected_reservoir_effect
-    - carbon_nitro_ratio
-    - delta_15_n
-    - delta_15_n_error
-    - delta_34_s
-    - delta_34_s_error
-    - recrystalisation
+      - lab_code
+      - lab_id
+      - f14c
+      - f14c_error
+      - conventional_age
+      - conventional_age_error
+      - delta_13_c_calculation_method
+      - sample_ids
+      - sample_material
+      - sample_taxon_id
+      - sample_taxon_id_confidence
+      - sample_taxon_scientific_name
+      - sample_anatomical_part
+      - suspected_sample_contamination
+      - suspected_sample_contamination_description
+      - sample_location
+      - decimal_latitude
+      - decimal_longitude
+      - coordinate_precision
+      - pretreatment_methods
+      - pretreatment_method_description
+      - pretreatment_method_protocol
+      - measurement_method
+      - sample_starting_weight
+      - pretreatment_yield
+      - pretreatment_percentage_yield
+      - carbon_proportion
+      - delta_13_c
+      - delta_13_c_error
+      - delta_13_c_method
+      - suspected_reservoir_effect
+      - carbon_nitro_ratio
+      - delta_15_n
+      - delta_15_n_error
+      - delta_34_s
+      - delta_34_s_error
+      - recrystalisation
     class_uri: c14:RadiocarbonDate
   RadiocarbonDateCollection:
     name: RadiocarbonDateCollection
@@ -2375,7 +2397,7 @@ classes:
     description: A collection of radiocarbon determinations with associated metadata.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     slots:
-    - radiocarbonDateCollection__entries
+      - radiocarbonDateCollection__entries
     attributes:
       entries:
         name: entries
@@ -2387,9 +2409,9 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2026-01-13T10:33:27'
+source_file_date: "2026-01-13T10:33:27"
 source_file_size: 47312
-generation_date: '2026-01-13T10:34:12'
+generation_date: "2026-01-13T10:34:12"
 settings:
   DOI:
     setting_key: DOI
@@ -2403,4 +2425,3 @@ settings:
   termID:
     setting_key: termID
     setting_value: '[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'
-
