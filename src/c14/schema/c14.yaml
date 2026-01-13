@@ -83,11 +83,11 @@ enums:
         description: Cavity Ring-Down Spectroscopy
 
 # STRUCTURED PATTERNS
-## syntax: ^{PMID}|{DOI}|{URL}|{text}$: ^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$
+## syntax: ^{PMID}|{DOI}|{URL}$: ^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$
 ## syntax: ^{termID}$: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
 
 #settings:
-## DEPRACATED: Was used with structured_pattern, but now the above regex are implemented directly as constraints in pattern
+## DEPRECATED: Was used with structured_pattern, but now the above regex are implemented directly as constraints in pattern
 #  DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
 #  PMID: ^PMID:\d+$
 #  URL: ^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
