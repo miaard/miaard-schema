@@ -17,7 +17,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - enums/lab_code_ids
+  - enums/lab_codes
 
 enums:
   PretreatmentMethods:
@@ -156,7 +156,7 @@ slots:
       derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.
     slot_uri: c14:000001
     multivalued: false
-    range: LabCodeId
+    range: LabCode
     required: true
     slot_group: "Identifier"
   lab_id:
