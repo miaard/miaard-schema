@@ -2377,9 +2377,9 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2025-12-08T08:51:55'
+source_file_date: '2026-01-13T08:35:39'
 source_file_size: 46872
-generation_date: '2025-12-08T08:52:05'
+generation_date: '2026-01-13T08:35:49'
 settings:
   DOI:
     setting_key: DOI

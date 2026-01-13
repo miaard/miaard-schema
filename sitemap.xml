@@ -2,290 +2,290 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/about/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Boolean/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Curie/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Date/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/DateOrDatetime/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Datetime/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Decimal/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Delta13CMeasurementMethod/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Double/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Float/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Identifier/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Integer/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Jsonpath/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Jsonpointer/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/LabCodeId/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Measurement/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Method/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Ncname/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Nodeidentifier/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Objectidentifier/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/PretreatmentMethods/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/QualityControl/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDate/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDateCollection/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonMeasurementMethod/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Sample/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Sparqlpath/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/String/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Time/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Uri/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Uriorcurie/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/carbon_nitro_ratio/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/carbon_proportion/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/conventional_age/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/conventional_age_error/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/coordinate_precision/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/decimal_latitude/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/decimal_longitude/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_13_c/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_13_c_calculation_method/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_13_c_error/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_13_c_method/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_15_n/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_15_n_error/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_34_s/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/delta_34_s_error/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/entries/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/f14c/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/f14c_error/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/lab_code/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/lab_id/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/measurement_method/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/miaard/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/pretreatment_method_description/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/pretreatment_method_protocol/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/pretreatment_methods/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/pretreatment_percentage_yield/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/pretreatment_yield/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/recrystalisation/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_anatomical_part/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_ids/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_location/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_material/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_starting_weight/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_taxon_id/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_taxon_id_confidence/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/sample_taxon_scientific_name/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/suspected_reservoir_effect/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/suspected_sample_contamination/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/suspected_sample_contamination_description/</loc>
-         <lastmod>2025-12-08</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
 </urlset>
