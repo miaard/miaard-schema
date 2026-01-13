@@ -1,4 +1,5 @@
 # Example data object
+## Problem: carbonate data has proteinaceous sample-specific fields (carbon_nitro_ratio)
 ---
 lab_code: mams
 lab_id: "81038"
@@ -22,4 +23,7 @@ measurement_method: "AMS"
 sample_starting_weight: 487.4
 pretreatment_yield: 12
 carbon_proportion: 0.11
+delta_13_c: -19.5331873576806
+delta_13_c_error: 0
 suspected_reservoir_effect: false
+carbon_nitro_ratio: 3.23198101920019
