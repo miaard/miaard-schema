@@ -19,37 +19,6 @@ prefixes:
     prefix_reference: http://schema.org/
 default_prefix: c14
 default_range: string
-subsets:
-  identifier:
-    name: identifier
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Identifier
-    description: Unique identifier(s) of the radiocarbon determination
-    title: Identifier
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  sample:
-    name: sample
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Sample
-    description: Details of the physical sample used
-    title: Sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  measurement:
-    name: measurement
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Measurement
-    description: Measurements indicating the age of the sample
-    title: Measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  method:
-    name: method
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Method
-    description: Details of the laboratory methods used
-    title: Method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-  quality_control:
-    name: quality_control
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/QualityControl
-    description: Additional measurements used to assess the quality of the determination
-    title: Quality control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
 types:
   string:
     name: string
@@ -1388,9 +1357,6 @@ slots:
     - value: CAMS
     - value: Beta
     - value: CN-XX
-    in_subset:
-    - identifier
-    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000001
@@ -1398,6 +1364,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Identifier
     range: LabCodeId
     required: true
     multivalued: false
@@ -1414,8 +1381,6 @@ slots:
     - value: 9800507B
     - value: -X-1045-13
     - value: 1415(a)
-    in_subset:
-    - identifier
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000002
@@ -1423,6 +1388,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Identifier
     range: string
     required: true
     multivalued: false
@@ -1444,8 +1410,6 @@ slots:
     examples:
     - value: '4500'
     - value: '37330'
-    in_subset:
-    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000005
@@ -1453,6 +1417,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Measurement
     range: float
     required: true
     multivalued: false
@@ -1467,8 +1432,6 @@ slots:
     examples:
     - value: '25'
     - value: '620'
-    in_subset:
-    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000006
@@ -1476,6 +1439,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Measurement
     range: float
     required: true
     multivalued: false
@@ -1490,8 +1454,6 @@ slots:
     examples:
     - value: '0.83756'
     - value: '0.5371'
-    in_subset:
-    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000003
@@ -1499,6 +1461,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Measurement
     range: float
     required: true
     multivalued: false
@@ -1514,8 +1477,6 @@ slots:
     examples:
     - value: '0.00434'
     - value: '0.023843'
-    in_subset:
-    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000004
@@ -1523,6 +1484,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Measurement
     range: float
     required: true
     multivalued: false
@@ -1538,8 +1500,6 @@ slots:
     - value: IRMS
     - value: Assumed
     - value: Other
-    in_subset:
-    - measurement
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000007
@@ -1547,6 +1507,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Measurement
     range: Delta13CMeasurementMethod
     required: false
     recommended: true
@@ -1567,8 +1528,6 @@ slots:
     - value: KrSp E1/2012/E1/3775
     - value: Iceman
     - value: Tumba XVIII
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000008
@@ -1576,6 +1535,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: true
     multivalued: true
@@ -1594,8 +1554,6 @@ slots:
     examples:
     - value: UBERON:0002481
     - value: ENVO:01000560
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000009
@@ -1603,6 +1561,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: true
     multivalued: false
@@ -1624,8 +1583,6 @@ slots:
     - value: NCBITAXON:9606
     - value: gbif:2441105
     - value: bold.taxonomy:786175
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000010
@@ -1633,6 +1590,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: true
     multivalued: true
@@ -1652,8 +1610,6 @@ slots:
     examples:
     - value: 'true'
     - value: 'false'
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000011
@@ -1661,6 +1617,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: boolean
     required: true
     multivalued: false
@@ -1678,8 +1635,6 @@ slots:
     - value: Homo sapiens sapiens
     - value: Capra sp.
     - value: Ulmus davidiana var. japonica
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000012
@@ -1687,6 +1642,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: false
     recommended: true
@@ -1702,8 +1658,6 @@ slots:
     - value: PO:0009010
     - value: BTO:0001411
     - value: UBERON:3010209
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000013
@@ -1711,6 +1665,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: false
     recommended: true
@@ -1730,8 +1685,6 @@ slots:
     examples:
     - value: 'true'
     - value: 'false'
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000014
@@ -1739,6 +1692,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: boolean
     required: false
     recommended: true
@@ -1760,8 +1714,6 @@ slots:
     - value: Consolidant was applied to the skull to stabilise the bone.
     - value: Sample was preserved in a embalming solution containing formaldehyde
         and alcohol.
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000015
@@ -1769,6 +1721,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: false
     recommended: false
@@ -1782,8 +1735,6 @@ slots:
     examples:
     - value: ''
     - value: ''
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000016
@@ -1791,6 +1742,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: string
     required: false
     recommended: true
@@ -1810,8 +1762,6 @@ slots:
     - value: '51.34254'
     - value: '51.75'
     - value: '-13.163'
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000017
@@ -1819,6 +1769,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: float
     required: false
     recommended: true
@@ -1840,8 +1791,6 @@ slots:
     - value: '12.38067'
     - value: '-1.24'
     - value: '-72.545'
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000018
@@ -1849,6 +1798,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: float
     required: false
     recommended: true
@@ -1867,8 +1817,6 @@ slots:
     - value: '0.00005'
     - value: '0.001'
     - value: '0.0001'
-    in_subset:
-    - sample
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000019
@@ -1876,6 +1824,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Sample
     range: float
     required: false
     recommended: true
@@ -1893,8 +1842,6 @@ slots:
     - value: UF_Col
     - value: XAD
     - value: U
-    in_subset:
-    - method
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000020
@@ -1902,6 +1849,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Method
     range: PretreatmentMethods
     required: true
     multivalued: true
@@ -1914,8 +1862,6 @@ slots:
     examples:
     - value: No pretreatment
     - value: ''
-    in_subset:
-    - method
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000021
@@ -1923,6 +1869,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Method
     range: string
     required: true
     multivalued: false
@@ -1941,8 +1888,6 @@ slots:
         MWCO)
     - value: A dremel drill was used to remove visibly altered shell leaving dense
         translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
-    in_subset:
-    - method
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000022
@@ -1950,6 +1895,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Method
     range: string
     required: true
     multivalued: true
@@ -1966,8 +1912,6 @@ slots:
     - value: AMS
     - value: Conventional
     - value: PIMS
-    in_subset:
-    - method
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000023
@@ -1975,6 +1919,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Method
     range: RadiocarbonMeasurementMethod
     required: true
     multivalued: false
@@ -1988,8 +1933,6 @@ slots:
     - value: '521'
     - value: '56.7'
     - value: '1'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000024
@@ -1997,6 +1940,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: true
     multivalued: false
@@ -2008,8 +1952,6 @@ slots:
     examples:
     - value: '22'
     - value: '2.3'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000025
@@ -2017,6 +1959,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: true
     multivalued: false
@@ -2030,8 +1973,6 @@ slots:
     - value: '0.61'
     - value: '0.015'
     - value: '0.002'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000026
@@ -2039,6 +1980,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: true
@@ -2057,8 +1999,6 @@ slots:
     - value: '0.41'
     - value: '0.12'
     - value: '0.70'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000027
@@ -2066,6 +2006,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: true
     multivalued: false
@@ -2082,8 +2023,6 @@ slots:
     - value: '-21.5'
     - value: '-13.5'
     - value: '1.2'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000028
@@ -2091,6 +2030,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: true
@@ -2106,8 +2046,6 @@ slots:
     examples:
     - value: '0.1'
     - value: '0.2'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000029
@@ -2115,6 +2053,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: true
@@ -2133,8 +2072,6 @@ slots:
     examples:
     - value: AMS
     - value: IRMS
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000030
@@ -2142,6 +2079,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: Delta13CMeasurementMethod
     required: false
     recommended: true
@@ -2156,8 +2094,6 @@ slots:
     examples:
     - value: 'true'
     - value: 'false'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000031
@@ -2165,6 +2101,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: boolean
     required: true
     multivalued: false
@@ -2179,8 +2116,6 @@ slots:
     examples:
     - value: '3.2'
     - value: '3.33'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000032
@@ -2188,6 +2123,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: true
     multivalued: false
@@ -2202,8 +2138,6 @@ slots:
     - value: '10.8'
     - value: '5.1'
     - value: '27.2'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000033
@@ -2211,6 +2145,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: true
@@ -2226,8 +2161,6 @@ slots:
     examples:
     - value: '0.3'
     - value: '0.12'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000034
@@ -2235,6 +2168,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: true
@@ -2251,8 +2185,6 @@ slots:
     examples:
     - value: '18.4'
     - value: '-5.2'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000035
@@ -2260,6 +2192,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: false
@@ -2275,8 +2208,6 @@ slots:
     examples:
     - value: '0.4'
     - value: '0.2'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000036
@@ -2284,6 +2215,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: float
     required: false
     recommended: false
@@ -2299,8 +2231,6 @@ slots:
     examples:
     - value: 'true'
     - value: 'false'
-    in_subset:
-    - quality_control
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     mappings:
     - c14:000037
@@ -2308,6 +2238,7 @@ slots:
     owner: RadiocarbonDate
     domain_of:
     - RadiocarbonDate
+    slot_group: Quality control
     range: boolean
     required: true
     multivalued: false
@@ -2387,9 +2318,9 @@ classes:
     tree_root: true
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2026-01-13T11:03:13'
-source_file_size: 47312
-generation_date: '2026-01-13T11:03:23'
+source_file_date: '2026-01-13T11:55:33'
+source_file_size: 46590
+generation_date: '2026-01-13T11:55:44'
 settings:
   DOI:
     setting_key: DOI
