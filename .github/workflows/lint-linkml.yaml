@@ -4,8 +4,6 @@
 name: Build and test
 
 on: # yamllint disable-line rule:truthy
-  push:
-    branches: [main]
   pull_request:
 
 env:
@@ -14,12 +12,8 @@ env:
 permissions: {}
 
 jobs:
-  test:
+  linkml-lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-      fail-fast: false
 
     steps:
       # https://github.com/actions/checkout
