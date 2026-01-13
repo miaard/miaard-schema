@@ -1,6 +1,6 @@
 # Example data object
 ---
-lab_code: "MAMS"
+lab_code: mams
 lab_id: "81038"
 conventional_age: 4468
 conventional_age_error: 19

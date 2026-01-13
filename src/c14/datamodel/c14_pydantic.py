@@ -1,8 +1,21 @@
 from __future__ import annotations
 
 import re
+import sys
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from decimal import Decimal
 from enum import Enum
-from typing import Any, ClassVar, Optional
+from typing import (
+    Any,
+    ClassVar,
+    Literal,
+    Optional,
+    Union
+)
 
 from pydantic import (
     BaseModel,
@@ -12,7 +25,7 @@ from pydantic import (
     SerializationInfo,
     SerializerFunctionWrapHandler,
     field_validator,
-    model_serializer,
+    model_serializer
 )
 
 
@@ -22,1312 +35,1270 @@ version = "None"
 
 class ConfiguredBaseModel(BaseModel):
     model_config = ConfigDict(
-        serialize_by_alias=True,
-        validate_by_name=True,
-        validate_assignment=True,
-        validate_default=True,
-        extra="forbid",
-        arbitrary_types_allowed=True,
-        use_enum_values=True,
-        strict=False,
+        serialize_by_alias = True,
+        validate_by_name = True,
+        validate_assignment = True,
+        validate_default = True,
+        extra = "forbid",
+        arbitrary_types_allowed = True,
+        use_enum_values = True,
+        strict = False,
     )
 
-    @model_serializer(mode="wrap", when_used="unless-none")
+    @model_serializer(mode='wrap', when_used='unless-none')
     def treat_empty_lists_as_none(
-        self, handler: SerializerFunctionWrapHandler, info: SerializationInfo
-    ) -> dict[str, Any]:
+            self, handler: SerializerFunctionWrapHandler,
+            info: SerializationInfo) -> dict[str, Any]:
         if info.exclude_none:
             _instance = self.model_copy()
             for field, field_info in type(_instance).model_fields.items():
-                if getattr(_instance, field) == [] and not (field_info.is_required()):
+                if getattr(_instance, field) == [] and not(
+                        field_info.is_required()):
                     setattr(_instance, field, None)
         else:
             _instance = self
         return handler(_instance, info)
 
 
+
 class LinkMLMeta(RootModel):
     root: dict[str, Any] = {}
     model_config = ConfigDict(frozen=True)
 
-    def __getattr__(self, key: str):
+    def __getattr__(self, key:str):
         return getattr(self.root, key)
 
-    def __getitem__(self, key: str):
+    def __getitem__(self, key:str):
         return self.root[key]
 
-    def __setitem__(self, key: str, value):
+    def __setitem__(self, key:str, value):
         self.root[key] = value
 
-    def __contains__(self, key: str) -> bool:
+    def __contains__(self, key:str) -> bool:
         return key in self.root
 
 
-linkml_meta = LinkMLMeta(
-    {
-        "default_prefix": "c14",
-        "default_range": "string",
-        "description": "Minimum Information about any Radiocarbon Determination",
-        "id": "https://w3id.org/MIxS-MInAS/miaard",
-        "imports": ["linkml:types"],
-        "license": "MIT",
-        "name": "miaard",
-        "prefixes": {
-            "c14": {
-                "prefix_prefix": "c14",
-                "prefix_reference": "https://w3id.org/MIxS-MInAS/miaard/",
-            },
-            "linkml": {
-                "prefix_prefix": "linkml",
-                "prefix_reference": "https://w3id.org/linkml/",
-            },
-            "schema": {
-                "prefix_prefix": "schema",
-                "prefix_reference": "http://schema.org/",
-            },
-        },
-        "see_also": ["https://MIxS-MInAS.github.io/miaard"],
-        "settings": {
-            "DOI": {
-                "setting_key": "DOI",
-                "setting_value": "^https:\\/\\/doi\\.org\\/10.\\d{2,9}/.*$",
-            },
-            "PMID": {"setting_key": "PMID", "setting_value": "^PMID:\\d+$"},
-            "URL": {
-                "setting_key": "URL",
-                "setting_value": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
-            },
-            "termID": {
-                "setting_key": "termID",
-                "setting_value": "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+",
-            },
-        },
-        "source_file": "src/c14/schema/c14.yaml",
-        "subsets": {
-            "identifier": {
-                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
-                "name": "identifier",
-            },
-            "measurement": {
-                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
-                "name": "measurement",
-            },
-            "method": {
-                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
-                "name": "method",
-            },
-            "quality control": {
-                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
-                "name": "quality control",
-            },
-            "sample": {
-                "from_schema": "https://w3id.org/MIxS-MInAS/miaard",
-                "name": "sample",
-            },
-        },
-        "title": "miaard",
-    }
-)
-
+linkml_meta = LinkMLMeta({'default_prefix': 'c14',
+     'default_range': 'string',
+     'description': 'Minimum Information about any Radiocarbon Determination',
+     'id': 'https://w3id.org/MIxS-MInAS/miaard',
+     'imports': ['linkml:types', 'enums/lab_code_ids'],
+     'license': 'MIT',
+     'name': 'miaard',
+     'prefixes': {'c14': {'prefix_prefix': 'c14',
+                          'prefix_reference': 'https://w3id.org/MIxS-MInAS/miaard/'},
+                  'linkml': {'prefix_prefix': 'linkml',
+                             'prefix_reference': 'https://w3id.org/linkml/'},
+                  'schema': {'prefix_prefix': 'schema',
+                             'prefix_reference': 'http://schema.org/'}},
+     'see_also': ['https://MIxS-MInAS.github.io/miaard'],
+     'settings': {'DOI': {'setting_key': 'DOI',
+                          'setting_value': '^https:\\/\\/doi\\.org\\/10.\\d{2,9}/.*$'},
+                  'PMID': {'setting_key': 'PMID', 'setting_value': '^PMID:\\d+$'},
+                  'URL': {'setting_key': 'URL',
+                          'setting_value': '^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$'},
+                  'termID': {'setting_key': 'termID',
+                             'setting_value': '[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+'}},
+     'source_file': 'src/c14/schema/c14.yaml',
+     'title': 'miaard'} )
 
 class LabCodeId(str, Enum):
     """
     Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.
     """
-
-    A = "A"
+    A = "a"
     """
     Carbon-14 Age Determination Laboratory, University of Arizona (Arizona,USA, https://ams.arizona.edu/)
     """
-    AA = "AA"
+    AA = "aa"
     """
     Accelerator Mass Spectrometry Lab, University of Arizona (Arizona (AMS),USA, https://ams.arizona.edu/)
     """
-    AAR = "AAR"
+    AAR = "aar"
     """
     Aarhus AMS Centre, Aarhus University (Aarhus, Aarhus, Denmark, https://c14websub.au.dk/)
     """
-    AC = "AC"
+    AC = "ac"
     """
     INGEIS, University of Buenos Aires (INGEIS, Buenos Aires, Argentina, http://www.ingeis.uba.ar/)
     """
-    AECV = "AECV"
+    AECV = "aecv"
     """
     Alberta Environmental Center of Vegreville (Canada)
     """
-    AERIK = "AERIK"
+    AERIK = "aerik"
     """
     Atomic Energy Research Institute (Korea)
     """
-    ALG = "ALG"
+    ALG = "alg"
     """
     Algiers (Algeria)
     """
-    ANAS = "ANAS"
+    ANAS = "anas"
     """
     Applied Nuclear-Atomic South Science Lab (Korea)
     """
-    ANL = "ANL"
+    ANL = "anl"
     """
     Argonne National Laboratory (USA)
     """
-    ANTW = "ANTW"
+    ANTW = "antw"
     """
     Antwerp (Antwerp, Belgium)
     """
-    ANU = "ANU"
+    ANU = "anu"
     """
     ANU Radiocarbon Laboratory, Australian National University (ANU, Canberra, Australia, https://earthsciences.anu.edu.au/research/facilities/anu-radiocarbon-laboratory)
     """
-    ANUA = "ANUA"
+    ANUA = "anua"
     """
     ANU Radiocarbon Laboratory, Australian National University (AMS) (ANU (AMS), Canberra, Australia, https://earthsciences.anu.edu.au/research/facilities/anu-radiocarbon-laboratory)
     """
-    SANU = "SANU"
+    SANU = "sanu"
     """
     ANU Radiocarbon Laboratory, Australian National University (SSAMS) (ANU (SSAMS), Canberra, Australia, https://earthsciences.anu.edu.au/research/facilities/anu-radiocarbon-laboratory)
     """
-    AU = "AU"
+    AU = "au"
     """
     University of Alaska (USA)
     """
-    AURIS = "AURIS"
+    AURIS = "auris"
     """
     Ahmedabad (India)
     """
-    Aix = "Aix"
+    Aix = "aix"
     """
     Centre de Recherche et d'Enseignement de Geosciences de l'Environment (CERAGE), Aix-en-Provence (France)
     """
-    BE = "BE"
+    BE = "be"
     """
     Laboratory for the Analysis of Radiocarbon with AMS, University of Bern (LARA Bern, Bern, Switzerland, https://www.14c.unibe.ch/)
     """
-    B = "B"
+    B = "b"
     """
     Radiocarbon Lab, Climate and Environmental Physics, University of Bern (Bern, Bern, Switzerland, https://www.climate.unibe.ch/services/services_of_cep/radiocarbon_dating/index_eng.html)
     """
-    BC = "BC"
+    BC = "bc"
     """
     Brooklyn College (USA)
     """
-    BGS = "BGS"
+    BGS = "bgs"
     """
     Brock University (Canada)
     """
-    BIOCAMS = "BIOCAMS"
+    BIOCAMS = "biocams"
     """
     Miami (Miami, USA)
     """
-    BM = "BM"
+    BM = "bm"
     """
     British Museum (London, England)
     """
-    BONN = "BONN"
+    BONN = "bonn"
     """
     Universität Bonn (Bonn, Germany)
     """
-    BRAMS = "BRAMS"
+    BRAMS = "brams"
     """
     University of Bristol (Bristol, UK)
     """
-    BS = "BS"
+    BS = "bs"
     """
     Birbal Sahni Institute (India)
     """
-    Ba = "Ba"
+    Ba = "ba"
     """
     Bratislava (Bratislava, Slovakia)
     """
-    Beta = "Beta"
+    Beta = "beta"
     """
     Beta Analytic (USA)
     """
-    Birm = "Birm"
+    Birm = "birm"
     """
     Birmingham (Birmingham, UK)
     """
-    Bln = "Bln"
+    Bln = "bln"
     """
     Berlin (Berlin, Germany)
     """
-    C = "C"
+    C = "c"
     """
     Chicago (Chicago, USA)
     """
-    CAMS = "CAMS"
+    CAMS = "cams"
     """
     Lawrence Livermore National Laboratory (USA)
     """
-    CAR = "CAR"
+    CAR = "car"
     """
     University College, Cardiff (Wales)
     """
-    CENA = "CENA"
+    CENA = "cena"
     """
     Centro Energia Nuclear na Agricultura, Universidade de São Paulo (São Paulo, São Paulo, Brazil)
     """
-    CG = "CG"
+    CG = "cg"
     """
     Institute of Geology (China)
     """
-    CH = "CH"
+    CH = "ch"
     """
     Chemistry Laboratory (India)
     """
-    CIRAM = "CIRAM"
+    CIRAM = "ciram"
     """
     CIRAM, Martillac (France)
     """
-    CN_XX = "CN-XX"
+    CN_XX = "cn_xx"
     """
     Chinese Academy of Sciences (China)
     """
-    CAN = "CAN"
+    CAN = "can"
     """
     Centro Nacional de Aceleradores (Spain)
     """
-    CNL = "CNL"
+    CNL = "cnl"
     """
     Institute of Geology and Geophysics, Chinese Academy of Sciences (China)
     """
-    COL = "COL"
+    COL = "col"
     """
     Köln AMS (Germany)
     """
-    CRCA = "CRCA"
+    CRCA = "crca"
     """
     Cairo (Cairo, Egypt)
     """
-    CRL = "CRL"
+    CRL = "crl"
     """
     Czech Radiocarbon Laboratory, Czech Academy of Sciences (Řež, Czechia, https://www.ujf.cas.cz/en/our-services/Radiocarbon_laboratory/About_us/)
     """
-    CSIC = "CSIC"
+    CSIC = "csic"
     """
     Geochronology Lab, IQFR-CSIC, Madrid (Spain)
     """
-    CSM = "CSM"
+    CSM = "csm"
     """
     Cosmochem. Lab., USSR Acad. of Sci. (USSR)
     """
-    CT = "CT"
+    CT = "ct"
     """
     Caltech, Calif. Inst. Tech. (USA)
     """
-    CU = "CU"
+    CU = "cu"
     """
     Department of Hydrology and Geology, Charles University (Prague, Czechia)
     """
-    D = "D"
+    D = "d"
     """
     Dublin, Trinity College (Ireland)
     """
-    D_AMS = "D-AMS"
+    D_AMS = "d_ams"
     """
     Direct AMS (USA)
     """
-    DAL = "DAL"
+    DAL = "dal"
     """
     Radiocarbon Dating Laboratory, Dalhousie University (Dalhousie, Halifax, Canada)
     """
-    DE = "DE"
+    DE = "de"
     """
     USGS, Denver (USA)
     """
-    DEM = "DEM"
+    DEM = "dem"
     """
     NCSR Demokritos (Greece)
     """
-    DGC = "DGC"
+    DGC = "dgc"
     """
     Dalhousie Geochronology Centre, Dalhousie University (Dalhousie (DGC), Halifax, Canada)
     """
-    DIC = "DIC"
+    DIC = "dic"
     """
     Dicar Corp and Dicarb (USA)
     """
-    DK = "DK"
+    DK = "dk"
     """
     Univ. de Dakar (Sénégal)
     """
-    DRI = "DRI"
+    DRI = "dri"
     """
     Desert Research Institute (USA)
     """
-    DSA = "DSA"
+    DSA = "dsa"
     """
     CIRCE, Caserta (Italy)
     """
-    Dak = "Dak"
+    Dak = "dak"
     """
     Univ. of Dakar (Sénégal)
     """
-    Deb = "Deb"
+    Deb = "deb"
     """
     Debrecen (Hungary)
     """
-    DebA = "DebA"
+    DebA = "deba"
     """
     Debrecen (AMS) (Hungary)
     """
-    ENEA = "ENEA"
+    ENEA = "enea"
     """
     ENEA, Bologna (Italy)
     """
-    ETH = "ETH"
+    ETH = "eth"
     """
     Laboratory of Ion Beam Physics, ETH Zürich (ETH Zürich, Zürich, Switzerland, https://ams.ethz.ch/LIPServices/c14.html)
     """
-    Erl = "Erl"
+    Erl = "erl"
     """
     Erlangen AMS Facility (Germany)
     """
-    F = "F"
+    F = "f"
     """
     Florence (Italy)
     """
-    FSU = "FSU"
+    FSU = "fsu"
     """
     Florida State University (USA)
     """
-    FTMC = "FTMC"
+    FTMC = "ftmc"
     """
     Vilnius AMS Lab (Lithuania)
     """
-    FZ = "FZ"
+    FZ = "fz"
     """
     Department of Physics, University of Fortaleza (Fortaleza, Fortaleza, Brazil)
     """
-    Fi = "Fi"
+    Fi = "fi"
     """
     Florence INFN (Italy)
     """
-    Fr = "Fr"
+    Fr = "fr"
     """
     Freiberg (Germany)
     """
-    Fra = "Fra"
+    Fra = "fra"
     """
     Frankfurt (Germany)
     """
-    G = "G"
+    G = "g"
     """
     Göteborg (Sweden)
     """
-    GAK = "GAK"
+    GAK = "gak"
     """
     Gakushuin University (Japan)
     """
-    GC = "GC"
+    GC = "gc"
     """
     Guiyang Institute of Geochemistry (China)
     """
-    GD = "GD"
+    GD = "gdansk"
     """
     Gdansk (Gdansk, Poland)
     """
-    GIN = "GIN"
+    GIN = "gin"
     """
     Geological Institute (Russia)
     """
-    GL = "GL"
+    GL = "gl"
     """
     Geochronological Lab (England)
     """
-    GSC = "GSC"
+    GSC = "gsc"
     """
     Geological Survey (Canada)
     """
-    GU = "GU"
+    GU = "gu"
     """
     Scottish Universities Research & Reactor Centre (Scotland)
     """
-    GV = "GV"
+    GV = "gv"
     """
     AMS Golden Valley, Novosibirsk (Russia)
     """
-    GX = "GX"
+    GX = "gx"
     """
     Geochron Laboratories (USA)
     """
-    GXNUAMS = "GXNUAMS"
+    GXNUAMS = "gxnuams"
     """
     Guangxi Normal Univ. AMS Lab (China)
     """
-    GZ = "GZ"
+    GZ = "gz"
     """
     Key Laboratory of Isotope Geochronology and Geochemistry (Guangzhou) (China)
     """
-    Gd = "Gd"
+    Gd = "gliwice"
     """
     Gliwice (Poland)
     """
-    GdA = "GdA"
+    GdA = "gda"
     """
     Gliwice (Poland)
     """
-    GdS = "GdS"
+    GdS = "gds"
     """
     Gliwice (Poland)
     """
-    Gif = "Gif"
+    Gif = "gif"
     """
     Gif-sure-Yvette (France)
     """
-    Gif_A = "Gif A"
+    GifA = "gifa"
     """
     Gif-sure-Yvette and Orsay (France)
     """
-    GrA = "GrA"
+    GrA = "gra"
     """
     Groningen AMS (Netherlands)
     """
-    GrM = "GrM"
+    GrM = "grm"
     """
     Groningen AMS (Netherlands)
     """
-    GrN = "GrN"
+    GrN = "grn"
     """
     Groningen (Netherlands)
     """
-    GrO = "GrO"
+    GrO = "gro"
     """
     Groningen (Netherlands)
     """
-    H = "H"
+    H = "h"
     """
     Heidelberg (Germany)
     """
-    HAM = "HAM"
+    HAM = "ham"
     """
     Hamburg (Germany)
     """
-    HAR = "HAR"
+    HAR = "har"
     """
     Harwell (England)
     """
-    HIG = "HIG"
+    HIG = "hig"
     """
     Hawaii Inst. of Geophys. (USA)
     """
-    HL = "HL"
+    HL = "hl"
     """
     Second Inst. of Oceanography (China)
     """
-    HNS = "HNS"
+    HNS = "hns"
     """
     Hasleton-Nuclear, Palo Alto (USA)
     """
-    Hd = "Hd"
+    Hd = "hd"
     """
     Heidelberg (Germany)
     """
-    Hel = "Hel"
+    Hel = "hel"
     """
     Laboratory of Chronology, University of Helsinki (Helsinki, Helsinki, Finland, https://www.helsinki.fi/en/luomus/analytical-services/radiocarbon-analyses)
     """
-    HelA = "HelA"
+    HelA = "hela"
     """
     Laboratory of Chronology, University of Helsinki (AMS) (Helsinki (AMS), Helsinki, Finland, https://www.helsinki.fi/en/luomus/analytical-services/radiocarbon-analyses)
     """
-    Hv = "Hv"
+    Hv = "hv"
     """
     Hannover (Germany)
     """
-    I = "I"
+    I = "i"
     """
     Teledyne Isotopes (USA)
     """
-    IAA = "IAA"
+    IAA = "iaa"
     """
     Institute of Accelerator Analysis (beta counting) (Japan)
     """
-    IAAA = "IAAA"
+    IAAA = "iaaa"
     """
     Institute of Accelerator Analysis (AMS) (Japan)
     """
-    IAEA = "IAEA"
+    IAEA = "iaea"
     """
     International Atomic Energy Agency (Austria)
     """
-    IAEA_MEL = "IAEA-MEL"
+    IAEA_MEL = "iaea_mel"
     """
     Marine Environmental Lab. (Monaco)
     """
-    ICA = "ICA"
+    ICA = "ica"
     """
     International Chemical Analysis (USA)
     """
-    ICEN = "ICEN"
+    ICEN = "icen"
     """
     Institution Tecnológico e Nuclear (Portugal)
     """
-    IEMAE = "IEMAE"
+    IEMAE = "iemae"
     """
     Institute of Evolutionary Morphology & Animal Ecology (Russia)
     """
-    IFAO = "IFAO"
+    IFAO = "ifao"
     """
     Laboratoire de Datation par le Radiocarbone, Institut français d’archéologie orientale (IFAO, Cairo, Egypt)
     """
-    IGAN = "IGAN"
+    IGAN = "igan"
     """
     Institute of Geography (Russia)
     """
-    IGS = "IGS"
+    IGS = "igs"
     """
     Institute of Geological Sciences (UK) (London, UK)
     """
-    IGSB = "IGSB"
+    IGSB = "igsb"
     """
     Institute of Geochemistry and Geophysics, National Academy of Sciences of Belarus (Minsk, Belarus)
     """
-    IHME = "IHME"
+    IHME = "ihme"
     """
     Marzeev Inst. of Hygiene Med. Ecol. (Ukraine)
     """
-    II = "II"
+    II = "ii"
     """
     Isotopes, Inc., Palo Alto (USA)
     """
-    IMTA = "IMTA"
+    IMTA = "imta"
     """
     Inst. Mexicano de Tecnología del Agua (Mexico)
     """
-    IOAN = "IOAN"
+    IOAN = "ioan"
     """
     Inst. of Oceanography (Russia)
     """
-    IOP = "IOP"
+    IOP = "iop"
     """
     Ionplus AG (Ionplus, Dietikon, Switzerland, https://www.ionplus.ch/)
     """
-    IORAN = "IORAN"
+    IORAN = "ioran"
     """
     Institute of Oceanology (Russia)
     """
-    IRPA = "IRPA"
+    IRPA = "irpa"
     """
     Royal Institute for Cultural Heritage (Belgium)
     """
-    ISGS = "ISGS"
+    ISGS = "isgs"
     """
     Illinois State Geological Survey (USA)
     """
-    IUACD = "IUACD"
+    IUACD = "iuacd"
     """
     Inter University Accelerator Centre (India)
     """
-    IVAN = "IVAN"
+    IVAN = "ivan"
     """
     Institute of Volcanology (Ukraine)
     """
-    IVIC = "IVIC"
+    IVIC = "ivic"
     """
     Caracas (Venezuela)
     """
-    IWP = "IWP"
+    IWP = "iwp"
     """
     Institute of Water Problems (Russia)
     """
-    JAT = "JAT"
+    JAT = "jat"
     """
     Tono Geoscience Center (JAEA) (Japan)
     """
-    K = "K"
+    K = "k"
     """
     Copenhagen (Denmark)
     """
-    KATRI = "KATRI"
+    KATRI = "katri"
     """
     Korea Apparel Testing (Korea)
     """
-    KEEA = "KEEA"
+    KEEA = "keea"
     """
     Kyushu Environ. Eval. Assoc. Property Research Inst. (Japan)
     """
-    KF = "KF"
+    KF = "kf"
     """
     State Key Laboratory of Lake Science and Environment, Chinese Academy of Sciences (China)
     """
-    KGM = "KGM"
+    KGM = "kgm"
     """
     Korea Institute of Geoscience & Mineral Resources (KIGAM) (Korea)
     """
-    KI = "KI"
+    KI = "kiel"
     """
     Kiel (Kiel, Germany)
     """
-    KIA = "KIA"
+    KIA = "kia"
     """
     Kiel (AMS) (Kiel, Germany)
     """
-    KIK = "KIK"
+    KIK = "kik"
     """
     Royal Institute for Cultural Heritage (Belgium)
     """
-    KN = "KN"
+    KN = "kn"
     """
     Köln (Cologne, Germany)
     """
-    KR = "KR"
+    KR = "kr"
     """
     Kraków (Kraków, Poland)
     """
-    KRIL = "KRIL"
+    KRIL = "kril"
     """
     Krasnoyarsk Institute (Russia)
     """
-    KSU = "KSU"
+    KSU = "ksu"
     """
     Kyoto Sangyo University (Japan)
     """
-    KiLEFT_PARENTHESISKIEVRIGHT_PARENTHESIS = "Ki(KIEV)"
+    KiLEFT_PARENTHESISKIEVRIGHT_PARENTHESIS = "kiev"
     """
     (KIEV) Institute of Radio-Geochemistry of the Environment (Kyiv, Ukraine)
     """
-    L = "L"
+    L = "l"
     """
     Lamont-Doherty (USA)
     """
-    LACUFF = "LACUFF"
+    LACUFF = "lacuff"
     """
     Radiocarbon Laboratory, Fluminense Federal University (Fluminense, Rio de Janeiro, Brazil, https://lac.uff.br/eng/home/)
     """
-    LAEC = "LAEC"
+    LAEC = "laec"
     """
     Lebanese Atomic Energy Commission (LAEC) (Lebanon)
     """
-    LAR = "LAR"
+    LAR = "lar"
     """
     Liège State University (Belgium)
     """
-    LE = "LE"
+    LE = "le"
     """
     St. Petersburg (Russia)
     """
-    LEMA = "LEMA"
+    LEMA = "lema"
     """
     Lab. de Espectrometría de Masas con Aceleradores (Mexico)
     """
-    LIH = "LIH"
+    LIH = "lih"
     """
     NCSR Demokritos (Greece)
     """
-    LJ = "LJ"
+    LJ = "lj"
     """
     Scripps (UCSD) La Jolla (USA)
     """
-    LP = "LP"
+    LP = "lp"
     """
     Laboratorio de Tritio y Radiocarbono, National University of La Plata (Argentina)
     """
-    LTL = "LTL"
+    LTL = "ltl"
     """
     University of Lecce (Italy)
     """
-    LU = "LU"
+    LU = "st_petersburg"
     """
     St. Petersburg State University (Russia)
     """
-    LZ = "LZ"
+    LZ = "lz"
     """
     Umweltforschungszentrum Leipzig-Halle (Germany)
     """
-    LZU = "LZU"
+    LZU = "lzu"
     """
     Lanzhou University (China)
     """
-    Lu = "Lu"
+    Lu = "lund"
     """
     Radiocarbon Dating Laboratory, Lund University (Lund, Sweden)
     """
-    LuA = "LuA"
+    LuA = "lua"
     """
     Radiocarbon Dating Laboratory, Lund University (AMS) (Lund (AMS), Sweden)
     """
-    LuS = "LuS"
+    LuS = "lus"
     """
     Radiocarbon Dating Laboratory, Lund University (SSAMS) (Lund (SSAMS), Sweden, https://www.geology.lu.se/research/laboratories-equipment/radiocarbon-dating-laboratory)
     """
-    Lv = "Lv"
+    Lv = "lv"
     """
     Louvain-la-Neuve (Belgium)
     """
-    Ly = "Ly"
+    Ly = "ly"
     """
     University of Lyon (France)
     """
-    M = "M"
+    M = "m"
     """
     University of Michigan (USA)
     """
-    MAG = "MAG"
+    MAG = "mag"
     """
     Quaternary Geology (Russia)
     """
-    MAMS = "MAMS"
+    MAMS = "mams"
     """
     Curt-Engelhorn-Zentrum Archaeom. (Germany)
     """
-    MC = "MC"
+    MC = "mc"
     """
     Centre Scientifique (Monaco)
     """
-    METU = "METU"
+    METU = "metu"
     """
     Middle East Technical Univ. (Turkey)
     """
-    MKL = "MKL"
+    MKL = "mkl"
     """
     Lab. of Absolute Dating (Poland)
     """
-    MTC = "MTC"
+    MTC = "mtc"
     """
     University of Tokyo (Japan)
     """
-    Ma = "Ma"
+    Ma = "ma"
     """
     University of Winnepeg (Canada)
     """
-    N = "N"
+    N = "n"
     """
     Nishina Memorial (Japan)
     """
-    NB = "NB"
+    NB = "nb"
     """
     Nanjing Museum (China)
     """
-    NIST = "NIST"
+    NIST = "nist"
     """
     National Institute of Standards and Technology (USA)
     """
-    NPL = "NPL"
+    NPL = "npl"
     """
     National Physical Laboratory, Middlesex (England)
     """
-    NS = "NS"
+    NS = "ns"
     """
     Nova Scotia Research Foundation (Canada)
     """
-    NSRL = "NSRL"
+    NSRL = "nsrl"
     """
     INSTAAR, University of Colorado (USA)
     """
-    NSTF = "NSTF"
+    NSTF = "nstf"
     """
     Nuclear Science and Technology Facility, State University of New York (USA)
     """
-    UNSW = "UNSW"
+    UNSW = "unsw"
     """
     Chronos Radiocarbon Laboratory, University of New South Wales (New South Wales, Sydney, Australia, https://www.analytical.unsw.edu.au/facilities/x-ray-facilities/radiocarbon-laboratory)
     """
-    NTU = "NTU"
+    NTU = "ntu"
     """
     National Taiwan University (Taiwan)
     """
-    NU = "NU"
+    NU = "nu"
     """
     Nihon University (Japan)
     """
-    NUTA = "NUTA"
+    NUTA = "nuta"
     """
     Tandetron AMS Lab (Japan)
     """
-    NZ = "NZ"
+    NZ = "nz"
     """
     Rafter Radiocarbon Lab (New Zealand)
     """
-    NZA = "NZA"
+    NZA = "nza"
     """
     Rafter Radiocarbon Lab (AMS) (New Zealand)
     """
-    Ny = "Ny"
+    Ny = "ny"
     """
     Nancy, Centre de Recherches Radiogéologiques (France)
     """
-    O = "O"
+    O = "o"
     """
     Humble Oil & Refining (USA)
     """
-    OBDY = "OBDY"
+    OBDY = "obdy"
     """
     ORSTOM Bondy (France)
     """
-    OR = "OR"
+    OR = "or"
     """
     Research Center of Radioisotopes (Japan)
     """
-    ORINS = "ORINS"
+    ORINS = "orins"
     """
     Oak Ridge Institute of Nuclear Studies (USA)
     """
-    OS = "OS"
+    OS = "os"
     """
     National Ocean Sciences, AMS Facility Woods Hole Oceanographic Inst. (USA)
     """
-    OWU = "OWU"
+    OWU = "owu"
     """
     Ohio Wesleyan Univ. (USA)
     """
-    OX = "OX"
+    OX = "ox"
     """
     USDA (Oxford, Missouri) (USA)
     """
-    OZ = "OZ"
+    OZ = "oz"
     """
     Centre for Accelerator Science, Australian Nuclear Science and Technology Organisation (ANSTO, Canberra, Australia, https://www.ansto.gov.au/our-facilities/centre-for-accelerator-science)
     """
-    OxA = "OxA"
+    OxA = "oxa"
     """
     Oxford Radiocarbon Accelerator Unit (Oxford, England)
     """
-    P = "P"
+    P = "p"
     """
     University of Pennsylvania (USA) or Max-Planck-Institut Geochronology Lab (Germany)
     """
-    PAL = "PAL"
+    PAL = "pal"
     """
     Palynosurvery Co. (Japan)
     """
-    PI = "PI"
+    PI = "permafrost_institute"
     """
     Permafrost Institute (Russia)
     """
-    PIC = "PIC"
+    PIC = "pic"
     """
     Packard (USA)
     """
-    PITT = "PITT"
+    PITT = "pitt"
     """
     University of Pittsburgh (USA)
     """
-    PKU = "PKU"
+    PKU = "pku"
     """
     Peking University (China)
     """
-    PKUAMS = "PKUAMS"
+    PKUAMS = "pkuams"
     """
     Peking Univ. AMS lab (China)
     """
-    PL = "PL"
+    PL = "pl"
     """
     Purdue Rare Isotope Measurement Lab (USA)
     """
-    PLD = "PLD"
+    PLD = "pld"
     """
     Paleo Labo. Co., Ltd. (Japan)
     """
-    PRI = "PRI"
+    PRI = "pri"
     """
     PaleoResearch Institute (USA)
     """
-    PRL = "PRL"
+    PRL = "prl"
     """
     Radiocarbon Dating Research Unit (India)
     """
-    PRLCH = "PRLCH"
+    PRLCH = "prlch"
     """
     Physical Research Lab (India)
     """
-    PSU = "PSU"
+    PSU = "psu"
     """
     Penn State University (USA)
     """
-    PSUAMS = "PSUAMS"
+    PSUAMS = "psuams"
     """
     Penn State University (AMS) (USA)
     """
-    Pi = "Pi"
+    Pi = "pisa"
     """
     Pisa (Italy)
     """
-    Poz = "Poz"
+    Poz = "poz"
     """
     Poznan (Poland)
     """
-    Pr = "Pr"
+    Pr = "pr"
     """
     Prague Czech (Republic)
     """
-    Pta = "Pta"
+    Pta = "pta"
     """
     Pretoria South (Africa)
     """
-    PV = "PV"
+    PV = "pv"
     """
     Institute of Vertebrate Paleontology and Paleoanthropology (China)
     """
-    Q = "Q"
+    Q = "q"
     """
     Cambridge (England)
     """
-    QC = "QC"
+    QC = "qc"
     """
     Queens College (USA)
     """
-    QL = "QL"
+    QL = "ql"
     """
     Quaternary Isotope Lab. (USA)
     """
-    QU = "QU"
+    QU = "qu"
     """
     Centre de Recherches Canada Minérales, (Québec)
     """
-    R = "R"
+    R = "r"
     """
     Rome (Italy)
     """
-    RCD = "RCD"
+    RCD = "rcd"
     """
     Radiocarbon Dating (England)
     """
-    RCMib = "RCMib"
+    RCMib = "rcmib"
     """
     Milano Bicocca University (Italy)
     """
-    RI = "RI"
+    RI = "ri"
     """
     Radiochemistry Inc. (USA)
     """
-    RICH = "RICH"
+    RICH = "rich"
     """
     Royal Institute for Cultural Heritage (KIK-IRPA, Brussels, Belgium, https://www.kikirpa.be/en/)
     """
-    RIDDL = "RIDDL"
+    RIDDL = "riddl"
     """
     Simon Fraser University (Canada)
     """
-    RL = "RL"
+    RL = "rl"
     """
     Radiocarbon, Ltd. (USA)
     """
-    RT = "RT"
+    RT = "rt"
     """
     Rehovot (Israel)
     """
-    RTK = "RTK"
+    RTK = "rtk"
     """
     Rehovot (Israel)
     """
-    RU = "RU"
+    RU = "ru"
     """
     Rice University (USA)
     """
-    Riga = "Riga"
+    Riga = "riga"
     """
     Institute of Science (Latvia)
     """
-    RoAMS = "RoAMS"
+    RoAMS = "roams"
     """
     National Institute for Physics and Nuclear Engineering (Romania)
     """
-    Rome = "Rome"
+    Rome = "rome"
     """
     Dept. of Earth Sciences, Rome (Italy)
     """
-    S = "S"
+    S = "s"
     """
     Saskatchewan (Canada)
     """
-    SFU = "SFU"
+    SFU = "sfu"
     """
     Simon Fraser Univ. (Canada)
     """
-    SH = "SH"
+    SH = "sh"
     """
     State Key Laboratory of Estuarine and Coastal Research (China)
     """
-    SI = "SI"
+    SI = "si"
     """
     Smithsonian Institution (USA)
     """
-    SL = "SL"
+    SL = "sl"
     """
     Sharp Laboratories (USA)
     """
-    SM = "SM"
+    SM = "sm"
     """
     Mobil Oil Corp., Dallas (USA)
     """
-    SMU = "SMU"
+    SMU = "smu"
     """
     Southern Methodist Univ. (USA)
     """
-    SNU = "SNU"
+    SNU = "snu"
     """
     Seoul National University South (Korea)
     """
-    SPb = "SPb"
+    SPb = "spb"
     """
     Herzen State University (Russia)
     """
-    SUERC = "SUERC"
+    SUERC = "suerc"
     """
     Scottish Universities Environmental Research Centre (United Kingdom)
     """
-    Sa = "Sa"
+    Sa = "sa"
     """
     Saclay, Gif-sure-Yvette (France)
     """
-    Sac = "Sac"
+    Sac = "sac"
     """
     Institution Tecnológico Portugal e (Nuclear)
     """
-    SacA = "SacA"
+    SacA = "saca"
     """
     Gif sure Yvette (Saclay) (France)
     """
-    Sh = "Sh"
+    Sh = "shell"
     """
     Shell Development Company (USA)
     """
-    T = "T"
+    T = "t"
     """
     Trondheim (Norway)
     """
-    Ta = "Ta"
+    Ta = "ta"
     """
     University of Tartu (Tartu, Tartu, Estonia)
     """
-    TB = "TB"
+    TB = "tb"
     """
     Tblisi (Georgia)
     """
-    TBNC = "TBNC"
+    TBNC = "tbnc"
     """
     Kaman Instruments (USA)
     """
-    TEM = "TEM"
+    TEM = "tem"
     """
     Temple University (USA)
     """
-    TF = "TF"
+    TF = "tf"
     """
     Tata Institute of Fundamental Research (India)
     """
-    TK = "TK"
+    TK = "tk"
     """
     University of Tokyo (Japan)
     """
-    TKA = "TKA"
+    TKA = "tokyo_museum"
     """
     University Museum, Univ. of Tokyo (Japan)
     """
-    TKU = "TKU"
+    TKU = "tku"
     """
     Turku (Finland)
     """
-    TKa = "TKa"
+    TKa = "tokyo_ams"
     """
     University of Tokyo (AMS) (Japan)
     """
-    TO = "TO"
+    TO = "to"
     """
     Isotrace Radiocarbon Facility, University of Toronto (Isotrace, Toronto, Canada)
     """
-    TRa = "TRa"
+    TRa = "tra"
     """
     Trondheim (AMS) (Norway)
     """
-    TUBITAK = "TUBITAK"
+    TUBITAK = "tubitak"
     """
     National 1MV Accelerator Mass Spectrometry Laboratory, Scientific and Technological Research Council of Turkey (TÜBİTAK, Marmara, Turkey, https://mam.tubitak.gov.tr/en/teknoloji-transfer-ofisi/national-1mv-accelerated-mass-spectroscopy-ams-laboratory)
     """
-    TUNC = "TUNC"
+    TUNC = "tunc"
     """
     Tehran Univ. Nuclear Centre (Iran)
     """
-    TUa = "TUa"
+    TUa = "tua"
     """
     Trondheim (AMS) (Norway)
     """
-    Tln = "Tln"
+    Tln = "tln"
     """
     Radiocarbon Laboratory, Tallinn University of Technology (Talinn, Talinn, Estonia)
     """
-    Tx = "Tx"
+    Tx = "tx"
     """
     Texas (USA)
     """
-    U = "U"
+    U = "u"
     """
     Uppsala University (Uppsala, Uppsala, Sweden)
     """
-    Ua = "Ua"
+    Ua = "ua"
     """
     Tandem Laboratory, Uppsala University (Uppsala (AMS), Uppsala, Sweden, https://www.uu.se/en/centre/tandemlab)
     """
-    UB = "UB"
+    UB = "ub"
     """
     Belfast Northern (Ireland)
     """
-    UBA = "UBA"
+    UBA = "uba"
     """
     Belfast Northern (AMS) (Ireland)
     """
-    UBAR = "UBAR"
+    UBAR = "ubar"
     """
     University of Barcelona (Spain)
     """
-    UCD = "UCD"
+    UCD = "ucd"
     """
     University College, Dublin (Ireland)
     """
-    UCI = "UCI"
+    UCI = "uci"
     """
     Univ. of California, Irvine (USA)
     """
-    UCLA = "UCLA"
+    UCLA = "ucla"
     """
     Univ. of California, Los Angeles (USA)
     """
-    UCR = "UCR"
+    UCR = "ucr"
     """
     Univ. of California, Riverside (USA)
     """
-    UD = "UD"
+    UD = "ud"
     """
     Udine (Italy)
     """
-    UGRA = "UGRA"
+    UGRA = "ugra"
     """
     University of Granada (Spain)
     """
-    UGa = "UGa"
+    UGa = "uga"
     """
     University of Georgia (USA)
     """
-    UL = "UL"
+    UL = "ul"
     """
     Radiochronology Laboratory, Université Laval (Laval, Quebec, Canada, https://www.cen.ulaval.ca/en/infrastructures/radiocarbon/)
     """
-    ULA = "ULA"
+    ULA = "ula"
     """
     Radiochronology Laboratory, Université Laval (AMS) (Laval (AMS), Quebec, Canada, https://www.cen.ulaval.ca/en/infrastructures/radiocarbon/)
     """
-    UM = "UM"
+    UM = "um"
     """
     University of Miami (USA)
     """
-    UNAM = "UNAM"
+    UNAM = "unam"
     """
     National Autonomous Univ. of Mexico (Mexico)
     """
-    UOC = "UOC"
+    UOC = "uoc"
     """
     André E. Lalonde National Facility in Accelerator Mass Spectrometry, University of Ottawa (Ottawa, Ottawa, Canada, https://ams.uottawa.ca/)
     """
-    UQ = "UQ"
+    UQ = "uq"
     """
     Univ. of Quebec at Montréal (Canada)
     """
-    URCRM = "URCRM"
+    URCRM = "urcrm"
     """
     Ukrainian Research Ctr. for Radiation Medicine (Ukraine)
     """
-    URU = "URU"
+    URU = "uru"
     """
     University of Uruguay (Uruguay)
     """
-    USGS = "USGS"
+    USGS = "usgs"
     """
     USGS, Menlo Park (USA)
     """
-    UTCAG = "UTCAG"
+    UTCAG = "utcag"
     """
     University of Tennessee (USA)
     """
-    UW = "UW"
+    UW = "uw"
     """
     University of Washington (USA)
     """
-    UZH = "UZH"
+    UZH = "uzh"
     """
     Geochronology Group, University of Zurich (Zurich, Zurich, Switzerland, https://www.geo.uzh.ch/en/units/gch.html)
     """
-    UtC = "UtC"
+    UtC = "utc"
     """
     Utrecht van de Graaff (Netherlands)
     """
-    V = "V"
+    V = "v"
     """
     Melbourne, Victoria (Australia)
     """
-    VERA = "VERA"
+    VERA = "vera"
     """
     Vienna Environmental Research Accelerator, University of Vienna (VERA, Vienna, Austria, https://isotopenphysik.univie.ac.at/en/)
     """
-    VIE = "VIE"
+    VIE = "vie"
     """
     Higham Lab, University of Vienna (Higham Lab, Vienna, Austria, https://highamlab.univie.ac.at/)
     """
-    VRI = "VRI"
+    VRI = "vri"
     """
     Vienna Radium Institute, University of Vienna (Vienna Radium Institute, Vienna, Austria)
     """
-    Vs = "Vs"
+    Vs = "vs"
     """
     Vilnius, Nat. Res. Ctr. (Vilnius, Lithuania)
     """
-    W = "W"
+    W = "w"
     """
     USGS, National Center (USA)
     """
-    WAT = "WAT"
+    WAT = "wat"
     """
     University of Waterloo (Canada)
     """
-    WB = "WB"
+    WB = "wb"
     """
     Institute for Preservation Technology of Cultural Relics (China)
     """
-    WIS = "WIS"
+    WIS = "wis"
     """
     University of Wisconsin (USA)
     """
-    WRD = "WRD"
+    WRD = "wrd"
     """
     USGS Washington, D.C. (USA)
     """
-    WSU = "WSU"
+    WSU = "wsu"
     """
     Washington State Univ. (USA)
     """
-    Wk = "Wk"
+    Wk = "wk"
     """
     University of Waikato (New Zealand)
     """
-    X = "X"
+    X = "x"
     """
     Whitworth College (USA)
     """
-    XZ = "XZ"
+    XZ = "xz"
     """
     Xinjiang Institute of Disaster Prevention and Relief (China)
     """
-    XLLQ = "XLLQ"
+    XLLQ = "xllq"
     """
     Xi’an Lab. of China Loess & Quat. Geol. (China)
     """
-    Y = "Y"
+    Y = "y"
     """
     Yale University (USA)
     """
-    YU = "YU"
+    YU = "yu"
     """
     Yamagata University (Japan)
     """
-    Ya = "Ya"
+    Ya = "ya"
     """
     Yale University (USA)
     """
-    Z = "Z"
+    Z = "zz"
     """
     Laboratory for Low-level Radioactivities, Ruđer Bošković Institute (Zagreb, Zagreb, Croatia, https://www.irb.hr/eng/Divisions/Division-of-Experimental-Physics/Laboratory-for-Low-level-Radioactivities)
     """
-    ZK = "ZK"
+    ZK = "zk"
     """
     Institute of Archaeology, Chinese Academy of Social Sciences (China)
     """
@@ -1337,7 +1308,6 @@ class PretreatmentMethods(str, Enum):
     """
     Specify the types of general pretreatment methods applied for decontamination.
     """
-
     U = "U"
     """
     No chemical pretreatment
@@ -1420,7 +1390,6 @@ class RadiocarbonMeasurementMethod(str, Enum):
     """
     Method used to obtain the radiocarbon determination.
     """
-
     AMS = "AMS"
     """
     Accelerator Mass Spectrometry
@@ -1439,7 +1408,6 @@ class Delta13CMeasurementMethod(str, Enum):
     """
     Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
     """
-
     AMS = "AMS"
     """
     Accelerated Mass Spectrometer
@@ -1454,691 +1422,281 @@ class Delta13CMeasurementMethod(str, Enum):
     """
 
 
+
 class RadiocarbonDate(ConfiguredBaseModel):
     """
     A radiocarbon determination with associated metadata.
     """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/MIxS-MInAS/miaard'})
 
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
-        {"from_schema": "https://w3id.org/MIxS-MInAS/miaard"}
-    )
-
-    lab_code: LabCodeId = Field(
-        default=...,
-        title="Laboratory code designation",
-        description="""Unique laboratory code designation of the institution that made the measurement.
+    lab_code: LabCodeId = Field(default=..., title="Laboratory code designation", description="""Unique laboratory code designation of the institution that made the measurement.
 This is the prefix used for each determination ID. The prefix should be
-derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "OxA"},
-                    {"value": "CAMS"},
-                    {"value": "Beta"},
-                    {"value": "CN-XX"},
-                ],
-                "in_subset": ["identifier", "measurement"],
-                "slot_uri": "c14:000001",
-            }
-        },
-    )
-    lab_id: str = Field(
-        default=...,
-        title="Radiocarbon determination identifier",
-        description="""The unique identifier associated with a specific radiocarbon determination,
-without the radiocarbon laboratory identifier.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "982744"},
-                    {"value": "i238493"},
-                    {"value": "9800507B"},
-                    {"value": "-X-1045-13"},
-                    {"value": "1415(a)"},
-                ],
-                "in_subset": ["identifier"],
-                "slot_uri": "c14:000002",
-            }
-        },
-    )
-    f14c: float = Field(
-        default=...,
-        description="""The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
-For older determinations, generally equivalent to \"percent modern\" (pMC, or pM) divided by 100.""",
-        ge=0,
-        le=1,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "0.83756"}, {"value": "0.5371"}],
-                "in_subset": ["measurement"],
-                "slot_uri": "c14:000003",
-            }
-        },
-    )
-    f14c_error: float = Field(
-        default=...,
-        title="F14C radiocarbon error",
-        description="""The 1-standard deviation uncertainty around the F14C (C14) measurement,
-normally indicated as a ± after the main value. Must be in the same format.
-Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "0.00434"}, {"value": "0.023843"}],
-                "in_subset": ["measurement"],
-                "slot_uri": "c14:000004",
-            }
-        },
-    )
-    conventional_age: float = Field(
-        default=...,
-        title="Conventional radiocarbon age",
-        description="""The uncalibrated age from the laboratory measurement. Also known as the
+derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'OxA'},
+                      {'value': 'CAMS'},
+                      {'value': 'Beta'},
+                      {'value': 'CN-XX'}],
+         'slot_group': 'Identifier',
+         'slot_uri': 'c14:000001'} })
+    lab_id: str = Field(default=..., title="Radiocarbon determination identifier", description="""The unique identifier associated with a specific radiocarbon determination,
+without the radiocarbon laboratory identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '982744'},
+                      {'value': 'i238493'},
+                      {'value': '9800507B'},
+                      {'value': '-X-1045-13'},
+                      {'value': '1415(a)'}],
+         'slot_group': 'Identifier',
+         'slot_uri': 'c14:000002'} })
+    conventional_age: float = Field(default=..., title="Conventional radiocarbon age", description="""The uncalibrated age from the laboratory measurement. Also known as the
 conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., 14C year BP)
 NOT in AD/BC format. This is typically the 'raw' age reported by the radiocarbon lab, in
-Before Present (BP) notation.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "4500"}, {"value": "37330"}],
-                "in_subset": ["measurement"],
-                "slot_uri": "c14:000005",
-            }
-        },
-    )
-    conventional_age_error: float = Field(
-        default=...,
-        title="Conventional radiocarbon age error",
-        description="""The 1-standard deviation around the conventional radiocarbon age (C14) measurement,
+Before Present (BP) notation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '4500'}, {'value': '37330'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000005'} })
+    conventional_age_error: float = Field(default=..., title="Conventional radiocarbon age error", description="""The 1-standard deviation around the conventional radiocarbon age (C14) measurement,
 normally indicated as a ± after the main age. Must be in the same format (i.e. 14C yr BP).
-Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "25"}, {"value": "620"}],
-                "in_subset": ["measurement"],
-                "slot_uri": "c14:000006",
-            }
-        },
-    )
-    delta_13_c_calculation_method: Optional[Delta13CMeasurementMethod] = Field(
-        default=None,
-        title="Delta 13C age calculation method",
-        description="""Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C,
-an alternative δ13C measurement method or an assumed δ13C""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "AMS"},
-                    {"value": "IRMS"},
-                    {"value": "Assumed"},
-                    {"value": "Other"},
-                ],
-                "in_subset": ["measurement"],
-                "recommended": True,
-                "slot_uri": "c14:000007",
-            }
-        },
-    )
-    sample_ids: list[str] = Field(
-        default=...,
-        title="Sample identifiers",
-        description="""Any identifier associated with the sample under measurement
-(e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "PES001"},
-                    {"value": "PES001.B1010"},
-                    {"value": "Des 207 d"},
-                    {"value": "Grave 78"},
-                    {"value": "Box 427; Exc. year 1926 (small)"},
-                    {"value": "KrSp E1/2012/E1/3775"},
-                    {"value": "Iceman"},
-                    {"value": "Tumba XVIII"},
-                ],
-                "in_subset": ["sample"],
-                "slot_uri": "c14:000008",
-            }
-        },
-    )
-    sample_material: str = Field(
-        default=...,
-        title="Radiocarbon dating sample material",
-        description="""Material of the sample used to extract carbon used for radiocarbon dating measurements.
+Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '25'}, {'value': '620'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000006'} })
+    f14c: float = Field(default=..., description="""The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
+For older determinations, generally equivalent to \"percent modern\" (pMC, or pM) divided by 100.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.83756'}, {'value': '0.5371'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000003'} })
+    f14c_error: float = Field(default=..., title="F14C radiocarbon error", description="""The 1-standard deviation uncertainty around the F14C (C14) measurement,
+normally indicated as a ± after the main value. Must be in the same format.
+Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.00434'}, {'value': '0.023843'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000004'} })
+    delta_13_c_calculation_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C age calculation method", description="""Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C,
+an alternative δ13C measurement method or an assumed δ13C""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'},
+                      {'value': 'IRMS'},
+                      {'value': 'Assumed'},
+                      {'value': 'Other'}],
+         'recommended': True,
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000007'} })
+    sample_ids: list[str] = Field(default=..., title="Sample identifiers", description="""Any identifier associated with the sample under measurement
+(e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'PES001'},
+                      {'value': 'PES001.B1010'},
+                      {'value': 'Des 207 d'},
+                      {'value': 'Grave 78'},
+                      {'value': 'Box 427; Exc. year 1926 (small)'},
+                      {'value': 'KrSp E1/2012/E1/3775'},
+                      {'value': 'Iceman'},
+                      {'value': 'Tumba XVIII'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000008'} })
+    sample_material: str = Field(default=..., title="Radiocarbon dating sample material", description="""Material of the sample used to extract carbon used for radiocarbon dating measurements.
 Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENVO for other
-organic samples.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "UBERON:0002481"}, {"value": "ENVO:01000560"}],
-                "in_subset": ["sample"],
-                "slot_uri": "c14:000009",
-                "structured_pattern": {
-                    "interpolated": True,
-                    "partial_match": False,
-                    "syntax": "^{termID}$",
-                },
-            }
-        },
-    )
-    sample_taxon_id: list[str] = Field(
-        default=...,
-        title="Radiocarbon dating sample taxon",
-        description="""A taxonomic ID of the organism from which the sample used to extract carbon used for
+organic samples.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'UBERON:0002481'}, {'value': 'ENVO:01000560'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000009',
+         'structured_pattern': {'interpolated': True,
+                                'partial_match': False,
+                                'syntax': '^{termID}$'}} })
+    sample_taxon_id: list[str] = Field(default=..., title="Radiocarbon dating sample taxon", description="""A taxonomic ID of the organism from which the sample used to extract carbon used for
 radiocarbon measurement originated. The taxonomic ID should come from an established
-ontology or database.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "NCBITAXON:9606"},
-                    {"value": "gbif:2441105"},
-                    {"value": "bold.taxonomy:786175"},
-                ],
-                "in_subset": ["sample"],
-                "slot_uri": "c14:000010",
-                "structured_pattern": {
-                    "interpolated": True,
-                    "partial_match": False,
-                    "syntax": "^{termID}$",
-                },
-            }
-        },
-    )
-    sample_taxon_id_confidence: bool = Field(
-        default=...,
-        title="Confidence of taxon assignment",
-        description="""Specify the level of confidence of an exact taxon identification.
+ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'NCBITAXON:9606'},
+                      {'value': 'gbif:2441105'},
+                      {'value': 'bold.taxonomy:786175'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000010',
+         'structured_pattern': {'interpolated': True,
+                                'partial_match': False,
+                                'syntax': '^{termID}$'}} })
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confidence of taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
 If secure identification, indicate TRUE, if identification is unclear or
-uncertain specify FALSE.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "true"}, {"value": "false"}],
-                "in_subset": ["sample"],
-                "slot_uri": "c14:000011",
-            }
-        },
-    )
-    sample_taxon_scientific_name: Optional[str] = Field(
-        default=None,
-        title="Scientific name of the sample taxon",
-        description="""A scientific name of the taxon corresponding to the taxonomic ID, or when a
-taxonomic ID does not currently exist for the specific taxon.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "Mammathus primigenius"},
-                    {"value": "cf Mammathus"},
-                    {"value": "Homo sapiens sapiens"},
-                    {"value": "Capra sp."},
-                    {"value": "Ulmus davidiana var. japonica"},
-                ],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000012",
-            }
-        },
-    )
-    sample_anatomical_part: Optional[str] = Field(
-        default=None,
-        title="Anatomical part from which the sample is derived.",
-        description="""Anatomical part from which the sample is derived.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "UBERON:0000981"},
-                    {"value": "PO:0009010"},
-                    {"value": "BTO:0001411"},
-                    {"value": "UBERON:3010209"},
-                ],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000013",
-                "structured_pattern": {
-                    "interpolated": True,
-                    "partial_match": False,
-                    "syntax": "^{termID}$",
-                },
-            }
-        },
-    )
-    suspected_sample_contamination: Optional[bool] = Field(
-        default=None,
-        title="Suspected sample contamination.",
-        description="""Specify whether the sample has suspected contamination that may influence measurement
-(organic glue, consolidant, rootlets, embalming solution, staining etc.)""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "true"}, {"value": "false"}],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000014",
-            }
-        },
-    )
-    suspected_sample_contamination_description: Optional[str] = Field(
-        default=None,
-        title="Suspected sample contamination description",
-        description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
-description of the contamination.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "glue"},
-                    {"value": "organic glue made from horse"},
-                    {"value": "staining"},
-                    {"value": "bitumen"},
-                    {"value": "rootlets"},
-                    {
-                        "value": "Consolidant was applied to the skull to stabilise the "
-                        "bone."
-                    },
-                    {
-                        "value": "Sample was preserved in a embalming solution "
-                        "containing formaldehyde and alcohol."
-                    },
-                ],
-                "in_subset": ["sample"],
-                "recommended": False,
-                "slot_uri": "c14:000015",
-            }
-        },
-    )
-    sample_location: Optional[str] = Field(
-        default=None,
-        title="Sample location",
-        description="""Name of location from which the sample originated""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": ""}, {"value": ""}],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000016",
-            }
-        },
-    )
-    decimal_latitude: Optional[float] = Field(
-        default=None,
-        title="Decimal latitude",
-        description="""The geographic latitude (in decimal degrees, using the spatial reference system) of the geographic center of a dcterms:Location. Positive values are north
-of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.""",
-        ge=-90,
-        le=90,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "51.34254"},
-                    {"value": "51.75"},
-                    {"value": "-13.163"},
-                ],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000017",
-            }
-        },
-    )
-    decimal_longitude: Optional[float] = Field(
-        default=None,
-        title="Decimal longitude",
-        description="""The geographic longitude (in decimal degrees, using the spatial reference system) of the
+uncertain specify FALSE.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000011'} })
+    sample_taxon_scientific_name: Optional[str] = Field(default=None, title="Scientific name of the sample taxon", description="""A scientific name of the taxon corresponding to the taxonomic ID, or when a
+taxonomic ID does not currently exist for the specific taxon.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'Mammathus primigenius'},
+                      {'value': 'cf Mammathus'},
+                      {'value': 'Homo sapiens sapiens'},
+                      {'value': 'Capra sp.'},
+                      {'value': 'Ulmus davidiana var. japonica'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000012'} })
+    sample_anatomical_part: Optional[str] = Field(default=None, title="Anatomical part from which the sample is derived.", description="""Anatomical part from which the sample is derived.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'UBERON:0000981'},
+                      {'value': 'PO:0009010'},
+                      {'value': 'BTO:0001411'},
+                      {'value': 'UBERON:3010209'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000013',
+         'structured_pattern': {'interpolated': True,
+                                'partial_match': False,
+                                'syntax': '^{termID}$'}} })
+    suspected_sample_contamination: Optional[bool] = Field(default=None, title="Suspected sample contamination.", description="""Specify whether the sample has suspected contamination that may influence measurement
+(organic glue, consolidant, rootlets, embalming solution, staining etc.)""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000014'} })
+    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
+description of the contamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'glue'},
+                      {'value': 'organic glue made from horse'},
+                      {'value': 'staining'},
+                      {'value': 'bitumen'},
+                      {'value': 'rootlets'},
+                      {'value': 'Consolidant was applied to the skull to stabilise the '
+                                'bone.'},
+                      {'value': 'Sample was preserved in a embalming solution '
+                                'containing formaldehyde and alcohol.'}],
+         'recommended': False,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000015'} })
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of location from which the sample originated""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': ''}, {'value': ''}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000016'} })
+    decimal_latitude: Optional[float] = Field(default=None, title="Decimal latitude", description="""The geographic latitude (in decimal degrees, using the spatial reference system) of the geographic center of a dcterms:Location. Positive values are north
+of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.""", ge=-90, le=90, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '51.34254'}, {'value': '51.75'}, {'value': '-13.163'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000017'} })
+    decimal_longitude: Optional[float] = Field(default=None, title="Decimal longitude", description="""The geographic longitude (in decimal degrees, using the spatial reference system) of the
 geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian,
-negative values are west of it. Legal values lie between -180 and 180, inclusive.""",
-        ge=-90,
-        le=90,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "12.38067"},
-                    {"value": "-1.24"},
-                    {"value": "-72.545"},
-                ],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000018",
-            }
-        },
-    )
-    coordinate_precision: Optional[float] = Field(
-        default=None,
-        title="Coordinate precision",
-        description="""A decimal representation of the precision of the coordinates given in the decimal_latitude
-and decimal_longitude.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "0.00005"},
-                    {"value": "0.001"},
-                    {"value": "0.0001"},
-                ],
-                "in_subset": ["sample"],
-                "recommended": True,
-                "slot_uri": "c14:000019",
-            }
-        },
-    )
-    pretreatment_methods: list[PretreatmentMethods] = Field(
-        default=...,
-        title="Radiocarbon pretreatment methods",
-        description="""Specify the types of general pretreatment methods applied for decontamination.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "ABA"},
-                    {"value": "A"},
-                    {"value": "BABA"},
-                    {"value": "Col"},
-                    {"value": "UF_Col"},
-                    {"value": "XAD"},
-                    {"value": "U"},
-                ],
-                "in_subset": ["method"],
-                "slot_uri": "c14:000020",
-            }
-        },
-    )
-    pretreatment_method_description: str = Field(
-        default=...,
-        title="Radiocarbon pretreatment method description",
-        description="""Description of specific pretreatment method used for decontamination of sample prior determination.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "No pretreatment"}, {"value": ""}],
-                "in_subset": ["method"],
-                "slot_uri": "c14:000021",
-            }
-        },
-    )
-    pretreatment_method_protocol: list[str] = Field(
-        default=...,
-        title="Radiocarbon pretreatment method protocol",
-        description="""A DOI or URL to a publication describing the specific method of pretreatment applied.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {
-                        "value": "Samples were pretreated following Brock et al. "
-                        "(2010). Briefly, bone was demineralised (0.5M HCl, "
-                        "overnight), washed in base (0.1M NaOH, 30 min, RT) "
-                        "and acid (0.5M HCl, 1 hour, RT) before gelatinisation "
-                        "(0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) "
-                        "and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)"
-                    },
-                    {
-                        "value": "A dremel drill was used to remove visibly altered "
-                        "shell leaving dense translucent carbonate;  Charcoal "
-                        "was treated with HCl, NaOH and HCl."
-                    },
-                ],
-                "in_subset": ["method"],
-                "slot_uri": "c14:000022",
-                "structured_pattern": {
-                    "interpolated": True,
-                    "partial_match": False,
-                    "syntax": "^{PMID}|{DOI}|{URL}|{text}$",
-                },
-            }
-        },
-    )
-    measurement_method: RadiocarbonMeasurementMethod = Field(
-        default=...,
-        title="Radiocarbon measurement method",
-        description="""Type of measurement method the determination was made by.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "AMS"},
-                    {"value": "Conventional"},
-                    {"value": "PIMS"},
-                ],
-                "in_subset": ["method"],
-                "slot_uri": "c14:000023",
-            }
-        },
-    )
-    sample_starting_weight: float = Field(
-        default=...,
-        title="Sample starting weight",
-        description="""Amount of sample material used at beginning of  in measurement in mg.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "521"}, {"value": "56.7"}, {"value": "1"}],
-                "in_subset": ["quality control"],
-                "slot_uri": "c14:000024",
-            }
-        },
-    )
-    pretreatment_yield: float = Field(
-        default=...,
-        title="Weight after pretreatment",
-        description="""Amount of sample remaining after pretreatment in mg""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "22"}, {"value": "2.3"}],
-                "in_subset": ["quality control"],
-                "slot_uri": "c14:000025",
-            }
-        },
-    )
-    pretreatment_percentage_yield: Optional[float] = Field(
-        default=None,
-        title="Percentage yield after pretreatment",
-        description="""Ratio of weight after pretreatment to sample starting weight""",
-        ge=0,
-        le=1,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [
-                    {"value": "012"},
-                    {"value": "0.61"},
-                    {"value": "0.015"},
-                    {"value": "0.002"},
-                ],
-                "in_subset": ["quality control"],
-                "recommended": True,
-                "slot_uri": "c14:000026",
-            }
-        },
-    )
-    carbon_proportion: float = Field(
-        default=...,
-        title="Carbon proportion",
-        description="""Proportion of carbon in a non-proteinaceous sample used for dating (such as charcoal),
-expressed as a value between 0 and 1. Used as a quality control measurement.""",
-        ge=0,
-        le=1,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "0.41"}, {"value": "0.12"}, {"value": "0.70"}],
-                "in_subset": ["quality control"],
-                "slot_uri": "c14:000027",
-            }
-        },
-    )
-    delta_13_c: Optional[float] = Field(
-        default=None,
-        title="Delta 13C value",
-        description="""The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope
-13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.""",
-        ge=-1000,
-        le=1000,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "-21.5"}, {"value": "-13.5"}, {"value": "1.2"}],
-                "in_subset": ["quality control"],
-                "recommended": True,
-                "slot_uri": "c14:000028",
-            }
-        },
-    )
-    delta_13_c_error: Optional[float] = Field(
-        default=None,
-        title="Delta 13C error",
-        description="""The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation.
-Used as a quality control measurement.""",
-        ge=0,
-        le=1000,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "0.1"}, {"value": "0.2"}],
-                "in_subset": ["quality control"],
-                "recommended": True,
-                "slot_uri": "c14:000029",
-            }
-        },
-    )
-    delta_13_c_method: Optional[Delta13CMeasurementMethod] = Field(
-        default=None,
-        title="Delta 13C measurement method",
-        description="""Which spectrophotometry method was used to measure the delta carbon-13 value,
-either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "AMS"}, {"value": "IRMS"}],
-                "in_subset": ["quality control"],
-                "recommended": True,
-                "slot_uri": "c14:000030",
-            }
-        },
-    )
-    suspected_reservoir_effect: bool = Field(
-        default=...,
-        title="Suspected reservoir effect",
-        description="""Specify whether there is a suspected carbon reservoir effect that
-should be accounted for in analysis.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "true"}, {"value": "false"}],
-                "in_subset": ["quality control"],
-                "slot_uri": "c14:000031",
-            }
-        },
-    )
-    carbon_nitro_ratio: float = Field(
-        default=...,
-        title="Carbon to nitrogen ratio",
-        description="""Atomic ratio of carbon to nitrogen. Used for quality control value in
-proteinaceous samples for radiocarbon dating.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "3.2"}, {"value": "3.33"}],
-                "in_subset": ["quality control"],
-                "slot_uri": "c14:000032",
-            }
-        },
-    )
-    delta_15_n: Optional[float] = Field(
-        default=None,
-        title="Delta 15N value",
-        description="""The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
-15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.""",
-        ge=-1000,
-        le=1000,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "10.8"}, {"value": "5.1"}, {"value": "27.2"}],
-                "in_subset": ["quality control"],
-                "recommended": True,
-                "slot_uri": "c14:000033",
-            }
-        },
-    )
-    delta_15_n_error: Optional[float] = Field(
-        default=None,
-        title="Delta 15N error",
-        description="""The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
-Used as a quality control measurement.""",
-        ge=0,
-        le=1000,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "0.3"}, {"value": "0.12"}],
-                "in_subset": ["quality control"],
-                "recommended": True,
-                "slot_uri": "c14:000034",
-            }
-        },
-    )
-    delta_34_s: Optional[float] = Field(
-        default=None,
-        title="Delta 34S value",
-        description="""The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
-34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.""",
-        ge=-1000,
-        le=1000,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "18.4"}, {"value": "-5.2"}],
-                "in_subset": ["quality control"],
-                "recommended": False,
-                "slot_uri": "c14:000035",
-            }
-        },
-    )
-    delta_34_s_error: Optional[float] = Field(
-        default=None,
-        title="Delta 34S error",
-        description="""The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
-Used as a quality control measurement.""",
-        ge=0,
-        le=1000,
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "0.4"}, {"value": "0.2"}],
-                "in_subset": ["quality control"],
-                "recommended": False,
-                "slot_uri": "c14:000036",
-            }
-        },
-    )
-    recrystalisation: bool = Field(
-        default=...,
-        title="Evidence of recrystalisation",
-        description="""Sample shows evidence of recrystalisation which should be accounted for during analysis.""",
-        json_schema_extra={
-            "linkml_meta": {
-                "domain_of": ["RadiocarbonDate"],
-                "examples": [{"value": "true"}, {"value": "false"}],
-                "in_subset": ["quality control"],
-                "slot_uri": "c14:000037",
-            }
-        },
-    )
+negative values are west of it. Legal values lie between -180 and 180, inclusive.""", ge=-90, le=90, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '12.38067'}, {'value': '-1.24'}, {'value': '-72.545'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000018'} })
+    coordinate_precision: Optional[float] = Field(default=None, title="Coordinate precision", description="""A decimal representation of the precision of the coordinates given in the decimal_latitude
+and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.00005'}, {'value': '0.001'}, {'value': '0.0001'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000019'} })
+    pretreatment_methods: list[PretreatmentMethods] = Field(default=..., title="Radiocarbon pretreatment methods", description="""Specify the types of general pretreatment methods applied for decontamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'ABA'},
+                      {'value': 'A'},
+                      {'value': 'BABA'},
+                      {'value': 'Col'},
+                      {'value': 'UF_Col'},
+                      {'value': 'XAD'},
+                      {'value': 'U'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000020'} })
+    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'No pretreatment'}, {'value': ''}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000021'} })
+    pretreatment_method_protocol: list[str] = Field(default=..., title="Radiocarbon pretreatment method protocol", description="""A DOI or URL to a publication describing the specific method of pretreatment applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'Samples were pretreated following Brock et al. '
+                                '(2010). Briefly, bone was demineralised (0.5M HCl, '
+                                'overnight), washed in base (0.1M NaOH, 30 min, RT) '
+                                'and acid (0.5M HCl, 1 hour, RT) before gelatinisation '
+                                '(0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) '
+                                'and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)'},
+                      {'value': 'A dremel drill was used to remove visibly altered '
+                                'shell leaving dense translucent carbonate;  Charcoal '
+                                'was treated with HCl, NaOH and HCl.'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000022',
+         'structured_pattern': {'interpolated': True,
+                                'partial_match': False,
+                                'syntax': '^{PMID}|{DOI}|{URL}|{text}$'}} })
+    measurement_method: RadiocarbonMeasurementMethod = Field(default=..., title="Radiocarbon measurement method", description="""Type of measurement method the determination was made by.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'}, {'value': 'Conventional'}, {'value': 'PIMS'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000023'} })
+    sample_starting_weight: float = Field(default=..., title="Sample starting weight", description="""Amount of sample material used at beginning of  in measurement in mg.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '521'}, {'value': '56.7'}, {'value': '1'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000024'} })
+    pretreatment_yield: float = Field(default=..., title="Weight after pretreatment", description="""Amount of sample remaining after pretreatment in mg""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '22'}, {'value': '2.3'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000025'} })
+    pretreatment_percentage_yield: Optional[float] = Field(default=None, title="Percentage yield after pretreatment", description="""Ratio of weight after pretreatment to sample starting weight""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '012'},
+                      {'value': '0.61'},
+                      {'value': '0.015'},
+                      {'value': '0.002'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000026'} })
+    carbon_proportion: float = Field(default=..., title="Carbon proportion", description="""Proportion of carbon in a non-proteinaceous sample used for dating (such as charcoal),
+expressed as a value between 0 and 1. Used as a quality control measurement.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.41'}, {'value': '0.12'}, {'value': '0.70'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000027'} })
+    delta_13_c: Optional[float] = Field(default=None, title="Delta 13C value", description="""The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope
+13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '-21.5'}, {'value': '-13.5'}, {'value': '1.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000028'} })
+    delta_13_c_error: Optional[float] = Field(default=None, title="Delta 13C error", description="""The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.1'}, {'value': '0.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000029'} })
+    delta_13_c_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C measurement method", description="""Which spectrophotometry method was used to measure the delta carbon-13 value,
+either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'}, {'value': 'IRMS'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000030'} })
+    suspected_reservoir_effect: bool = Field(default=..., title="Suspected reservoir effect", description="""Specify whether there is a suspected carbon reservoir effect that
+should be accounted for in analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000031'} })
+    carbon_nitro_ratio: float = Field(default=..., title="Carbon to nitrogen ratio", description="""Atomic ratio of carbon to nitrogen. Used for quality control value in
+proteinaceous samples for radiocarbon dating.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '3.2'}, {'value': '3.33'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000032'} })
+    delta_15_n: Optional[float] = Field(default=None, title="Delta 15N value", description="""The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
+15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '10.8'}, {'value': '5.1'}, {'value': '27.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000033'} })
+    delta_15_n_error: Optional[float] = Field(default=None, title="Delta 15N error", description="""The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.3'}, {'value': '0.12'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000034'} })
+    delta_34_s: Optional[float] = Field(default=None, title="Delta 34S value", description="""The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
+34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '18.4'}, {'value': '-5.2'}],
+         'recommended': False,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000035'} })
+    delta_34_s_error: Optional[float] = Field(default=None, title="Delta 34S error", description="""The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.4'}, {'value': '0.2'}],
+         'recommended': False,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000036'} })
+    recrystalisation: bool = Field(default=..., title="Evidence of recrystalisation", description="""Sample shows evidence of recrystalisation which should be accounted for during analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000037'} })
 
-    @field_validator("lab_id")
+    @field_validator('lab_id')
     def pattern_lab_id(cls, v):
-        pattern = re.compile(r"")
+        pattern=re.compile(r"")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.match(element):
@@ -2149,9 +1707,9 @@ Used as a quality control measurement.""",
             raise ValueError(err_msg)
         return v
 
-    @field_validator("sample_ids")
+    @field_validator('sample_ids')
     def pattern_sample_ids(cls, v):
-        pattern = re.compile(r"")
+        pattern=re.compile(r"")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.match(element):
@@ -2162,9 +1720,9 @@ Used as a quality control measurement.""",
             raise ValueError(err_msg)
         return v
 
-    @field_validator("sample_taxon_scientific_name")
+    @field_validator('sample_taxon_scientific_name')
     def pattern_sample_taxon_scientific_name(cls, v):
-        pattern = re.compile(r"")
+        pattern=re.compile(r"")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.match(element):
@@ -2175,9 +1733,9 @@ Used as a quality control measurement.""",
             raise ValueError(err_msg)
         return v
 
-    @field_validator("suspected_sample_contamination_description")
+    @field_validator('suspected_sample_contamination_description')
     def pattern_suspected_sample_contamination_description(cls, v):
-        pattern = re.compile(r"")
+        pattern=re.compile(r"")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.match(element):
@@ -2188,9 +1746,9 @@ Used as a quality control measurement.""",
             raise ValueError(err_msg)
         return v
 
-    @field_validator("sample_location")
+    @field_validator('sample_location')
     def pattern_sample_location(cls, v):
-        pattern = re.compile(r"")
+        pattern=re.compile(r"")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.match(element):
@@ -2201,15 +1759,13 @@ Used as a quality control measurement.""",
             raise ValueError(err_msg)
         return v
 
-    @field_validator("pretreatment_method_description")
+    @field_validator('pretreatment_method_description')
     def pattern_pretreatment_method_description(cls, v):
-        pattern = re.compile(r"")
+        pattern=re.compile(r"")
         if isinstance(v, list):
             for element in v:
                 if isinstance(element, str) and not pattern.match(element):
-                    err_msg = (
-                        f"Invalid pretreatment_method_description format: {element}"
-                    )
+                    err_msg = f"Invalid pretreatment_method_description format: {element}"
                     raise ValueError(err_msg)
         elif isinstance(v, str) and not pattern.match(v):
             err_msg = f"Invalid pretreatment_method_description format: {v}"
@@ -2221,16 +1777,9 @@ class RadiocarbonDateCollection(ConfiguredBaseModel):
     """
     A collection of radiocarbon determinations with associated metadata.
     """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/MIxS-MInAS/miaard', 'tree_root': True})
 
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta(
-        {"from_schema": "https://w3id.org/MIxS-MInAS/miaard", "tree_root": True}
-    )
-
-    entries: Optional[list[RadiocarbonDate]] = Field(
-        default=[],
-        description="""A list of multiple radiocarbon determinations.""",
-        json_schema_extra={"linkml_meta": {"domain_of": ["RadiocarbonDateCollection"]}},
-    )
+    entries: Optional[list[RadiocarbonDate]] = Field(default=[], description="""A list of multiple radiocarbon determinations.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDateCollection']} })
 
 
 # Model rebuild
