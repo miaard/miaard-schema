@@ -2420,9 +2420,9 @@ slots:
     mappings:
     - c14:000032
     slot_uri: c14:000032
-    owner: RadiocarbonDate
+    owner: ProteinaceousSample
     domain_of:
-    - RadiocarbonDate
+    - ProteinaceousSample
     slot_group: Quality control
     range: float
     required: true
@@ -2442,9 +2442,9 @@ slots:
     mappings:
     - c14:000033
     slot_uri: c14:000033
-    owner: RadiocarbonDate
+    owner: ProteinaceousSample
     domain_of:
-    - RadiocarbonDate
+    - ProteinaceousSample
     slot_group: Quality control
     range: float
     required: false
@@ -2465,9 +2465,9 @@ slots:
     mappings:
     - c14:000034
     slot_uri: c14:000034
-    owner: RadiocarbonDate
+    owner: ProteinaceousSample
     domain_of:
-    - RadiocarbonDate
+    - ProteinaceousSample
     slot_group: Quality control
     range: float
     required: false
@@ -2489,9 +2489,9 @@ slots:
     mappings:
     - c14:000035
     slot_uri: c14:000035
-    owner: RadiocarbonDate
+    owner: ProteinaceousSample
     domain_of:
-    - RadiocarbonDate
+    - ProteinaceousSample
     slot_group: Quality control
     range: float
     required: false
@@ -2512,9 +2512,9 @@ slots:
     mappings:
     - c14:000036
     slot_uri: c14:000036
-    owner: RadiocarbonDate
+    owner: ProteinaceousSample
     domain_of:
-    - RadiocarbonDate
+    - ProteinaceousSample
     slot_group: Quality control
     range: float
     required: false
@@ -2535,9 +2535,9 @@ slots:
     mappings:
     - c14:000037
     slot_uri: c14:000037
-    owner: RadiocarbonDate
+    owner: CarbonateSample
     domain_of:
-    - RadiocarbonDate
+    - CarbonateSample
     slot_group: Quality control
     range: boolean
     required: true
@@ -2593,12 +2593,6 @@ classes:
     - delta_13_c_error
     - delta_13_c_method
     - suspected_reservoir_effect
-    - carbon_nitro_ratio
-    - delta_15_n
-    - delta_15_n_error
-    - delta_34_s
-    - delta_34_s_error
-    - recrystalisation
     class_uri: c14:RadiocarbonDate
   RadiocarbonDateCollection:
     name: RadiocarbonDateCollection
@@ -2616,11 +2610,139 @@ classes:
         inlined_as_list: true
     class_uri: c14:RadiocarbonDateCollection
     tree_root: true
+  Extension:
+    name: Extension
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Extension
+    description: A collection of recommended metadata terms for a specific context
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    class_uri: c14:Extension
+  ProteinaceousSample:
+    name: ProteinaceousSample
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/ProteinaceousSample
+    description: Terms specific to proteinaceous samples being dated
+    title: Proteinaceous Sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:ProteinaceousSample
+    is_a: Extension
+    slots:
+    - carbon_nitro_ratio
+    - delta_15_n
+    - delta_15_n_error
+    - delta_34_s
+    - delta_34_s_error
+    class_uri: c14:ProteinaceousSample
+  CarbonateSample:
+    name: CarbonateSample
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/CarbonateSample
+    description: Terms specific to carbonate samples being dated
+    title: Carbonate Sample
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:CarbonateSample
+    is_a: Extension
+    slots:
+    - recrystalisation
+    class_uri: c14:CarbonateSample
+  RadiocarbonDateProteinaceousSample:
+    name: RadiocarbonDateProteinaceousSample
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDateProteinaceousSample
+    description: A radiocarbon determination on a proteinaceous sample
+    title: Radiocarbon Date (Proteinaceous Sample)
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:RadiocarbonDateProteinaceousSample
+    is_a: ProteinaceousSample
+    mixins:
+    - RadiocarbonDate
+    slots:
+    - carbon_nitro_ratio
+    - delta_15_n
+    - delta_15_n_error
+    - delta_34_s
+    - delta_34_s_error
+    - lab_code
+    - lab_id
+    - conventional_age
+    - conventional_age_error
+    - f14c
+    - f14c_error
+    - delta_13_c_calculation_method
+    - sample_ids
+    - sample_material
+    - sample_taxon_id
+    - sample_taxon_id_confidence
+    - sample_taxon_scientific_name
+    - sample_anatomical_part
+    - suspected_sample_contamination
+    - suspected_sample_contamination_description
+    - sample_location
+    - decimal_latitude
+    - decimal_longitude
+    - coordinate_precision
+    - pretreatment_methods
+    - pretreatment_method_description
+    - pretreatment_method_protocol
+    - measurement_method
+    - sample_starting_weight
+    - pretreatment_yield
+    - pretreatment_percentage_yield
+    - carbon_proportion
+    - delta_13_c
+    - delta_13_c_error
+    - delta_13_c_method
+    - suspected_reservoir_effect
+    class_uri: c14:RadiocarbonDateProteinaceousSample
+  RadiocarbonDateCarbonateSample:
+    name: RadiocarbonDateCarbonateSample
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDateCarbonateSample
+    description: A radiocarbon determination on a carbonate sample
+    title: Radiocarbon Date (Carbonate Sample)
+    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    mappings:
+    - c14:RadiocarbonDateCarbonateSample
+    is_a: CarbonateSample
+    mixins:
+    - RadiocarbonDate
+    slots:
+    - recrystalisation
+    - lab_code
+    - lab_id
+    - conventional_age
+    - conventional_age_error
+    - f14c
+    - f14c_error
+    - delta_13_c_calculation_method
+    - sample_ids
+    - sample_material
+    - sample_taxon_id
+    - sample_taxon_id_confidence
+    - sample_taxon_scientific_name
+    - sample_anatomical_part
+    - suspected_sample_contamination
+    - suspected_sample_contamination_description
+    - sample_location
+    - decimal_latitude
+    - decimal_longitude
+    - coordinate_precision
+    - pretreatment_methods
+    - pretreatment_method_description
+    - pretreatment_method_protocol
+    - measurement_method
+    - sample_starting_weight
+    - pretreatment_yield
+    - pretreatment_percentage_yield
+    - carbon_proportion
+    - delta_13_c
+    - delta_13_c_error
+    - delta_13_c_method
+    - suspected_reservoir_effect
+    class_uri: c14:RadiocarbonDateCarbonateSample
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2026-01-13T12:34:25'
-source_file_size: 23051
-generation_date: '2026-01-13T12:34:34'
+source_file_date: '2026-01-13T13:30:42'
+source_file_size: 24064
+generation_date: '2026-01-13T13:30:52'
 settings:
   DOI:
     setting_key: DOI

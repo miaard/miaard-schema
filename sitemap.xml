@@ -17,6 +17,10 @@
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
+         <loc>https://MIxS-MInAS.github.io/miaard/elements/CarbonateSample/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Curie/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
@@ -42,6 +46,10 @@
     </url>
     <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/Double/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://MIxS-MInAS.github.io/miaard/elements/Extension/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
@@ -81,11 +89,23 @@
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
+         <loc>https://MIxS-MInAS.github.io/miaard/elements/ProteinaceousSample/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDate/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
+         <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDateCarbonateSample/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
          <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDateCollection/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://MIxS-MInAS.github.io/miaard/elements/RadiocarbonDateProteinaceousSample/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
