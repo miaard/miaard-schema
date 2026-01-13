@@ -1,4 +1,5 @@
 # Example data object
+# Problem: lab_code includes lab_id not just the lab code
 ---
 lab_code: "MAMS81038"
 lab_id: "81038"
