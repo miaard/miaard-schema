@@ -17,70 +17,10 @@ default_range: string
 
 imports:
   - linkml:types
-  - enums/lab_code_ids
-
-enums:
-  PretreatmentMethods:
-    description: >-
-      Specify the types of general pretreatment methods applied for decontamination.
-    permissible_values:
-      U:
-        description: No chemical pretreatment
-      Sol_W:
-        description: Solvent wash
-      A:
-        description: Acid only
-      ABA:
-        description: Acid-base-acid (ABA or AAA)
-      Col:
-        description: Collagen (normally including deminieralisation wtih or without a base step, followed by gelatinisation and filtration, often called the 'Longin method')
-      UF_Col:
-        description: Ultrafiltered collagen (normally including demineralisation with or without a base step, followed by gelatinisation, filtration and ultrafiltration)
-      XAD:
-        description: Amino acids purified by XAD-2 resin
-      IE:
-        description: Amino acids purified by other ion exchange resin
-      HYP:
-        description: Hydroxyproline
-      Other:
-        description: Other treatment not covered
-      ABOx:
-        description: Acid-base-oxidation (ABOx, without the stepped combustion step)
-      ABOx-SC:
-        description: Acid-base-oxidation-stepped combustion (ABOx-SC)
-      BABA:
-        description: Base-Acid-Base-Acid
-      Holo_Cel:
-        description: Holocellulose (normally ABA followed by bleach)
-      Alph_Cel:
-        description: Alphacellulose (normally containing bleach followed by ABA)
-      AE:
-        description: Acid etch
-      Phys:
-        description: Physical cleaning (surface abrasion)
-      H2O2:
-        description: Hydrogen peroxide
-      HUMIC:
-        description: Base soluble fraction (normally preceeded by acid)
-  RadiocarbonMeasurementMethod:
-    description: Method used to obtain the radiocarbon determination.
-    permissible_values:
-      AMS:
-        description: "Accelerator Mass Spectrometry"
-      PIMS:
-        description: "Positive Ion Mass Spectrometry"
-      Conventional:
-        description: "Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)"
-  Delta13CMeasurementMethod:
-    description: >-
-      Which spectrophotometry method was used to measure the delta carbon-13 value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).
-    permissible_values:
-      AMS:
-        description: Accelerated Mass Spectrometer
-      IRMS:
-        description: Isotope Ratio Mass Spectrometer
-      CRDS:
-        description: Cavity Ring-Down Spectroscopy
+  - enums/lab_codes
+  - enums/pretreatment_methods
+  - enums/radiocarbon_measurement_methods
+  - enums/delta13c_measurement_methods
 
 settings:
   DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
@@ -189,7 +129,7 @@ slots:
       derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.
     slot_uri: c14:000001
     multivalued: false
-    range: LabCodeId
+    range: LabCode
     required: true
     slot_group: "Identifier"
   lab_id:

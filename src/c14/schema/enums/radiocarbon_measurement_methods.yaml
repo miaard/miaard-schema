@@ -1,0 +1,24 @@
+id: https://w3id.org/MIxS-MInAS/miaard/radiocarbon_measurement_methods
+name: radiocarbon_measurement_methods
+title: MIAARD radiocarbon measurement methods
+description: |-
+  Enumeration of radiocarbon measurement methods. Part of the MIAARD standard.
+license: MIT
+see_also:
+  - https://MIxS-MInAS.github.io/miaard
+
+prefixes:
+  c14: https://w3id.org/MIxS-MInAS/miaard/
+
+default_prefix: c14
+
+enums:
+  RadiocarbonMeasurementMethod:
+    description: Method used to obtain the radiocarbon determination.
+    permissible_values:
+      AMS:
+        description: "Accelerator Mass Spectrometry"
+      PIMS:
+        description: "Positive Ion Mass Spectrometry"
+      Conventional:
+        description: "Beta counting methods such as gas proportional counting (GPC) or liquid scintillation counting (LSC)"
