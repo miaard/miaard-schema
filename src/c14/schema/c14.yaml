@@ -22,11 +22,16 @@ imports:
   - enums/radiocarbon_measurement_methods
   - enums/delta13c_measurement_methods
 
-settings:
-  DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
-  PMID: ^PMID:\d+$
-  URL: ^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
-  termID: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
+# STRUCTURED PATTERNS
+## syntax: ^{PMID}|{DOI}|{URL}$: ^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$
+## syntax: ^{termID}$: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
+
+#settings:
+## DEPRECATED: Was used with structured_pattern, but now the above regex are implemented directly as constraints in pattern to allow validation with DataHarmonizer. Can reimplement once supported in DH.
+#  DOI: ^https:\/\/doi\.org\/10.\d{2,9}/.*$
+#  PMID: ^PMID:\d+$
+#  URL: ^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
+#  termID: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
 
 classes:
   RadiocarbonDate:
@@ -255,10 +260,7 @@ slots:
     slot_uri: c14:000009
     multivalued: false
     range: string
-    structured_pattern:
-      syntax: ^{termID}$
-      interpolated: true
-      partial_match: false
+    pattern: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
     required: true
     slot_group: "Sample"
   sample_taxon_id:
@@ -274,10 +276,7 @@ slots:
     slot_uri: c14:000010
     multivalued: true
     range: string
-    structured_pattern:
-      syntax: ^{termID}$
-      interpolated: true
-      partial_match: false
+    pattern: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
     required: true
     slot_group: "Sample"
   sample_taxon_id_confidence:
@@ -324,10 +323,7 @@ slots:
     slot_uri: c14:000013
     multivalued: false
     range: string
-    structured_pattern:
-      syntax: ^{termID}$
-      interpolated: true
-      partial_match: false
+    pattern: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
     required: false
     recommended: true
     slot_group: "Sample"
@@ -450,7 +446,8 @@ slots:
     title: Radiocarbon pretreatment method description
     examples:
       - value: "No pretreatment"
-      - value: ""
+      - value: "Samples were pretreated following Brock et al. (2010). Briefly, bone was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)"
+      - value: "A dremel drill was used to remove visibly altered shell leaving dense translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl."
     description: |-
       Description of specific pretreatment method used for decontamination of sample prior determination.
     slot_uri: c14:000021
@@ -462,17 +459,15 @@ slots:
   pretreatment_method_protocol:
     title: Radiocarbon pretreatment method protocol
     examples:
-      - value: "Samples were pretreated following Brock et al. (2010). Briefly, bone was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)"
-      - value: "A dremel drill was used to remove visibly altered shell leaving dense translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl."
+      - value: "https://doi.org/10.1017/S0033822200045069 "
+      - value: "https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf"
+      - value: "PMID:35677847"
     description: |-
-      A DOI or URL to a publication describing the specific method of pretreatment applied.
+      A DOI, URL, or PMID to a publication describing the specific method of pretreatment applied.
     slot_uri: c14:000022
     multivalued: true
     range: string
-    structured_pattern:
-      syntax: ^{PMID}|{DOI}|{URL}|{text}$
-      interpolated: true
-      partial_match: false
+    pattern: ^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$
     required: true
     slot_group: "Method"
   measurement_method:
