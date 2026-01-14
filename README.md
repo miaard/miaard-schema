@@ -6,7 +6,7 @@ Minimum Information about any Radiocarbon Determination
 
 ## Documentation Website
 
-[https://MIxS-MInAS.github.io/miaard](https://MIxS-MInAS.github.io/miaard)
+[https://miaard.github.io/miaard-schema](https://miaard.github.io/miaard-schema)
 
 ## Repository Structure
 

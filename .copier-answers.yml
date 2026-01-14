@@ -7,7 +7,7 @@ email: jf133@gmail.com
 full_name: James A. Fellows Yats
 gh_action_docs_preview: true
 gh_action_pypi: false
-github_org: MIxS-MInAS
+github_org: miaard
 license: MIT
 project_description: Minimum Information about any Radiocarbon Determination
 project_name: miaard

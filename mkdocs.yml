@@ -34,8 +34,8 @@ nav:
 exclude_docs: |
   /templates-linkml/
 
-site_url: https://MIxS-MInAS.github.io/miaard
-repo_url: https://github.com/MIxS-MInAS/miaard
+site_url: https://miaard.github.io/miaard-schema/
+repo_url: https://github.com/miaard/miaard-schema
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.
 # extra:

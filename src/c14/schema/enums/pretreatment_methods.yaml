@@ -1,15 +1,15 @@
-id: https://w3id.org/MIxS-MInAS/miaard/pretreatment_methods
+id: https://w3id.org/miaard/miaard-schema/pretreatment_methods
 name: pretreatment_methods
 title: MIAARD pretreatment methods
 description: |-
-  Enumeration of radiocarbon sample pretreatment methods. Part of the MIAARD 
+  Enumeration of radiocarbon sample pretreatment methods. Part of the MIAARD
   standard.
 license: MIT
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
+  - https://miaard.github.io/miaard-schema
 
 prefixes:
-  c14: https://w3id.org/MIxS-MInAS/miaard/
+  c14: https://w3id.org/miaard/miaard-schema/
 
 default_prefix: c14
 

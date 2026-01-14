@@ -1,14 +1,14 @@
-id: https://w3id.org/MIxS-MInAS/miaard/radiocarbon_measurement_methods
+id: https://w3id.org/miaard/miaard-schema/radiocarbon_measurement_methods
 name: radiocarbon_measurement_methods
 title: MIAARD radiocarbon measurement methods
 description: |-
   Enumeration of radiocarbon measurement methods. Part of the MIAARD standard.
 license: MIT
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
+  - https://miaard.github.io/miaard-schema
 
 prefixes:
-  c14: https://w3id.org/MIxS-MInAS/miaard/
+  c14: https://w3id.org/miaard/miaard-schema/
 
 default_prefix: c14
 

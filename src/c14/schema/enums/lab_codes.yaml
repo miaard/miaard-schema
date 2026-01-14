@@ -1,18 +1,18 @@
-id: https://w3id.org/MIxS-MInAS/miaard/lab_codes
+id: https://w3id.org/miaard/miaard-schema/lab_codes
 name: lab_codes
 title: MIAARD lab codes
 description: |-
-  Enumeration of known radiocarbon laboratory unique codes, derived from the 
+  Enumeration of known radiocarbon laboratory unique codes, derived from the
   list maintained by the journal Radiocarbon at
-  https://radiocarbon.webhost.uits.arizona.edu/laboratories. 
+  https://radiocarbon.webhost.uits.arizona.edu/laboratories.
 
   Part of the MIAARD standard.
 license: MIT
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
+  - https://miaard.github.io/miaard-schema
 
 prefixes:
-  c14: https://w3id.org/MIxS-MInAS/miaard/
+  c14: https://w3id.org/miaard/miaard-schema/
 
 default_prefix: c14
 

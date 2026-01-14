@@ -1,15 +1,15 @@
 ---
-id: https://w3id.org/MIxS-MInAS/miaard
+id: https://w3id.org/miaard/miaard-schema
 name: miaard
 title: miaard
 description: |-
   Minimum Information about any Radiocarbon Determination
 license: MIT
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
+  - https://miaard.github.io/miaard-schema
 
 prefixes:
-  c14: https://w3id.org/MIxS-MInAS/miaard/
+  c14: https://w3id.org/miaard/miaard-schema/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
 default_prefix: c14

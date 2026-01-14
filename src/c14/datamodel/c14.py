@@ -1,8 +1,8 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-13T13:45:16
+# Generation date: 2026-01-14T17:25:43
 # Schema: miaard
 #
-# id: https://w3id.org/MIxS-MInAS/miaard
+# id: https://w3id.org/miaard/miaard-schema
 # description: Minimum Information about any Radiocarbon Determination
 # license: MIT
 
@@ -63,7 +63,7 @@ metamodel_version = "1.7.0"
 version = None
 
 # Namespaces
-C14 = CurieNamespace('c14', 'https://w3id.org/MIxS-MInAS/miaard/')
+C14 = CurieNamespace('c14', 'https://w3id.org/miaard/miaard-schema/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 DEFAULT_ = C14
@@ -105,8 +105,6 @@ class RadiocarbonDate(YAMLRoot):
     pretreatment_yield: float = None
     carbon_proportion: float = None
     suspected_reservoir_effect: Union[bool, Bool] = None
-    carbon_nitro_ratio: float = None
-    recrystalisation: Union[bool, Bool] = None
     delta_13_c_calculation_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
     sample_taxon_scientific_name: Optional[str] = None
     sample_anatomical_part: Optional[str] = None
@@ -120,10 +118,6 @@ class RadiocarbonDate(YAMLRoot):
     delta_13_c: Optional[float] = None
     delta_13_c_error: Optional[float] = None
     delta_13_c_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
-    delta_15_n: Optional[float] = None
-    delta_15_n_error: Optional[float] = None
-    delta_34_s: Optional[float] = None
-    delta_34_s_error: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.lab_code):
@@ -220,15 +214,283 @@ class RadiocarbonDate(YAMLRoot):
         if not isinstance(self.suspected_reservoir_effect, Bool):
             self.suspected_reservoir_effect = Bool(self.suspected_reservoir_effect)
 
+        if self.delta_13_c_calculation_method is not None and not isinstance(self.delta_13_c_calculation_method, Delta13CMeasurementMethod):
+            self.delta_13_c_calculation_method = Delta13CMeasurementMethod(self.delta_13_c_calculation_method)
+
+        if self.sample_taxon_scientific_name is not None and not isinstance(self.sample_taxon_scientific_name, str):
+            self.sample_taxon_scientific_name = str(self.sample_taxon_scientific_name)
+
+        if self.sample_anatomical_part is not None and not isinstance(self.sample_anatomical_part, str):
+            self.sample_anatomical_part = str(self.sample_anatomical_part)
+
+        if self.suspected_sample_contamination is not None and not isinstance(self.suspected_sample_contamination, Bool):
+            self.suspected_sample_contamination = Bool(self.suspected_sample_contamination)
+
+        if self.suspected_sample_contamination_description is not None and not isinstance(self.suspected_sample_contamination_description, str):
+            self.suspected_sample_contamination_description = str(self.suspected_sample_contamination_description)
+
+        if self.sample_location is not None and not isinstance(self.sample_location, str):
+            self.sample_location = str(self.sample_location)
+
+        if self.decimal_latitude is not None and not isinstance(self.decimal_latitude, float):
+            self.decimal_latitude = float(self.decimal_latitude)
+
+        if self.decimal_longitude is not None and not isinstance(self.decimal_longitude, float):
+            self.decimal_longitude = float(self.decimal_longitude)
+
+        if self.coordinate_precision is not None and not isinstance(self.coordinate_precision, float):
+            self.coordinate_precision = float(self.coordinate_precision)
+
+        if self.pretreatment_percentage_yield is not None and not isinstance(self.pretreatment_percentage_yield, float):
+            self.pretreatment_percentage_yield = float(self.pretreatment_percentage_yield)
+
+        if self.delta_13_c is not None and not isinstance(self.delta_13_c, float):
+            self.delta_13_c = float(self.delta_13_c)
+
+        if self.delta_13_c_error is not None and not isinstance(self.delta_13_c_error, float):
+            self.delta_13_c_error = float(self.delta_13_c_error)
+
+        if self.delta_13_c_method is not None and not isinstance(self.delta_13_c_method, Delta13CMeasurementMethod):
+            self.delta_13_c_method = Delta13CMeasurementMethod(self.delta_13_c_method)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class RadiocarbonDateCollection(YAMLRoot):
+    """
+    A collection of radiocarbon determinations with associated metadata.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = C14["RadiocarbonDateCollection"]
+    class_class_curie: ClassVar[str] = "c14:RadiocarbonDateCollection"
+    class_name: ClassVar[str] = "RadiocarbonDateCollection"
+    class_model_uri: ClassVar[URIRef] = C14.RadiocarbonDateCollection
+
+    entries: Optional[Union[Union[dict, RadiocarbonDate], list[Union[dict, RadiocarbonDate]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if not isinstance(self.entries, list):
+            self.entries = [self.entries] if self.entries is not None else []
+        self.entries = [v if isinstance(v, RadiocarbonDate) else RadiocarbonDate(**as_dict(v)) for v in self.entries]
+
+        super().__post_init__(**kwargs)
+
+
+class Extension(YAMLRoot):
+    """
+    A collection of recommended metadata terms for a specific context
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = C14["Extension"]
+    class_class_curie: ClassVar[str] = "c14:Extension"
+    class_name: ClassVar[str] = "Extension"
+    class_model_uri: ClassVar[URIRef] = C14.Extension
+
+
+@dataclass(repr=False)
+class ProteinaceousSample(Extension):
+    """
+    Terms specific to proteinaceous samples being dated
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = C14["ProteinaceousSample"]
+    class_class_curie: ClassVar[str] = "c14:ProteinaceousSample"
+    class_name: ClassVar[str] = "ProteinaceousSample"
+    class_model_uri: ClassVar[URIRef] = C14.ProteinaceousSample
+
+    carbon_nitro_ratio: float = None
+    delta_15_n: Optional[float] = None
+    delta_15_n_error: Optional[float] = None
+    delta_34_s: Optional[float] = None
+    delta_34_s_error: Optional[float] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.carbon_nitro_ratio):
             self.MissingRequiredField("carbon_nitro_ratio")
         if not isinstance(self.carbon_nitro_ratio, float):
             self.carbon_nitro_ratio = float(self.carbon_nitro_ratio)
 
+        if self.delta_15_n is not None and not isinstance(self.delta_15_n, float):
+            self.delta_15_n = float(self.delta_15_n)
+
+        if self.delta_15_n_error is not None and not isinstance(self.delta_15_n_error, float):
+            self.delta_15_n_error = float(self.delta_15_n_error)
+
+        if self.delta_34_s is not None and not isinstance(self.delta_34_s, float):
+            self.delta_34_s = float(self.delta_34_s)
+
+        if self.delta_34_s_error is not None and not isinstance(self.delta_34_s_error, float):
+            self.delta_34_s_error = float(self.delta_34_s_error)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CarbonateSample(Extension):
+    """
+    Terms specific to carbonate samples being dated
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = C14["CarbonateSample"]
+    class_class_curie: ClassVar[str] = "c14:CarbonateSample"
+    class_name: ClassVar[str] = "CarbonateSample"
+    class_model_uri: ClassVar[URIRef] = C14.CarbonateSample
+
+    recrystalisation: Union[bool, Bool] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.recrystalisation):
             self.MissingRequiredField("recrystalisation")
         if not isinstance(self.recrystalisation, Bool):
             self.recrystalisation = Bool(self.recrystalisation)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class RadiocarbonDateProteinaceousSample(ProteinaceousSample):
+    """
+    A radiocarbon determination on a proteinaceous sample
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = C14["RadiocarbonDateProteinaceousSample"]
+    class_class_curie: ClassVar[str] = "c14:RadiocarbonDateProteinaceousSample"
+    class_name: ClassVar[str] = "RadiocarbonDateProteinaceousSample"
+    class_model_uri: ClassVar[URIRef] = C14.RadiocarbonDateProteinaceousSample
+
+    carbon_nitro_ratio: float = None
+    lab_code: Union[str, "LabCode"] = None
+    lab_id: str = None
+    conventional_age: float = None
+    conventional_age_error: float = None
+    f14c: float = None
+    f14c_error: float = None
+    sample_ids: Union[str, list[str]] = None
+    sample_material: str = None
+    sample_taxon_id: Union[str, list[str]] = None
+    sample_taxon_id_confidence: Union[bool, Bool] = None
+    pretreatment_methods: Union[Union[str, "PretreatmentMethods"], list[Union[str, "PretreatmentMethods"]]] = None
+    pretreatment_method_description: str = None
+    pretreatment_method_protocol: Union[str, list[str]] = None
+    measurement_method: Union[str, "RadiocarbonMeasurementMethod"] = None
+    sample_starting_weight: float = None
+    pretreatment_yield: float = None
+    carbon_proportion: float = None
+    suspected_reservoir_effect: Union[bool, Bool] = None
+    delta_13_c_calculation_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
+    sample_taxon_scientific_name: Optional[str] = None
+    sample_anatomical_part: Optional[str] = None
+    suspected_sample_contamination: Optional[Union[bool, Bool]] = None
+    suspected_sample_contamination_description: Optional[str] = None
+    sample_location: Optional[str] = None
+    decimal_latitude: Optional[float] = None
+    decimal_longitude: Optional[float] = None
+    coordinate_precision: Optional[float] = None
+    pretreatment_percentage_yield: Optional[float] = None
+    delta_13_c: Optional[float] = None
+    delta_13_c_error: Optional[float] = None
+    delta_13_c_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.lab_code):
+            self.MissingRequiredField("lab_code")
+        if not isinstance(self.lab_code, LabCode):
+            self.lab_code = LabCode(self.lab_code)
+
+        if self._is_empty(self.lab_id):
+            self.MissingRequiredField("lab_id")
+        if not isinstance(self.lab_id, str):
+            self.lab_id = str(self.lab_id)
+
+        if self._is_empty(self.conventional_age):
+            self.MissingRequiredField("conventional_age")
+        if not isinstance(self.conventional_age, float):
+            self.conventional_age = float(self.conventional_age)
+
+        if self._is_empty(self.conventional_age_error):
+            self.MissingRequiredField("conventional_age_error")
+        if not isinstance(self.conventional_age_error, float):
+            self.conventional_age_error = float(self.conventional_age_error)
+
+        if self._is_empty(self.f14c):
+            self.MissingRequiredField("f14c")
+        if not isinstance(self.f14c, float):
+            self.f14c = float(self.f14c)
+
+        if self._is_empty(self.f14c_error):
+            self.MissingRequiredField("f14c_error")
+        if not isinstance(self.f14c_error, float):
+            self.f14c_error = float(self.f14c_error)
+
+        if self._is_empty(self.sample_ids):
+            self.MissingRequiredField("sample_ids")
+        if not isinstance(self.sample_ids, list):
+            self.sample_ids = [self.sample_ids] if self.sample_ids is not None else []
+        self.sample_ids = [v if isinstance(v, str) else str(v) for v in self.sample_ids]
+
+        if self._is_empty(self.sample_material):
+            self.MissingRequiredField("sample_material")
+        if not isinstance(self.sample_material, str):
+            self.sample_material = str(self.sample_material)
+
+        if self._is_empty(self.sample_taxon_id):
+            self.MissingRequiredField("sample_taxon_id")
+        if not isinstance(self.sample_taxon_id, list):
+            self.sample_taxon_id = [self.sample_taxon_id] if self.sample_taxon_id is not None else []
+        self.sample_taxon_id = [v if isinstance(v, str) else str(v) for v in self.sample_taxon_id]
+
+        if self._is_empty(self.sample_taxon_id_confidence):
+            self.MissingRequiredField("sample_taxon_id_confidence")
+        if not isinstance(self.sample_taxon_id_confidence, Bool):
+            self.sample_taxon_id_confidence = Bool(self.sample_taxon_id_confidence)
+
+        if self._is_empty(self.pretreatment_methods):
+            self.MissingRequiredField("pretreatment_methods")
+        if not isinstance(self.pretreatment_methods, list):
+            self.pretreatment_methods = [self.pretreatment_methods] if self.pretreatment_methods is not None else []
+        self.pretreatment_methods = [v if isinstance(v, PretreatmentMethods) else PretreatmentMethods(v) for v in self.pretreatment_methods]
+
+        if self._is_empty(self.pretreatment_method_description):
+            self.MissingRequiredField("pretreatment_method_description")
+        if not isinstance(self.pretreatment_method_description, str):
+            self.pretreatment_method_description = str(self.pretreatment_method_description)
+
+        if self._is_empty(self.pretreatment_method_protocol):
+            self.MissingRequiredField("pretreatment_method_protocol")
+        if not isinstance(self.pretreatment_method_protocol, list):
+            self.pretreatment_method_protocol = [self.pretreatment_method_protocol] if self.pretreatment_method_protocol is not None else []
+        self.pretreatment_method_protocol = [v if isinstance(v, str) else str(v) for v in self.pretreatment_method_protocol]
+
+        if self._is_empty(self.measurement_method):
+            self.MissingRequiredField("measurement_method")
+        if not isinstance(self.measurement_method, RadiocarbonMeasurementMethod):
+            self.measurement_method = RadiocarbonMeasurementMethod(self.measurement_method)
+
+        if self._is_empty(self.sample_starting_weight):
+            self.MissingRequiredField("sample_starting_weight")
+        if not isinstance(self.sample_starting_weight, float):
+            self.sample_starting_weight = float(self.sample_starting_weight)
+
+        if self._is_empty(self.pretreatment_yield):
+            self.MissingRequiredField("pretreatment_yield")
+        if not isinstance(self.pretreatment_yield, float):
+            self.pretreatment_yield = float(self.pretreatment_yield)
+
+        if self._is_empty(self.carbon_proportion):
+            self.MissingRequiredField("carbon_proportion")
+        if not isinstance(self.carbon_proportion, float):
+            self.carbon_proportion = float(self.carbon_proportion)
+
+        if self._is_empty(self.suspected_reservoir_effect):
+            self.MissingRequiredField("suspected_reservoir_effect")
+        if not isinstance(self.suspected_reservoir_effect, Bool):
+            self.suspected_reservoir_effect = Bool(self.suspected_reservoir_effect)
 
         if self.delta_13_c_calculation_method is not None and not isinstance(self.delta_13_c_calculation_method, Delta13CMeasurementMethod):
             self.delta_13_c_calculation_method = Delta13CMeasurementMethod(self.delta_13_c_calculation_method)
@@ -269,39 +531,187 @@ class RadiocarbonDate(YAMLRoot):
         if self.delta_13_c_method is not None and not isinstance(self.delta_13_c_method, Delta13CMeasurementMethod):
             self.delta_13_c_method = Delta13CMeasurementMethod(self.delta_13_c_method)
 
-        if self.delta_15_n is not None and not isinstance(self.delta_15_n, float):
-            self.delta_15_n = float(self.delta_15_n)
-
-        if self.delta_15_n_error is not None and not isinstance(self.delta_15_n_error, float):
-            self.delta_15_n_error = float(self.delta_15_n_error)
-
-        if self.delta_34_s is not None and not isinstance(self.delta_34_s, float):
-            self.delta_34_s = float(self.delta_34_s)
-
-        if self.delta_34_s_error is not None and not isinstance(self.delta_34_s_error, float):
-            self.delta_34_s_error = float(self.delta_34_s_error)
-
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class RadiocarbonDateCollection(YAMLRoot):
+class RadiocarbonDateCarbonateSample(CarbonateSample):
     """
-    A collection of radiocarbon determinations with associated metadata.
+    A radiocarbon determination on a carbonate sample
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = C14["RadiocarbonDateCollection"]
-    class_class_curie: ClassVar[str] = "c14:RadiocarbonDateCollection"
-    class_name: ClassVar[str] = "RadiocarbonDateCollection"
-    class_model_uri: ClassVar[URIRef] = C14.RadiocarbonDateCollection
+    class_class_uri: ClassVar[URIRef] = C14["RadiocarbonDateCarbonateSample"]
+    class_class_curie: ClassVar[str] = "c14:RadiocarbonDateCarbonateSample"
+    class_name: ClassVar[str] = "RadiocarbonDateCarbonateSample"
+    class_model_uri: ClassVar[URIRef] = C14.RadiocarbonDateCarbonateSample
 
-    entries: Optional[Union[Union[dict, RadiocarbonDate], list[Union[dict, RadiocarbonDate]]]] = empty_list()
+    recrystalisation: Union[bool, Bool] = None
+    lab_code: Union[str, "LabCode"] = None
+    lab_id: str = None
+    conventional_age: float = None
+    conventional_age_error: float = None
+    f14c: float = None
+    f14c_error: float = None
+    sample_ids: Union[str, list[str]] = None
+    sample_material: str = None
+    sample_taxon_id: Union[str, list[str]] = None
+    sample_taxon_id_confidence: Union[bool, Bool] = None
+    pretreatment_methods: Union[Union[str, "PretreatmentMethods"], list[Union[str, "PretreatmentMethods"]]] = None
+    pretreatment_method_description: str = None
+    pretreatment_method_protocol: Union[str, list[str]] = None
+    measurement_method: Union[str, "RadiocarbonMeasurementMethod"] = None
+    sample_starting_weight: float = None
+    pretreatment_yield: float = None
+    carbon_proportion: float = None
+    suspected_reservoir_effect: Union[bool, Bool] = None
+    delta_13_c_calculation_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
+    sample_taxon_scientific_name: Optional[str] = None
+    sample_anatomical_part: Optional[str] = None
+    suspected_sample_contamination: Optional[Union[bool, Bool]] = None
+    suspected_sample_contamination_description: Optional[str] = None
+    sample_location: Optional[str] = None
+    decimal_latitude: Optional[float] = None
+    decimal_longitude: Optional[float] = None
+    coordinate_precision: Optional[float] = None
+    pretreatment_percentage_yield: Optional[float] = None
+    delta_13_c: Optional[float] = None
+    delta_13_c_error: Optional[float] = None
+    delta_13_c_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.entries, list):
-            self.entries = [self.entries] if self.entries is not None else []
-        self.entries = [v if isinstance(v, RadiocarbonDate) else RadiocarbonDate(**as_dict(v)) for v in self.entries]
+        if self._is_empty(self.lab_code):
+            self.MissingRequiredField("lab_code")
+        if not isinstance(self.lab_code, LabCode):
+            self.lab_code = LabCode(self.lab_code)
+
+        if self._is_empty(self.lab_id):
+            self.MissingRequiredField("lab_id")
+        if not isinstance(self.lab_id, str):
+            self.lab_id = str(self.lab_id)
+
+        if self._is_empty(self.conventional_age):
+            self.MissingRequiredField("conventional_age")
+        if not isinstance(self.conventional_age, float):
+            self.conventional_age = float(self.conventional_age)
+
+        if self._is_empty(self.conventional_age_error):
+            self.MissingRequiredField("conventional_age_error")
+        if not isinstance(self.conventional_age_error, float):
+            self.conventional_age_error = float(self.conventional_age_error)
+
+        if self._is_empty(self.f14c):
+            self.MissingRequiredField("f14c")
+        if not isinstance(self.f14c, float):
+            self.f14c = float(self.f14c)
+
+        if self._is_empty(self.f14c_error):
+            self.MissingRequiredField("f14c_error")
+        if not isinstance(self.f14c_error, float):
+            self.f14c_error = float(self.f14c_error)
+
+        if self._is_empty(self.sample_ids):
+            self.MissingRequiredField("sample_ids")
+        if not isinstance(self.sample_ids, list):
+            self.sample_ids = [self.sample_ids] if self.sample_ids is not None else []
+        self.sample_ids = [v if isinstance(v, str) else str(v) for v in self.sample_ids]
+
+        if self._is_empty(self.sample_material):
+            self.MissingRequiredField("sample_material")
+        if not isinstance(self.sample_material, str):
+            self.sample_material = str(self.sample_material)
+
+        if self._is_empty(self.sample_taxon_id):
+            self.MissingRequiredField("sample_taxon_id")
+        if not isinstance(self.sample_taxon_id, list):
+            self.sample_taxon_id = [self.sample_taxon_id] if self.sample_taxon_id is not None else []
+        self.sample_taxon_id = [v if isinstance(v, str) else str(v) for v in self.sample_taxon_id]
+
+        if self._is_empty(self.sample_taxon_id_confidence):
+            self.MissingRequiredField("sample_taxon_id_confidence")
+        if not isinstance(self.sample_taxon_id_confidence, Bool):
+            self.sample_taxon_id_confidence = Bool(self.sample_taxon_id_confidence)
+
+        if self._is_empty(self.pretreatment_methods):
+            self.MissingRequiredField("pretreatment_methods")
+        if not isinstance(self.pretreatment_methods, list):
+            self.pretreatment_methods = [self.pretreatment_methods] if self.pretreatment_methods is not None else []
+        self.pretreatment_methods = [v if isinstance(v, PretreatmentMethods) else PretreatmentMethods(v) for v in self.pretreatment_methods]
+
+        if self._is_empty(self.pretreatment_method_description):
+            self.MissingRequiredField("pretreatment_method_description")
+        if not isinstance(self.pretreatment_method_description, str):
+            self.pretreatment_method_description = str(self.pretreatment_method_description)
+
+        if self._is_empty(self.pretreatment_method_protocol):
+            self.MissingRequiredField("pretreatment_method_protocol")
+        if not isinstance(self.pretreatment_method_protocol, list):
+            self.pretreatment_method_protocol = [self.pretreatment_method_protocol] if self.pretreatment_method_protocol is not None else []
+        self.pretreatment_method_protocol = [v if isinstance(v, str) else str(v) for v in self.pretreatment_method_protocol]
+
+        if self._is_empty(self.measurement_method):
+            self.MissingRequiredField("measurement_method")
+        if not isinstance(self.measurement_method, RadiocarbonMeasurementMethod):
+            self.measurement_method = RadiocarbonMeasurementMethod(self.measurement_method)
+
+        if self._is_empty(self.sample_starting_weight):
+            self.MissingRequiredField("sample_starting_weight")
+        if not isinstance(self.sample_starting_weight, float):
+            self.sample_starting_weight = float(self.sample_starting_weight)
+
+        if self._is_empty(self.pretreatment_yield):
+            self.MissingRequiredField("pretreatment_yield")
+        if not isinstance(self.pretreatment_yield, float):
+            self.pretreatment_yield = float(self.pretreatment_yield)
+
+        if self._is_empty(self.carbon_proportion):
+            self.MissingRequiredField("carbon_proportion")
+        if not isinstance(self.carbon_proportion, float):
+            self.carbon_proportion = float(self.carbon_proportion)
+
+        if self._is_empty(self.suspected_reservoir_effect):
+            self.MissingRequiredField("suspected_reservoir_effect")
+        if not isinstance(self.suspected_reservoir_effect, Bool):
+            self.suspected_reservoir_effect = Bool(self.suspected_reservoir_effect)
+
+        if self.delta_13_c_calculation_method is not None and not isinstance(self.delta_13_c_calculation_method, Delta13CMeasurementMethod):
+            self.delta_13_c_calculation_method = Delta13CMeasurementMethod(self.delta_13_c_calculation_method)
+
+        if self.sample_taxon_scientific_name is not None and not isinstance(self.sample_taxon_scientific_name, str):
+            self.sample_taxon_scientific_name = str(self.sample_taxon_scientific_name)
+
+        if self.sample_anatomical_part is not None and not isinstance(self.sample_anatomical_part, str):
+            self.sample_anatomical_part = str(self.sample_anatomical_part)
+
+        if self.suspected_sample_contamination is not None and not isinstance(self.suspected_sample_contamination, Bool):
+            self.suspected_sample_contamination = Bool(self.suspected_sample_contamination)
+
+        if self.suspected_sample_contamination_description is not None and not isinstance(self.suspected_sample_contamination_description, str):
+            self.suspected_sample_contamination_description = str(self.suspected_sample_contamination_description)
+
+        if self.sample_location is not None and not isinstance(self.sample_location, str):
+            self.sample_location = str(self.sample_location)
+
+        if self.decimal_latitude is not None and not isinstance(self.decimal_latitude, float):
+            self.decimal_latitude = float(self.decimal_latitude)
+
+        if self.decimal_longitude is not None and not isinstance(self.decimal_longitude, float):
+            self.decimal_longitude = float(self.decimal_longitude)
+
+        if self.coordinate_precision is not None and not isinstance(self.coordinate_precision, float):
+            self.coordinate_precision = float(self.coordinate_precision)
+
+        if self.pretreatment_percentage_yield is not None and not isinstance(self.pretreatment_percentage_yield, float):
+            self.pretreatment_percentage_yield = float(self.pretreatment_percentage_yield)
+
+        if self.delta_13_c is not None and not isinstance(self.delta_13_c, float):
+            self.delta_13_c = float(self.delta_13_c)
+
+        if self.delta_13_c_error is not None and not isinstance(self.delta_13_c_error, float):
+            self.delta_13_c_error = float(self.delta_13_c_error)
+
+        if self.delta_13_c_method is not None and not isinstance(self.delta_13_c_method, Delta13CMeasurementMethod):
+            self.delta_13_c_method = Delta13CMeasurementMethod(self.delta_13_c_method)
 
         super().__post_init__(**kwargs)
 
@@ -1656,10 +2066,12 @@ slots.sample_ids = Slot(uri=C14['000008'], name="sample_ids", curie=C14.curie('0
                    model_uri=C14.sample_ids, domain=None, range=Union[str, list[str]])
 
 slots.sample_material = Slot(uri=C14['000009'], name="sample_material", curie=C14.curie('000009'),
-                   model_uri=C14.sample_material, domain=None, range=str)
+                   model_uri=C14.sample_material, domain=None, range=str,
+                   pattern=re.compile(r'[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'))
 
 slots.sample_taxon_id = Slot(uri=C14['000010'], name="sample_taxon_id", curie=C14.curie('000010'),
-                   model_uri=C14.sample_taxon_id, domain=None, range=Union[str, list[str]])
+                   model_uri=C14.sample_taxon_id, domain=None, range=Union[str, list[str]],
+                   pattern=re.compile(r'[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'))
 
 slots.sample_taxon_id_confidence = Slot(uri=C14['000011'], name="sample_taxon_id_confidence", curie=C14.curie('000011'),
                    model_uri=C14.sample_taxon_id_confidence, domain=None, range=Union[bool, Bool])
@@ -1668,7 +2080,8 @@ slots.sample_taxon_scientific_name = Slot(uri=C14['000012'], name="sample_taxon_
                    model_uri=C14.sample_taxon_scientific_name, domain=None, range=Optional[str])
 
 slots.sample_anatomical_part = Slot(uri=C14['000013'], name="sample_anatomical_part", curie=C14.curie('000013'),
-                   model_uri=C14.sample_anatomical_part, domain=None, range=Optional[str])
+                   model_uri=C14.sample_anatomical_part, domain=None, range=Optional[str],
+                   pattern=re.compile(r'[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'))
 
 slots.suspected_sample_contamination = Slot(uri=C14['000014'], name="suspected_sample_contamination", curie=C14.curie('000014'),
                    model_uri=C14.suspected_sample_contamination, domain=None, range=Optional[Union[bool, Bool]])
@@ -1695,7 +2108,8 @@ slots.pretreatment_method_description = Slot(uri=C14['000021'], name="pretreatme
                    model_uri=C14.pretreatment_method_description, domain=None, range=str)
 
 slots.pretreatment_method_protocol = Slot(uri=C14['000022'], name="pretreatment_method_protocol", curie=C14.curie('000022'),
-                   model_uri=C14.pretreatment_method_protocol, domain=None, range=Union[str, list[str]])
+                   model_uri=C14.pretreatment_method_protocol, domain=None, range=Union[str, list[str]],
+                   pattern=re.compile(r'^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$'))
 
 slots.measurement_method = Slot(uri=C14['000023'], name="measurement_method", curie=C14.curie('000023'),
                    model_uri=C14.measurement_method, domain=None, range=Union[str, "RadiocarbonMeasurementMethod"])
