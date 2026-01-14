@@ -451,13 +451,13 @@ Alias: sample_taxon_id</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RadiocarbonDateCarbonateSample/">RadiocarbonDateCarbonateSample</a></td>
-<td>A radiocarbon determination on a carbonate sample</td>
+<td><a href="../RadiocarbonDate/">RadiocarbonDate</a></td>
+<td>A radiocarbon determination with associated metadata</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RadiocarbonDate/">RadiocarbonDate</a></td>
-<td>A radiocarbon determination with associated metadata</td>
+<td><a href="../RadiocarbonDateCarbonateSample/">RadiocarbonDateCarbonateSample</a></td>
+<td>A radiocarbon determination on a carbonate sample</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -472,6 +472,9 @@ Alias: sample_taxon_id</p>
 </li>
 <li>
 <p>Required: True</p>
+</li>
+<li>
+<p>Regex pattern: <code>[a-zA-Z]{2,}:[a-zA-Z0-9]\d+</code></p>
 </li>
 </ul>
 <h2 id="examples">Examples</h2>
@@ -542,10 +545,7 @@ slot_group: Sample
 range: string
 required: true
 multivalued: true
-structured_pattern:
-  syntax: ^{termID}$
-  interpolated: true
-  partial_match: false
+pattern: '[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'
 
 </code></pre>
 

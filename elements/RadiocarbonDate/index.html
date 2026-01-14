@@ -518,7 +518,7 @@
 <tr>
 <td><a href="../pretreatment_method_protocol/">pretreatment_method_protocol</a></td>
 <td>1..* <br/> <a href="../String/">String</a></td>
-<td>A DOI or URL to a publication describing the specific method of pretreatment ...</td>
+<td>A DOI, URL, or PMID to a publication describing the specific method of pretre...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -888,10 +888,7 @@ attributes:
     range: string
     required: true
     multivalued: false
-    structured_pattern:
-      syntax: ^{termID}$
-      interpolated: true
-      partial_match: false
+    pattern: '[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'
   sample_taxon_id:
     name: sample_taxon_id
     description: 'A taxonomic ID of the organism from which the sample used to extract
@@ -916,10 +913,7 @@ attributes:
     range: string
     required: true
     multivalued: true
-    structured_pattern:
-      syntax: ^{termID}$
-      interpolated: true
-      partial_match: false
+    pattern: '[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'
   sample_taxon_id_confidence:
     name: sample_taxon_id_confidence
     description: 'Specify the level of confidence of an exact taxon identification.
@@ -989,10 +983,7 @@ attributes:
     required: false
     recommended: true
     multivalued: false
-    structured_pattern:
-      syntax: ^{termID}$
-      interpolated: true
-      partial_match: false
+    pattern: '[a-zA-Z]{2,}:[a-zA-Z0-9]\d+'
   suspected_sample_contamination:
     name: suspected_sample_contamination
     description: 'Specify whether the sample has suspected contamination that may
@@ -1172,7 +1163,13 @@ attributes:
     title: Radiocarbon pretreatment method description
     examples:
     - value: No pretreatment
-    - value: ''
+    - value: Samples were pretreated following Brock et al. (2010). Briefly, bone
+        was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min,
+        RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20
+        hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa
+        MWCO)
+    - value: A dremel drill was used to remove visibly altered shell leaving dense
+        translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     rank: 1000
     slot_uri: c14:000021
@@ -1187,17 +1184,13 @@ attributes:
     pattern: ''
   pretreatment_method_protocol:
     name: pretreatment_method_protocol
-    description: A DOI or URL to a publication describing the specific method of pretreatment
-      applied.
+    description: A DOI, URL, or PMID to a publication describing the specific method
+      of pretreatment applied.
     title: Radiocarbon pretreatment method protocol
     examples:
-    - value: Samples were pretreated following Brock et al. (2010). Briefly, bone
-        was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min,
-        RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20
-        hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa
-        MWCO)
-    - value: A dremel drill was used to remove visibly altered shell leaving dense
-        translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
+    - value: 'https://doi.org/10.1017/S0033822200045069 '
+    - value: https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf
+    - value: PMID:35677847
     from_schema: https://w3id.org/MIxS-MInAS/miaard
     rank: 1000
     slot_uri: c14:000022
@@ -1209,10 +1202,7 @@ attributes:
     range: string
     required: true
     multivalued: true
-    structured_pattern:
-      syntax: ^{PMID}|{DOI}|{URL}|{text}$
-      interpolated: true
-      partial_match: false
+    pattern: ^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&amp;\/=]*))$
   measurement_method:
     name: measurement_method
     description: Type of measurement method the determination was made by.

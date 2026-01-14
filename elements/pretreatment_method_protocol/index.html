@@ -428,7 +428,7 @@
 
 
 <h1 id="slot-radiocarbon-pretreatment-method-protocol-pretreatment_method_protocol">Slot: Radiocarbon pretreatment method protocol (pretreatment_method_protocol)</h1>
-<p><em>A DOI or URL to a publication describing the specific method of pretreatment applied.</em></p>
+<p><em>A DOI, URL, or PMID to a publication describing the specific method of pretreatment applied.</em></p>
 <p>URI: <a href="https://w3id.org/MIxS-MInAS/miaard/000022">c14:000022</a>
 Alias: pretreatment_method_protocol</p>
 <!-- no inheritance hierarchy -->
@@ -449,13 +449,13 @@ Alias: pretreatment_method_protocol</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RadiocarbonDateCarbonateSample/">RadiocarbonDateCarbonateSample</a></td>
-<td>A radiocarbon determination on a carbonate sample</td>
+<td><a href="../RadiocarbonDate/">RadiocarbonDate</a></td>
+<td>A radiocarbon determination with associated metadata</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RadiocarbonDate/">RadiocarbonDate</a></td>
-<td>A radiocarbon determination with associated metadata</td>
+<td><a href="../RadiocarbonDateCarbonateSample/">RadiocarbonDateCarbonateSample</a></td>
+<td>A radiocarbon determination on a carbonate sample</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -471,6 +471,9 @@ Alias: pretreatment_method_protocol</p>
 <li>
 <p>Required: True</p>
 </li>
+<li>
+<p>Regex pattern: <code>^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&amp;\/=]*))$</code></p>
+</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <table>
@@ -481,10 +484,13 @@ Alias: pretreatment_method_protocol</p>
 </thead>
 <tbody>
 <tr>
-<td>Samples were pretreated following Brock et al. (2010). Briefly, bone was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)</td>
+<td>https://doi.org/10.1017/S0033822200045069</td>
 </tr>
 <tr>
-<td>A dremel drill was used to remove visibly altered shell leaving dense translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.</td>
+<td>https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf</td>
+</tr>
+<tr>
+<td>PMID:35677847</td>
 </tr>
 </tbody>
 </table>
@@ -516,16 +522,13 @@ Alias: pretreatment_method_protocol</p>
 <details>
 
 <pre><code class="language-yaml">name: pretreatment_method_protocol
-description: A DOI or URL to a publication describing the specific method of pretreatment
-  applied.
+description: A DOI, URL, or PMID to a publication describing the specific method of
+  pretreatment applied.
 title: Radiocarbon pretreatment method protocol
 examples:
-- value: Samples were pretreated following Brock et al. (2010). Briefly, bone was
-    demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and
-    acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC),
-    filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)
-- value: A dremel drill was used to remove visibly altered shell leaving dense translucent
-    carbonate;  Charcoal was treated with HCl, NaOH and HCl.
+- value: 'https://doi.org/10.1017/S0033822200045069 '
+- value: https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf
+- value: PMID:35677847
 from_schema: https://w3id.org/MIxS-MInAS/miaard
 rank: 1000
 slot_uri: c14:000022
@@ -536,10 +539,7 @@ slot_group: Method
 range: string
 required: true
 multivalued: true
-structured_pattern:
-  syntax: ^{PMID}|{DOI}|{URL}|{text}$
-  interpolated: true
-  partial_match: false
+pattern: ^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&amp;\/=]*))$
 
 </code></pre>
 
