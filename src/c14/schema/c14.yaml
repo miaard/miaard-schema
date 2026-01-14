@@ -120,6 +120,48 @@ classes:
     mixins:
       - RadiocarbonDate
 
+  F14CRadiocarbonDateProteinaceousSample:
+    description: F14C value radiocarbon date of a proteinaceous sample
+    title: F14C value radiocarbon date (proteinaceous)
+    is_a: ProteinaceousSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:F14CRadiocarbonDateProteinaceousSample
+
+  F14CRadiocarbonDateCarbonateSample:
+    description: F14C value radiocarbon date of a carbonate sample
+    title: F14C value radiocarbon date (carbonate)
+    is_a: CarbonateSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:F14CRadiocarbonDateCarbonateSample
+
+  ConventionalAgeRadiocarbonDateProteinaceousSample:
+    description: Conventional age radiocarbon date of a proteinaceous sample
+    title: Conventional age radiocarbon date (proteinaceous)
+    is_a: ProteinaceousSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:ConventionalAgeRadiocarbonDateProteinaceousSample
+    slot_usage:
+      conventional_age:
+        required: true
+      conventional_age_error:
+        required: true
+
+  ConventionalAgeRadiocarbonDateCarbonateSample:
+    description: Conventional age radiocarbon date of a carbonate sample
+    title: Conventional age radiocarbon date (carbonate)
+    is_a: CarbonateSample
+    mixins:
+      - RadiocarbonDate
+    class_uri: c14:ConventionalAgeRadiocarbonDateCarbonateSample
+    slot_usage:
+      conventional_age:
+        required: true
+      conventional_age_error:
+        required: true
+
 slots:
   lab_code:
     title: Laboratory code designation
@@ -167,7 +209,7 @@ slots:
     slot_uri: c14:000005
     multivalued: false
     range: float
-    required: true
+    recommended: true
     slot_group: "Measurement"
   conventional_age_error:
     title: Conventional radiocarbon age error
@@ -181,7 +223,8 @@ slots:
     slot_uri: c14:000006
     multivalued: false
     range: float
-    required: true
+    required: false
+    recommended: true
     slot_group: "Measurement"
   f14c:
     title:

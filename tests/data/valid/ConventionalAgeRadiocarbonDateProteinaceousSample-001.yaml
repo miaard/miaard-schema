@@ -2,10 +2,10 @@
 ---
 lab_code: mams
 lab_id: "81038"
-conventional_age: 4468
-conventional_age_error: 19
 f14c: 0.573350252170459
 f14c_error: 0.00137336054487434
+conventional_age: 4468
+conventional_age_error: 19
 sample_ids:
   - "PZN009.A"
 sample_material: "UBERON:0002481"
