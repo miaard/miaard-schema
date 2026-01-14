@@ -8,16 +8,16 @@ f14c: 0.573350252170459
 f14c_error: 0.00137336054487434
 sample_ids:
   - "PZN009.A"
-sample_material: "tooth"
+sample_material: "ENVO:01000560"
 sample_taxon_id:
-  - "9606"
+  - "NCBITAXON:1179183"
 sample_taxon_id_confidence: true
 pretreatment_methods:
   - "UF_Col"
 pretreatment_method_description: >-
   "Collagen is extracted from the bone samples (modified Longin method), purified by ultrafiltration (fraction >30kD) and freeze-dried."
 pretreatment_method_protocol:
-  - "doi:10.1016/j.nimb.2012.01.015"
+  - "https://doi.org.10.1016/j.nimb.2012.01.015"
 measurement_method: "AMS"
 sample_starting_weight: 487.4
 pretreatment_yield: 12

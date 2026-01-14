@@ -82,7 +82,11 @@ linkml_meta = LinkMLMeta({'default_prefix': 'c14',
      'default_range': 'string',
      'description': 'Minimum Information about any Radiocarbon Determination',
      'id': 'https://w3id.org/MIxS-MInAS/miaard',
-     'imports': ['linkml:types', 'enums/lab_code_ids'],
+     'imports': ['linkml:types',
+                 'enums/lab_codes',
+                 'enums/pretreatment_methods',
+                 'enums/radiocarbon_measurement_methods',
+                 'enums/delta13c_measurement_methods'],
      'license': 'MIT',
      'name': 'miaard',
      'prefixes': {'c14': {'prefix_prefix': 'c14',
@@ -102,7 +106,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'c14',
      'source_file': 'src/c14/schema/c14.yaml',
      'title': 'miaard'} )
 
-class LabCodeId(str, Enum):
+class LabCode(str, Enum):
     """
     Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.
     """
@@ -1429,7 +1433,7 @@ class RadiocarbonDate(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/MIxS-MInAS/miaard'})
 
-    lab_code: LabCodeId = Field(default=..., title="Laboratory code designation", description="""Unique laboratory code designation of the institution that made the measurement.
+    lab_code: LabCode = Field(default=..., title="Laboratory code designation", description="""Unique laboratory code designation of the institution that made the measurement.
 This is the prefix used for each determination ID. The prefix should be
 derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'OxA'},

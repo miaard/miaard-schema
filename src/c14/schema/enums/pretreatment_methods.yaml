@@ -1,0 +1,58 @@
+id: https://w3id.org/MIxS-MInAS/miaard/pretreatment_methods
+name: pretreatment_methods
+title: MIAARD pretreatment methods
+description: |-
+  Enumeration of radiocarbon sample pretreatment methods. Part of the MIAARD 
+  standard.
+license: MIT
+see_also:
+  - https://MIxS-MInAS.github.io/miaard
+
+prefixes:
+  c14: https://w3id.org/MIxS-MInAS/miaard/
+
+default_prefix: c14
+
+enums:
+  PretreatmentMethods:
+    description: >-
+      Specify the types of general pretreatment methods applied for decontamination.
+    permissible_values:
+      U:
+        description: No chemical pretreatment
+      Sol_W:
+        description: Solvent wash
+      A:
+        description: Acid only
+      ABA:
+        description: Acid-base-acid (ABA or AAA)
+      Col:
+        description: Collagen (normally including deminieralisation wtih or without a base step, followed by gelatinisation and filtration, often called the 'Longin method')
+      UF_Col:
+        description: Ultrafiltered collagen (normally including demineralisation with or without a base step, followed by gelatinisation, filtration and ultrafiltration)
+      XAD:
+        description: Amino acids purified by XAD-2 resin
+      IE:
+        description: Amino acids purified by other ion exchange resin
+      HYP:
+        description: Hydroxyproline
+      Other:
+        description: Other treatment not covered
+      ABOx:
+        description: Acid-base-oxidation (ABOx, without the stepped combustion step)
+      ABOx-SC:
+        description: Acid-base-oxidation-stepped combustion (ABOx-SC)
+      BABA:
+        description: Base-Acid-Base-Acid
+      Holo_Cel:
+        description: Holocellulose (normally ABA followed by bleach)
+      Alph_Cel:
+        description: Alphacellulose (normally containing bleach followed by ABA)
+      AE:
+        description: Acid etch
+      Phys:
+        description: Physical cleaning (surface abrasion)
+      H2O2:
+        description: Hydrogen peroxide
+      HUMIC:
+        description: Base soluble fraction (normally preceeded by acid)

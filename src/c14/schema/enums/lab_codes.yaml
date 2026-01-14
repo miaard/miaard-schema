@@ -1,5 +1,5 @@
-id: https://w3id.org/MIxS-MInAS/miaard/lab_code_ids
-name: lab_code_ids
+id: https://w3id.org/MIxS-MInAS/miaard/lab_codes
+name: lab_codes
 title: MIAARD lab codes
 description: |-
   Enumeration of known radiocarbon laboratory unique codes, derived from the 
@@ -17,7 +17,7 @@ prefixes:
 default_prefix: c14
 
 enums:
-  LabCodeId:
+  LabCode:
     description: >-
       Enumeration of unique laboratory code designations of institutions that make radiocarbon measurements.
     permissible_values:
