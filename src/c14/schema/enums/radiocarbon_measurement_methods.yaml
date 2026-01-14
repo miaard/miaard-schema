@@ -1,5 +1,5 @@
 id: https://w3id.org/MIxS-MInAS/miaard/radiocarbon_measurement_methods
-name: lab_code
+name: radiocarbon_measurement_methods
 title: MIAARD radiocarbon measurement methods
 description: |-
   Enumeration of radiocarbon measurement methods. Part of the MIAARD standard.
