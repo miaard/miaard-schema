@@ -280,7 +280,7 @@ slots:
     required: true
     slot_group: "Sample"
   sample_taxon_id_confidence:
-    title: Confidence in taxon assignment
+    title: Confident in taxon assignment
     examples:
       - value: "true"
       - value: "false"
