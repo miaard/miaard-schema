@@ -17,7 +17,7 @@ pretreatment_methods:
 pretreatment_method_description: >-
   "Collagen is extracted from the bone samples (modified Longin method), purified by ultrafiltration (fraction >30kD) and freeze-dried."
 pretreatment_method_protocol:
-  - "https://doi.org/doi:10.1016/j.nimb.2012.01.015"
+  - "https://doi.org/10.1016/j.nimb.2012.01.015"
 measurement_method: "AMS"
 sample_starting_weight: 487.4
 pretreatment_yield: 12
