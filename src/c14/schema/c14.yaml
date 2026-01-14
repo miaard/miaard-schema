@@ -82,10 +82,10 @@ classes:
         inlined_as_list: true
 
   Extension:
-    description: A collection of recommended metadata terms for a specific context
+    description: A collection of recommended metadata terms for a specific context.
 
   ProteinaceousSample:
-    description: Terms specific to proteinaceous samples being dated
+    description: Terms specific to proteinaceous samples being dated.
     title: Proteinaceous Sample
     is_a: Extension
     class_uri: c14:ProteinaceousSample
@@ -97,7 +97,7 @@ classes:
       - delta_34_s_error # Proteinaceous module
 
   CarbonateSample:
-    description: Terms specific to carbonate samples being dated
+    description: Terms specific to carbonate samples being dated.
     title: Carbonate Sample
     is_a: Extension
     class_uri: c14:CarbonateSample
@@ -105,7 +105,7 @@ classes:
       - recrystalisation # Carbonate module
 
   RadiocarbonDateProteinaceousSample:
-    description: A radiocarbon determination on a proteinaceous sample
+    description: A radiocarbon determination on a proteinaceous sample.
     title: Radiocarbon Date (Proteinaceous Sample)
     is_a: ProteinaceousSample
     class_uri: c14:RadiocarbonDateProteinaceousSample
@@ -113,7 +113,7 @@ classes:
       - RadiocarbonDate
 
   RadiocarbonDateCarbonateSample:
-    description: A radiocarbon determination on a carbonate sample
+    description: A radiocarbon determination on a carbonate sample.
     title: Radiocarbon Date (Carbonate Sample)
     is_a: CarbonateSample
     class_uri: c14:RadiocarbonDateCarbonateSample
@@ -184,7 +184,7 @@ slots:
     required: true
     slot_group: "Measurement"
   f14c:
-    title:
+    title: F14C radiocarbon value
     examples:
       - value: "0.83756"
       - value: "0.5371"
@@ -220,8 +220,8 @@ slots:
       - value: "Assumed"
       - value: "Other"
     description: |-
-      Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C,
-      an alternative δ13C measurement method or an assumed δ13C
+      Whether the radiocarbon date was calculated with an AMS derived δ13C, an IRMS derived δ13C,
+      an alternative δ13C measurement method or an assumed δ13C.
     slot_uri: c14:000007
     multivalued: false
     range: Delta13CMeasurementMethod
@@ -280,14 +280,14 @@ slots:
     required: true
     slot_group: "Sample"
   sample_taxon_id_confidence:
-    title: Confidence of taxon assignment
+    title: Confidence in taxon assignment
     examples:
       - value: "true"
       - value: "false"
     description: |-
       Specify the level of confidence of an exact taxon identification.
-      If secure identification, indicate TRUE, if identification is unclear or
-      uncertain specify FALSE.
+      If secure identification, indicate 'true', if identification is unclear or
+      uncertain specify 'false'.
     slot_uri: c14:000011
     multivalued: false
     range: boolean
@@ -312,7 +312,7 @@ slots:
     recommended: true
     slot_group: "Sample"
   sample_anatomical_part:
-    title: Anatomical part from which the sample is derived.
+    title: Anatomical part from which the sample is derived
     examples:
       - value: "UBERON:0000981"
       - value: "PO:0009010"
@@ -328,13 +328,13 @@ slots:
     recommended: true
     slot_group: "Sample"
   suspected_sample_contamination:
-    title: Suspected sample contamination.
+    title: Suspected sample contamination
     examples:
       - value: "true"
       - value: "false"
     description: |-
       Specify whether the sample has suspected contamination that may influence measurement
-      (organic glue, consolidant, rootlets, embalming solution, staining etc.)
+      (organic glue, consolidant, rootlets, embalming solution, staining etc.).
     slot_uri: c14:000014
     multivalued: false
     range: boolean
@@ -342,7 +342,7 @@ slots:
     recommended: true
     slot_group: "Sample"
   suspected_sample_contamination_description:
-    title: Suspected sample contamination description
+    title: Suspected sample contamination description.
     examples:
       - value: "glue"
       - value: "organic glue made from horse"
@@ -367,7 +367,7 @@ slots:
       - value: ""
       - value: ""
     description: |-
-      Name of location from which the sample originated
+      Name of the geographic location from where the sample originated.
     slot_uri: c14:000016
     multivalued: false
     range: string
@@ -443,7 +443,7 @@ slots:
     required: true
     slot_group: "Method"
   pretreatment_method_description:
-    title: Radiocarbon pretreatment method description
+    title: Radiocarbon pretreatment method description.
     examples:
       - value: "No pretreatment"
       - value: "Samples were pretreated following Brock et al. (2010). Briefly, bone was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)"
@@ -490,7 +490,7 @@ slots:
       - value: "56.7"
       - value: "1"
     description: |-
-      Amount of sample material used at beginning of  in measurement in mg.
+      Amount of sample material used at beginning of  in measurement in miligrams (mg).
     slot_uri: c14:000024
     multivalued: false
     range: float
@@ -502,7 +502,7 @@ slots:
       - value: "22"
       - value: "2.3"
     description: |-
-      Amount of sample remaining after pretreatment in mg
+      Amount of sample remaining after pretreatment in miligrams (mg).
     slot_uri: c14:000025
     multivalued: false
     range: float
@@ -516,7 +516,7 @@ slots:
       - value: "0.015"
       - value: "0.002"
     description: |-
-      Ratio of weight after pretreatment to sample starting weight
+      Percentage of weight after pretreatment to sample starting weight represented as a valuee between 0 and 1.
     slot_uri: c14:000026
     multivalued: false
     range: float
