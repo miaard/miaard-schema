@@ -1,5 +1,5 @@
 id: https://w3id.org/MIxS-MInAS/miaard/delta13c_measurement_methods
-name: lab_code
+name: delta_measurement_methods
 title: MIAARD delta 13C measurement methods
 description: |-
   Enumeration of delta 13C isotope  measurement methods. Part of the MIAARD 
