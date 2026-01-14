@@ -6,7 +6,10 @@ see_also:
 id: https://w3id.org/MIxS-MInAS/miaard
 imports:
 - linkml:types
-- enums/lab_code_ids
+- enums/lab_codes
+- enums/pretreatment_methods
+- enums/radiocarbon_measurement_methods
+- enums/delta13c_measurement_methods
 license: MIT
 prefixes:
   c14:
@@ -290,111 +293,12 @@ types:
     uri: xsd:string
     repr: str
 enums:
-  PretreatmentMethods:
-    name: PretreatmentMethods
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/PretreatmentMethods
-    description: Specify the types of general pretreatment methods applied for decontamination.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    permissible_values:
-      U:
-        text: U
-        description: No chemical pretreatment
-      Sol_W:
-        text: Sol_W
-        description: Solvent wash
-      A:
-        text: A
-        description: Acid only
-      ABA:
-        text: ABA
-        description: Acid-base-acid (ABA or AAA)
-      Col:
-        text: Col
-        description: Collagen (normally including deminieralisation wtih or without
-          a base step, followed by gelatinisation and filtration, often called the
-          'Longin method')
-      UF_Col:
-        text: UF_Col
-        description: Ultrafiltered collagen (normally including demineralisation with
-          or without a base step, followed by gelatinisation, filtration and ultrafiltration)
-      XAD:
-        text: XAD
-        description: Amino acids purified by XAD-2 resin
-      IE:
-        text: IE
-        description: Amino acids purified by other ion exchange resin
-      HYP:
-        text: HYP
-        description: Hydroxyproline
-      Other:
-        text: Other
-        description: Other treatment not covered
-      ABOx:
-        text: ABOx
-        description: Acid-base-oxidation (ABOx, without the stepped combustion step)
-      ABOx-SC:
-        text: ABOx-SC
-        description: Acid-base-oxidation-stepped combustion (ABOx-SC)
-      BABA:
-        text: BABA
-        description: Base-Acid-Base-Acid
-      Holo_Cel:
-        text: Holo_Cel
-        description: Holocellulose (normally ABA followed by bleach)
-      Alph_Cel:
-        text: Alph_Cel
-        description: Alphacellulose (normally containing bleach followed by ABA)
-      AE:
-        text: AE
-        description: Acid etch
-      Phys:
-        text: Phys
-        description: Physical cleaning (surface abrasion)
-      H2O2:
-        text: H2O2
-        description: Hydrogen peroxide
-      HUMIC:
-        text: HUMIC
-        description: Base soluble fraction (normally preceeded by acid)
-  RadiocarbonMeasurementMethod:
-    name: RadiocarbonMeasurementMethod
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonMeasurementMethod
-    description: Method used to obtain the radiocarbon determination.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    permissible_values:
-      AMS:
-        text: AMS
-        description: Accelerator Mass Spectrometry
-      PIMS:
-        text: PIMS
-        description: Positive Ion Mass Spectrometry
-      Conventional:
-        text: Conventional
-        description: Beta counting methods such as gas proportional counting (GPC)
-          or liquid scintillation counting (LSC)
-  Delta13CMeasurementMethod:
-    name: Delta13CMeasurementMethod
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Delta13CMeasurementMethod
-    description: Which spectrophotometry method was used to measure the delta carbon-13
-      value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass
-      Spectrometer (AMS).
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
-    permissible_values:
-      AMS:
-        text: AMS
-        description: Accelerated Mass Spectrometer
-      IRMS:
-        text: IRMS
-        description: Isotope Ratio Mass Spectrometer
-      CRDS:
-        text: CRDS
-        description: Cavity Ring-Down Spectroscopy
-  LabCodeId:
-    name: LabCodeId
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/LabCodeId
+  LabCode:
+    name: LabCode
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/LabCode
     description: Enumeration of unique laboratory code designations of institutions
       that make radiocarbon measurements.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard/lab_code_ids
+    from_schema: https://w3id.org/MIxS-MInAS/miaard/lab_codes
     permissible_values:
       a:
         text: a
@@ -1641,6 +1545,105 @@ enums:
         description: Institute of Archaeology, Chinese Academy of Social Sciences
           (China)
         title: ZK
+  PretreatmentMethods:
+    name: PretreatmentMethods
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/PretreatmentMethods
+    description: Specify the types of general pretreatment methods applied for decontamination.
+    from_schema: https://w3id.org/MIxS-MInAS/miaard/pretreatment_methods
+    permissible_values:
+      U:
+        text: U
+        description: No chemical pretreatment
+      Sol_W:
+        text: Sol_W
+        description: Solvent wash
+      A:
+        text: A
+        description: Acid only
+      ABA:
+        text: ABA
+        description: Acid-base-acid (ABA or AAA)
+      Col:
+        text: Col
+        description: Collagen (normally including deminieralisation wtih or without
+          a base step, followed by gelatinisation and filtration, often called the
+          'Longin method')
+      UF_Col:
+        text: UF_Col
+        description: Ultrafiltered collagen (normally including demineralisation with
+          or without a base step, followed by gelatinisation, filtration and ultrafiltration)
+      XAD:
+        text: XAD
+        description: Amino acids purified by XAD-2 resin
+      IE:
+        text: IE
+        description: Amino acids purified by other ion exchange resin
+      HYP:
+        text: HYP
+        description: Hydroxyproline
+      Other:
+        text: Other
+        description: Other treatment not covered
+      ABOx:
+        text: ABOx
+        description: Acid-base-oxidation (ABOx, without the stepped combustion step)
+      ABOx-SC:
+        text: ABOx-SC
+        description: Acid-base-oxidation-stepped combustion (ABOx-SC)
+      BABA:
+        text: BABA
+        description: Base-Acid-Base-Acid
+      Holo_Cel:
+        text: Holo_Cel
+        description: Holocellulose (normally ABA followed by bleach)
+      Alph_Cel:
+        text: Alph_Cel
+        description: Alphacellulose (normally containing bleach followed by ABA)
+      AE:
+        text: AE
+        description: Acid etch
+      Phys:
+        text: Phys
+        description: Physical cleaning (surface abrasion)
+      H2O2:
+        text: H2O2
+        description: Hydrogen peroxide
+      HUMIC:
+        text: HUMIC
+        description: Base soluble fraction (normally preceeded by acid)
+  RadiocarbonMeasurementMethod:
+    name: RadiocarbonMeasurementMethod
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonMeasurementMethod
+    description: Method used to obtain the radiocarbon determination.
+    from_schema: https://w3id.org/MIxS-MInAS/miaard/radiocarbon_measurement_methods
+    permissible_values:
+      AMS:
+        text: AMS
+        description: Accelerator Mass Spectrometry
+      PIMS:
+        text: PIMS
+        description: Positive Ion Mass Spectrometry
+      Conventional:
+        text: Conventional
+        description: Beta counting methods such as gas proportional counting (GPC)
+          or liquid scintillation counting (LSC)
+  Delta13CMeasurementMethod:
+    name: Delta13CMeasurementMethod
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Delta13CMeasurementMethod
+    description: Which spectrophotometry method was used to measure the delta carbon-13
+      value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass
+      Spectrometer (AMS).
+    from_schema: https://w3id.org/MIxS-MInAS/miaard/delta13c_measurement_methods
+    permissible_values:
+      AMS:
+        text: AMS
+        description: Accelerated Mass Spectrometer
+      IRMS:
+        text: IRMS
+        description: Isotope Ratio Mass Spectrometer
+      CRDS:
+        text: CRDS
+        description: Cavity Ring-Down Spectroscopy
 slots:
   lab_code:
     name: lab_code
@@ -1665,7 +1668,7 @@ slots:
     domain_of:
     - RadiocarbonDate
     slot_group: Identifier
-    range: LabCodeId
+    range: LabCode
     required: true
     multivalued: false
   lab_id:
@@ -2740,9 +2743,9 @@ classes:
     class_uri: c14:RadiocarbonDateCarbonateSample
 metamodel_version: 1.7.0
 source_file: c14.yaml
-source_file_date: '2026-01-13T13:30:42'
-source_file_size: 24064
-generation_date: '2026-01-13T13:30:52'
+source_file_date: '2026-01-14T15:19:50'
+source_file_size: 21681
+generation_date: '2026-01-14T15:19:59'
 settings:
   DOI:
     setting_key: DOI
