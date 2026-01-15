@@ -2100,9 +2100,9 @@ slots:
     range: float
     required: true
     multivalued: false
-  pretreatment_percentage_yield:
-    name: pretreatment_percentage_yield
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_percentage_yield
+  pretreatment_proportion_yield:
+    name: pretreatment_proportion_yield
+    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_proportion_yield
     description: Ratio of weight after pretreatment to sample starting weight
     title: Percentage yield after pretreatment
     examples:
@@ -2447,7 +2447,7 @@ classes:
       - measurement_method
       - sample_starting_weight
       - pretreatment_yield
-      - pretreatment_percentage_yield
+      - pretreatment_proportion_yield
       - carbon_proportion
       - delta_13_c
       - delta_13_c_error

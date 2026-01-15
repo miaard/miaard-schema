@@ -1503,7 +1503,7 @@ ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['R
                       {'value': 'bold.taxonomy:786175'}],
          'slot_group': 'Sample',
          'slot_uri': 'c14:000010'} })
-    sample_taxon_id_confidence: bool = Field(default=..., title="Confidence in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confident in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
 If secure identification, indicate 'true', if identification is unclear or
 uncertain specify 'false'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'true'}, {'value': 'false'}],
@@ -1533,7 +1533,7 @@ taxonomic ID does not currently exist for the specific taxon.""", json_schema_ex
          'recommended': True,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000014'} })
-    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description.", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
+    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
 description of the contamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'glue'},
                       {'value': 'organic glue made from horse'},
@@ -1547,7 +1547,7 @@ description of the contamination.""", json_schema_extra = { "linkml_meta": {'dom
          'recommended': False,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000015'} })
-    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from where the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from which the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': ''}, {'value': ''}],
          'recommended': True,
          'slot_group': 'Sample',
@@ -1581,7 +1581,7 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
                       {'value': 'U'}],
          'slot_group': 'Method',
          'slot_uri': 'c14:000020'} })
-    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description.", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'No pretreatment'},
                       {'value': 'Samples were pretreated following Brock et al. '
                                 '(2010). Briefly, bone was demineralised (0.5M HCl, '
@@ -1612,7 +1612,7 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
          'examples': [{'value': '22'}, {'value': '2.3'}],
          'slot_group': 'Quality control',
          'slot_uri': 'c14:000025'} })
-    pretreatment_percentage_yield: Optional[float] = Field(default=None, title="Percentage yield after pretreatment", description="""Percentage of weight after pretreatment to sample starting weight represented as a valuee between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_proportion_yield: Optional[float] = Field(default=None, title="Proportion yield after pretreatment", description="""Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '012'},
                       {'value': '0.61'},
                       {'value': '0.015'},
@@ -1937,7 +1937,7 @@ ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['R
                       {'value': 'bold.taxonomy:786175'}],
          'slot_group': 'Sample',
          'slot_uri': 'c14:000010'} })
-    sample_taxon_id_confidence: bool = Field(default=..., title="Confidence in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confident in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
 If secure identification, indicate 'true', if identification is unclear or
 uncertain specify 'false'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'true'}, {'value': 'false'}],
@@ -1967,7 +1967,7 @@ taxonomic ID does not currently exist for the specific taxon.""", json_schema_ex
          'recommended': True,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000014'} })
-    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description.", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
+    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
 description of the contamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'glue'},
                       {'value': 'organic glue made from horse'},
@@ -1981,7 +1981,7 @@ description of the contamination.""", json_schema_extra = { "linkml_meta": {'dom
          'recommended': False,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000015'} })
-    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from where the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from which the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': ''}, {'value': ''}],
          'recommended': True,
          'slot_group': 'Sample',
@@ -2015,7 +2015,7 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
                       {'value': 'U'}],
          'slot_group': 'Method',
          'slot_uri': 'c14:000020'} })
-    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description.", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'No pretreatment'},
                       {'value': 'Samples were pretreated following Brock et al. '
                                 '(2010). Briefly, bone was demineralised (0.5M HCl, '
@@ -2046,7 +2046,7 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
          'examples': [{'value': '22'}, {'value': '2.3'}],
          'slot_group': 'Quality control',
          'slot_uri': 'c14:000025'} })
-    pretreatment_percentage_yield: Optional[float] = Field(default=None, title="Percentage yield after pretreatment", description="""Percentage of weight after pretreatment to sample starting weight represented as a valuee between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_proportion_yield: Optional[float] = Field(default=None, title="Proportion yield after pretreatment", description="""Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '012'},
                       {'value': '0.61'},
                       {'value': '0.015'},
@@ -2329,7 +2329,7 @@ ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['R
                       {'value': 'bold.taxonomy:786175'}],
          'slot_group': 'Sample',
          'slot_uri': 'c14:000010'} })
-    sample_taxon_id_confidence: bool = Field(default=..., title="Confidence in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confident in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
 If secure identification, indicate 'true', if identification is unclear or
 uncertain specify 'false'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'true'}, {'value': 'false'}],
@@ -2359,7 +2359,7 @@ taxonomic ID does not currently exist for the specific taxon.""", json_schema_ex
          'recommended': True,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000014'} })
-    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description.", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
+    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
 description of the contamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'glue'},
                       {'value': 'organic glue made from horse'},
@@ -2373,7 +2373,7 @@ description of the contamination.""", json_schema_extra = { "linkml_meta": {'dom
          'recommended': False,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000015'} })
-    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from where the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from which the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': ''}, {'value': ''}],
          'recommended': True,
          'slot_group': 'Sample',
@@ -2407,7 +2407,7 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
                       {'value': 'U'}],
          'slot_group': 'Method',
          'slot_uri': 'c14:000020'} })
-    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description.", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'No pretreatment'},
                       {'value': 'Samples were pretreated following Brock et al. '
                                 '(2010). Briefly, bone was demineralised (0.5M HCl, '
@@ -2438,7 +2438,7 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
          'examples': [{'value': '22'}, {'value': '2.3'}],
          'slot_group': 'Quality control',
          'slot_uri': 'c14:000025'} })
-    pretreatment_percentage_yield: Optional[float] = Field(default=None, title="Percentage yield after pretreatment", description="""Percentage of weight after pretreatment to sample starting weight represented as a valuee between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_proportion_yield: Optional[float] = Field(default=None, title="Proportion yield after pretreatment", description="""Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '012'},
                       {'value': '0.61'},
                       {'value': '0.015'},

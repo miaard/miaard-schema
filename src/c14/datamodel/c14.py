@@ -1,5 +1,5 @@
 # Auto generated from c14.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-01-14T17:17:00
+# Generation date: 2026-01-15T09:01:33
 # Schema: miaard
 #
 # id: https://w3id.org/MIxS-MInAS/miaard
@@ -114,7 +114,7 @@ class RadiocarbonDate(YAMLRoot):
     decimal_latitude: Optional[float] = None
     decimal_longitude: Optional[float] = None
     coordinate_precision: Optional[float] = None
-    pretreatment_percentage_yield: Optional[float] = None
+    pretreatment_proportion_yield: Optional[float] = None
     delta_13_c: Optional[float] = None
     delta_13_c_error: Optional[float] = None
     delta_13_c_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
@@ -241,8 +241,8 @@ class RadiocarbonDate(YAMLRoot):
         if self.coordinate_precision is not None and not isinstance(self.coordinate_precision, float):
             self.coordinate_precision = float(self.coordinate_precision)
 
-        if self.pretreatment_percentage_yield is not None and not isinstance(self.pretreatment_percentage_yield, float):
-            self.pretreatment_percentage_yield = float(self.pretreatment_percentage_yield)
+        if self.pretreatment_proportion_yield is not None and not isinstance(self.pretreatment_proportion_yield, float):
+            self.pretreatment_proportion_yield = float(self.pretreatment_proportion_yield)
 
         if self.delta_13_c is not None and not isinstance(self.delta_13_c, float):
             self.delta_13_c = float(self.delta_13_c)
@@ -392,7 +392,7 @@ class RadiocarbonDateProteinaceousSample(ProteinaceousSample):
     decimal_latitude: Optional[float] = None
     decimal_longitude: Optional[float] = None
     coordinate_precision: Optional[float] = None
-    pretreatment_percentage_yield: Optional[float] = None
+    pretreatment_proportion_yield: Optional[float] = None
     delta_13_c: Optional[float] = None
     delta_13_c_error: Optional[float] = None
     delta_13_c_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
@@ -519,8 +519,8 @@ class RadiocarbonDateProteinaceousSample(ProteinaceousSample):
         if self.coordinate_precision is not None and not isinstance(self.coordinate_precision, float):
             self.coordinate_precision = float(self.coordinate_precision)
 
-        if self.pretreatment_percentage_yield is not None and not isinstance(self.pretreatment_percentage_yield, float):
-            self.pretreatment_percentage_yield = float(self.pretreatment_percentage_yield)
+        if self.pretreatment_proportion_yield is not None and not isinstance(self.pretreatment_proportion_yield, float):
+            self.pretreatment_proportion_yield = float(self.pretreatment_proportion_yield)
 
         if self.delta_13_c is not None and not isinstance(self.delta_13_c, float):
             self.delta_13_c = float(self.delta_13_c)
@@ -574,7 +574,7 @@ class RadiocarbonDateCarbonateSample(CarbonateSample):
     decimal_latitude: Optional[float] = None
     decimal_longitude: Optional[float] = None
     coordinate_precision: Optional[float] = None
-    pretreatment_percentage_yield: Optional[float] = None
+    pretreatment_proportion_yield: Optional[float] = None
     delta_13_c: Optional[float] = None
     delta_13_c_error: Optional[float] = None
     delta_13_c_method: Optional[Union[str, "Delta13CMeasurementMethod"]] = None
@@ -701,8 +701,8 @@ class RadiocarbonDateCarbonateSample(CarbonateSample):
         if self.coordinate_precision is not None and not isinstance(self.coordinate_precision, float):
             self.coordinate_precision = float(self.coordinate_precision)
 
-        if self.pretreatment_percentage_yield is not None and not isinstance(self.pretreatment_percentage_yield, float):
-            self.pretreatment_percentage_yield = float(self.pretreatment_percentage_yield)
+        if self.pretreatment_proportion_yield is not None and not isinstance(self.pretreatment_proportion_yield, float):
+            self.pretreatment_proportion_yield = float(self.pretreatment_proportion_yield)
 
         if self.delta_13_c is not None and not isinstance(self.delta_13_c, float):
             self.delta_13_c = float(self.delta_13_c)
@@ -2120,8 +2120,8 @@ slots.sample_starting_weight = Slot(uri=C14['000024'], name="sample_starting_wei
 slots.pretreatment_yield = Slot(uri=C14['000025'], name="pretreatment_yield", curie=C14.curie('000025'),
                    model_uri=C14.pretreatment_yield, domain=None, range=float)
 
-slots.pretreatment_percentage_yield = Slot(uri=C14['000026'], name="pretreatment_percentage_yield", curie=C14.curie('000026'),
-                   model_uri=C14.pretreatment_percentage_yield, domain=None, range=Optional[float])
+slots.pretreatment_proportion_yield = Slot(uri=C14['000026'], name="pretreatment_proportion_yield", curie=C14.curie('000026'),
+                   model_uri=C14.pretreatment_proportion_yield, domain=None, range=Optional[float])
 
 slots.carbon_proportion = Slot(uri=C14['000027'], name="carbon_proportion", curie=C14.curie('000027'),
                    model_uri=C14.carbon_proportion, domain=None, range=float)

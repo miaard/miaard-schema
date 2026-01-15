@@ -63,7 +63,7 @@ classes:
       - measurement_method
       - sample_starting_weight
       - pretreatment_yield
-      - pretreatment_percentage_yield
+      - pretreatment_proportion_yield
       - carbon_proportion
       - delta_13_c
       - delta_13_c_error
