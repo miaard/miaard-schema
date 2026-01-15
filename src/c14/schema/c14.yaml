@@ -490,7 +490,7 @@ slots:
       - value: "56.7"
       - value: "1"
     description: |-
-      Amount of sample material used at beginning of  in measurement in miligrams (mg).
+      Amount of sample material used at beginning of measurement in miligrams (mg).
     slot_uri: c14:000024
     multivalued: false
     range: float
