@@ -342,7 +342,7 @@ slots:
     recommended: true
     slot_group: "Sample"
   suspected_sample_contamination_description:
-    title: Suspected sample contamination description.
+    title: Suspected sample contamination description
     examples:
       - value: "glue"
       - value: "organic glue made from horse"
@@ -367,7 +367,7 @@ slots:
       - value: ""
       - value: ""
     description: |-
-      Name of the geographic location from where the sample originated.
+      Name of the geographic location from which the sample originated.
     slot_uri: c14:000016
     multivalued: false
     range: string
@@ -443,7 +443,7 @@ slots:
     required: true
     slot_group: "Method"
   pretreatment_method_description:
-    title: Radiocarbon pretreatment method description.
+    title: Radiocarbon pretreatment method description
     examples:
       - value: "No pretreatment"
       - value: "Samples were pretreated following Brock et al. (2010). Briefly, bone was demineralised (0.5M HCl, overnight), washed in base (0.1M NaOH, 30 min, RT) and acid (0.5M HCl, 1 hour, RT) before gelatinisation (0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)"
@@ -508,15 +508,15 @@ slots:
     range: float
     required: true
     slot_group: "Quality control"
-  pretreatment_percentage_yield:
-    title: Percentage yield after pretreatment
+  pretreatment_proportion_yield:
+    title: Proportion yield after pretreatment
     examples:
       - value: "012"
       - value: "0.61"
       - value: "0.015"
       - value: "0.002"
     description: |-
-      Percentage of weight after pretreatment to sample starting weight represented as a valuee between 0 and 1.
+      Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.
     slot_uri: c14:000026
     multivalued: false
     range: float
