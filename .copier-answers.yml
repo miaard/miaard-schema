@@ -4,7 +4,7 @@ _src_path: https://github.com/linkml/linkml-project-copier
 add_example: true
 copyright_year: "2025"
 email: jf133@gmail.com
-full_name: James A. Fellows Yats
+full_name: James A. Fellows Yates
 gh_action_docs_preview: true
 gh_action_pypi: false
 github_org: miaard
