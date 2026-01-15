@@ -1,15 +1,15 @@
-id: https://w3id.org/MIxS-MInAS/miaard/delta13c_measurement_methods
+id: https://w3id.org/miaard/miaard-schema/delta13c_measurement_methods
 name: delta_measurement_methods
 title: MIAARD delta 13C measurement methods
 description: |-
-  Enumeration of delta 13C isotope  measurement methods. Part of the MIAARD 
+  Enumeration of delta 13C isotope  measurement methods. Part of the MIAARD
   standard.
 license: MIT
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
+  - https://miaard.github.io/miaard-schema
 
 prefixes:
-  c14: https://w3id.org/MIxS-MInAS/miaard/
+  c14: https://w3id.org/miaard/miaard-schema/
 
 default_prefix: c14
 
@@ -24,4 +24,3 @@ enums:
         description: Isotope Ratio Mass Spectrometer
       CRDS:
         description: Cavity Ring-Down Spectroscopy
-

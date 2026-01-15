@@ -2,15 +2,15 @@ name: miaard
 description: Minimum Information about any Radiocarbon Determination
 title: miaard
 see_also:
-  - https://MIxS-MInAS.github.io/miaard
-id: https://w3id.org/MIxS-MInAS/miaard
+  - https://miaard.github.io/miaard-schema
+id: https://w3id.org/miaard/miaard-schema
 imports:
   - linkml:types
 license: MIT
 prefixes:
   c14:
     prefix_prefix: c14
-    prefix_reference: https://w3id.org/MIxS-MInAS/miaard/
+    prefix_reference: https://w3id.org/miaard/miaard-schema/
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
@@ -22,34 +22,34 @@ default_range: string
 subsets:
   identifier:
     name: identifier
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Identifier
+    definition_uri: https://w3id.org/miaard/miaard-schema/Identifier
     description: Unique identifier(s) of the radiocarbon determination
     title: Identifier
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
   sample:
     name: sample
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Sample
+    definition_uri: https://w3id.org/miaard/miaard-schema/Sample
     description: Details of the physical sample used
     title: Sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
   measurement:
     name: measurement
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Measurement
+    definition_uri: https://w3id.org/miaard/miaard-schema/Measurement
     description: Measurements indicating the age of the sample
     title: Measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
   method:
     name: method
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Method
+    definition_uri: https://w3id.org/miaard/miaard-schema/Method
     description: Details of the laboratory methods used
     title: Method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
   quality_control:
     name: quality_control
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/QualityControl
+    definition_uri: https://w3id.org/miaard/miaard-schema/QualityControl
     description: Additional measurements used to assess the quality of the determination
     title: Quality control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
 types:
   string:
     name: string
@@ -327,11 +327,11 @@ types:
 enums:
   LabCodeId:
     name: LabCodeId
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/LabCodeId
+    definition_uri: https://w3id.org/miaard/miaard-schema/LabCodeId
     description:
       Enumeration of unique laboratory code designations of institutions
       that make radiocarbon measurements.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     permissible_values:
       A:
         text: A
@@ -1329,9 +1329,9 @@ enums:
           (China)
   PretreatmentMethods:
     name: PretreatmentMethods
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/PretreatmentMethods
+    definition_uri: https://w3id.org/miaard/miaard-schema/PretreatmentMethods
     description: Specify the types of general pretreatment methods applied for decontamination.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     permissible_values:
       U:
         text: U
@@ -1397,9 +1397,9 @@ enums:
         description: Base soluble fraction (normally preceeded by acid)
   RadiocarbonMeasurementMethod:
     name: RadiocarbonMeasurementMethod
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonMeasurementMethod
+    definition_uri: https://w3id.org/miaard/miaard-schema/RadiocarbonMeasurementMethod
     description: Method used to obtain the radiocarbon determination.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     permissible_values:
       AMS:
         text: AMS
@@ -1414,12 +1414,12 @@ enums:
           or liquid scintillation counting (LSC)
   Delta13CMeasurementMethod:
     name: Delta13CMeasurementMethod
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/Delta13CMeasurementMethod
+    definition_uri: https://w3id.org/miaard/miaard-schema/Delta13CMeasurementMethod
     description:
       Which spectrophotometry method was used to measure the delta carbon-13
       value, either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass
       Spectrometer (AMS).
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     permissible_values:
       AMS:
         text: AMS
@@ -1433,7 +1433,7 @@ enums:
 slots:
   lab_code:
     name: lab_code
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_code
+    definition_uri: https://w3id.org/miaard/miaard-schema/lab_code
     description:
       "Unique laboratory code designation of the institution that made
       the measurement.
@@ -1450,7 +1450,7 @@ slots:
     in_subset:
       - identifier
       - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000001
     slot_uri: c14:000001
@@ -1462,7 +1462,7 @@ slots:
     multivalued: false
   lab_id:
     name: lab_id
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/lab_id
+    definition_uri: https://w3id.org/miaard/miaard-schema/lab_id
     description:
       "The unique identifier associated with a specific radiocarbon determination,
 
@@ -1476,7 +1476,7 @@ slots:
       - value: 1415(a)
     in_subset:
       - identifier
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000002
     slot_uri: c14:000002
@@ -1489,7 +1489,7 @@ slots:
     pattern: ""
   f14c:
     name: f14c
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c
+    definition_uri: https://w3id.org/miaard/miaard-schema/f14c
     description:
       'The F14C value from the laboratory measurement, i.e. the fraction
       modern carbon.
@@ -1501,7 +1501,7 @@ slots:
       - value: "0.5371"
     in_subset:
       - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000003
     slot_uri: c14:000003
@@ -1515,7 +1515,7 @@ slots:
     maximum_value: 1
   f14c_error:
     name: f14c_error
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/f14c_error
+    definition_uri: https://w3id.org/miaard/miaard-schema/f14c_error
     description:
       "The 1-standard deviation uncertainty around the F14C (C14) measurement,\n\
       normally indicated as a \xB1 after the main value. Must be in the same format.\n\
@@ -1526,7 +1526,7 @@ slots:
       - value: "0.023843"
     in_subset:
       - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000004
     slot_uri: c14:000004
@@ -1538,7 +1538,7 @@ slots:
     multivalued: false
   conventional_age:
     name: conventional_age
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age
+    definition_uri: https://w3id.org/miaard/miaard-schema/conventional_age
     description:
       "The uncalibrated age from the laboratory measurement. Also known
       as the
@@ -1556,7 +1556,7 @@ slots:
       - value: "37330"
     in_subset:
       - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000005
     slot_uri: c14:000005
@@ -1568,7 +1568,7 @@ slots:
     multivalued: false
   conventional_age_error:
     name: conventional_age_error
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/conventional_age_error
+    definition_uri: https://w3id.org/miaard/miaard-schema/conventional_age_error
     description:
       "The 1-standard deviation around the conventional radiocarbon age\
       \ (C14) measurement,\nnormally indicated as a \xB1 after the main age. Must\
@@ -1580,7 +1580,7 @@ slots:
       - value: "620"
     in_subset:
       - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000006
     slot_uri: c14:000006
@@ -1592,7 +1592,7 @@ slots:
     multivalued: false
   delta_13_c_calculation_method:
     name: delta_13_c_calculation_method
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c_calculation_method
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_13_c_calculation_method
     description:
       "Was the radiocarbon date calculated with an AMS derived \u03B413C,\
       \ an IRMS derived \u03B413C,\nan alternative \u03B413C measurement method or\
@@ -1605,7 +1605,7 @@ slots:
       - value: Other
     in_subset:
       - measurement
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000007
     slot_uri: c14:000007
@@ -1618,7 +1618,7 @@ slots:
     multivalued: false
   sample_ids:
     name: sample_ids
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_ids
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_ids
     description: "Any identifier associated with the sample under measurement
 
       (e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID)."
@@ -1634,7 +1634,7 @@ slots:
       - value: Tumba XVIII
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000008
     slot_uri: c14:000008
@@ -1647,7 +1647,7 @@ slots:
     pattern: ""
   sample_material:
     name: sample_material
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_material
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_material
     description:
       "Material of the sample used to extract carbon used for radiocarbon
       dating measurements.
@@ -1662,7 +1662,7 @@ slots:
       - value: ENVO:01000560
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000009
     slot_uri: c14:000009
@@ -1678,7 +1678,7 @@ slots:
       partial_match: false
   sample_taxon_id:
     name: sample_taxon_id
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_taxon_id
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_taxon_id
     description:
       "A taxonomic ID of the organism from which the sample used to extract
       carbon used for
@@ -1693,7 +1693,7 @@ slots:
       - value: bold.taxonomy:786175
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000010
     slot_uri: c14:000010
@@ -1709,7 +1709,7 @@ slots:
       partial_match: false
   sample_taxon_id_confidence:
     name: sample_taxon_id_confidence
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_taxon_id_confidence
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_taxon_id_confidence
     description:
       "Specify the level of confidence of an exact taxon identification.
 
@@ -1722,7 +1722,7 @@ slots:
       - value: "false"
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000011
     slot_uri: c14:000011
@@ -1734,7 +1734,7 @@ slots:
     multivalued: false
   sample_taxon_scientific_name:
     name: sample_taxon_scientific_name
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_taxon_scientific_name
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_taxon_scientific_name
     description:
       "A scientific name of the taxon corresponding to the taxonomic ID,
       or when a
@@ -1749,7 +1749,7 @@ slots:
       - value: Ulmus davidiana var. japonica
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000012
     slot_uri: c14:000012
@@ -1763,7 +1763,7 @@ slots:
     pattern: ""
   sample_anatomical_part:
     name: sample_anatomical_part
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_anatomical_part
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_anatomical_part
     description: Anatomical part from which the sample is derived.
     title: Anatomical part from which the sample is derived.
     examples:
@@ -1773,7 +1773,7 @@ slots:
       - value: UBERON:3010209
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000013
     slot_uri: c14:000013
@@ -1790,7 +1790,7 @@ slots:
       partial_match: false
   suspected_sample_contamination:
     name: suspected_sample_contamination
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/suspected_sample_contamination
+    definition_uri: https://w3id.org/miaard/miaard-schema/suspected_sample_contamination
     description:
       "Specify whether the sample has suspected contamination that may
       influence measurement
@@ -1802,7 +1802,7 @@ slots:
       - value: "false"
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000014
     slot_uri: c14:000014
@@ -1815,7 +1815,7 @@ slots:
     multivalued: false
   suspected_sample_contamination_description:
     name: suspected_sample_contamination_description
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/suspected_sample_contamination_description
+    definition_uri: https://w3id.org/miaard/miaard-schema/suspected_sample_contamination_description
     description:
       "If a sample has a suspected contamination (suspected_sample_contamination),
       provide a short
@@ -1834,7 +1834,7 @@ slots:
           and alcohol.
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000015
     slot_uri: c14:000015
@@ -1848,7 +1848,7 @@ slots:
     pattern: ""
   sample_location:
     name: sample_location
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_location
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_location
     description: Name of location from which the sample originated
     title: Sample location
     examples:
@@ -1856,7 +1856,7 @@ slots:
       - value: ""
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000016
     slot_uri: c14:000016
@@ -1870,7 +1870,7 @@ slots:
     pattern: ""
   decimal_latitude:
     name: decimal_latitude
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/decimal_latitude
+    definition_uri: https://w3id.org/miaard/miaard-schema/decimal_latitude
     description:
       "The geographic latitude (in decimal degrees, using the spatial reference
       system) of the geographic center of a dcterms:Location. Positive values are
@@ -1885,7 +1885,7 @@ slots:
       - value: "-13.163"
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000017
     slot_uri: c14:000017
@@ -1900,7 +1900,7 @@ slots:
     maximum_value: 90
   decimal_longitude:
     name: decimal_longitude
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/decimal_longitude
+    definition_uri: https://w3id.org/miaard/miaard-schema/decimal_longitude
     description:
       "The geographic longitude (in decimal degrees, using the spatial
       reference system) of the
@@ -1916,7 +1916,7 @@ slots:
       - value: "-72.545"
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000018
     slot_uri: c14:000018
@@ -1931,7 +1931,7 @@ slots:
     maximum_value: 90
   coordinate_precision:
     name: coordinate_precision
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/coordinate_precision
+    definition_uri: https://w3id.org/miaard/miaard-schema/coordinate_precision
     description:
       "A decimal representation of the precision of the coordinates given
       in the decimal_latitude
@@ -1944,7 +1944,7 @@ slots:
       - value: "0.0001"
     in_subset:
       - sample
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000019
     slot_uri: c14:000019
@@ -1957,7 +1957,7 @@ slots:
     multivalued: false
   pretreatment_methods:
     name: pretreatment_methods
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_methods
+    definition_uri: https://w3id.org/miaard/miaard-schema/pretreatment_methods
     description: Specify the types of general pretreatment methods applied for decontamination.
     title: Radiocarbon pretreatment methods
     examples:
@@ -1970,7 +1970,7 @@ slots:
       - value: U
     in_subset:
       - method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000020
     slot_uri: c14:000020
@@ -1982,7 +1982,7 @@ slots:
     multivalued: true
   pretreatment_method_description:
     name: pretreatment_method_description
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_method_description
+    definition_uri: https://w3id.org/miaard/miaard-schema/pretreatment_method_description
     description:
       Description of specific pretreatment method used for decontamination
       of sample prior determination.
@@ -1992,7 +1992,7 @@ slots:
       - value: ""
     in_subset:
       - method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000021
     slot_uri: c14:000021
@@ -2005,7 +2005,7 @@ slots:
     pattern: ""
   pretreatment_method_protocol:
     name: pretreatment_method_protocol
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_method_protocol
+    definition_uri: https://w3id.org/miaard/miaard-schema/pretreatment_method_protocol
     description:
       A DOI or URL to a publication describing the specific method of pretreatment
       applied.
@@ -2022,7 +2022,7 @@ slots:
           translucent carbonate;  Charcoal was treated with HCl, NaOH and HCl.
     in_subset:
       - method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000022
     slot_uri: c14:000022
@@ -2038,7 +2038,7 @@ slots:
       partial_match: false
   measurement_method:
     name: measurement_method
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/measurement_method
+    definition_uri: https://w3id.org/miaard/miaard-schema/measurement_method
     description: Type of measurement method the determination was made by.
     title: Radiocarbon measurement method
     examples:
@@ -2047,7 +2047,7 @@ slots:
       - value: PIMS
     in_subset:
       - method
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000023
     slot_uri: c14:000023
@@ -2059,7 +2059,7 @@ slots:
     multivalued: false
   sample_starting_weight:
     name: sample_starting_weight
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/sample_starting_weight
+    definition_uri: https://w3id.org/miaard/miaard-schema/sample_starting_weight
     description:
       Amount of sample material used at beginning of  in measurement in
       mg.
@@ -2070,7 +2070,7 @@ slots:
       - value: "1"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000024
     slot_uri: c14:000024
@@ -2082,7 +2082,7 @@ slots:
     multivalued: false
   pretreatment_yield:
     name: pretreatment_yield
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_yield
+    definition_uri: https://w3id.org/miaard/miaard-schema/pretreatment_yield
     description: Amount of sample remaining after pretreatment in mg
     title: Weight after pretreatment
     examples:
@@ -2090,7 +2090,7 @@ slots:
       - value: "2.3"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000025
     slot_uri: c14:000025
@@ -2102,7 +2102,7 @@ slots:
     multivalued: false
   pretreatment_percentage_yield:
     name: pretreatment_percentage_yield
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/pretreatment_percentage_yield
+    definition_uri: https://w3id.org/miaard/miaard-schema/pretreatment_percentage_yield
     description: Ratio of weight after pretreatment to sample starting weight
     title: Percentage yield after pretreatment
     examples:
@@ -2112,7 +2112,7 @@ slots:
       - value: "0.002"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000026
     slot_uri: c14:000026
@@ -2127,7 +2127,7 @@ slots:
     maximum_value: 1
   carbon_proportion:
     name: carbon_proportion
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/carbon_proportion
+    definition_uri: https://w3id.org/miaard/miaard-schema/carbon_proportion
     description:
       "Proportion of carbon in a non-proteinaceous sample used for dating
       (such as charcoal),
@@ -2140,7 +2140,7 @@ slots:
       - value: "0.70"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000027
     slot_uri: c14:000027
@@ -2154,7 +2154,7 @@ slots:
     maximum_value: 1
   delta_13_c:
     name: delta_13_c
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_13_c
     description:
       "The delta carbon-13 value of the sample (\u03B413C), which is the\
       \ ratio of the stable isotope\n13C to 12C, expressed in per mil (\u2030) notation.\
@@ -2166,7 +2166,7 @@ slots:
       - value: "1.2"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000028
     slot_uri: c14:000028
@@ -2181,7 +2181,7 @@ slots:
     maximum_value: 1000
   delta_13_c_error:
     name: delta_13_c_error
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c_error
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_13_c_error
     description:
       "The error associated with the delta carbon-13 (\u03B413C) value\
       \ expressed (\u2030) notation.\nUsed as a quality control measurement."
@@ -2191,7 +2191,7 @@ slots:
       - value: "0.2"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000029
     slot_uri: c14:000029
@@ -2206,7 +2206,7 @@ slots:
     maximum_value: 1000
   delta_13_c_method:
     name: delta_13_c_method
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_13_c_method
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_13_c_method
     description:
       "Which spectrophotometry method was used to measure the delta carbon-13
       value,
@@ -2219,7 +2219,7 @@ slots:
       - value: IRMS
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000030
     slot_uri: c14:000030
@@ -2232,7 +2232,7 @@ slots:
     multivalued: false
   suspected_reservoir_effect:
     name: suspected_reservoir_effect
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/suspected_reservoir_effect
+    definition_uri: https://w3id.org/miaard/miaard-schema/suspected_reservoir_effect
     description:
       "Specify whether there is a suspected carbon reservoir effect that
 
@@ -2243,7 +2243,7 @@ slots:
       - value: "false"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000031
     slot_uri: c14:000031
@@ -2255,7 +2255,7 @@ slots:
     multivalued: false
   carbon_nitro_ratio:
     name: carbon_nitro_ratio
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/carbon_nitro_ratio
+    definition_uri: https://w3id.org/miaard/miaard-schema/carbon_nitro_ratio
     description:
       "Atomic ratio of carbon to nitrogen. Used for quality control value
       in
@@ -2267,7 +2267,7 @@ slots:
       - value: "3.33"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000032
     slot_uri: c14:000032
@@ -2279,7 +2279,7 @@ slots:
     multivalued: false
   delta_15_n:
     name: delta_15_n
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_15_n
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_15_n
     description:
       "The delta nitrogen-15 value of the sample (\u03B415N), which is\
       \ the ratio of the stable isotope\n15N to 14N, expressed in per mil (\u2030\
@@ -2291,7 +2291,7 @@ slots:
       - value: "27.2"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000033
     slot_uri: c14:000033
@@ -2306,7 +2306,7 @@ slots:
     maximum_value: 1000
   delta_15_n_error:
     name: delta_15_n_error
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_15_n_error
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_15_n_error
     description:
       "The error associated with the delta nitrogen-15 (\u03B415N) value\
       \ expressed (\u2030) notation.\nUsed as a quality control measurement."
@@ -2316,7 +2316,7 @@ slots:
       - value: "0.12"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000034
     slot_uri: c14:000034
@@ -2331,7 +2331,7 @@ slots:
     maximum_value: 1000
   delta_34_s:
     name: delta_34_s
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_34_s
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_34_s
     description:
       "The delta sulfur-34 value of the sample (\u03B434S), which is the\
       \ ratio of the stable isotope\n34S to 32S, expressed in per mil (\u2030) notation.\
@@ -2342,7 +2342,7 @@ slots:
       - value: "-5.2"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000035
     slot_uri: c14:000035
@@ -2357,7 +2357,7 @@ slots:
     maximum_value: 1000
   delta_34_s_error:
     name: delta_34_s_error
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/delta_34_s_error
+    definition_uri: https://w3id.org/miaard/miaard-schema/delta_34_s_error
     description:
       "The error associated with the delta sulfur-34 (\u03B434S) value\
       \ expressed (\u2030) notation.\nUsed as a quality control measurement."
@@ -2367,7 +2367,7 @@ slots:
       - value: "0.2"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000036
     slot_uri: c14:000036
@@ -2382,7 +2382,7 @@ slots:
     maximum_value: 1000
   recrystalisation:
     name: recrystalisation
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/recrystalisation
+    definition_uri: https://w3id.org/miaard/miaard-schema/recrystalisation
     description:
       Sample shows evidence of recrystalisation which should be accounted
       for during analysis.
@@ -2392,7 +2392,7 @@ slots:
       - value: "false"
     in_subset:
       - quality_control
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     mappings:
       - c14:000037
     slot_uri: c14:000037
@@ -2405,7 +2405,7 @@ slots:
   radiocarbonDateCollection__entries:
     name: radiocarbonDateCollection__entries
     description: A list of multiple radiocarbon determinations.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     slot_uri: c14:entries
     alias: entries
     owner: RadiocarbonDateCollection
@@ -2418,9 +2418,9 @@ slots:
 classes:
   RadiocarbonDate:
     name: RadiocarbonDate
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDate
+    definition_uri: https://w3id.org/miaard/miaard-schema/RadiocarbonDate
     description: A radiocarbon determination with associated metadata.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     slots:
       - lab_code
       - lab_id
@@ -2456,9 +2456,9 @@ classes:
     class_uri: c14:RadiocarbonDate
   RadiocarbonDateCollection:
     name: RadiocarbonDateCollection
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/RadiocarbonDateCollection
+    definition_uri: https://w3id.org/miaard/miaard-schema/RadiocarbonDateCollection
     description: A collection of radiocarbon determinations with associated metadata.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     slots:
       - radiocarbonDateCollection__entries
     attributes:
@@ -2474,9 +2474,9 @@ classes:
     description: A collection of recommended metadata terms used only in a specific context
   ProteinaceousSample:
     name: ProteinaceousSample
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/ProteinaceousSample
+    definition_uri: https://w3id.org/miaard/miaard-schema/ProteinaceousSample
     description: Terms unique to proteinaceous sample.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     is_a: Extension
     slots:
       - carbon_nitro_ratio
@@ -2487,9 +2487,9 @@ classes:
     class_uri: c14:ProteinaceousSample
   CarbonateSample:
     name: CarbonateSample
-    definition_uri: https://w3id.org/MIxS-MInAS/miaard/CarbonateSample
+    definition_uri: https://w3id.org/miaard/miaard-schema/CarbonateSample
     description: Terms unique to carbonate sample.
-    from_schema: https://w3id.org/MIxS-MInAS/miaard
+    from_schema: https://w3id.org/miaard/miaard-schema
     is_a: Extension
     slots:
       - recrystalisation
@@ -2501,7 +2501,7 @@ classes:
     is_a: ProteinaceousSample
     mixins:
       - RadiocarbonDate
-    class_uri: MIXS:RadiocarbonDateProteinaceousSample
+    class_uri: c14:RadiocarbonDateProteinaceousSample
   RadiocarbonDateCarbonateSample:
     description: Radiocarbon date of a carbonate sample
       Extension
@@ -2509,7 +2509,7 @@ classes:
     is_a: CarbonateSample
     mixins:
       - RadiocarbonDate
-    class_uri: MIXS:RadiocarbonDateCarbonateSample
+    class_uri: c14:RadiocarbonDateCarbonateSample
 metamodel_version: 1.7.0
 source_file: c14.yaml
 source_file_date: "2026-01-13T10:33:27"
