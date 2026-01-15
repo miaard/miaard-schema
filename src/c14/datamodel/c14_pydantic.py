@@ -96,13 +96,6 @@ linkml_meta = LinkMLMeta({'default_prefix': 'c14',
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'}},
      'see_also': ['https://MIxS-MInAS.github.io/miaard'],
-     'settings': {'DOI': {'setting_key': 'DOI',
-                          'setting_value': '^https:\\/\\/doi\\.org\\/10.\\d{2,9}/.*$'},
-                  'PMID': {'setting_key': 'PMID', 'setting_value': '^PMID:\\d+$'},
-                  'URL': {'setting_key': 'URL',
-                          'setting_value': '^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$'},
-                  'termID': {'setting_key': 'termID',
-                             'setting_value': '[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+'}},
      'source_file': 'src/c14/schema/c14.yaml',
      'title': 'miaard'} )
 
@@ -1464,7 +1457,7 @@ Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json
          'examples': [{'value': '25'}, {'value': '620'}],
          'slot_group': 'Measurement',
          'slot_uri': 'c14:000006'} })
-    f14c: float = Field(default=..., description="""The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
+    f14c: float = Field(default=..., title="F14C radiocarbon value", description="""The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
 For older determinations, generally equivalent to \"percent modern\" (pMC, or pM) divided by 100.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '0.83756'}, {'value': '0.5371'}],
          'slot_group': 'Measurement',
@@ -1475,8 +1468,8 @@ Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json
          'examples': [{'value': '0.00434'}, {'value': '0.023843'}],
          'slot_group': 'Measurement',
          'slot_uri': 'c14:000004'} })
-    delta_13_c_calculation_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C age calculation method", description="""Was the radiocarbon date calculated with an AMS derived δ13C, an IRMS derived δ13C,
-an alternative δ13C measurement method or an assumed δ13C""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    delta_13_c_calculation_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C age calculation method", description="""Whether the radiocarbon date was calculated with an AMS derived δ13C, an IRMS derived δ13C,
+an alternative δ13C measurement method or an assumed δ13C.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'AMS'},
                       {'value': 'IRMS'},
                       {'value': 'Assumed'},
@@ -1501,10 +1494,7 @@ Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENV
 organic samples.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'UBERON:0002481'}, {'value': 'ENVO:01000560'}],
          'slot_group': 'Sample',
-         'slot_uri': 'c14:000009',
-         'structured_pattern': {'interpolated': True,
-                                'partial_match': False,
-                                'syntax': '^{termID}$'}} })
+         'slot_uri': 'c14:000009'} })
     sample_taxon_id: list[str] = Field(default=..., title="Radiocarbon dating sample taxon", description="""A taxonomic ID of the organism from which the sample used to extract carbon used for
 radiocarbon measurement originated. The taxonomic ID should come from an established
 ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
@@ -1512,13 +1502,10 @@ ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['R
                       {'value': 'gbif:2441105'},
                       {'value': 'bold.taxonomy:786175'}],
          'slot_group': 'Sample',
-         'slot_uri': 'c14:000010',
-         'structured_pattern': {'interpolated': True,
-                                'partial_match': False,
-                                'syntax': '^{termID}$'}} })
-    sample_taxon_id_confidence: bool = Field(default=..., title="Confidence of taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
-If secure identification, indicate TRUE, if identification is unclear or
-uncertain specify FALSE.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'slot_uri': 'c14:000010'} })
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confident in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
+If secure identification, indicate 'true', if identification is unclear or
+uncertain specify 'false'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'true'}, {'value': 'false'}],
          'slot_group': 'Sample',
          'slot_uri': 'c14:000011'} })
@@ -1532,19 +1519,16 @@ taxonomic ID does not currently exist for the specific taxon.""", json_schema_ex
          'recommended': True,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000012'} })
-    sample_anatomical_part: Optional[str] = Field(default=None, title="Anatomical part from which the sample is derived.", description="""Anatomical part from which the sample is derived.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    sample_anatomical_part: Optional[str] = Field(default=None, title="Anatomical part from which the sample is derived", description="""Anatomical part from which the sample is derived.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'UBERON:0000981'},
                       {'value': 'PO:0009010'},
                       {'value': 'BTO:0001411'},
                       {'value': 'UBERON:3010209'}],
          'recommended': True,
          'slot_group': 'Sample',
-         'slot_uri': 'c14:000013',
-         'structured_pattern': {'interpolated': True,
-                                'partial_match': False,
-                                'syntax': '^{termID}$'}} })
-    suspected_sample_contamination: Optional[bool] = Field(default=None, title="Suspected sample contamination.", description="""Specify whether the sample has suspected contamination that may influence measurement
-(organic glue, consolidant, rootlets, embalming solution, staining etc.)""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'slot_uri': 'c14:000013'} })
+    suspected_sample_contamination: Optional[bool] = Field(default=None, title="Suspected sample contamination", description="""Specify whether the sample has suspected contamination that may influence measurement
+(organic glue, consolidant, rootlets, embalming solution, staining etc.).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'true'}, {'value': 'false'}],
          'recommended': True,
          'slot_group': 'Sample',
@@ -1563,7 +1547,7 @@ description of the contamination.""", json_schema_extra = { "linkml_meta": {'dom
          'recommended': False,
          'slot_group': 'Sample',
          'slot_uri': 'c14:000015'} })
-    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of location from which the sample originated""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from which the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': ''}, {'value': ''}],
          'recommended': True,
          'slot_group': 'Sample',
@@ -1598,11 +1582,8 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
          'slot_group': 'Method',
          'slot_uri': 'c14:000020'} })
     pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': 'No pretreatment'}, {'value': ''}],
-         'slot_group': 'Method',
-         'slot_uri': 'c14:000021'} })
-    pretreatment_method_protocol: list[str] = Field(default=..., title="Radiocarbon pretreatment method protocol", description="""A DOI or URL to a publication describing the specific method of pretreatment applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': 'Samples were pretreated following Brock et al. '
+         'examples': [{'value': 'No pretreatment'},
+                      {'value': 'Samples were pretreated following Brock et al. '
                                 '(2010). Briefly, bone was demineralised (0.5M HCl, '
                                 'overnight), washed in base (0.1M NaOH, 30 min, RT) '
                                 'and acid (0.5M HCl, 1 hour, RT) before gelatinisation '
@@ -1612,23 +1593,26 @@ and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['
                                 'shell leaving dense translucent carbonate;  Charcoal '
                                 'was treated with HCl, NaOH and HCl.'}],
          'slot_group': 'Method',
-         'slot_uri': 'c14:000022',
-         'structured_pattern': {'interpolated': True,
-                                'partial_match': False,
-                                'syntax': '^{PMID}|{DOI}|{URL}|{text}$'}} })
+         'slot_uri': 'c14:000021'} })
+    pretreatment_method_protocol: list[str] = Field(default=..., title="Radiocarbon pretreatment method protocol", description="""A DOI, URL, or PMID to a publication describing the specific method of pretreatment applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'https://doi.org/10.1017/S0033822200045069 '},
+                      {'value': 'https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf'},
+                      {'value': 'PMID:35677847'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000022'} })
     measurement_method: RadiocarbonMeasurementMethod = Field(default=..., title="Radiocarbon measurement method", description="""Type of measurement method the determination was made by.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': 'AMS'}, {'value': 'Conventional'}, {'value': 'PIMS'}],
          'slot_group': 'Method',
          'slot_uri': 'c14:000023'} })
-    sample_starting_weight: float = Field(default=..., title="Sample starting weight", description="""Amount of sample material used at beginning of  in measurement in mg.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    sample_starting_weight: float = Field(default=..., title="Sample starting weight", description="""Amount of sample material used at beginning of  in measurement in miligrams (mg).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '521'}, {'value': '56.7'}, {'value': '1'}],
          'slot_group': 'Quality control',
          'slot_uri': 'c14:000024'} })
-    pretreatment_yield: float = Field(default=..., title="Weight after pretreatment", description="""Amount of sample remaining after pretreatment in mg""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_yield: float = Field(default=..., title="Weight after pretreatment", description="""Amount of sample remaining after pretreatment in miligrams (mg).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '22'}, {'value': '2.3'}],
          'slot_group': 'Quality control',
          'slot_uri': 'c14:000025'} })
-    pretreatment_percentage_yield: Optional[float] = Field(default=None, title="Percentage yield after pretreatment", description="""Ratio of weight after pretreatment to sample starting weight""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+    pretreatment_proportion_yield: Optional[float] = Field(default=None, title="Proportion yield after pretreatment", description="""Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
          'examples': [{'value': '012'},
                       {'value': '0.61'},
                       {'value': '0.015'},
@@ -1664,39 +1648,6 @@ should be accounted for in analysis.""", json_schema_extra = { "linkml_meta": {'
          'examples': [{'value': 'true'}, {'value': 'false'}],
          'slot_group': 'Quality control',
          'slot_uri': 'c14:000031'} })
-    carbon_nitro_ratio: float = Field(default=..., title="Carbon to nitrogen ratio", description="""Atomic ratio of carbon to nitrogen. Used for quality control value in
-proteinaceous samples for radiocarbon dating.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': '3.2'}, {'value': '3.33'}],
-         'slot_group': 'Quality control',
-         'slot_uri': 'c14:000032'} })
-    delta_15_n: Optional[float] = Field(default=None, title="Delta 15N value", description="""The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
-15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': '10.8'}, {'value': '5.1'}, {'value': '27.2'}],
-         'recommended': True,
-         'slot_group': 'Quality control',
-         'slot_uri': 'c14:000033'} })
-    delta_15_n_error: Optional[float] = Field(default=None, title="Delta 15N error", description="""The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
-Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': '0.3'}, {'value': '0.12'}],
-         'recommended': True,
-         'slot_group': 'Quality control',
-         'slot_uri': 'c14:000034'} })
-    delta_34_s: Optional[float] = Field(default=None, title="Delta 34S value", description="""The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
-34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': '18.4'}, {'value': '-5.2'}],
-         'recommended': False,
-         'slot_group': 'Quality control',
-         'slot_uri': 'c14:000035'} })
-    delta_34_s_error: Optional[float] = Field(default=None, title="Delta 34S error", description="""The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
-Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': '0.4'}, {'value': '0.2'}],
-         'recommended': False,
-         'slot_group': 'Quality control',
-         'slot_uri': 'c14:000036'} })
-    recrystalisation: bool = Field(default=..., title="Evidence of recrystalisation", description="""Sample shows evidence of recrystalisation which should be accounted for during analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
-         'examples': [{'value': 'true'}, {'value': 'false'}],
-         'slot_group': 'Quality control',
-         'slot_uri': 'c14:000037'} })
 
     @field_validator('lab_id')
     def pattern_lab_id(cls, v):
@@ -1724,6 +1675,32 @@ Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { 
             raise ValueError(err_msg)
         return v
 
+    @field_validator('sample_material')
+    def pattern_sample_material(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_material format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_material format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_taxon_id')
+    def pattern_sample_taxon_id(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_taxon_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_taxon_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
     @field_validator('sample_taxon_scientific_name')
     def pattern_sample_taxon_scientific_name(cls, v):
         pattern=re.compile(r"")
@@ -1734,6 +1711,19 @@ Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { 
                     raise ValueError(err_msg)
         elif isinstance(v, str) and not pattern.match(v):
             err_msg = f"Invalid sample_taxon_scientific_name format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_anatomical_part')
+    def pattern_sample_anatomical_part(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_anatomical_part format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_anatomical_part format: {v}"
             raise ValueError(err_msg)
         return v
 
@@ -1776,6 +1766,19 @@ Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { 
             raise ValueError(err_msg)
         return v
 
+    @field_validator('pretreatment_method_protocol')
+    def pattern_pretreatment_method_protocol(cls, v):
+        pattern=re.compile(r"^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid pretreatment_method_protocol format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid pretreatment_method_protocol format: {v}"
+            raise ValueError(err_msg)
+        return v
+
 
 class RadiocarbonDateCollection(ConfiguredBaseModel):
     """
@@ -1786,7 +1789,833 @@ class RadiocarbonDateCollection(ConfiguredBaseModel):
     entries: Optional[list[RadiocarbonDate]] = Field(default=[], description="""A list of multiple radiocarbon determinations.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDateCollection']} })
 
 
+class Extension(ConfiguredBaseModel):
+    """
+    A collection of recommended metadata terms for a specific context.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/MIxS-MInAS/miaard'})
+
+    pass
+
+
+class ProteinaceousSample(Extension):
+    """
+    Terms specific to proteinaceous samples being dated.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'c14:ProteinaceousSample',
+         'from_schema': 'https://w3id.org/MIxS-MInAS/miaard',
+         'title': 'Proteinaceous Sample'})
+
+    carbon_nitro_ratio: float = Field(default=..., title="Carbon to nitrogen ratio", description="""Atomic ratio of carbon to nitrogen. Used for quality control value in
+proteinaceous samples for radiocarbon dating.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '3.2'}, {'value': '3.33'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000032'} })
+    delta_15_n: Optional[float] = Field(default=None, title="Delta 15N value", description="""The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
+15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '10.8'}, {'value': '5.1'}, {'value': '27.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000033'} })
+    delta_15_n_error: Optional[float] = Field(default=None, title="Delta 15N error", description="""The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '0.3'}, {'value': '0.12'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000034'} })
+    delta_34_s: Optional[float] = Field(default=None, title="Delta 34S value", description="""The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
+34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '18.4'}, {'value': '-5.2'}],
+         'recommended': False,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000035'} })
+    delta_34_s_error: Optional[float] = Field(default=None, title="Delta 34S error", description="""The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '0.4'}, {'value': '0.2'}],
+         'recommended': False,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000036'} })
+
+
+class CarbonateSample(Extension):
+    """
+    Terms specific to carbonate samples being dated.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'c14:CarbonateSample',
+         'from_schema': 'https://w3id.org/MIxS-MInAS/miaard',
+         'title': 'Carbonate Sample'})
+
+    recrystalisation: bool = Field(default=..., title="Evidence of recrystalisation", description="""Sample shows evidence of recrystalisation which should be accounted for during analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CarbonateSample'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000037'} })
+
+
+class RadiocarbonDateProteinaceousSample(ProteinaceousSample, RadiocarbonDate):
+    """
+    A radiocarbon determination on a proteinaceous sample.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'c14:RadiocarbonDateProteinaceousSample',
+         'from_schema': 'https://w3id.org/MIxS-MInAS/miaard',
+         'mixins': ['RadiocarbonDate'],
+         'title': 'Radiocarbon Date (Proteinaceous Sample)'})
+
+    lab_code: LabCode = Field(default=..., title="Laboratory code designation", description="""Unique laboratory code designation of the institution that made the measurement.
+This is the prefix used for each determination ID. The prefix should be
+derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'OxA'},
+                      {'value': 'CAMS'},
+                      {'value': 'Beta'},
+                      {'value': 'CN-XX'}],
+         'slot_group': 'Identifier',
+         'slot_uri': 'c14:000001'} })
+    lab_id: str = Field(default=..., title="Radiocarbon determination identifier", description="""The unique identifier associated with a specific radiocarbon determination,
+without the radiocarbon laboratory identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '982744'},
+                      {'value': 'i238493'},
+                      {'value': '9800507B'},
+                      {'value': '-X-1045-13'},
+                      {'value': '1415(a)'}],
+         'slot_group': 'Identifier',
+         'slot_uri': 'c14:000002'} })
+    conventional_age: float = Field(default=..., title="Conventional radiocarbon age", description="""The uncalibrated age from the laboratory measurement. Also known as the
+conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., 14C year BP)
+NOT in AD/BC format. This is typically the 'raw' age reported by the radiocarbon lab, in
+Before Present (BP) notation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '4500'}, {'value': '37330'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000005'} })
+    conventional_age_error: float = Field(default=..., title="Conventional radiocarbon age error", description="""The 1-standard deviation around the conventional radiocarbon age (C14) measurement,
+normally indicated as a ± after the main age. Must be in the same format (i.e. 14C yr BP).
+Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '25'}, {'value': '620'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000006'} })
+    f14c: float = Field(default=..., title="F14C radiocarbon value", description="""The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
+For older determinations, generally equivalent to \"percent modern\" (pMC, or pM) divided by 100.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.83756'}, {'value': '0.5371'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000003'} })
+    f14c_error: float = Field(default=..., title="F14C radiocarbon error", description="""The 1-standard deviation uncertainty around the F14C (C14) measurement,
+normally indicated as a ± after the main value. Must be in the same format.
+Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.00434'}, {'value': '0.023843'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000004'} })
+    delta_13_c_calculation_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C age calculation method", description="""Whether the radiocarbon date was calculated with an AMS derived δ13C, an IRMS derived δ13C,
+an alternative δ13C measurement method or an assumed δ13C.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'},
+                      {'value': 'IRMS'},
+                      {'value': 'Assumed'},
+                      {'value': 'Other'}],
+         'recommended': True,
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000007'} })
+    sample_ids: list[str] = Field(default=..., title="Sample identifiers", description="""Any identifier associated with the sample under measurement
+(e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'PES001'},
+                      {'value': 'PES001.B1010'},
+                      {'value': 'Des 207 d'},
+                      {'value': 'Grave 78'},
+                      {'value': 'Box 427; Exc. year 1926 (small)'},
+                      {'value': 'KrSp E1/2012/E1/3775'},
+                      {'value': 'Iceman'},
+                      {'value': 'Tumba XVIII'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000008'} })
+    sample_material: str = Field(default=..., title="Radiocarbon dating sample material", description="""Material of the sample used to extract carbon used for radiocarbon dating measurements.
+Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENVO for other
+organic samples.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'UBERON:0002481'}, {'value': 'ENVO:01000560'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000009'} })
+    sample_taxon_id: list[str] = Field(default=..., title="Radiocarbon dating sample taxon", description="""A taxonomic ID of the organism from which the sample used to extract carbon used for
+radiocarbon measurement originated. The taxonomic ID should come from an established
+ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'NCBITAXON:9606'},
+                      {'value': 'gbif:2441105'},
+                      {'value': 'bold.taxonomy:786175'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000010'} })
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confident in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
+If secure identification, indicate 'true', if identification is unclear or
+uncertain specify 'false'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000011'} })
+    sample_taxon_scientific_name: Optional[str] = Field(default=None, title="Scientific name of the sample taxon", description="""A scientific name of the taxon corresponding to the taxonomic ID, or when a
+taxonomic ID does not currently exist for the specific taxon.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'Mammathus primigenius'},
+                      {'value': 'cf Mammathus'},
+                      {'value': 'Homo sapiens sapiens'},
+                      {'value': 'Capra sp.'},
+                      {'value': 'Ulmus davidiana var. japonica'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000012'} })
+    sample_anatomical_part: Optional[str] = Field(default=None, title="Anatomical part from which the sample is derived", description="""Anatomical part from which the sample is derived.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'UBERON:0000981'},
+                      {'value': 'PO:0009010'},
+                      {'value': 'BTO:0001411'},
+                      {'value': 'UBERON:3010209'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000013'} })
+    suspected_sample_contamination: Optional[bool] = Field(default=None, title="Suspected sample contamination", description="""Specify whether the sample has suspected contamination that may influence measurement
+(organic glue, consolidant, rootlets, embalming solution, staining etc.).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000014'} })
+    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
+description of the contamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'glue'},
+                      {'value': 'organic glue made from horse'},
+                      {'value': 'staining'},
+                      {'value': 'bitumen'},
+                      {'value': 'rootlets'},
+                      {'value': 'Consolidant was applied to the skull to stabilise the '
+                                'bone.'},
+                      {'value': 'Sample was preserved in a embalming solution '
+                                'containing formaldehyde and alcohol.'}],
+         'recommended': False,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000015'} })
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from which the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': ''}, {'value': ''}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000016'} })
+    decimal_latitude: Optional[float] = Field(default=None, title="Decimal latitude", description="""The geographic latitude (in decimal degrees, using the spatial reference system) of the geographic center of a dcterms:Location. Positive values are north
+of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.""", ge=-90, le=90, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '51.34254'}, {'value': '51.75'}, {'value': '-13.163'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000017'} })
+    decimal_longitude: Optional[float] = Field(default=None, title="Decimal longitude", description="""The geographic longitude (in decimal degrees, using the spatial reference system) of the
+geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian,
+negative values are west of it. Legal values lie between -180 and 180, inclusive.""", ge=-90, le=90, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '12.38067'}, {'value': '-1.24'}, {'value': '-72.545'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000018'} })
+    coordinate_precision: Optional[float] = Field(default=None, title="Coordinate precision", description="""A decimal representation of the precision of the coordinates given in the decimal_latitude
+and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.00005'}, {'value': '0.001'}, {'value': '0.0001'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000019'} })
+    pretreatment_methods: list[PretreatmentMethods] = Field(default=..., title="Radiocarbon pretreatment methods", description="""Specify the types of general pretreatment methods applied for decontamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'ABA'},
+                      {'value': 'A'},
+                      {'value': 'BABA'},
+                      {'value': 'Col'},
+                      {'value': 'UF_Col'},
+                      {'value': 'XAD'},
+                      {'value': 'U'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000020'} })
+    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'No pretreatment'},
+                      {'value': 'Samples were pretreated following Brock et al. '
+                                '(2010). Briefly, bone was demineralised (0.5M HCl, '
+                                'overnight), washed in base (0.1M NaOH, 30 min, RT) '
+                                'and acid (0.5M HCl, 1 hour, RT) before gelatinisation '
+                                '(0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) '
+                                'and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)'},
+                      {'value': 'A dremel drill was used to remove visibly altered '
+                                'shell leaving dense translucent carbonate;  Charcoal '
+                                'was treated with HCl, NaOH and HCl.'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000021'} })
+    pretreatment_method_protocol: list[str] = Field(default=..., title="Radiocarbon pretreatment method protocol", description="""A DOI, URL, or PMID to a publication describing the specific method of pretreatment applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'https://doi.org/10.1017/S0033822200045069 '},
+                      {'value': 'https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf'},
+                      {'value': 'PMID:35677847'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000022'} })
+    measurement_method: RadiocarbonMeasurementMethod = Field(default=..., title="Radiocarbon measurement method", description="""Type of measurement method the determination was made by.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'}, {'value': 'Conventional'}, {'value': 'PIMS'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000023'} })
+    sample_starting_weight: float = Field(default=..., title="Sample starting weight", description="""Amount of sample material used at beginning of  in measurement in miligrams (mg).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '521'}, {'value': '56.7'}, {'value': '1'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000024'} })
+    pretreatment_yield: float = Field(default=..., title="Weight after pretreatment", description="""Amount of sample remaining after pretreatment in miligrams (mg).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '22'}, {'value': '2.3'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000025'} })
+    pretreatment_proportion_yield: Optional[float] = Field(default=None, title="Proportion yield after pretreatment", description="""Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '012'},
+                      {'value': '0.61'},
+                      {'value': '0.015'},
+                      {'value': '0.002'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000026'} })
+    carbon_proportion: float = Field(default=..., title="Carbon proportion", description="""Proportion of carbon in a non-proteinaceous sample used for dating (such as charcoal),
+expressed as a value between 0 and 1. Used as a quality control measurement.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.41'}, {'value': '0.12'}, {'value': '0.70'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000027'} })
+    delta_13_c: Optional[float] = Field(default=None, title="Delta 13C value", description="""The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope
+13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '-21.5'}, {'value': '-13.5'}, {'value': '1.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000028'} })
+    delta_13_c_error: Optional[float] = Field(default=None, title="Delta 13C error", description="""The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.1'}, {'value': '0.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000029'} })
+    delta_13_c_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C measurement method", description="""Which spectrophotometry method was used to measure the delta carbon-13 value,
+either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'}, {'value': 'IRMS'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000030'} })
+    suspected_reservoir_effect: bool = Field(default=..., title="Suspected reservoir effect", description="""Specify whether there is a suspected carbon reservoir effect that
+should be accounted for in analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000031'} })
+    carbon_nitro_ratio: float = Field(default=..., title="Carbon to nitrogen ratio", description="""Atomic ratio of carbon to nitrogen. Used for quality control value in
+proteinaceous samples for radiocarbon dating.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '3.2'}, {'value': '3.33'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000032'} })
+    delta_15_n: Optional[float] = Field(default=None, title="Delta 15N value", description="""The delta nitrogen-15 value of the sample (δ15N), which is the ratio of the stable isotope
+15N to 14N, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '10.8'}, {'value': '5.1'}, {'value': '27.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000033'} })
+    delta_15_n_error: Optional[float] = Field(default=None, title="Delta 15N error", description="""The error associated with the delta nitrogen-15 (δ15N) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '0.3'}, {'value': '0.12'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000034'} })
+    delta_34_s: Optional[float] = Field(default=None, title="Delta 34S value", description="""The delta sulfur-34 value of the sample (δ34S), which is the ratio of the stable isotope
+34S to 32S, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '18.4'}, {'value': '-5.2'}],
+         'recommended': False,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000035'} })
+    delta_34_s_error: Optional[float] = Field(default=None, title="Delta 34S error", description="""The error associated with the delta sulfur-34 (δ34S) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['ProteinaceousSample'],
+         'examples': [{'value': '0.4'}, {'value': '0.2'}],
+         'recommended': False,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000036'} })
+
+    @field_validator('lab_id')
+    def pattern_lab_id(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid lab_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid lab_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_ids')
+    def pattern_sample_ids(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_ids format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_ids format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_material')
+    def pattern_sample_material(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_material format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_material format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_taxon_id')
+    def pattern_sample_taxon_id(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_taxon_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_taxon_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_taxon_scientific_name')
+    def pattern_sample_taxon_scientific_name(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_taxon_scientific_name format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_taxon_scientific_name format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_anatomical_part')
+    def pattern_sample_anatomical_part(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_anatomical_part format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_anatomical_part format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('suspected_sample_contamination_description')
+    def pattern_suspected_sample_contamination_description(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid suspected_sample_contamination_description format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid suspected_sample_contamination_description format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_location')
+    def pattern_sample_location(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_location format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_location format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('pretreatment_method_description')
+    def pattern_pretreatment_method_description(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid pretreatment_method_description format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid pretreatment_method_description format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('pretreatment_method_protocol')
+    def pattern_pretreatment_method_protocol(cls, v):
+        pattern=re.compile(r"^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid pretreatment_method_protocol format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid pretreatment_method_protocol format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class RadiocarbonDateCarbonateSample(CarbonateSample, RadiocarbonDate):
+    """
+    A radiocarbon determination on a carbonate sample.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'c14:RadiocarbonDateCarbonateSample',
+         'from_schema': 'https://w3id.org/MIxS-MInAS/miaard',
+         'mixins': ['RadiocarbonDate'],
+         'title': 'Radiocarbon Date (Carbonate Sample)'})
+
+    lab_code: LabCode = Field(default=..., title="Laboratory code designation", description="""Unique laboratory code designation of the institution that made the measurement.
+This is the prefix used for each determination ID. The prefix should be
+derived from: https://radiocarbon.webhost.uits.arizona.edu/laboratories.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'OxA'},
+                      {'value': 'CAMS'},
+                      {'value': 'Beta'},
+                      {'value': 'CN-XX'}],
+         'slot_group': 'Identifier',
+         'slot_uri': 'c14:000001'} })
+    lab_id: str = Field(default=..., title="Radiocarbon determination identifier", description="""The unique identifier associated with a specific radiocarbon determination,
+without the radiocarbon laboratory identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '982744'},
+                      {'value': 'i238493'},
+                      {'value': '9800507B'},
+                      {'value': '-X-1045-13'},
+                      {'value': '1415(a)'}],
+         'slot_group': 'Identifier',
+         'slot_uri': 'c14:000002'} })
+    conventional_age: float = Field(default=..., title="Conventional radiocarbon age", description="""The uncalibrated age from the laboratory measurement. Also known as the
+conventional radiocarbon age (CRA). Should be a conventional 14C age (i.e., 14C year BP)
+NOT in AD/BC format. This is typically the 'raw' age reported by the radiocarbon lab, in
+Before Present (BP) notation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '4500'}, {'value': '37330'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000005'} })
+    conventional_age_error: float = Field(default=..., title="Conventional radiocarbon age error", description="""The 1-standard deviation around the conventional radiocarbon age (C14) measurement,
+normally indicated as a ± after the main age. Must be in the same format (i.e. 14C yr BP).
+Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '25'}, {'value': '620'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000006'} })
+    f14c: float = Field(default=..., title="F14C radiocarbon value", description="""The F14C value from the laboratory measurement, i.e. the fraction modern carbon.
+For older determinations, generally equivalent to \"percent modern\" (pMC, or pM) divided by 100.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.83756'}, {'value': '0.5371'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000003'} })
+    f14c_error: float = Field(default=..., title="F14C radiocarbon error", description="""The 1-standard deviation uncertainty around the F14C (C14) measurement,
+normally indicated as a ± after the main value. Must be in the same format.
+Sometimes referred to as the \"error\" or \"sigma\" of the measurement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.00434'}, {'value': '0.023843'}],
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000004'} })
+    delta_13_c_calculation_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C age calculation method", description="""Whether the radiocarbon date was calculated with an AMS derived δ13C, an IRMS derived δ13C,
+an alternative δ13C measurement method or an assumed δ13C.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'},
+                      {'value': 'IRMS'},
+                      {'value': 'Assumed'},
+                      {'value': 'Other'}],
+         'recommended': True,
+         'slot_group': 'Measurement',
+         'slot_uri': 'c14:000007'} })
+    sample_ids: list[str] = Field(default=..., title="Sample identifiers", description="""Any identifier associated with the sample under measurement
+(e.g. sample collection ID, archive object accession, ICOM/CIDOC Museum ID).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'PES001'},
+                      {'value': 'PES001.B1010'},
+                      {'value': 'Des 207 d'},
+                      {'value': 'Grave 78'},
+                      {'value': 'Box 427; Exc. year 1926 (small)'},
+                      {'value': 'KrSp E1/2012/E1/3775'},
+                      {'value': 'Iceman'},
+                      {'value': 'Tumba XVIII'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000008'} })
+    sample_material: str = Field(default=..., title="Radiocarbon dating sample material", description="""Material of the sample used to extract carbon used for radiocarbon dating measurements.
+Use ontology terms where possible, e.g. from UBERON for anatomical parts, or ENVO for other
+organic samples.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'UBERON:0002481'}, {'value': 'ENVO:01000560'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000009'} })
+    sample_taxon_id: list[str] = Field(default=..., title="Radiocarbon dating sample taxon", description="""A taxonomic ID of the organism from which the sample used to extract carbon used for
+radiocarbon measurement originated. The taxonomic ID should come from an established
+ontology or database.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'NCBITAXON:9606'},
+                      {'value': 'gbif:2441105'},
+                      {'value': 'bold.taxonomy:786175'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000010'} })
+    sample_taxon_id_confidence: bool = Field(default=..., title="Confident in taxon assignment", description="""Specify the level of confidence of an exact taxon identification.
+If secure identification, indicate 'true', if identification is unclear or
+uncertain specify 'false'.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000011'} })
+    sample_taxon_scientific_name: Optional[str] = Field(default=None, title="Scientific name of the sample taxon", description="""A scientific name of the taxon corresponding to the taxonomic ID, or when a
+taxonomic ID does not currently exist for the specific taxon.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'Mammathus primigenius'},
+                      {'value': 'cf Mammathus'},
+                      {'value': 'Homo sapiens sapiens'},
+                      {'value': 'Capra sp.'},
+                      {'value': 'Ulmus davidiana var. japonica'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000012'} })
+    sample_anatomical_part: Optional[str] = Field(default=None, title="Anatomical part from which the sample is derived", description="""Anatomical part from which the sample is derived.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'UBERON:0000981'},
+                      {'value': 'PO:0009010'},
+                      {'value': 'BTO:0001411'},
+                      {'value': 'UBERON:3010209'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000013'} })
+    suspected_sample_contamination: Optional[bool] = Field(default=None, title="Suspected sample contamination", description="""Specify whether the sample has suspected contamination that may influence measurement
+(organic glue, consolidant, rootlets, embalming solution, staining etc.).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000014'} })
+    suspected_sample_contamination_description: Optional[str] = Field(default=None, title="Suspected sample contamination description", description="""If a sample has a suspected contamination (suspected_sample_contamination), provide a short
+description of the contamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'glue'},
+                      {'value': 'organic glue made from horse'},
+                      {'value': 'staining'},
+                      {'value': 'bitumen'},
+                      {'value': 'rootlets'},
+                      {'value': 'Consolidant was applied to the skull to stabilise the '
+                                'bone.'},
+                      {'value': 'Sample was preserved in a embalming solution '
+                                'containing formaldehyde and alcohol.'}],
+         'recommended': False,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000015'} })
+    sample_location: Optional[str] = Field(default=None, title="Sample location", description="""Name of the geographic location from which the sample originated.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': ''}, {'value': ''}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000016'} })
+    decimal_latitude: Optional[float] = Field(default=None, title="Decimal latitude", description="""The geographic latitude (in decimal degrees, using the spatial reference system) of the geographic center of a dcterms:Location. Positive values are north
+of the Equator, negative values are south of it. Legal values lie between -90 and 90, inclusive.""", ge=-90, le=90, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '51.34254'}, {'value': '51.75'}, {'value': '-13.163'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000017'} })
+    decimal_longitude: Optional[float] = Field(default=None, title="Decimal longitude", description="""The geographic longitude (in decimal degrees, using the spatial reference system) of the
+geographic center of a dcterms:Location. Positive values are east of the Greenwich Meridian,
+negative values are west of it. Legal values lie between -180 and 180, inclusive.""", ge=-90, le=90, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '12.38067'}, {'value': '-1.24'}, {'value': '-72.545'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000018'} })
+    coordinate_precision: Optional[float] = Field(default=None, title="Coordinate precision", description="""A decimal representation of the precision of the coordinates given in the decimal_latitude
+and decimal_longitude.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.00005'}, {'value': '0.001'}, {'value': '0.0001'}],
+         'recommended': True,
+         'slot_group': 'Sample',
+         'slot_uri': 'c14:000019'} })
+    pretreatment_methods: list[PretreatmentMethods] = Field(default=..., title="Radiocarbon pretreatment methods", description="""Specify the types of general pretreatment methods applied for decontamination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'ABA'},
+                      {'value': 'A'},
+                      {'value': 'BABA'},
+                      {'value': 'Col'},
+                      {'value': 'UF_Col'},
+                      {'value': 'XAD'},
+                      {'value': 'U'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000020'} })
+    pretreatment_method_description: str = Field(default=..., title="Radiocarbon pretreatment method description", description="""Description of specific pretreatment method used for decontamination of sample prior determination.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'No pretreatment'},
+                      {'value': 'Samples were pretreated following Brock et al. '
+                                '(2010). Briefly, bone was demineralised (0.5M HCl, '
+                                'overnight), washed in base (0.1M NaOH, 30 min, RT) '
+                                'and acid (0.5M HCl, 1 hour, RT) before gelatinisation '
+                                '(0.001M HCl, 20 hours, 70oC), filtration (Ezee(TM)) '
+                                'and ultrafiltration (Vivaspin(TM) 30 kDa MWCO)'},
+                      {'value': 'A dremel drill was used to remove visibly altered '
+                                'shell leaving dense translucent carbonate;  Charcoal '
+                                'was treated with HCl, NaOH and HCl.'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000021'} })
+    pretreatment_method_protocol: list[str] = Field(default=..., title="Radiocarbon pretreatment method protocol", description="""A DOI, URL, or PMID to a publication describing the specific method of pretreatment applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'https://doi.org/10.1017/S0033822200045069 '},
+                      {'value': 'https://sites.ps.uci.edu/kccams/wp-content/uploads/sites/28/2016/12/bone_protocol.pdf'},
+                      {'value': 'PMID:35677847'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000022'} })
+    measurement_method: RadiocarbonMeasurementMethod = Field(default=..., title="Radiocarbon measurement method", description="""Type of measurement method the determination was made by.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'}, {'value': 'Conventional'}, {'value': 'PIMS'}],
+         'slot_group': 'Method',
+         'slot_uri': 'c14:000023'} })
+    sample_starting_weight: float = Field(default=..., title="Sample starting weight", description="""Amount of sample material used at beginning of  in measurement in miligrams (mg).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '521'}, {'value': '56.7'}, {'value': '1'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000024'} })
+    pretreatment_yield: float = Field(default=..., title="Weight after pretreatment", description="""Amount of sample remaining after pretreatment in miligrams (mg).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '22'}, {'value': '2.3'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000025'} })
+    pretreatment_proportion_yield: Optional[float] = Field(default=None, title="Proportion yield after pretreatment", description="""Proportion of weight after pretreatment to sample starting weight represented as a value between 0 and 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '012'},
+                      {'value': '0.61'},
+                      {'value': '0.015'},
+                      {'value': '0.002'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000026'} })
+    carbon_proportion: float = Field(default=..., title="Carbon proportion", description="""Proportion of carbon in a non-proteinaceous sample used for dating (such as charcoal),
+expressed as a value between 0 and 1. Used as a quality control measurement.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.41'}, {'value': '0.12'}, {'value': '0.70'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000027'} })
+    delta_13_c: Optional[float] = Field(default=None, title="Delta 13C value", description="""The delta carbon-13 value of the sample (δ13C), which is the ratio of the stable isotope
+13C to 12C, expressed in per mil (‰) notation. Used as a quality control measurement.""", ge=-1000, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '-21.5'}, {'value': '-13.5'}, {'value': '1.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000028'} })
+    delta_13_c_error: Optional[float] = Field(default=None, title="Delta 13C error", description="""The error associated with the delta carbon-13 (δ13C) value expressed (‰) notation.
+Used as a quality control measurement.""", ge=0, le=1000, json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': '0.1'}, {'value': '0.2'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000029'} })
+    delta_13_c_method: Optional[Delta13CMeasurementMethod] = Field(default=None, title="Delta 13C measurement method", description="""Which spectrophotometry method was used to measure the delta carbon-13 value,
+either with Isotope Ratio Mass Spectrometer (IRMS) or Accelerated Mass Spectrometer (AMS).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'AMS'}, {'value': 'IRMS'}],
+         'recommended': True,
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000030'} })
+    suspected_reservoir_effect: bool = Field(default=..., title="Suspected reservoir effect", description="""Specify whether there is a suspected carbon reservoir effect that
+should be accounted for in analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RadiocarbonDate'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000031'} })
+    recrystalisation: bool = Field(default=..., title="Evidence of recrystalisation", description="""Sample shows evidence of recrystalisation which should be accounted for during analysis.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CarbonateSample'],
+         'examples': [{'value': 'true'}, {'value': 'false'}],
+         'slot_group': 'Quality control',
+         'slot_uri': 'c14:000037'} })
+
+    @field_validator('lab_id')
+    def pattern_lab_id(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid lab_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid lab_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_ids')
+    def pattern_sample_ids(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_ids format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_ids format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_material')
+    def pattern_sample_material(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_material format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_material format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_taxon_id')
+    def pattern_sample_taxon_id(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_taxon_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_taxon_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_taxon_scientific_name')
+    def pattern_sample_taxon_scientific_name(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_taxon_scientific_name format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_taxon_scientific_name format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_anatomical_part')
+    def pattern_sample_anatomical_part(cls, v):
+        pattern=re.compile(r"[a-zA-Z]{2,}:[a-zA-Z0-9]\d+")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_anatomical_part format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_anatomical_part format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('suspected_sample_contamination_description')
+    def pattern_suspected_sample_contamination_description(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid suspected_sample_contamination_description format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid suspected_sample_contamination_description format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('sample_location')
+    def pattern_sample_location(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid sample_location format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid sample_location format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('pretreatment_method_description')
+    def pattern_pretreatment_method_description(cls, v):
+        pattern=re.compile(r"")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid pretreatment_method_description format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid pretreatment_method_description format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('pretreatment_method_protocol')
+    def pattern_pretreatment_method_protocol(cls, v):
+        pattern=re.compile(r"^(PMID:\d+|https:\/\/doi\.org\/10\.\d{2,9}/.*|https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*))$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid pretreatment_method_protocol format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid pretreatment_method_protocol format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
 # Model rebuild
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
 RadiocarbonDate.model_rebuild()
 RadiocarbonDateCollection.model_rebuild()
+Extension.model_rebuild()
+ProteinaceousSample.model_rebuild()
+CarbonateSample.model_rebuild()
+RadiocarbonDateProteinaceousSample.model_rebuild()
+RadiocarbonDateCarbonateSample.model_rebuild()
